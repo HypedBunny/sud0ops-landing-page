@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,6 +10,13 @@ const inter = Inter({
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const digitalClockFont = Share_Tech_Mono({
+  weight: "400",
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased selection:bg-brand-blue/30 selection:text-white`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${digitalClockFont.variable} font-sans antialiased selection:bg-brand-blue/30 selection:text-white`}
       >
         <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
           <Navbar />
