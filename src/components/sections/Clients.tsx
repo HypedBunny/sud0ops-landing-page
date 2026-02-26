@@ -6,24 +6,22 @@ import { Building2, ShoppingCart, PartyPopper, Shield } from "lucide-react";
 // Using Lucide icons to represent the logos since we don't have SVGs
 const clients = [
     {
-        name: "Alpha",
-        description: "HR & Payroll Platform Modernization",
+        name: "HelperHub",
+        description: "HelperHub Modernization",
         icon: Building2,
+        url: "https://helperhub.co.za",
     },
     {
-        name: "Bashi's",
+        name: "Bashies",
         description: "E-commerce Infrastructure & DevOps",
         icon: ShoppingCart,
+        url: "https://bashies.co.za",
     },
     {
-        name: "Happy Events",
+        name: "HappyEvents",
         description: "Digital Enablement & Social Platform",
         icon: PartyPopper,
-    },
-    {
-        name: "Halpa",
-        description: "Confidential Modernization Partner",
-        icon: Shield,
+        url: "https://happyevents.co.za",
     },
 ];
 
@@ -41,12 +39,15 @@ export function Clients() {
                         Trusted by Growing Modern Enterprises
                     </p>
 
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-4 items-center justify-items-center">
+                    <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-3 items-center justify-items-center">
                         {clients.map((client, idx) => {
                             const Icon = client.icon;
                             return (
-                                <div
+                                <a
                                     key={client.name}
+                                    href={client.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="group flex flex-col items-center justify-center gap-3 cursor-pointer"
                                 >
                                     <div className="text-slate-500 group-hover:text-brand-blue transition-colors duration-500 group-hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]">
@@ -61,7 +62,7 @@ export function Clients() {
                                             {client.description}
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             );
                         })}
                     </div>
