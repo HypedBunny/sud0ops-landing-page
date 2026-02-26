@@ -12,6 +12,7 @@ export function Hero() {
         setMounted(true);
     }, []);
 
+
     return (
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
             {/* Background Effects */}
