@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -46,6 +47,22 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-RFX7P62KB2"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-RFX7P62KB2');
+            `,
+          }}
+        />
       </body>
     </html>
   );
