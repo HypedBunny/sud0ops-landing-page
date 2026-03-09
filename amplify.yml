@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci --cache .npm --prefer-offline
+    build:
+      commands:
+        - echo "SMTP_HOST=$SMTP_HOST" >> .env.production
+        - echo "SMTP_PORT=$SMTP_PORT" >> .env.production
+        - echo "SMTP_SECURE=$SMTP_SECURE" >> .env.production
+        - echo "SMTP_USER=$SMTP_USER" >> .env.production
+        - echo "SMTP_PASS=$SMTP_PASS" >> .env.production
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - .npm/**/*
