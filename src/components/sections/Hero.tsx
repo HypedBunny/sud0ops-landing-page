@@ -44,7 +44,7 @@ export function Hero() {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link
-                            href="mailto:alex@sud0ops.com"
+                            href="/contact"
                             className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
                         >
                             <span className="mr-2">Let&apos;s Modernize</span>
