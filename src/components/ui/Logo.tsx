@@ -33,10 +33,43 @@ export function Logo() {
             {typedLength > 0 && <span>{renderSud()}</span>}
 
             {typedLength >= 4 && (
-                <span className="relative font-mono font-medium tracking-tighter text-brand-blue group-hover:text-brand-blue-glow transition-colors duration-300">
-                    0
-                    {/* Subtle circuit/glow effect on hover */}
-                    <span className="absolute inset-0 border border-brand-blue/0 group-hover:border-brand-blue/50 rounded drop-shadow-[0_0_8px_rgba(56,189,248,0.6)] opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-110 pointer-events-none" />
+                <span className="relative inline-flex items-center mx-[2px]">
+                    {/* 7-segment display "0" — matches email signature exactly */}
+                    <svg
+                        width="28"
+                        height="38"
+                        viewBox="0 0 28 38"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="drop-shadow-[0_0_12px_rgba(56,189,248,0.28)] group-hover:drop-shadow-[0_0_18px_rgba(56,189,248,0.5)] transition-[filter] duration-300"
+                        aria-hidden="true"
+                    >
+                        <defs>
+                            <filter id="segGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+                                <feMerge>
+                                    <feMergeNode in="blur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        {/* Container */}
+                        <rect x="0.5" y="0.5" width="27" height="37" rx="5" fill="#060a12" stroke="#38BDF8" strokeOpacity="0.35" strokeWidth="1" />
+                        {/* Top segment — ON */}
+                        <rect x="8" y="4" width="12" height="3" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+                        {/* Upper-left vertical — ON */}
+                        <rect x="4" y="8" width="3" height="9" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+                        {/* Upper-right vertical — ON */}
+                        <rect x="21" y="8" width="3" height="9" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+                        {/* Middle segment — OFF (dim ghost) */}
+                        <rect x="8" y="17.5" width="12" height="3" rx="1.5" fill="#38BDF8" opacity="0.2" />
+                        {/* Lower-left vertical — ON */}
+                        <rect x="4" y="21" width="3" height="9" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+                        {/* Lower-right vertical — ON */}
+                        <rect x="21" y="21" width="3" height="9" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+                        {/* Bottom segment — ON */}
+                        <rect x="8" y="31" width="12" height="3" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+                    </svg>
                 </span>
             )}
 
