@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
         });
 
         await transporter.sendMail({
-            from: `"Sud0Ops Enquiry" <web-enquiry@sud0ops.com>`,
+            from: `"Sud0Ops Enquiry" <webmaster@sud0ops.com>`,
             to: "alex@sud0ops.com",
             replyTo: email,
             subject: `New Enquiry from ${name}${company ? ` (${company})` : ""}`,
