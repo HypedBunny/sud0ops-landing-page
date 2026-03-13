@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Cloud, GitBranch, Server, TrendingDown, ShieldCheck, CheckCircle, Terminal, Cpu, Activity, Database } from "lucide-react";
 import Link from "next/link";
+import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const services = [
     {
@@ -120,9 +121,10 @@ export default function ServicesPage() {
                     transition={{ duration: 0.6 }}
                     className="mb-24"
                 >
-                    <h2 className="text-3xl font-heading font-bold text-white sm:text-4xl mb-6 text-center">
-                        What We Do
-                    </h2>
+                    <TypewriterHeading
+                        text="What We Do"
+                        className="text-3xl font-heading font-bold text-white sm:text-4xl mb-6 text-center"
+                    />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto text-center mb-10">
                         Sud0Ops helps companies build and operate modern cloud infrastructure.
                     </p>
@@ -155,9 +157,10 @@ export default function ServicesPage() {
                     transition={{ duration: 0.6 }}
                     className="mb-24"
                 >
-                    <h2 className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center">
-                        Services
-                    </h2>
+                    <TypewriterHeading
+                        text="Services"
+                        className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center"
+                    />
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {services.map((svc, index) => {
                             const Icon = svc.icon;
@@ -184,6 +187,18 @@ export default function ServicesPage() {
                             );
                         })}
                     </div>
+
+                    <div className="mt-12 text-center">
+                        <Link
+                            href="/packages"
+                            className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue/10 px-8 font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 hover:text-brand-blue-glow box-glow-hover"
+                        >
+                            <span className="flex items-center gap-2">
+                                View Service Packages & Pricing
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </span>
+                        </Link>
+                    </div>
                 </motion.div>
 
                 {/* ── Core Stack ──────────────────────────────────── */}
@@ -194,9 +209,10 @@ export default function ServicesPage() {
                     transition={{ duration: 0.6 }}
                     className="mb-24"
                 >
-                    <h2 className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center">
-                        Core Technologies
-                    </h2>
+                    <TypewriterHeading
+                        text="Core Technologies"
+                        className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center"
+                    />
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
                         {technologies.map((techGroup, idx) => {
                             const Icon = techGroup.icon;
@@ -241,9 +257,10 @@ export default function ServicesPage() {
                     transition={{ duration: 0.6 }}
                     className="mb-8"
                 >
-                    <h2 className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center">
-                        Why Sud0Ops
-                    </h2>
+                    <TypewriterHeading
+                        text="Why Choose Us?"
+                        className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center"
+                    />
                     <div className="glass rounded-xl p-8 lg:p-10 max-w-2xl mx-auto border border-white/5">
                         <ul className="space-y-4">
                             {reasons.map((reason, idx) => (

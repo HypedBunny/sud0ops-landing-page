@@ -10,6 +10,7 @@ import {
     Blocks,
     Box
 } from "lucide-react";
+import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const steps = [
     { id: "01", name: "Assess", description: "Deep dive into current architecture, bottlenecks, and business goals." },
@@ -45,9 +46,10 @@ export function Approach() {
                         viewport={{ once: true, margin: "-100px" }}
                         className="text-center mb-20"
                     >
-                        <h2 className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl">
-                            Modernization Framework
-                        </h2>
+                        <TypewriterHeading
+                            text="Modernization Framework"
+                            className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
+                        />
                         <p className="text-lg text-slate-400">Our systematic approach to building operational maturity.</p>
                     </motion.div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Cloud, Cpu, GitBranch, LayoutDashboard } from "lucide-react";
+import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const capabilities = [
     {
@@ -55,9 +56,10 @@ export function Capabilities() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl font-heading font-bold text-white sm:text-4xl mb-4">
-                        Core Capabilities
-                    </h2>
+                    <TypewriterHeading
+                        text="Core Capabilities"
+                        className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
+                    />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto">
                         Practical strategies and hands-on execution across the modern technology landscape.
                     </p>
@@ -88,8 +90,8 @@ export function Capabilities() {
                                     </h3>
 
                                     <ul className="space-y-3">
-                                        {cap.items.map((item, idx) => (
-                                            <li key={idx} className="flex items-start text-slate-300">
+                                        {cap.items.map((item) => (
+                                            <li key={item} className="flex items-start text-slate-300">
                                                 <span className="mr-3 mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-blue/50 flex-shrink-0 group-hover:bg-brand-blue transition-colors"></span>
                                                 <span className="text-sm leading-relaxed">{item}</span>
                                             </li>
