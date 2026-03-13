@@ -12,9 +12,11 @@ export function Navbar() {
                     </div>
 
                     <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-medium text-slate-300 absolute left-1/2 -translate-x-1/2 w-full max-w-fit z-20">
+                        <Link href="/services" className="hover:text-brand-blue transition-colors">Services</Link>
                         <Link href="/#capabilities" className="hover:text-brand-blue transition-colors">Capabilities</Link>
                         <Link href="/#approach" className="hover:text-brand-blue transition-colors">Approach</Link>
                         <Link href="/#clients" className="hover:text-brand-blue transition-colors">Clients</Link>
+                        <Link href="/packages" className="hover:text-brand-blue transition-colors">Packages</Link>
                         <Link href="/contact" className="hover:text-brand-blue transition-colors">Contact</Link>
                     </nav>
 
