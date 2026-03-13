@@ -8,7 +8,7 @@
       </feMerge>
     </filter>
   </defs>
-  <!-- 7-segment display container -->
+  <!-- Container -->
   <rect x="0.75" y="0.75" width="54.5" height="70.5" rx="7" fill="#060a12" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="1.5"/>
   <!-- Top segment (ON) -->
   <rect x="16" y="8" width="24" height="5" rx="2.5" fill="#38BDF8" filter="url(#segGlow)"/>
@@ -24,4 +24,8 @@
   <rect x="44" y="41" width="5" height="16" rx="2.5" fill="#38BDF8" filter="url(#segGlow)"/>
   <!-- Bottom segment (ON) -->
   <rect x="16" y="59" width="24" height="5" rx="2.5" fill="#38BDF8" filter="url(#segGlow)"/>
+
+  <!-- 2 small diagonal segments for the slash -->
+  <path d="M 18 56 L 25 42" stroke="#38BDF8" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#segGlow)" opacity="0.9" />
+  <path d="M 31 30 L 38 16" stroke="#38BDF8" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#segGlow)" opacity="0.9" />
 </svg>

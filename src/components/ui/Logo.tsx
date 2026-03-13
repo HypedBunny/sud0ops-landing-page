@@ -69,6 +69,10 @@ export function Logo() {
                         <rect x="21" y="21" width="3" height="9" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
                         {/* Bottom segment — ON */}
                         <rect x="8" y="31" width="12" height="3" rx="1.5" fill="#38BDF8" filter="url(#segGlow)" />
+
+                        {/* 2 small diagonal segments for the slash */}
+                        <path d="M 9 29 L 12.25 22.5" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" filter="url(#segGlow)" />
+                        <path d="M 15.75 15.5 L 19 9" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" filter="url(#segGlow)" />
                     </svg>
                 </span>
             )}
