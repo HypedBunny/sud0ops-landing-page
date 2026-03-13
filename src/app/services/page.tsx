@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Cloud, GitBranch, Server, TrendingDown, ShieldCheck, CheckCircle } from "lucide-react";
+import { ArrowRight, Cloud, GitBranch, Server, TrendingDown, ShieldCheck, CheckCircle, Terminal, Cpu, Activity, Database } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -33,8 +33,31 @@ const services = [
 ];
 
 const technologies = [
-    "AWS", "Docker", "Nginx", "TypeScript", "AWS CDK",
-    "Elastic Beanstalk", "Lambda", "API Gateway", "DynamoDB", "Grafana", "Loki",
+    {
+        category: "Cloud Providers",
+        icon: Cloud,
+        items: ["AWS", "Microsoft Azure"],
+    },
+    {
+        category: "Infrastructure as Code",
+        icon: Terminal,
+        items: ["Terraform", "AWS CDK"],
+    },
+    {
+        category: "CI/CD & Automation",
+        icon: GitBranch,
+        items: ["GitHub Actions", "Azure DevOps"],
+    },
+    {
+        category: "Observability",
+        icon: Activity,
+        items: ["Grafana", "Prometheus", "Loki"],
+    },
+    {
+        category: "Agentic AI & Ops",
+        icon: Cpu,
+        items: ["Custom AI Agents", "Automated Workflows"],
+    },
 ];
 
 const reasons = [
@@ -163,7 +186,7 @@ export default function ServicesPage() {
                     </div>
                 </motion.div>
 
-                {/* ── Technologies ──────────────────────────────────── */}
+                {/* ── Core Stack ──────────────────────────────────── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -172,21 +195,41 @@ export default function ServicesPage() {
                     className="mb-24"
                 >
                     <h2 className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center">
-                        Technologies We Work With
+                        Core Technologies
                     </h2>
-                    <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-                        {technologies.map((tech, idx) => (
-                            <motion.span
-                                key={tech}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: idx * 0.04 }}
-                                className="inline-block rounded-lg border border-brand-blue/20 bg-brand-blue/5 px-5 py-2.5 text-sm font-medium text-brand-blue font-mono tracking-wide"
-                            >
-                                {tech}
-                            </motion.span>
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
+                        {technologies.map((techGroup, idx) => {
+                            const Icon = techGroup.icon;
+                            return (
+                                <motion.div
+                                    key={techGroup.category}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                    className="glass rounded-xl p-6 border border-white/5 hover:border-brand-blue/30 transition-colors flex flex-col bg-brand-black-light group"
+                                >
+                                    <div className="flex items-center gap-3 mb-5">
+                                        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-brand-black transition-colors">
+                                            <Icon className="w-5 h-5" />
+                                        </div>
+                                        <h3 className="text-lg font-heading font-semibold text-white">
+                                            {techGroup.category}
+                                        </h3>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        {techGroup.items.map((item) => (
+                                            <span
+                                                key={item}
+                                                className="inline-block rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1.5 text-xs font-medium text-brand-blue font-mono tracking-wide"
+                                            >
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </motion.div>
 
