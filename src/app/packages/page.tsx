@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Cloud, GitBranch, TrendingDown, Shield, Server } from "lucide-react";
+import { ArrowRight, Cloud, GitBranch, TrendingDown, Shield, Server, Lightbulb } from "lucide-react";
 import Link from "next/link";
 
 const packages = [
@@ -18,7 +18,7 @@ const packages = [
         ],
         deliverables: ["Production-ready cloud environment", "Architecture documentation", "Deployment-ready infrastructure"],
         timeline: "2–4 weeks",
-        price: "R45k – R95k",
+        price: "R10k – R95k",
     },
     {
         icon: GitBranch,
@@ -33,7 +33,7 @@ const packages = [
         ],
         deliverables: ["Fully automated deployment pipeline", "Infrastructure as Code templates", "Runbook documentation"],
         timeline: "2–3 weeks",
-        price: "R35k – R80k",
+        price: "R10k – R85k",
     },
     {
         icon: TrendingDown,
@@ -77,6 +77,18 @@ const packages = [
         deliverables: ["Full production platform infrastructure", "Automated deployments", "Monitoring dashboards"],
         timeline: "4–8 weeks",
         price: "R120k – R350k",
+    },
+    {
+        icon: Lightbulb,
+        title: "Strategic Consultation",
+        audience: "For businesses exploring AI, cloud or digital transformation",
+        includes: [
+            "AI integration & automation strategy",
+            "Cloud architecture review",
+            "Business process optimisation",
+            "Technology roadmap planning",
+        ],
+        deliverables: ["Strategic recommendations report", "Prioritised action plan"],
     },
 ];
 
@@ -190,21 +202,33 @@ export default function PackagesPage() {
                                     </div>
 
                                     {/* Footer: timeline + price */}
-                                    <div className="mt-auto pt-6 border-t border-white/5">
-                                        <div className="flex items-center justify-between">
-                                            <div>
-                                                <p className="text-xs text-slate-500 uppercase tracking-wider">Timeline</p>
-                                                <p className="text-sm font-medium text-slate-300">{pkg.timeline}</p>
-                                            </div>
-                                            <div className="text-right">
-                                                <p className="text-xs text-slate-500 uppercase tracking-wider">From</p>
-                                                <p className="text-sm font-semibold text-brand-blue">{pkg.price}</p>
-                                                {pkg.priceAlt && (
-                                                    <p className="text-xs text-slate-500 mt-0.5">{pkg.priceAlt}</p>
-                                                )}
+                                    {pkg.timeline && pkg.price ? (
+                                        <div className="mt-auto pt-6 border-t border-white/5">
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <p className="text-xs text-slate-500 uppercase tracking-wider">Timeline</p>
+                                                    <p className="text-sm font-medium text-slate-300">{pkg.timeline}</p>
+                                                </div>
+                                                <div className="text-right">
+                                                    <p className="text-xs text-slate-500 uppercase tracking-wider">From</p>
+                                                    <p className="text-sm font-semibold text-brand-blue">{pkg.price}</p>
+                                                    {pkg.priceAlt && (
+                                                        <p className="text-xs text-slate-500 mt-0.5">{pkg.priceAlt}</p>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    ) : (
+                                        <div className="mt-auto pt-6 border-t border-white/5 text-center">
+                                            <Link
+                                                href="/contact"
+                                                className="inline-flex items-center gap-2 text-sm font-medium text-brand-blue hover:text-brand-blue-glow transition-colors"
+                                            >
+                                                Let&apos;s Talk
+                                                <ArrowRight className="h-3.5 w-3.5" />
+                                            </Link>
+                                        </div>
+                                    )}
                                 </div>
                             </motion.div>
                         );

@@ -2,10 +2,19 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowRight, CheckCircle, AlertCircle, Mail, User, Building2, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle, AlertCircle, Mail, User, Building2, MessageSquare, Package } from "lucide-react";
+
+const packageOptions = [
+    "Cloud Foundation Setup",
+    "DevOps Automation Setup",
+    "Cloud Cost Optimisation Audit",
+    "High Availability Architecture",
+    "SaaS Platform Infrastructure",
+    "Strategic Consultation",
+];
 
 export default function ContactPage() {
-    const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+    const [form, setForm] = useState({ name: "", email: "", company: "", packageInterest: "", message: "" });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -27,7 +36,7 @@ export default function ContactPage() {
             }
 
             setStatus("success");
-            setForm({ name: "", email: "", company: "", message: "" });
+            setForm({ name: "", email: "", company: "", packageInterest: "", message: "" });
         } catch (err) {
             setStatus("error");
             setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
@@ -139,6 +148,23 @@ export default function ContactPage() {
                                         placeholder="Your Company Ltd."
                                         className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                     />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                                        <Package className="h-3.5 w-3.5 text-brand-blue" />
+                                        Interested In <span className="text-slate-500 text-xs font-normal">(optional)</span>
+                                    </label>
+                                    <select
+                                        value={form.packageInterest}
+                                        onChange={e => setForm(f => ({ ...f, packageInterest: e.target.value }))}
+                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30 appearance-none"
+                                    >
+                                        <option value="" className="bg-brand-black-lighter">Select a package...</option>
+                                        {packageOptions.map(pkg => (
+                                            <option key={pkg} value={pkg} className="bg-brand-black-lighter">{pkg}</option>
+                                        ))}
+                                    </select>
                                 </div>
 
                                 <div className="space-y-2">
