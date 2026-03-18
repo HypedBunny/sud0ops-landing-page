@@ -29,36 +29,10 @@ export function clientConfirmationHtml({ name, packageInterest }: ClientConfirma
                         <span style="font-family:'Space Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:800;color:#f8fafc;letter-spacing:-1px;line-height:1;">Sud</span>
                     </td>
                     <td style="vertical-align:middle;padding:0 2px;">
-                        <table cellpadding="0" cellspacing="1" border="0" role="presentation" style="background:#060a12;border-radius:4px;padding:3px 2px;border:1px solid rgba(56,189,248,0.35);">
-                            <tr>
-                                <td style="width:2px;height:3px;background:transparent;"></td>
-                                <td style="width:12px;height:3px;background:#38bdf8;border-radius:1px;"></td>
-                                <td style="width:2px;height:3px;background:transparent;"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:2px;height:8px;background:#38bdf8;border-radius:1px;"></td>
-                                <td style="width:12px;height:8px;background:transparent;"></td>
-                                <td style="width:2px;height:8px;background:#38bdf8;border-radius:1px;"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:2px;height:3px;background:transparent;"></td>
-                                <td style="width:12px;height:3px;background:rgba(56,189,248,0.25);border-radius:1px;"></td>
-                                <td style="width:2px;height:3px;background:transparent;"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:2px;height:8px;background:#38bdf8;border-radius:1px;"></td>
-                                <td style="width:12px;height:8px;background:transparent;"></td>
-                                <td style="width:2px;height:8px;background:#38bdf8;border-radius:1px;"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:2px;height:3px;background:transparent;"></td>
-                                <td style="width:12px;height:3px;background:#38bdf8;border-radius:1px;"></td>
-                                <td style="width:2px;height:3px;background:transparent;"></td>
-                            </tr>
-                        </table>
+                        <img src="https://sud0ops.com/icon.svg" alt="0" width="19" height="26" style="display:block;width:19px;height:26px;" />
                     </td>
                     <td style="vertical-align:middle;padding-left:3px;">
-                        <span style="font-family:'Space Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:800;color:#94a3b8;letter-spacing:-1px;line-height:1;">Ops</span>
+                        <span style="font-family:'Space Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:800;color:#94a3b8;letter-spacing:-1px;line-height:1;">Ops</span><span style="font-family:'Space Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:800;color:#38bdf8;line-height:1;">_</span>
                     </td>
                 </tr>
             </table>
@@ -152,22 +126,45 @@ export function clientConfirmationHtml({ name, packageInterest }: ClientConfirma
 
     <!-- Footer -->
     <tr>
-        <td style="padding:32px 32px 0;">
-            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:100%;">
-                <tr><td style="height:1px;background:rgba(56,189,248,0.1);font-size:0;line-height:0;">&nbsp;</td></tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td style="padding:20px 32px 28px;">
+        <td style="background:#080c12;border-top:1px solid rgba(56,189,248,0.1);padding:24px 32px;">
             <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:100%;">
                 <tr>
-                    <td style="vertical-align:middle;">
-                        <span style="display:inline-block;width:6px;height:6px;background:#22c55e;border-radius:50%;vertical-align:middle;margin-right:6px;"></span>
-                        <span style="font-family:'Courier New',monospace;font-size:9px;color:#38bdf8;letter-spacing:2px;text-transform:uppercase;">Cloud. DevOps. Automation.</span>
+                    <td style="padding-bottom:16px;">
+                        <p style="font-size:13px;color:#94a3b8;margin:0;line-height:1.6;">Your modern modernization partner. We don&rsquo;t just implement tools &mdash; we build operational maturity.</p>
                     </td>
-                    <td style="text-align:right;vertical-align:middle;">
-                        <a href="https://sud0ops.com" style="font-size:12px;color:#38bdf8;text-decoration:none;font-weight:500;">sud0ops.com</a>
+                </tr>
+                <tr>
+                    <td style="padding-bottom:16px;">
+                        <table cellpadding="0" cellspacing="0" border="0" role="presentation">
+                            <tr>
+                                <td style="padding-right:16px;">
+                                    <p style="font-size:11px;font-weight:600;color:#f8fafc;margin:0 0 8px;letter-spacing:0.5px;">Expertise</p>
+                                    <p style="font-size:11px;color:#94a3b8;margin:0;line-height:1.8;">Cloud Enablement<br/>DevOps Pipelines<br/>AI &amp; Automation<br/>Engineering Standards</p>
+                                </td>
+                                <td style="padding-left:24px;">
+                                    <p style="font-size:11px;font-weight:600;color:#f8fafc;margin:0 0 8px;letter-spacing:0.5px;">Contact</p>
+                                    <p style="font-size:11px;color:#94a3b8;margin:0;line-height:1.8;">
+                                        <a href="mailto:alex@sud0ops.com" style="color:#94a3b8;text-decoration:none;">alex@sud0ops.com</a><br/>
+                                        <a href="https://sud0ops.com" style="color:#94a3b8;text-decoration:none;">sud0ops.com</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);">
+                        <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:100%;">
+                            <tr>
+                                <td style="vertical-align:middle;">
+                                    <p style="font-size:10px;color:#475569;margin:0;">&copy; ${new Date().getFullYear()} Sud0Ops. All rights reserved.</p>
+                                </td>
+                                <td style="text-align:right;vertical-align:middle;white-space:nowrap;">
+                                    <span style="display:inline-block;width:6px;height:6px;background:#22c55e;border-radius:50%;vertical-align:middle;margin-right:5px;"></span>
+                                    <span style="font-size:10px;color:#475569;vertical-align:middle;">System Operational</span>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
             </table>
