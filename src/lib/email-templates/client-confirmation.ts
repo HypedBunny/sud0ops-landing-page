@@ -9,8 +9,16 @@ export function clientConfirmationHtml({ name, packageInterest }: ClientConfirma
     return `
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8" /></head>
-<body style="margin:0;padding:0;background:#f1f5f9;font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<head>
+<meta charset="UTF-8" />
+<meta name="color-scheme" content="light only" />
+<meta name="supported-color-schemes" content="light only" />
+<style>
+:root { color-scheme: light only; }
+[data-ogsc], [data-ogsb] { background-color: inherit !important; color: inherit !important; }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;color-scheme:light only;-webkit-text-size-adjust:none;">
 <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:100%;background:#f1f5f9;padding:32px 16px;">
 <tr><td align="center">
 <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:600px;width:100%;background:#0b0f14;border-radius:14px;border:1px solid rgba(56,189,248,0.18);overflow:hidden;">
