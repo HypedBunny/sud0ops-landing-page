@@ -97,7 +97,7 @@ export default function PackagesPage() {
         <main className="relative min-h-screen flex flex-col overflow-hidden pt-20">
             {/* Background grid + glow */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+
                 <div className="absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-brand-blue opacity-10 blur-[100px]" />
                 <div className="absolute left-1/3 bottom-1/4 h-[200px] w-[200px] rounded-full bg-brand-blue opacity-5 blur-[80px]" />
             </div>

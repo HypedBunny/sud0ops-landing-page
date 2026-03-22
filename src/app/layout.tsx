@@ -45,6 +45,8 @@ export default function RootLayout({
         <Providers>
           <DottedSurface />
           <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
+            {/* Full-page grid background */}
+            <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
             <Navbar />
             <main className="flex-1 w-full pt-20">
               {children}

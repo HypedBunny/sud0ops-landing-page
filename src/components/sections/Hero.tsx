@@ -3,21 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, TerminalSquare } from "lucide-react";
-import { useEffect, useState } from "react";
 
 export function Hero() {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-
     return (
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-brand-blue opacity-20 blur-[100px]"></div>
             </div>
 
@@ -59,36 +50,7 @@ export function Hero() {
                         </Link>
                     </div>
                 </motion.div>
-
-                {/* Decorative dynamic particles */}
-                {mounted && (
-                    <div className="absolute inset-0 pointer-events-none z-[-1]">
-                        {[...Array(15)].map((_, i) => (
-                            <motion.div
-                                key={i}
-                                className="absolute w-1 h-1 bg-brand-blue rounded-full opacity-30"
-                                style={{
-                                    top: `${Math.random() * 100}%`,
-                                    left: `${Math.random() * 100}%`,
-                                }}
-                                animate={{
-                                    y: [0, -30, 0],
-                                    opacity: [0.1, 0.5, 0.1],
-                                    scale: [1, 1.5, 1],
-                                }}
-                                transition={{
-                                    duration: 3 + Math.random() * 4,
-                                    repeat: Infinity,
-                                    delay: Math.random() * 2,
-                                }}
-                            />
-                        ))}
-                    </div>
-                )}
             </div>
-
-            {/* Fade out bottom overlay */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-black to-transparent z-10 pointer-events-none"></div>
         </section>
     );
 }

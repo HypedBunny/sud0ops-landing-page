@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 export function About() {
     return (
-        <section id="about" className="relative py-24 px-6 lg:px-8 overflow-hidden">
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-blue/5 blur-[150px] rounded-full point-events-none z-0"></div>
+        <section id="about" className="relative py-24 px-6 lg:px-8">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
             <div className="mx-auto max-w-4xl relative z-10">
                 <motion.div
