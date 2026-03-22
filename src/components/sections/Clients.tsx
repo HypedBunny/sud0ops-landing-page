@@ -37,7 +37,7 @@ export function Clients() {
                     transition={{ duration: 0.8 }}
                 >
                     <p className="text-center text-sm font-semibold uppercase tracking-wider text-slate-500 mb-12">
-                        Trusted by Growing Modern Enterprises
+                        Trusted by Growing Businesses
                     </p>
 
                     <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-3 items-center justify-items-center">

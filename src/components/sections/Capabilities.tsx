@@ -6,41 +6,42 @@ import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const capabilities = [
     {
-        title: "DevOps & Cloud Enablement",
+        title: "Cloud & Infrastructure",
         icon: Cloud,
         items: [
-            "CI/CD pipelines",
-            "Infrastructure as Code",
-            "AWS / Azure modernization",
-            "Observability & monitoring",
+            "Production-grade AWS / Azure environments",
+            "Infrastructure as Code (Terraform, CDK)",
+            "Environment provisioning & scaling",
+            "Cost-optimized architecture",
+        ],
+    },
+    {
+        title: "DevOps & CI/CD",
+        icon: GitBranch,
+        items: [
+            "Automated deployment pipelines",
+            "Zero-downtime releases",
+            "Observability & incident response",
+            "Container orchestration",
         ],
     },
     {
         title: "AI & Automation",
         icon: Cpu,
         items: [
-            "AI integration for business processes",
-            "Intelligent workflows",
-            "Automation strategies",
+            "AI-powered business workflows",
+            "Process automation at scale",
+            "Intelligent ops tooling",
         ],
     },
     {
-        title: "Engineering Best Practices",
-        icon: GitBranch,
-        items: [
-            "Git strategies",
-            "Branching & release governance",
-            "Architecture modernization",
-            "Microservices & containerization",
-        ],
-    },
-    {
-        title: "Digital Optimization",
+        title: "Engineering & Architecture",
         icon: LayoutDashboard,
         items: [
-            "Website modernization",
-            "Performance tuning",
-            "Cloud cost optimization",
+            "Microservices & containerization",
+            "Git workflow & release governance",
+            "Architecture modernization",
+            "Performance optimization",
         ],
     },
 ];
@@ -61,7 +62,7 @@ export function Capabilities() {
                         className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
                     />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        Practical strategies and hands-on execution across the modern technology landscape.
+                        Where we operate. Hands-on execution, not slide decks.
                     </p>
                 </motion.div>
 

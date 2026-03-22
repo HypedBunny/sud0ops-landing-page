@@ -11,7 +11,7 @@ export function Footer() {
                     <div className="max-w-xs cursor-default">
                         <Logo />
                         <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                            Your modern modernization partner. We don&apos;t just implement tools — we build operational maturity.
+                            Systems-driven modernization for growing businesses. We don&apos;t just advise — we build.
                         </p>
                     </div>
 

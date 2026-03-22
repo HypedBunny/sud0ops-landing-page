@@ -65,13 +65,13 @@ export default function ContactPage() {
                         <span>Get In Touch</span>
                     </div>
                     <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
-                        Start Your{" "}
+                        Let&apos;s Fix{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                            Modernization
+                            What&apos;s Broken
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        Tell us about your business. We&apos;ll get back to you within 24 hours to discuss how we can help you scale.
+                        Tell us what&apos;s slowing you down. We&apos;ll get back within 24 hours with a clear idea of how we can help.
                     </p>
                 </motion.div>
 
@@ -177,7 +177,7 @@ export default function ContactPage() {
                                         rows={6}
                                         value={form.message}
                                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                                        placeholder="Tell us about your business goals, current challenges, and what you're looking to achieve..."
+                                        placeholder="What's broken? What's slowing you down? What does success look like for your business?"
                                         className="w-full resize-none rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                     />
                                 </div>

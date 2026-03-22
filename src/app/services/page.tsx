@@ -9,27 +9,27 @@ const services = [
     {
         icon: Cloud,
         title: "Cloud Architecture",
-        description: "Design secure and scalable AWS infrastructure.",
+        description: "Production-grade AWS/Azure infrastructure designed to scale with your business, not against it.",
     },
     {
         icon: GitBranch,
         title: "DevOps Automation",
-        description: "Automate deployments and eliminate manual releases.",
+        description: "Automated pipelines that ship code reliably. No more manual deployments, no more 2am hotfixes.",
     },
     {
         icon: Server,
         title: "Platform Infrastructure",
-        description: "Build production-ready infrastructure for SaaS platforms.",
+        description: "End-to-end infrastructure for SaaS products — containers, orchestration, monitoring, and scaling baked in.",
     },
     {
         icon: TrendingDown,
         title: "Cloud Cost Optimisation",
-        description: "Reduce unnecessary AWS spending.",
+        description: "Find and fix the waste in your cloud bill. Most businesses are overspending by 30–50%.",
     },
     {
         icon: ShieldCheck,
         title: "Disaster Recovery",
-        description: "Protect your systems from downtime and outages.",
+        description: "Multi-region failover, automated backups, and tested recovery plans. Sleep better.",
     },
 ];
 
@@ -62,10 +62,10 @@ const technologies = [
 ];
 
 const reasons = [
-    "Cloud-native architecture",
-    "DevOps automation expertise",
-    "Scalable infrastructure design",
-    "Startup-friendly engineering",
+    "We implement, not just advise",
+    "Systems thinking, not tool chasing",
+    "Built for growing businesses, not enterprise bureaucracy",
+    "Outcomes over hours billed",
 ];
 
 export default function ServicesPage() {
@@ -89,16 +89,16 @@ export default function ServicesPage() {
                 >
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
                         <Cloud className="h-4 w-4" />
-                        <span>Our Services</span>
+                        <span>What We Build</span>
                     </div>
                     <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
-                        Cloud Infrastructure &{" "}
+                        Infrastructure That{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                            DevOps Engineering
+                            Actually Works
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        We design, automate and scale cloud platforms for startups and growing businesses.
+                        We design, build, and operate cloud systems for businesses that need to move fast and stay stable.
                     </p>
                     <div className="mt-8">
                         <Link
@@ -106,7 +106,7 @@ export default function ServicesPage() {
                             className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
                         >
                             <span className="flex items-center gap-2">
-                                Book an Architecture Consultation
+                                Book a Free Consultation
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </span>
                         </Link>
@@ -126,14 +126,14 @@ export default function ServicesPage() {
                         className="text-3xl font-heading font-bold text-white sm:text-4xl mb-6 text-center"
                     />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto text-center mb-10">
-                        Sud0Ops helps companies build and operate modern cloud infrastructure.
+                        We solve the problems that slow growing businesses down.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
                         {[
-                            "Deploy software reliably",
-                            "Scale infrastructure",
-                            "Reduce cloud costs",
-                            "Build production-grade platforms",
+                            "Ship software without breaking things",
+                            "Scale without re-architecting",
+                            "Cut cloud costs without cutting corners",
+                            "Build platforms that run themselves",
                         ].map((item, idx) => (
                             <motion.div
                                 key={item}
@@ -258,7 +258,7 @@ export default function ServicesPage() {
                     className="mb-8"
                 >
                     <TypewriterHeading
-                        text="Why Choose Us?"
+                        text="Why Sud0Ops?"
                         className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center"
                     />
                     <div className="glass rounded-xl p-8 lg:p-10 max-w-2xl mx-auto border border-white/5">

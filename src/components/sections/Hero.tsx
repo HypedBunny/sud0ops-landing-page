@@ -30,16 +30,16 @@ export function Hero() {
                 >
                     <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
                         <TerminalSquare className="h-4 w-4" />
-                        <span>Modernization Partner for SMEs</span>
+                        <span>Systems-Driven Modernization Partner</span>
                     </div>
 
                     <h1 className="font-heading text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6 leading-tight">
-                        Modernizing SMEs Through <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">Cloud, DevOps & AI</span>
+                        Less Firefighting. <br className="hidden sm:block" />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">More Building.</span>
                     </h1>
 
                     <p className="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto mb-10">
-                        Strategic modernization partner helping growing businesses scale through DevOps automation, AI integration, and cloud-native practices. We don&apos;t just implement tools — we build operational maturity.
+                        We turn fragile, manual infrastructure into automated, scalable systems. Cloud, DevOps, and AI — implemented, not just recommended.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -55,7 +55,7 @@ export function Hero() {
                             href="#capabilities"
                             className="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white glass"
                         >
-                            View Capabilities
+                            See How We Work
                         </Link>
                     </div>
                 </motion.div>

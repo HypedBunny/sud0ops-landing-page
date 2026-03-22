@@ -16,13 +16,13 @@ export function About() {
                     className="text-center"
                 >
                     <h2 className="text-3xl font-heading font-bold text-white mb-8 sm:text-4xl px-4">
-                        Building Operational Maturity
+                        What We Actually Do
                     </h2>
                     <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto glass p-8 sm:p-12 rounded-2xl relative">
                         <span className="absolute -top-4 -left-4 text-brand-blue text-6xl opacity-20 font-serif">&quot;</span>
-                        Sud0Ops is a modernization consultancy focused on helping SMEs adopt scalable cloud architectures, DevOps pipelines, AI enablement, and engineering best practices. <br className="hidden sm:block" />
+                        Most businesses don&apos;t have an infrastructure problem — they have an operations problem. Fragile deployments, manual processes, and systems held together by workarounds. We fix that. <br className="hidden sm:block" />
                         <br className="hidden sm:block" />
-                        <strong className="text-white font-medium">We don&apos;t just implement tools — we build operational maturity.</strong>
+                        <strong className="text-white font-medium">We don&apos;t just advise — we get in the codebase and build.</strong>
                         <span className="absolute -bottom-10 -right-4 text-brand-blue text-6xl opacity-20 font-serif leading-none">&quot;</span>
                     </p>
                 </motion.div>

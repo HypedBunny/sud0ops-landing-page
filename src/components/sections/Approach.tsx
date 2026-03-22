@@ -13,10 +13,10 @@ import {
 import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const steps = [
-    { id: "01", name: "Assess", description: "Deep dive into current architecture, bottlenecks, and business goals." },
-    { id: "02", name: "Architect", description: "Design cloud-native, scalable, and secure infrastructure blueprints." },
-    { id: "03", name: "Automate", description: "Implement CI/CD, IaC, and intelligent workflows to remove toil." },
-    { id: "04", name: "Optimize", description: "Continuous monitoring, cost optimization, and performance tuning." },
+    { id: "01", name: "Assess", description: "Map your current systems, find the bottlenecks, and understand what\u2019s actually slowing you down." },
+    { id: "02", name: "Architect", description: "Design infrastructure that scales with your business — not against it." },
+    { id: "03", name: "Implement", description: "Build and deploy. CI/CD, IaC, automation — hands on keyboard, not just on paper." },
+    { id: "04", name: "Optimize", description: "Monitor, tune, reduce costs. Your systems get better over time, not worse." },
 ];
 
 const technologies = [
@@ -47,10 +47,10 @@ export function Approach() {
                         className="text-center mb-20"
                     >
                         <TypewriterHeading
-                            text="Modernization Framework"
+                            text="How We Work"
                             className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
                         />
-                        <p className="text-lg text-slate-400">Our systematic approach to building operational maturity.</p>
+                        <p className="text-lg text-slate-400">A proven framework. No guesswork, no bloated timelines.</p>
                     </motion.div>
 
                     <div className="relative">

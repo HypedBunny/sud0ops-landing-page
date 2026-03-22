@@ -8,7 +8,7 @@ const packages = [
     {
         icon: Cloud,
         title: "Cloud Foundation Setup",
-        audience: "For startups launching their platform",
+        audience: "For businesses building their first production environment",
         includes: [
             "Infrastructure design & AWS account setup",
             "VPC network architecture",
@@ -23,7 +23,7 @@ const packages = [
     {
         icon: GitBranch,
         title: "DevOps Automation Setup",
-        audience: "For teams deploying software manually",
+        audience: "For teams tired of manual deployments and broken releases",
         includes: [
             "CI/CD pipeline setup",
             "Automated deployments & environment promotion",
@@ -38,7 +38,7 @@ const packages = [
     {
         icon: TrendingDown,
         title: "Cloud Cost Optimisation Audit",
-        audience: "For teams overspending on cloud",
+        audience: "For businesses bleeding money on cloud they don't need",
         includes: [
             "AWS infrastructure audit",
             "Resource utilisation analysis",
@@ -53,7 +53,7 @@ const packages = [
     {
         icon: Shield,
         title: "High Availability Architecture",
-        audience: "For businesses that cannot afford downtime",
+        audience: "For systems where downtime means lost revenue",
         includes: [
             "Multi-region infrastructure",
             "Backup & failover design",
@@ -67,7 +67,7 @@ const packages = [
     {
         icon: Server,
         title: "SaaS Platform Infrastructure",
-        audience: "For startups building software platforms",
+        audience: "For SaaS teams ready to scale their platform",
         includes: [
             "Platform infrastructure architecture",
             "CI/CD pipelines & container hosting",
@@ -81,7 +81,7 @@ const packages = [
     {
         icon: Lightbulb,
         title: "Strategic Consultation",
-        audience: "For businesses exploring AI, cloud or digital transformation",
+        audience: "For leaders who need a technical strategy, not a sales pitch",
         includes: [
             "AI integration & automation strategy",
             "Cloud architecture review",
@@ -121,7 +121,7 @@ export default function PackagesPage() {
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        Productised cloud and DevOps engagements — scoped, priced, and ready to start. Every package is tailored to your stack during the consultation.
+                        No ambiguous retainers. Every engagement is scoped, priced, and tailored to your stack before we start.
                     </p>
                 </motion.div>
 
@@ -137,7 +137,7 @@ export default function PackagesPage() {
                             Start with a free 30-minute consultation
                         </h2>
                         <p className="text-slate-400 mb-6 text-sm">
-                            We&apos;ll assess your infrastructure, recommend the right package, and scope the engagement to your needs.
+                            We&apos;ll review your current setup, identify quick wins, and recommend the right engagement for your goals.
                         </p>
                         <Link
                             href="/contact"
