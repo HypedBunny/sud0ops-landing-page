@@ -36,7 +36,7 @@ const clients = [
         url: "https://bashies.co.za",
         tagline: "E-commerce Infrastructure & DevOps",
         description:
-            "Built a Shopify-powered e-commerce platform paired with an SEO-optimised React landing page — driving organic traffic and converting visitors into customers.",
+            "Turned Bashies into a full digital storefront — a Shopify-powered shop backed by a custom React landing page engineered for search visibility. Built to rank, built to sell.",
         deliverables: [
             "Shopify store setup & customisation",
             "SEO-optimised React landing page",
