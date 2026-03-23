@@ -12,7 +12,7 @@ const clients = [
     },
     {
         name: "Bashies",
-        description: "E-commerce Infrastructure & DevOps",
+        description: "Shopify Store & SEO-Optimised React Landing Page",
         logo: "/bashies-logo.png",
         url: "https://bashies.co.za",
         logoClass: "h-16",

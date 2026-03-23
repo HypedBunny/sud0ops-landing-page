@@ -36,13 +36,13 @@ const clients = [
         url: "https://bashies.co.za",
         tagline: "E-commerce Infrastructure & DevOps",
         description:
-            "Designed and deployed a robust e-commerce infrastructure with fully automated CI/CD pipelines, containerized workloads, and 24/7 monitoring.",
+            "Built a Shopify-powered e-commerce platform paired with an SEO-optimised React landing page — driving organic traffic and converting visitors into customers.",
         deliverables: [
-            "Full e-commerce infrastructure build-out",
-            "Containerized workloads with Docker",
-            "24/7 observability & alerting",
+            "Shopify store setup & customisation",
+            "SEO-optimised React landing page",
+            "Automated deployment pipeline",
         ],
-        tags: ["CI/CD", "Docker", "Automation"],
+        tags: ["Shopify", "React", "SEO", "DevOps"],
         icon: ShoppingCart,
     },
     {
