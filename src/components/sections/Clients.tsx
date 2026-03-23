@@ -21,7 +21,7 @@ const clients = [
         name: "HappyEvents",
         description: "Digital Enablement & Social Platform",
         logo: "/happyevents-logo.png",
-        url: "https://happyevents.co.za",
+        url: "https://happyshisha.co.za",
         logoClass: "h-20",
     },
 ];
