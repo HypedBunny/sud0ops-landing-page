@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type Transition } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -70,15 +70,19 @@ const SNAP_HEIGHT = "calc(100dvh - 5rem)";
 export default function ClientsPage() {
     const shouldReduceMotion = useReducedMotion();
 
-    const fadeUp = (delay = 0) =>
-        shouldReduceMotion
-            ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.2, delay } }
-            : { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.7, ease: "easeOut", delay } };
+    const fadeUpTransition: Transition = shouldReduceMotion
+        ? { duration: 0.2 }
+        : { duration: 0.7, ease: "easeOut" as const };
 
-    const scrollReveal = (delay = 0) =>
-        shouldReduceMotion
-            ? { initial: { opacity: 0 }, whileInView: { opacity: 1 }, viewport: { once: false, amount: 0.4 }, transition: { duration: 0.2, delay } }
-            : { initial: { opacity: 0, y: 50, scale: 0.97 }, whileInView: { opacity: 1, y: 0, scale: 1 }, viewport: { once: false, amount: 0.4 }, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.05 } };
+    const revealTransition: Transition = shouldReduceMotion
+        ? { duration: 0.2 }
+        : { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.05 };
+
+    const fadeUpInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 };
+    const fadeUpAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
+
+    const revealInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 50, scale: 0.97 };
+    const revealAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 };
 
     return (
         // Ambient glow layer — absolute so DottedSurface shows through
@@ -110,7 +114,9 @@ export default function ClientsPage() {
                     style={{ height: SNAP_HEIGHT, scrollSnapAlign: "start" }}
                 >
                     <motion.div
-                        {...fadeUp()}
+                        initial={fadeUpInitial}
+                        animate={fadeUpAnimate}
+                        transition={fadeUpTransition}
                         className="max-w-2xl w-full"
                     >
                         {/* Badge — matches services page pattern */}
@@ -157,7 +163,10 @@ export default function ClientsPage() {
                             aria-label={`Client: ${client.name}`}
                         >
                             <motion.div
-                                {...scrollReveal()}
+                                initial={revealInitial}
+                                whileInView={revealAnimate}
+                                viewport={{ once: false, amount: 0.4 }}
+                                transition={revealTransition}
                                 className="glass rounded-2xl border border-white/5 hover:border-brand-blue/30 transition-colors duration-500 p-6 md:p-10 w-full max-w-2xl relative overflow-hidden group box-glow-hover"
                             >
                                 {/* Subtle hover grid overlay — matches services page */}
@@ -255,7 +264,10 @@ export default function ClientsPage() {
                     aria-label="Contact call to action"
                 >
                     <motion.div
-                        {...scrollReveal()}
+                        initial={revealInitial}
+                        whileInView={revealAnimate}
+                        viewport={{ once: false, amount: 0.4 }}
+                        transition={revealTransition}
                         className="glass rounded-2xl border border-white/5 hover:border-brand-blue/30 transition-colors duration-300 p-10 md:p-16 max-w-lg w-full"
                     >
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
