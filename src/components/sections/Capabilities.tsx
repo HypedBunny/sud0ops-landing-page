@@ -1,47 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud, Cpu, GitBranch, LayoutDashboard } from "lucide-react";
+import { Workflow, Plug, Bot, LayoutDashboard } from "lucide-react";
 import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const capabilities = [
     {
-        title: "Cloud & Infrastructure",
-        icon: Cloud,
+        title: "Workflow Automation",
+        icon: Workflow,
+        outcome: "Save 10+ hours per week",
         items: [
-            "Production-grade AWS / Azure environments",
-            "Infrastructure as Code (Terraform, CDK)",
-            "Environment provisioning & scaling",
-            "Cost-optimized architecture",
+            "Eliminate manual, repetitive tasks",
+            "Automated approvals & notifications",
+            "Data entry and handoffs handled for you",
+            "Workflows that run 24/7 without staff",
         ],
     },
     {
-        title: "DevOps & CI/CD",
-        icon: GitBranch,
+        title: "Tool Integration",
+        icon: Plug,
+        outcome: "Eliminate copy-paste forever",
         items: [
-            "Automated deployment pipelines",
-            "Zero-downtime releases",
-            "Observability & incident response",
-            "Container orchestration",
+            "Connect your CRM, PM, and billing tools",
+            "Keep data in sync across every platform",
+            "No more manual bridging between apps",
+            "Single source of truth for your business",
         ],
     },
     {
-        title: "AI & Automation",
-        icon: Cpu,
+        title: "AI Assistants & Internal Tools",
+        icon: Bot,
+        outcome: "Answers in seconds, not hours",
         items: [
-            "AI-powered business workflows",
-            "Process automation at scale",
-            "Intelligent ops tooling",
+            "Internal AI trained on your business data",
+            "Instant answers from SOPs and docs",
+            "Proposal generators and content drafters",
+            "Reduce dependency on senior staff for routine questions",
         ],
     },
     {
-        title: "Engineering & Architecture",
+        title: "Dashboards & Reporting",
         icon: LayoutDashboard,
+        outcome: "Decisions backed by live data",
         items: [
-            "Microservices & containerization",
-            "Git workflow & release governance",
-            "Architecture modernization",
-            "Performance optimization",
+            "Real-time KPI visibility in one place",
+            "Automated weekly performance summaries",
+            "Alerts when metrics drop below targets",
+            "No more waiting for manual reports",
         ],
     },
 ];
@@ -58,11 +63,11 @@ export function Capabilities() {
                     className="text-center mb-16"
                 >
                     <TypewriterHeading
-                        text="Core Capabilities"
+                        text="What We Fix"
                         className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
                     />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        Where we operate. Hands-on execution, not slide decks.
+                        Four areas where growing businesses lose the most time and money.
                     </p>
                 </motion.div>
 
@@ -86,9 +91,12 @@ export function Capabilities() {
                                         <Icon className="h-6 w-6" />
                                     </div>
 
-                                    <h3 className="text-xl font-heading font-semibold text-white mb-4 group-hover:text-brand-blue transition-colors">
+                                    <h3 className="text-xl font-heading font-semibold text-white mb-1 group-hover:text-brand-blue transition-colors">
                                         {cap.title}
                                     </h3>
+                                    <p className="text-xs font-medium text-brand-blue/70 mb-4 font-mono tracking-wide">
+                                        {cap.outcome}
+                                    </p>
 
                                     <ul className="space-y-3">
                                         {cap.items.map((item) => (

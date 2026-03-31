@@ -18,15 +18,15 @@ const clients = [
         logo: "/helperhub-logo.png",
         logoClass: "h-12",
         url: "https://helperhub.co.za",
-        tagline: "Platform Modernization",
+        tagline: "Operational Efficiency & Automation",
         description:
-            "Rebuilt HelperHub's legacy platform into a scalable cloud-native system — streamlining deployments, improving reliability, and enabling rapid feature delivery.",
+            "Streamlined HelperHub's core operations — reducing manual work, automating key workflows, and connecting their tools so the team could focus on growth instead of admin.",
         deliverables: [
-            "Cloud-native architecture redesign",
-            "Automated CI/CD pipelines",
-            "Zero-downtime deployment strategy",
+            "Workflow automation across core business processes",
+            "Tool integration and data synchronisation",
+            "Operational efficiency improvements",
         ],
-        tags: ["Cloud Migration", "DevOps", "Infrastructure"],
+        tags: ["Workflow Automation", "Tool Integration", "Operational Efficiency"],
         icon: Cloud,
     },
     {
@@ -34,15 +34,15 @@ const clients = [
         logo: "/bashies-logo.png",
         logoClass: "h-16",
         url: "https://bashies.co.za",
-        tagline: "E-commerce Infrastructure & DevOps",
+        tagline: "Digital Presence & E-commerce Enablement",
         description:
             "Turned Bashies into a full digital storefront — a Shopify-powered shop backed by a custom React landing page engineered for search visibility. Built to rank, built to sell.",
         deliverables: [
             "Shopify store setup & customisation",
             "SEO-optimised React landing page",
-            "Automated deployment pipeline",
+            "Automated order and fulfilment workflow",
         ],
-        tags: ["Shopify", "React", "SEO", "DevOps"],
+        tags: ["Shopify", "React", "SEO", "Automation"],
         icon: ShoppingCart,
     },
     {
@@ -50,15 +50,15 @@ const clients = [
         logo: "/happyevents-logo.png",
         logoClass: "h-20",
         url: "https://happyshisha.co.za",
-        tagline: "Digital Enablement & Social Platform",
+        tagline: "Digital Enablement & Business Automation",
         description:
-            "Delivered a full digital transformation with a custom social event platform handling bookings, user engagement, and real-time updates at scale.",
+            "Delivered a full digital transformation with a custom social event platform — automating bookings, user engagement, and real-time updates so the business runs with minimal manual input.",
         deliverables: [
             "Custom social events platform",
-            "Real-time booking & notifications",
-            "Scalable backend infrastructure",
+            "Automated booking & notification workflows",
+            "Real-time operational visibility",
         ],
-        tags: ["Social Platform", "Real-time", "Digital Transformation"],
+        tags: ["Business Automation", "Real-time", "Digital Transformation"],
         icon: Calendar,
     },
 ];
@@ -128,13 +128,13 @@ export default function ClientsPage() {
                         <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6 leading-tight">
                             Businesses We&apos;ve{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                                Modernized
+                                Transformed
                             </span>
                         </h1>
 
                         <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-xl mx-auto">
-                            Real-world infrastructure built for growing businesses —
-                            from legacy systems to cloud-native platforms.
+                            Real businesses that replaced manual work with smart systems —
+                            and got their time back.
                         </p>
 
                         {/* Scroll hint — uses inline style for gradient to avoid missing Tailwind class */}
@@ -279,8 +279,8 @@ export default function ClientsPage() {
                             Ready to be next?
                         </h2>
                         <p className="text-slate-400 mb-8 leading-relaxed">
-                            Let&apos;s modernize your infrastructure and unlock your
-                            business&apos;s full potential.
+                            Let&apos;s find out where your business is losing time — and
+                            build the systems that fix it.
                         </p>
 
                         <Link
@@ -288,7 +288,7 @@ export default function ClientsPage() {
                             className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover cursor-pointer"
                         >
                             <span className="flex items-center gap-2">
-                                Let&apos;s Modernize
+                                Book a Free Discovery Call
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                             </span>
                         </Link>

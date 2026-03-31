@@ -5,12 +5,15 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle, AlertCircle, Mail, User, Building2, MessageSquare, Package } from "lucide-react";
 
 const packageOptions = [
-    "Cloud Foundation Setup",
-    "DevOps Automation Setup",
-    "Cloud Cost Optimisation Audit",
-    "High Availability Architecture",
-    "SaaS Platform Infrastructure",
-    "Strategic Consultation",
+    "Workflow Automation",
+    "Tool Integration",
+    "AI Assistant / Internal Tool",
+    "Dashboard & Reporting",
+    "Process Audit & Efficiency Review",
+    "Investigative Consultation",
+    "Issue Investigation & Resolution",
+    "Cloud Tool Consulting",
+    "Not sure — just want to talk",
 ];
 
 export default function ContactPage() {
@@ -65,9 +68,9 @@ export default function ContactPage() {
                         <span>Get In Touch</span>
                     </div>
                     <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
-                        Let&apos;s Fix{" "}
+                        Let&apos;s Start With a{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                            What&apos;s Broken
+                            Conversation
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">

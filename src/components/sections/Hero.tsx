@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, TerminalSquare } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 
 export function Hero() {
     return (
@@ -20,17 +20,17 @@ export function Hero() {
                     className="mx-auto max-w-3xl"
                 >
                     <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
-                        <TerminalSquare className="h-4 w-4" />
-                        <span>Systems-Driven Modernization Partner</span>
+                        <Zap className="h-4 w-4" />
+                        <span>Business Automation &amp; Operational Efficiency</span>
                     </div>
 
                     <h1 className="font-heading text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6 leading-tight">
-                        Less Firefighting. <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">More Building.</span>
+                        Your Business <br className="hidden sm:block" />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">Should Run Itself.</span>
                     </h1>
 
                     <p className="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto mb-10">
-                        We turn fragile, manual infrastructure into automated, scalable systems. Cloud, DevOps, and AI — implemented, not just recommended.
+                        SudoOps helps growing businesses replace manual work with smart automations, connected tools, and AI — so your team can focus on what actually moves the needle.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -38,7 +38,7 @@ export function Hero() {
                             href="/contact"
                             className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
                         >
-                            <span className="mr-2">Let&apos;s Modernize</span>
+                            <span className="mr-2">Book a Free Discovery Call</span>
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Link>
 
@@ -46,9 +46,18 @@ export function Hero() {
                             href="#capabilities"
                             className="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white glass"
                         >
-                            See How We Work
+                            See What We Fix
                         </Link>
                     </div>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 1 }}
+                        className="mt-8 text-sm text-slate-500"
+                    >
+                        Trusted by businesses across South Africa and the UK
+                    </motion.p>
                 </motion.div>
             </div>
 

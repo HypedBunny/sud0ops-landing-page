@@ -2,33 +2,42 @@
 
 import { motion } from "framer-motion";
 import {
-    Cloud,
-    Database,
-    Container,
-    GitPullRequest,
-    Terminal,
-    Blocks,
-    Box
+a    Search,
+    Target,
+    Cpu,
+    TrendingUp,
+    Workflow,
+    Link2,
+    Bot,
+    BarChart3,
+    Layers,
+    MessageSquare,
 } from "lucide-react";
 import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const steps = [
-    { id: "01", name: "Assess", description: "Map your current systems, find the bottlenecks, and understand what\u2019s actually slowing you down." },
-    { id: "02", name: "Architect", description: "Design infrastructure that scales with your business — not against it." },
-    { id: "03", name: "Implement", description: "Build and deploy. CI/CD, IaC, automation — hands on keyboard, not just on paper." },
-    { id: "04", name: "Optimize", description: "Monitor, tune, reduce costs. Your systems get better over time, not worse." },
+    { id: "01", name: "Investigate", description: "We dig into how your business actually operates — not how it's supposed to. Map where time and effort are really going." },
+    { id: "02", name: "Identify", description: "Surface the exact processes, gaps, and tool disconnects that are costing you the most. Prioritised by impact, not complexity." },
+    { id: "03", name: "Automate", description: "Build the workflows, integrations, and tools that fix the problems — so the work happens without your team having to touch it." },
+    { id: "04", name: "Optimise", description: "Measure the impact, tune the systems, and keep improving. Your operations get better over time, not worse." },
 ];
 
 const technologies = [
-    { name: "AWS", icon: Cloud },
-    { name: "Azure", icon: Cloud },
-    { name: "Docker", icon: Container },
-    { name: "Kubernetes", icon: Box },
-    { name: "GitHub Actions", icon: GitPullRequest },
-    { name: "Terraform", icon: Blocks },
-    { name: "MongoDB / SQL", icon: Database },
-    { name: "DevOps", icon: Terminal },
+    { name: "Make.com", icon: Workflow },
+    { name: "Zapier", icon: Link2 },
+    { name: "n8n", icon: Layers },
+    { name: "HubSpot", icon: Target },
+    { name: "Notion", icon: MessageSquare },
+    { name: "Airtable", icon: BarChart3 },
+    { name: "Google Workspace", icon: Search },
+    { name: "OpenAI", icon: Bot },
+    { name: "Make.com", icon: Cpu },
 ];
+
+// Deduplicate by name
+const uniqueTechnologies = technologies.filter(
+    (tech, index, self) => index === self.findIndex((t) => t.name === tech.name)
+);
 
 export function Approach() {
     return (
@@ -38,7 +47,7 @@ export function Approach() {
 
             <div className="mx-auto max-w-7xl relative z-10">
 
-                {/* Modernization Framework */}
+                {/* How We Work */}
                 <div className="mb-32">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -50,7 +59,7 @@ export function Approach() {
                             text="How We Work"
                             className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
                         />
-                        <p className="text-lg text-slate-400">A proven framework. No guesswork, no bloated timelines.</p>
+                        <p className="text-lg text-slate-400">A clear process. No guesswork, no bloated timelines.</p>
                     </motion.div>
 
                     <div className="relative">
@@ -92,7 +101,7 @@ export function Approach() {
                     </div>
                 </div>
 
-                {/* Technical Capabilities Snapshot */}
+                {/* Tools We Use */}
                 <div>
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -101,12 +110,12 @@ export function Approach() {
                         className="text-center mb-12"
                     >
                         <p className="text-sm font-semibold uppercase tracking-wider text-slate-500">
-                            Technical Capabilities
+                            Tools We Work With
                         </p>
                     </motion.div>
 
                     <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-                        {technologies.map((tech, i) => {
+                        {uniqueTechnologies.map((tech, i) => {
                             const Icon = tech.icon;
                             return (
                                 <motion.div
@@ -124,7 +133,6 @@ export function Approach() {
                                     {/* Tooltip */}
                                     <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -top-12 left-1/2 -translate-x-1/2 bg-brand-blue text-brand-black font-medium text-xs py-1.5 px-3 rounded shadow-xl whitespace-nowrap z-20">
                                         {tech.name}
-                                        {/* Tooltip triangle */}
                                         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-brand-blue"></div>
                                     </div>
                                 </motion.div>

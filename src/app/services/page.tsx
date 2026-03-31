@@ -1,69 +1,69 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Cloud, GitBranch, Server, TrendingDown, ShieldCheck, CheckCircle, Terminal, Cpu, Activity, Database } from "lucide-react";
+import { ArrowRight, Workflow, Plug, Bot, LayoutDashboard, Search, CheckCircle, Zap, MessageSquare, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const services = [
     {
-        icon: Cloud,
-        title: "Cloud Architecture",
-        description: "Production-grade AWS/Azure infrastructure designed to scale with your business, not against it.",
+        icon: Workflow,
+        title: "Workflow Automation",
+        description: "Replace manual, repetitive tasks with automated systems that run themselves — so your team stops doing work a machine should handle.",
     },
     {
-        icon: GitBranch,
-        title: "DevOps Automation",
-        description: "Automated pipelines that ship code reliably. No more manual deployments, no more 2am hotfixes.",
+        icon: Plug,
+        title: "Tool Integration & Connectivity",
+        description: "Connect your CRM, project management, billing, and comms tools so data flows automatically and nothing falls through the cracks.",
     },
     {
-        icon: Server,
-        title: "Platform Infrastructure",
-        description: "End-to-end infrastructure for SaaS products — containers, orchestration, monitoring, and scaling baked in.",
+        icon: Bot,
+        title: "AI Assistants & Internal Tools",
+        description: "Build internal AI trained on your business data — so your team gets instant, accurate answers without waiting on a senior person.",
     },
     {
-        icon: TrendingDown,
-        title: "Cloud Cost Optimisation",
-        description: "Find and fix the waste in your cloud bill. Most businesses are overspending by 30–50%.",
+        icon: LayoutDashboard,
+        title: "Dashboards & Reporting",
+        description: "One live view of your KPIs, pipeline, and operations. No more manual reports, no more guessing. Just the data you need, when you need it.",
     },
     {
-        icon: ShieldCheck,
-        title: "Disaster Recovery",
-        description: "Multi-region failover, automated backups, and tested recovery plans. Sleep better.",
+        icon: Search,
+        title: "Process Mapping & Efficiency Audit",
+        description: "A structured investigation into where your operations are losing time, money, and momentum — with a clear, prioritised action plan to fix it.",
     },
 ];
 
-const technologies = [
+const toolGroups = [
     {
-        category: "Cloud Providers",
-        icon: Cloud,
-        items: ["AWS", "Microsoft Azure"],
+        category: "Automation Platforms",
+        icon: Workflow,
+        items: ["Make.com", "Zapier", "n8n"],
     },
     {
-        category: "Infrastructure as Code",
-        icon: Terminal,
-        items: ["Terraform", "AWS CDK"],
+        category: "Business Tools",
+        icon: MessageSquare,
+        items: ["HubSpot", "Notion", "Airtable", "Slack"],
     },
     {
-        category: "CI/CD & Automation",
-        icon: GitBranch,
-        items: ["GitHub Actions", "Azure DevOps"],
+        category: "Productivity Suites",
+        icon: Zap,
+        items: ["Google Workspace", "Microsoft 365"],
     },
     {
-        category: "Observability",
-        icon: Activity,
-        items: ["Grafana", "Prometheus", "Loki"],
+        category: "AI & Intelligence",
+        icon: Bot,
+        items: ["OpenAI", "Custom AI Agents"],
     },
     {
-        category: "Agentic AI & Ops",
-        icon: Cpu,
-        items: ["Custom AI Agents", "Automated Workflows"],
+        category: "Finance & Ops",
+        icon: BarChart3,
+        items: ["QuickBooks", "Xero", "Monday.com"],
     },
 ];
 
 const reasons = [
-    "We implement, not just advise",
-    "Systems thinking, not tool chasing",
+    "We fix operations, not infrastructure",
+    "Plain-English explanations — no jargon",
     "Built for growing businesses, not enterprise bureaucracy",
     "Outcomes over hours billed",
 ];
@@ -71,16 +71,15 @@ const reasons = [
 export default function ServicesPage() {
     return (
         <main className="relative min-h-screen flex flex-col overflow-hidden pt-20">
-            {/* Background grid + glow */}
+            {/* Background glow */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-
                 <div className="absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-brand-blue opacity-10 blur-[100px]" />
                 <div className="absolute left-1/3 bottom-1/4 h-[200px] w-[200px] rounded-full bg-brand-blue opacity-5 blur-[80px]" />
             </div>
 
             <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
 
-                {/* ── Hero ──────────────────────────────────────────── */}
+                {/* ── Hero ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -88,17 +87,17 @@ export default function ServicesPage() {
                     className="text-center mb-24"
                 >
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
-                        <Cloud className="h-4 w-4" />
-                        <span>What We Build</span>
+                        <Zap className="h-4 w-4" />
+                        <span>What We Do</span>
                     </div>
                     <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
-                        Infrastructure That{" "}
+                        Fix How Your{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                            Actually Works
+                            Business Operates
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        We design, build, and operate cloud systems for businesses that need to move fast and stay stable.
+                        We find where time and money are being wasted — then we automate the problem away.
                     </p>
                     <div className="mt-8">
                         <Link
@@ -113,7 +112,7 @@ export default function ServicesPage() {
                     </div>
                 </motion.div>
 
-                {/* ── What We Do ─────────────────────────────────────── */}
+                {/* ── What We Solve ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -122,18 +121,18 @@ export default function ServicesPage() {
                     className="mb-24"
                 >
                     <TypewriterHeading
-                        text="What We Do"
+                        text="What We Solve"
                         className="text-3xl font-heading font-bold text-white sm:text-4xl mb-6 text-center"
                     />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto text-center mb-10">
-                        We solve the problems that slow growing businesses down.
+                        The operational problems that slow growing businesses down.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
                         {[
-                            "Ship software without breaking things",
-                            "Scale without re-architecting",
-                            "Cut cloud costs without cutting corners",
-                            "Build platforms that run themselves",
+                            "Stop wasting hours on tasks a machine can do",
+                            "Connect your tools so nothing falls through the cracks",
+                            "Give your team instant answers from your own data",
+                            "Make decisions from live data, not last week's spreadsheet",
                         ].map((item, idx) => (
                             <motion.div
                                 key={item}
@@ -149,7 +148,7 @@ export default function ServicesPage() {
                     </div>
                 </motion.div>
 
-                {/* ── Services ──────────────────────────────────────── */}
+                {/* ── Services ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -190,18 +189,18 @@ export default function ServicesPage() {
 
                     <div className="mt-12 text-center">
                         <Link
-                            href="/packages"
+                            href="/consulting"
                             className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue/10 px-8 font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 hover:text-brand-blue-glow box-glow-hover"
                         >
                             <span className="flex items-center gap-2">
-                                View Service Packages & Pricing
+                                View Consulting Options
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </span>
                         </Link>
                     </div>
                 </motion.div>
 
-                {/* ── Core Stack ──────────────────────────────────── */}
+                {/* ── Tools We Work With ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -210,15 +209,18 @@ export default function ServicesPage() {
                     className="mb-24"
                 >
                     <TypewriterHeading
-                        text="Core Technologies"
-                        className="text-3xl font-heading font-bold text-white sm:text-4xl mb-12 text-center"
+                        text="Tools We Work With"
+                        className="text-3xl font-heading font-bold text-white sm:text-4xl mb-4 text-center"
                     />
+                    <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
+                        We work with the tools your business already uses — connecting, configuring, and automating them to do more.
+                    </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
-                        {technologies.map((techGroup, idx) => {
-                            const Icon = techGroup.icon;
+                        {toolGroups.map((group, idx) => {
+                            const Icon = group.icon;
                             return (
                                 <motion.div
-                                    key={techGroup.category}
+                                    key={group.category}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -230,11 +232,11 @@ export default function ServicesPage() {
                                             <Icon className="w-5 h-5" />
                                         </div>
                                         <h3 className="text-lg font-heading font-semibold text-white">
-                                            {techGroup.category}
+                                            {group.category}
                                         </h3>
                                     </div>
                                     <div className="flex flex-wrap gap-2 mt-auto">
-                                        {techGroup.items.map((item) => (
+                                        {group.items.map((item) => (
                                             <span
                                                 key={item}
                                                 className="inline-block rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1.5 text-xs font-medium text-brand-blue font-mono tracking-wide"
@@ -249,7 +251,7 @@ export default function ServicesPage() {
                     </div>
                 </motion.div>
 
-                {/* ── Why Sud0Ops ───────────────────────────────────── */}
+                {/* ── Why Sud0Ops ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

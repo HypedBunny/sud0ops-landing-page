@@ -20,9 +20,9 @@ export function About() {
                     </h2>
                     <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto glass p-8 sm:p-12 rounded-2xl relative">
                         <span className="absolute -top-4 -left-4 text-brand-blue text-6xl opacity-20 font-serif">&quot;</span>
-                        Most businesses don&apos;t have an infrastructure problem — they have an operations problem. Fragile deployments, manual processes, and systems held together by workarounds. We fix that. <br className="hidden sm:block" />
+                        Most businesses aren&apos;t slow because they lack people — they&apos;re slow because no one has ever automated the right things. Manual processes, disconnected tools, and work that should never touch a human inbox. We fix that. <br className="hidden sm:block" />
                         <br className="hidden sm:block" />
-                        <strong className="text-white font-medium">We don&apos;t just advise — we get in the codebase and build.</strong>
+                        <strong className="text-white font-medium">We don&apos;t just advise — we find the waste and build the systems that eliminate it.</strong>
                         <span className="absolute -bottom-10 -right-4 text-brand-blue text-6xl opacity-20 font-serif leading-none">&quot;</span>
                     </p>
                 </motion.div>

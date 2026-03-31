@@ -11,18 +11,18 @@ export function Footer() {
                     <div className="max-w-xs cursor-default">
                         <Logo />
                         <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                            Systems-driven modernization for growing businesses. We don&apos;t just advise — we build.
+                            Business automation and operational efficiency for growing businesses. We don&apos;t just advise — we build.
                         </p>
                     </div>
 
                     <div className="flex gap-16">
                         <div>
-                            <h3 className="font-heading text-sm font-semibold text-white tracking-wider">Expertise</h3>
+                            <h3 className="font-heading text-sm font-semibold text-white tracking-wider">Services</h3>
                             <ul className="mt-4 space-y-3 text-sm text-slate-400">
-                                <li>Cloud Enablement</li>
-                                <li>DevOps Pipelines</li>
-                                <li>AI & Automation</li>
-                                <li>Engineering Standards</li>
+                                <li>Workflow Automation</li>
+                                <li>Tool Integration</li>
+                                <li>AI Assistants</li>
+                                <li>Operational Dashboards</li>
                             </ul>
                         </div>
                         <div>
