@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
-a    Search,
+    Search,
     Target,
     Cpu,
     TrendingUp,
