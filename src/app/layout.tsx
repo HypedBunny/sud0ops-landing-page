@@ -22,8 +22,8 @@ const digitalClockFont = Share_Tech_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sud0Ops | Cloud, DevOps & AI Modernization",
-  description: "Strategic modernization partner helping growing businesses scale through DevOps automation, AI integration, and cloud-native practices.",
+  title: "Sud0Ops | Take Control of Your Technology",
+  description: "Sud0ops helps growing teams discover, build, adopt, and support the technology that fits them. We don't just advise, we build alongside you.",
 };
 
 import { Navbar } from "@/components/layout/Navbar";

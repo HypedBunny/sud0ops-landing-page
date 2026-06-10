@@ -1,52 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, Plug, Bot, LayoutDashboard } from "lucide-react";
+import { Compass, Hammer, Users, LifeBuoy } from "lucide-react";
 import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const capabilities = [
     {
-        title: "Workflow Automation",
-        icon: Workflow,
-        outcome: "Save 10+ hours per week",
+        title: "Discover the Right Technology",
+        icon: Compass,
+        outcome: "Stop guessing what to buy",
         items: [
-            "Eliminate manual, repetitive tasks",
-            "Automated approvals & notifications",
-            "Data entry and handoffs handled for you",
-            "Workflows that run 24/7 without staff",
+            "Understand what your team actually needs",
+            "Cut through the noise of overlapping tools",
+            "Honest advice on what to keep, add, or drop",
+            "A clear plan, calibrated to your budget and skills",
         ],
     },
     {
-        title: "Tool Integration",
-        icon: Plug,
-        outcome: "Eliminate copy-paste forever",
+        title: "Implement & Build",
+        icon: Hammer,
+        outcome: "From plan to working systems",
         items: [
-            "Connect your CRM, PM, and billing tools",
-            "Keep data in sync across every platform",
-            "No more manual bridging between apps",
-            "Single source of truth for your business",
+            "Set up, configure, and connect your tools",
+            "Custom automations and internal tools where they help",
+            "We get into the work and build, not just advise",
+            "Done properly: stable, documented, built to last",
         ],
     },
     {
-        title: "AI Assistants & Internal Tools",
-        icon: Bot,
-        outcome: "Answers in seconds, not hours",
+        title: "Help Your Team Adapt",
+        icon: Users,
+        outcome: "Tech your team will actually use",
         items: [
-            "Internal AI trained on your business data",
-            "Instant answers from SOPs and docs",
-            "Proposal generators and content drafters",
-            "Reduce dependency on senior staff for routine questions",
+            "Hands-on onboarding and guidance for your people",
+            "Plain-English explanations, no jargon",
+            "Pace and depth matched to your team's comfort",
+            "Confidence to own the tools after we leave",
         ],
     },
     {
-        title: "Dashboards & Reporting",
-        icon: LayoutDashboard,
-        outcome: "Decisions backed by live data",
+        title: "Support & Keep Improving",
+        icon: LifeBuoy,
+        outcome: "You're never left stranded",
         items: [
-            "Real-time KPI visibility in one place",
-            "Automated weekly performance summaries",
-            "Alerts when metrics drop below targets",
-            "No more waiting for manual reports",
+            "Ongoing support when things change or break",
+            "Tune and improve systems as you grow",
+            "A partner to call, not just a one-off project",
+            "Your operations get better over time, not worse",
         ],
     },
 ];
@@ -63,11 +63,11 @@ export function Capabilities() {
                     className="text-center mb-16"
                 >
                     <TypewriterHeading
-                        text="What We Fix"
+                        text="How We Help"
                         className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
                     />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        Four areas where growing businesses lose the most time and money.
+                        From discovering the right tools to building, adopting, and supporting them, we walk the whole journey with your team.
                     </p>
                 </motion.div>
 

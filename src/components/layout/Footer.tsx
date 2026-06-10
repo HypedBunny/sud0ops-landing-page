@@ -11,7 +11,7 @@ export function Footer() {
                     <div className="max-w-xs cursor-default">
                         <Logo />
                         <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                            Business automation and operational efficiency for growing businesses. We don&apos;t just advise — we build.
+                            We help growing teams discover, build, adopt, and support the technology that fits them. We don&apos;t just advise, we build alongside you.
                         </p>
                     </div>
 

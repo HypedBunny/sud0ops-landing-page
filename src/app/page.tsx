@@ -22,18 +22,18 @@ export default function Home() {
                     >
                         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
                             <Zap className="h-4 w-4" />
-                            <span>AI Infrastructure &amp; MLOps Operations</span>
+                            <span>Helping Teams Adopt, Build &amp; Grow with Technology</span>
                         </div>
 
                         <h1 className="font-heading text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6 leading-tight">
-                            AI Infrastructure <br className="hidden sm:block" />
+                            Take Control of <br className="hidden sm:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                                Built to Scale.
+                                Your Technology.
                             </span>
                         </h1>
 
                         <p className="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto mb-10">
-                            From GPU provisioning and LLM deployment to MLOps pipelines and model observability — we design, build, and operate the infrastructure that keeps your AI running in production.
+                            Most businesses don&apos;t have a technology problem, they have an operations problem. Sud0ops helps growing teams discover the right tools, implement them properly, adapt with confidence, and stay supported as they grow. We don&apos;t just advise, we get into the work and build alongside you.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -49,7 +49,7 @@ export default function Home() {
                                 href="#capabilities"
                                 className="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white glass"
                             >
-                                What We Do
+                                See How We Help
                             </a>
                         </div>
 
@@ -59,7 +59,7 @@ export default function Home() {
                             transition={{ duration: 0.6, delay: 1 }}
                             className="mt-8 text-sm text-slate-500"
                         >
-                            Trusted by AI teams globally
+                            Trusted by growing businesses, NPOs, and teams across South Africa and the UK
                         </motion.p>
                     </motion.div>
                 </div>
