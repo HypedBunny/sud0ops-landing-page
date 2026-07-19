@@ -1,0 +1,621 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+    ArrowRight,
+    Award,
+    ExternalLink,
+    MapPin,
+    Linkedin,
+    Mail,
+    ShieldCheck,
+    Cloud,
+    GitBranch,
+    Boxes,
+    Activity,
+    DollarSign,
+    Terminal,
+    Server,
+    Zap,
+    Briefcase,
+    CheckCircle2,
+} from "lucide-react";
+
+/* -------------------------------------------------------------------------- */
+/*  CONTENT                                                                    */
+/*  Edit these arrays to update the page. No layout changes needed.            */
+/* -------------------------------------------------------------------------- */
+
+// TODO(Alex): paste each credential's public verification URL into verifyUrl.
+// A "Verify" button appears automatically once a URL is present; until then
+// the card shows a subtle "Verification link pending" tag.
+const certifications = [
+    {
+        name: "AWS Certified Solutions Architect",
+        level: "Professional",
+        issuer: "Amazon Web Services",
+        verifyUrl: "",
+    },
+    {
+        name: "AWS Certified Developer",
+        level: "Associate",
+        issuer: "Amazon Web Services",
+        verifyUrl: "",
+    },
+    {
+        name: "AWS Certified Cloud Practitioner",
+        level: "Foundational",
+        issuer: "Amazon Web Services",
+        verifyUrl: "",
+    },
+    {
+        name: "FinOps Certified Practitioner",
+        level: "Practitioner",
+        issuer: "FinOps Foundation",
+        verifyUrl: "",
+    },
+    {
+        name: "AWS re/Start",
+        level: "Graduate",
+        issuer: "Amazon Web Services",
+        verifyUrl: "",
+    },
+];
+
+const experience = [
+    {
+        company: "Rhino Africa",
+        role: "DevOps Engineer",
+        period: "Apr 2026 to Present",
+        location: "Cape Town",
+        blurb:
+            "Leading the design, stability, and continuous improvement of AWS infrastructure and platform reliability. Keeping systems scalable, secure, and cost-optimised while supporting evolving, data-driven business needs.",
+    },
+    {
+        company: "Sud0ops",
+        role: "Founder",
+        period: "Dec 2025 to Present",
+        location: "Cape Town",
+        blurb:
+            "Helping SMEs, NPOs, and small businesses scale with technology calibrated to their real needs and abilities. Not just advice: getting into the codebase and building alongside the team.",
+    },
+    {
+        company: "Skywalk Innovations",
+        role: "DevOps Engineer, EEIP Program DevOps Lead",
+        period: "Jun 2023 to Mar 2026",
+        location: "Cape Town",
+        blurb:
+            "Led CI/CD, infrastructure automation (IaC), and monitoring across environments. Blended DevOps, FinOps, platform engineering, and site reliability into a stable, efficient delivery pipeline. Cut infrastructure setup times by 50% with AWS CDK.",
+    },
+    {
+        company: "Skywalk Innovations",
+        role: "AWS Cloud Developer",
+        period: "Jun 2022 to Jun 2023",
+        location: "South Africa",
+        blurb:
+            "Built and deployed cloud applications on AWS: serverless with Lambda, content delivery with CloudFront, data on RDS and DynamoDB, compute on EC2, and CI/CD with AWS developer tools.",
+    },
+    {
+        company: "AWS re/Start",
+        role: "Graduate",
+        period: "2022",
+        location: "Cape Town",
+        blurb:
+            "Cloud fundamentals, Python, Linux, and debugging. The launchpad from behind the bar into a career in technology.",
+    },
+];
+
+const work = [
+    {
+        name: "HelperHub",
+        kind: "Consulting + Technical Lead",
+        logo: "/helperhub-logo.png",
+        logoClass: "h-10",
+        blurb:
+            "Technical lead on the modernisation of a monolithic PHP platform to a modern web stack. Hardened production with observability, secrets, backups, and clean deployments, and drives the v2 architecture.",
+        liveUrl: "https://helperhub.co.za",
+        caseUrl: "", // TODO(Alex): optional deep-dive / case study link
+    },
+    {
+        name: "Bashies",
+        kind: "Technical Build",
+        logo: "/bashies-logo.png",
+        logoClass: "h-14",
+        blurb:
+            "Built the online store on Shopify, paired with a fast, SEO-optimised React landing page to turn browsers into buyers.",
+        liveUrl: "https://bashies.co.za",
+        caseUrl: "",
+    },
+    {
+        name: "Happy Shisha",
+        kind: "Digital Enablement",
+        logo: "/happyevents-logo.png",
+        logoClass: "h-16",
+        blurb:
+            "Digital enablement and a social platform for a growing hospitality brand, bringing its sub-brands and services online.",
+        liveUrl: "https://happyshisha.co.za",
+        caseUrl: "",
+    },
+    {
+        name: "ProVision Alliance",
+        kind: "Consulting + Technical (NPO)",
+        logo: "", // no logo asset yet; renders a monogram tile
+        blurb:
+            "Technical lead for a youth-focused NPO. Website, domain, and email architecture, automated deploys, and securing donated software and infrastructure so the organisation can focus on its mission.",
+        liveUrl: "https://provisionalliance.org",
+        caseUrl: "",
+    },
+];
+
+const skills = [
+    { label: "CI/CD & Release Engineering", icon: GitBranch },
+    { label: "Infrastructure as Code (AWS CDK)", icon: Boxes },
+    { label: "AWS Cloud Architecture", icon: Cloud },
+    { label: "Monitoring & Alerting", icon: Activity },
+    { label: "FinOps & Cost Optimisation", icon: DollarSign },
+    { label: "Containerisation (Docker)", icon: Server },
+    { label: "Scripting (Python, Bash)", icon: Terminal },
+    { label: "Site Reliability", icon: ShieldCheck },
+];
+
+/* -------------------------------------------------------------------------- */
+/*  HEADSHOT                                                                   */
+/*  Drop a photo at public/alex.jpg and it appears automatically.              */
+/*  Until then a clean "AJ" monogram stands in.                               */
+/* -------------------------------------------------------------------------- */
+function Headshot() {
+    const [ok, setOk] = useState(true);
+    return (
+        <div className="relative">
+            <div className="absolute -inset-4 rounded-full bg-brand-blue/20 blur-2xl" />
+            <div className="relative h-48 w-48 sm:h-56 sm:w-56 overflow-hidden rounded-full border border-brand-blue/30 bg-brand-black-light box-glow">
+                {ok ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                        src="/alex.jpg"
+                        alt="Alex-Jay Beukes"
+                        className="h-full w-full object-cover"
+                        onError={() => setOk(false)}
+                    />
+                ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_right,#38bdf80a_1px,transparent_1px),linear-gradient(to_bottom,#38bdf80a_1px,transparent_1px)] bg-[size:16px_16px]">
+                        <span className="font-heading text-6xl font-bold text-brand-blue text-glow">
+                            AJ
+                        </span>
+                    </div>
+                )}
+            </div>
+            <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-brand-black/80 px-3 py-1 text-xs text-slate-300 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                Open to build
+            </span>
+        </div>
+    );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  PAGE                                                                       */
+/* -------------------------------------------------------------------------- */
+export default function AlexPage() {
+    return (
+        <div className="flex flex-col gap-24 pb-24">
+            {/* ------------------------------------------------------------- */}
+            {/* HERO                                                          */}
+            {/* ------------------------------------------------------------- */}
+            <section className="relative flex items-center overflow-hidden pt-10">
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute left-1/2 top-0 -z-10 h-[310px] w-[310px] -translate-x-1/2 rounded-full bg-brand-blue opacity-20 blur-[100px]" />
+                </div>
+
+                <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1fr_auto] lg:gap-16 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
+                            <Zap className="h-4 w-4" />
+                            <span>DevOps Engineer &amp; Founder of Sud0ops</span>
+                        </div>
+
+                        <h1 className="font-heading text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
+                            Alex-Jay{" "}
+                            <span className="bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow bg-clip-text text-transparent">
+                                Beukes
+                            </span>
+                        </h1>
+
+                        <p className="mt-4 flex items-center gap-2 font-mono text-sm text-slate-400">
+                            <MapPin className="h-4 w-4 text-brand-blue" />
+                            Cape Town, South Africa
+                        </p>
+
+                        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
+                            I build systems that are reliable, scalable, and built to
+                            last. DevOps Engineer at Rhino Africa by day, and founder of
+                            Sud0ops, where I help growing teams, NPOs, and small
+                            businesses adopt the right technology and build it properly.
+                            I do not just advise, I get into the codebase and build.
+                        </p>
+
+                        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                            <a
+                                href="mailto:alex@sud0ops.com"
+                                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
+                            >
+                                <Mail className="mr-2 h-4 w-4" />
+                                <span className="mr-1">Get in Touch</span>
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/alex-jaybeukes"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="glass inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
+                            >
+                                <Linkedin className="mr-2 h-4 w-4" />
+                                LinkedIn
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+                        className="mx-auto lg:mx-0"
+                    >
+                        <Headshot />
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* ABOUT                                                         */}
+            {/* ------------------------------------------------------------- */}
+            <section className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-4xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7 }}
+                        className="glass relative rounded-2xl p-8 sm:p-12"
+                    >
+                        <span className="absolute -top-4 -left-4 font-serif text-6xl text-brand-blue opacity-20">
+                            &quot;
+                        </span>
+                        <p className="text-lg leading-relaxed text-slate-300 sm:text-xl">
+                            I did not follow a traditional path into tech. I was working
+                            as a bartender while figuring things out, and that shaped my
+                            standards early: discipline, resilience, and staying sharp in
+                            fast-paced environments. Today I care about doing things
+                            properly, not just getting systems running, but making sure
+                            they are efficient, stable, and built to last.
+                        </p>
+                        <p className="mt-4 text-lg leading-relaxed text-slate-300 sm:text-xl">
+                            <strong className="font-medium text-white">
+                                Most businesses do not have an infrastructure problem,
+                                they have an operations problem.
+                            </strong>{" "}
+                            Fragile deployments, manual processes, and systems held
+                            together by workarounds. That is what I fix, calibrated to
+                            each team&apos;s real needs and abilities.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* CERTIFICATIONS                                                */}
+            {/* ------------------------------------------------------------- */}
+            <section id="certifications" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <SectionHeading
+                        eyebrow="Verified Credentials"
+                        title="Certifications"
+                        subtitle="AWS-heavy, with FinOps. Verification links are wired in per credential."
+                    />
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {certifications.map((cert, index) => (
+                            <motion.div
+                                key={cert.name + cert.level}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.4, delay: index * 0.08 }}
+                                className="group glass flex flex-col justify-between rounded-2xl border border-white/5 bg-brand-black-light p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/50 box-glow-hover"
+                            >
+                                <div>
+                                    <div className="mb-4 flex items-start justify-between gap-3">
+                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
+                                            <Award className="h-5 w-5" />
+                                        </div>
+                                        <span className="rounded-full border border-brand-blue/20 bg-brand-blue/10 px-3 py-1 font-mono text-xs text-brand-blue/80">
+                                            {cert.level}
+                                        </span>
+                                    </div>
+                                    <h3 className="font-heading text-lg font-semibold leading-snug text-white">
+                                        {cert.name}
+                                    </h3>
+                                    <p className="mt-1 text-sm text-slate-500">
+                                        {cert.issuer}
+                                    </p>
+                                </div>
+
+                                <div className="mt-5">
+                                    {cert.verifyUrl ? (
+                                        <a
+                                            href={cert.verifyUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-glow"
+                                        >
+                                            <ShieldCheck className="h-4 w-4" />
+                                            Verify credential
+                                            <ExternalLink className="h-3.5 w-3.5" />
+                                        </a>
+                                    ) : (
+                                        <span className="inline-flex items-center gap-1.5 text-xs text-slate-600">
+                                            <ShieldCheck className="h-3.5 w-3.5" />
+                                            Verification link pending
+                                        </span>
+                                    )}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* EXPERIENCE                                                    */}
+            {/* ------------------------------------------------------------- */}
+            <section id="experience" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-4xl">
+                    <SectionHeading
+                        eyebrow="The Journey"
+                        title="Experience"
+                        subtitle="From behind the bar to leading cloud reliability."
+                    />
+
+                    <div className="relative border-l border-white/10 pl-8 sm:pl-10">
+                        {experience.map((job, index) => (
+                            <motion.div
+                                key={job.company + job.role}
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                className="relative pb-12 last:pb-0"
+                            >
+                                <span className="absolute -left-[42px] sm:-left-[50px] flex h-5 w-5 items-center justify-center rounded-full border border-brand-blue/40 bg-brand-black">
+                                    <span className="h-2 w-2 rounded-full bg-brand-blue" />
+                                </span>
+
+                                <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                                    <h3 className="font-heading text-lg font-semibold text-white">
+                                        {job.role}
+                                    </h3>
+                                    <span className="font-mono text-xs text-brand-blue/70">
+                                        {job.period}
+                                    </span>
+                                </div>
+                                <p className="mt-0.5 flex items-center gap-2 text-sm font-medium text-slate-400">
+                                    <Briefcase className="h-3.5 w-3.5 text-brand-blue/60" />
+                                    {job.company}
+                                    <span className="text-slate-600">·</span>
+                                    <span className="text-slate-500">{job.location}</span>
+                                </p>
+                                <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                                    {job.blurb}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* SELECTED WORK                                                 */}
+            {/* ------------------------------------------------------------- */}
+            <section id="work" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <SectionHeading
+                        eyebrow="Sud0ops Engagements"
+                        title="Selected Work"
+                        subtitle="Consulting and technical work that helps businesses run and grow properly."
+                    />
+
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        {work.map((project, index) => (
+                            <motion.div
+                                key={project.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.5, delay: index * 0.08 }}
+                                className="group glass relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-brand-black-light p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/50 box-glow-hover"
+                            >
+                                <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#38bdf807_1px,transparent_1px),linear-gradient(to_bottom,#38bdf807_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                                <div className="relative z-10 flex h-full flex-col">
+                                    <div className="mb-5 flex h-16 items-center">
+                                        {project.logo ? (
+                                            <Image
+                                                src={project.logo}
+                                                alt={project.name}
+                                                width={160}
+                                                height={64}
+                                                className={`${project.logoClass ?? "h-12"} w-auto object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100`}
+                                            />
+                                        ) : (
+                                            <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 font-heading text-lg font-bold text-brand-blue ring-1 ring-brand-blue/20">
+                                                PA
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-2 flex items-center gap-2">
+                                        <h3 className="font-heading text-xl font-semibold text-white transition-colors group-hover:text-brand-blue">
+                                            {project.name}
+                                        </h3>
+                                    </div>
+                                    <p className="mb-4 font-mono text-xs tracking-wide text-brand-blue/70">
+                                        {project.kind}
+                                    </p>
+
+                                    <p className="flex-1 text-sm leading-relaxed text-slate-400">
+                                        {project.blurb}
+                                    </p>
+
+                                    <div className="mt-6 flex items-center gap-5 border-t border-white/5 pt-5">
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-glow"
+                                        >
+                                            Visit site
+                                            <ExternalLink className="h-3.5 w-3.5" />
+                                        </a>
+                                        {project.caseUrl ? (
+                                            <a
+                                                href={project.caseUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white"
+                                            >
+                                                Read the work
+                                                <ArrowRight className="h-3.5 w-3.5" />
+                                            </a>
+                                        ) : (
+                                            <span className="text-xs text-slate-600">
+                                                Case study coming soon
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* SKILLS                                                        */}
+            {/* ------------------------------------------------------------- */}
+            <section id="skills" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-5xl">
+                    <SectionHeading
+                        eyebrow="Toolkit"
+                        title="What I Work With"
+                        subtitle="A full-stack DevOps skill set, AWS-heavy, built for reliability and cost efficiency."
+                    />
+
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        {skills.map((skill, index) => {
+                            const Icon = skill.icon;
+                            return (
+                                <motion.div
+                                    key={skill.label}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-60px" }}
+                                    transition={{ duration: 0.35, delay: index * 0.05 }}
+                                    className="glass flex items-center gap-3 rounded-xl border border-white/5 bg-brand-black-light p-4 transition-colors hover:border-brand-blue/40"
+                                >
+                                    <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue">
+                                        <Icon className="h-4.5 w-4.5" />
+                                    </span>
+                                    <span className="text-sm font-medium text-slate-300">
+                                        {skill.label}
+                                    </span>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* CONTACT CTA                                                   */}
+            {/* ------------------------------------------------------------- */}
+            <section id="contact" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-4xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7 }}
+                        className="glass relative overflow-hidden rounded-2xl border border-brand-blue/20 p-10 text-center sm:p-14"
+                    >
+                        <div className="absolute left-1/2 top-0 -z-10 h-[200px] w-[300px] -translate-x-1/2 rounded-full bg-brand-blue opacity-10 blur-[80px]" />
+
+                        <CheckCircle2 className="mx-auto mb-5 h-10 w-10 text-brand-blue" />
+                        <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+                            Let us build something that lasts.
+                        </h2>
+                        <p className="mx-auto mt-4 max-w-xl text-slate-400">
+                            Whether it is stabilising your infrastructure, automating the
+                            work that slows your team down, or building the thing you have
+                            been putting off, I am happy to talk it through.
+                        </p>
+                        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                            <a
+                                href="mailto:alex@sud0ops.com"
+                                className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
+                            >
+                                <Mail className="mr-2 h-4 w-4" />
+                                alex@sud0ops.com
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/alex-jaybeukes"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="glass inline-flex h-12 items-center justify-center rounded-md border border-slate-700 px-8 font-medium text-slate-300 transition-colors hover:text-white"
+                            >
+                                <Linkedin className="mr-2 h-4 w-4" />
+                                Connect on LinkedIn
+                            </a>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+        </div>
+    );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  SHARED SECTION HEADING                                                     */
+/* -------------------------------------------------------------------------- */
+function SectionHeading({
+    eyebrow,
+    title,
+    subtitle,
+}: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+}) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+        >
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
+                {eyebrow}
+            </p>
+            <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+                {title}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-400">{subtitle}</p>
+        </motion.div>
+    );
+}
