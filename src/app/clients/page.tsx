@@ -18,15 +18,16 @@ const clients = [
         logo: "/helperhub-logo.png",
         logoClass: "h-12",
         url: "https://helperhub.co.za",
-        tagline: "Operational Efficiency & Automation",
+        tagline: "Operations, Automation & Platform Modernisation",
         description:
-            "Streamlined HelperHub's core operations — reducing manual work, automating key workflows, and connecting their tools so the team could focus on growth instead of admin.",
+            "We started by streamlining HelperHub's core operations: less manual work, automated workflows, and connected tools. Now we secure the live platform and lead its rebuild as a modern web and mobile app.",
         deliverables: [
             "Workflow automation across core business processes",
             "Tool integration and data synchronisation",
             "Operational efficiency improvements",
+            "Platform modernisation and production hardening",
         ],
-        tags: ["Workflow Automation", "Tool Integration", "Operational Efficiency"],
+        tags: ["Workflow Automation", "Tool Integration", "Operational Efficiency", "Platform Modernisation"],
         icon: Cloud,
     },
     {
@@ -36,7 +37,7 @@ const clients = [
         url: "https://bashies.co.za",
         tagline: "Digital Presence & E-commerce Enablement",
         description:
-            "Turned Bashies into a full digital storefront — a Shopify-powered shop backed by a custom React landing page engineered for search visibility. Built to rank, built to sell.",
+            "Built the Bashies online store on Shopify, with a custom React landing page made to rank well in search.",
         deliverables: [
             "Shopify store setup & customisation",
             "SEO-optimised React landing page",
@@ -52,13 +53,13 @@ const clients = [
         url: "https://happyshisha.co.za",
         tagline: "Digital Enablement & Business Automation",
         description:
-            "Delivered a full digital transformation with a custom social event platform — automating bookings, user engagement, and real-time updates so the business runs with minimal manual input.",
+            "Built a custom social events platform that handles bookings, user engagement, and live updates, so the team does much less of it by hand.",
         deliverables: [
             "Custom social events platform",
             "Automated booking & notification workflows",
             "Real-time operational visibility",
         ],
-        tags: ["Business Automation", "Real-time", "Digital Transformation"],
+        tags: ["Business Automation", "Real-time", "Custom Platform"],
         icon: Calendar,
     },
 ];
@@ -105,7 +106,7 @@ export default function ClientsPage() {
                     scrollSnapType: "y mandatory",
                     scrollBehavior: "smooth",
                 }}
-                aria-label="Client portfolio — scroll to navigate"
+                aria-label="Client portfolio, scroll to navigate"
             >
 
                 {/* ── HERO SCREEN ─────────────────────────────────── */}
@@ -122,19 +123,18 @@ export default function ClientsPage() {
                         {/* Badge — matches services page pattern */}
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
                             <CheckCircle className="h-4 w-4" aria-hidden="true" />
-                            <span>Trusted Partnerships</span>
+                            <span>Clients</span>
                         </div>
 
                         <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6 leading-tight">
-                            Businesses We&apos;ve{" "}
+                            Businesses We{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                                Transformed
+                                Work With
                             </span>
                         </h1>
 
                         <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-xl mx-auto">
-                            Real businesses that replaced manual work with smart systems —
-                            and got their time back.
+                            What we built for each one, and why.
                         </p>
 
                         {/* Scroll hint — uses inline style for gradient to avoid missing Tailwind class */}
@@ -159,7 +159,7 @@ export default function ClientsPage() {
                         <section
                             key={client.name}
                             className="flex items-center justify-center px-6 py-6"
-                            style={{ height: SNAP_HEIGHT, scrollSnapAlign: "start" }}
+                            style={{ minHeight: SNAP_HEIGHT, scrollSnapAlign: "start" }}
                             aria-label={`Client: ${client.name}`}
                         >
                             <motion.div
@@ -272,15 +272,15 @@ export default function ClientsPage() {
                     >
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
                             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                            <span>Your Turn</span>
+                            <span>Next Step</span>
                         </div>
 
                         <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
-                            Ready to be next?
+                            Have a problem like these?
                         </h2>
                         <p className="text-slate-400 mb-8 leading-relaxed">
-                            Let&apos;s find out where your business is losing time — and
-                            build the systems that fix it.
+                            Tell us where your business loses time, and we will tell you
+                            what we would fix first.
                         </p>
 
                         <Link

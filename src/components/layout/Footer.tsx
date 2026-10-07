@@ -37,9 +37,6 @@ export function Footer() {
 
                 <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
                     <p>© {currentYear} Sud0Ops. All rights reserved.</p>
-                    <div className="flex items-center gap-4">
-                        <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> System Operational</span>
-                    </div>
                 </div>
             </div>
         </footer>

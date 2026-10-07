@@ -9,27 +9,27 @@ const services = [
     {
         icon: Workflow,
         title: "Workflow Automation",
-        description: "Replace manual, repetitive tasks with automated systems that run themselves — so your team stops doing work a machine should handle.",
+        description: "Automate the manual, repetitive tasks, so your team spends its time on work that needs a person.",
     },
     {
         icon: Plug,
         title: "Tool Integration & Connectivity",
-        description: "Connect your CRM, project management, billing, and comms tools so data flows automatically and nothing falls through the cracks.",
+        description: "Connect your CRM, project management, billing, and messaging tools, so data moves between them without copy and paste.",
     },
     {
         icon: Bot,
         title: "AI Assistants & Internal Tools",
-        description: "Build internal AI trained on your business data — so your team gets instant, accurate answers without waiting on a senior person.",
+        description: "Internal assistants that answer questions from your own documents and data, so your team does not have to wait for a senior person.",
     },
     {
         icon: LayoutDashboard,
         title: "Dashboards & Reporting",
-        description: "One live view of your KPIs, pipeline, and operations. No more manual reports, no more guessing. Just the data you need, when you need it.",
+        description: "One live view of your KPIs, pipeline, and operations, so you stop building reports by hand.",
     },
     {
         icon: Search,
         title: "Process Mapping & Efficiency Audit",
-        description: "A structured investigation into where your operations are losing time, money, and momentum — with a clear, prioritised action plan to fix it.",
+        description: "We map how work moves through your business, find where it loses time and money, and give you a prioritised plan to fix it.",
     },
 ];
 
@@ -63,8 +63,8 @@ const toolGroups = [
 
 const reasons = [
     "We fix operations, not infrastructure",
-    "Plain-English explanations — no jargon",
-    "Built for growing businesses, not enterprise bureaucracy",
+    "Plain-English explanations, no jargon",
+    "Built for small and growing businesses",
     "Outcomes over hours billed",
 ];
 
@@ -97,7 +97,7 @@ export default function ServicesPage() {
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        We find where time and money are being wasted — then we automate the problem away.
+                        We find where your business loses time and money, then we fix it.
                     </p>
                     <div className="mt-8">
                         <Link
@@ -130,8 +130,8 @@ export default function ServicesPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
                         {[
                             "Stop wasting hours on tasks a machine can do",
-                            "Connect your tools so nothing falls through the cracks",
-                            "Give your team instant answers from your own data",
+                            "Connect your tools so your data stays in sync",
+                            "Help your team find answers in your own data",
                             "Make decisions from live data, not last week's spreadsheet",
                         ].map((item, idx) => (
                             <motion.div
@@ -213,7 +213,7 @@ export default function ServicesPage() {
                         className="text-3xl font-heading font-bold text-white sm:text-4xl mb-4 text-center"
                     />
                     <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
-                        We work with the tools your business already uses — connecting, configuring, and automating them to do more.
+                        We work with the tools your business already uses. We connect them, set them up properly, and automate the repetitive parts.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
                         {toolGroups.map((group, idx) => {

@@ -33,7 +33,7 @@ export default function Home() {
                         </h1>
 
                         <p className="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto mb-10">
-                            Most businesses don&apos;t have a technology problem, they have an operations problem. Sud0ops helps growing teams discover the right tools, implement them properly, adapt with confidence, and stay supported as they grow. We don&apos;t just advise, we get into the work and build alongside you.
+                            Most businesses don&apos;t have a technology problem, they have an operations problem. Sud0ops helps growing teams pick the right tools, set them up properly, learn to use them, and get support when things change. We don&apos;t just advise, we get into the work and build alongside you.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -59,7 +59,7 @@ export default function Home() {
                             transition={{ duration: 0.6, delay: 1 }}
                             className="mt-8 text-sm text-slate-500"
                         >
-                            Trusted by growing businesses, NPOs, and teams across South Africa and the UK
+                            Working with small businesses and NPOs in South Africa and the UK
                         </motion.p>
                     </motion.div>
                 </div>

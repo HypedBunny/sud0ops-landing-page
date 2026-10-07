@@ -202,7 +202,7 @@ export function clientConfirmationText({ name, packageInterest }: ClientConfirma
         "View our packages: https://sud0ops.com/packages",
         "",
         "---",
-        "Sud0Ops — Cloud. DevOps. Automation.",
+        "Sud0Ops | Cloud. DevOps. Automation.",
         "https://sud0ops.com",
     ].filter(Boolean).join("\n");
 }

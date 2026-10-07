@@ -8,10 +8,10 @@ const capabilities = [
     {
         title: "Discover the Right Technology",
         icon: Compass,
-        outcome: "Stop guessing what to buy",
+        outcome: "Know what to buy before you buy it",
         items: [
             "Understand what your team actually needs",
-            "Cut through the noise of overlapping tools",
+            "Find the tools that overlap or go unused",
             "Honest advice on what to keep, add, or drop",
             "A clear plan, calibrated to your budget and skills",
         ],
@@ -30,23 +30,22 @@ const capabilities = [
     {
         title: "Help Your Team Adapt",
         icon: Users,
-        outcome: "Tech your team will actually use",
+        outcome: "Technology your team uses every day",
         items: [
             "Hands-on onboarding and guidance for your people",
             "Plain-English explanations, no jargon",
             "Pace and depth matched to your team's comfort",
-            "Confidence to own the tools after we leave",
+            "Your team can run the tools without us",
         ],
     },
     {
         title: "Support & Keep Improving",
         icon: LifeBuoy,
-        outcome: "You're never left stranded",
+        outcome: "Help when you need it",
         items: [
             "Ongoing support when things change or break",
             "Tune and improve systems as you grow",
             "A partner to call, not just a one-off project",
-            "Your operations get better over time, not worse",
         ],
     },
 ];
@@ -67,7 +66,7 @@ export function Capabilities() {
                         className="text-3xl font-heading font-bold text-white mb-4 sm:text-4xl"
                     />
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        From discovering the right tools to building, adopting, and supporting them, we walk the whole journey with your team.
+                        We help at each step: choosing the tools, building with them, training your team, and supporting it after.
                     </p>
                 </motion.div>
 

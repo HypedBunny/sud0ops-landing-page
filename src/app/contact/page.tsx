@@ -13,7 +13,7 @@ const packageOptions = [
     "Investigative Consultation",
     "Issue Investigation & Resolution",
     "Cloud Tool Consulting",
-    "Not sure — just want to talk",
+    "Not sure, just want to talk",
 ];
 
 export default function ContactPage() {
@@ -180,7 +180,7 @@ export default function ContactPage() {
                                         rows={6}
                                         value={form.message}
                                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                                        placeholder="What's broken? What's slowing you down? What does success look like for your business?"
+                                        placeholder="What's broken? What's slowing you down?"
                                         className="w-full resize-none rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                     />
                                 </div>
@@ -230,7 +230,7 @@ export default function ContactPage() {
                         {[
                             { label: "Response Time", value: "< 24 hours" },
                             { label: "Based In", value: "South Africa" },
-                            { label: "Clients Served", value: "SMEs Globally" },
+                            { label: "Who We Help", value: "SMEs & NPOs" },
                         ].map(item => (
                             <div
                                 key={item.label}

@@ -11,7 +11,7 @@ const consultingServices = [
         title: "Investigative Consultation",
         subtitle: "Start here if you're not sure what's wrong",
         description:
-            "A structured deep-dive into your business operations. We ask the right questions, observe how your team works, and surface where time and money are being lost — with a clear plan to fix it.",
+            "We look closely at how your business runs. We ask questions, watch how your team works, and find where time and money are lost. You get a clear plan to fix it.",
         deliverables: [
             "60–90 minute discovery session",
             "Written findings report",
@@ -20,14 +20,14 @@ const consultingServices = [
             "Clear 'what to fix first' roadmap",
         ],
         cta: "Book an Investigation",
-        badge: "Most Popular Starting Point",
+        badge: "Best Place to Start",
     },
     {
         icon: Wrench,
         title: "Issue Investigation & Resolution",
         subtitle: "Start here if you know what's broken",
         description:
-            "You have a specific operational problem — something is slow, broken, or creating friction for your team. We diagnose it properly, explain the root cause in plain English, and fix it.",
+            "You have a specific problem: something is slow, broken, or getting in your team's way. We find the root cause, explain it in plain English, and fix it.",
         deliverables: [
             "Root cause analysis of the specific issue",
             "Plain-English explanation of what's happening",
@@ -43,7 +43,7 @@ const consultingServices = [
         title: "Cloud Tool Consulting",
         subtitle: "Get more from the tools you're already paying for",
         description:
-            "Most businesses are paying for tools they barely use — or using six tools when two would do. We review your SaaS stack, identify what to keep, cut, and fix, and configure everything to match how your business actually works.",
+            "Many businesses pay for tools they barely use, or use six tools when two would do. We review your SaaS stack, agree with you what to keep, cut, and fix, and set everything up to match how your business works.",
         deliverables: [
             "Full review of your current SaaS tool stack",
             "Identification of overlap, gaps, and underused features",
@@ -52,8 +52,8 @@ const consultingServices = [
             "Ongoing advisory available",
         ],
         cta: "Review My Tools",
-        badge: "Quick Wins Guaranteed",
-        note: "Covers business productivity and SaaS tools — Google Workspace, Microsoft 365, HubSpot, Notion, Airtable, Slack, and more. Not cloud infrastructure or server management.",
+        badge: "Quick Wins",
+        note: "Covers business productivity and SaaS tools: Google Workspace, Microsoft 365, HubSpot, Notion, Airtable, Slack, and more. Not cloud infrastructure or server management.",
     },
 ];
 
@@ -86,7 +86,7 @@ export default function ConsultingPage() {
                         </span>
                     </h1>
                     <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        Whether you know exactly what&apos;s broken or just feel like something&apos;s off — we have a consulting option that fits where you are.
+                        Whether you know exactly what&apos;s broken or just feel like something&apos;s off, one of these options will fit.
                     </p>
                 </motion.div>
 
@@ -177,7 +177,7 @@ export default function ConsultingPage() {
                         className="text-2xl font-heading font-bold text-white mb-4"
                     />
                     <p className="text-slate-400 max-w-xl mx-auto mb-8">
-                        Just reach out and tell us what&apos;s going on. We&apos;ll point you to the right option — or just have a conversation and figure it out together.
+                        Just reach out and tell us what&apos;s going on. We&apos;ll point you to the right option, or we can talk it through together.
                     </p>
                     <Link
                         href="/contact"

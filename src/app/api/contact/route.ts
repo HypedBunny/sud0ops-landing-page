@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
             from: `"Sud0Ops Enquiry" <webmaster@sud0ops.com>`,
             to: "alex@sud0ops.com",
             replyTo: email,
-            subject: `New Enquiry from ${name}${company ? ` (${company})` : ""}${packageInterest ? ` — ${packageInterest}` : ""}`,
+            subject: `New Enquiry from ${name}${company ? ` (${company})` : ""}${packageInterest ? `: ${packageInterest}` : ""}`,
             text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nPackage: ${packageInterest || "N/A"}\n\nMessage:\n${message}`,
             html: `
                 <div style="font-family: 'Inter', sans-serif; background: #0B0F14; color: #f8fafc; padding: 32px; border-radius: 8px; max-width: 600px;">
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
         await transporter.sendMail({
             from: `"Sud0Ops" <webmaster@sud0ops.com>`,
             to: email,
-            subject: "We've received your enquiry — Sud0Ops",
+            subject: "We've received your enquiry | Sud0Ops",
             text: clientConfirmationText({ name, packageInterest }),
             html: clientConfirmationHtml({ name, packageInterest }),
         });
