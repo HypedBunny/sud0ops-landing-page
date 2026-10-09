@@ -287,7 +287,7 @@ export default function AlexPage() {
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/alex-jaybeukes"
+                                href="https://www.linkedin.com/in/alex-jay-beukes"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="glass inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
@@ -685,7 +685,7 @@ export default function AlexPage() {
                                 alex@sud0ops.com
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/alex-jaybeukes"
+                                href="https://www.linkedin.com/in/alex-jay-beukes"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="glass inline-flex h-12 items-center justify-center rounded-md border border-slate-700 px-8 font-medium text-slate-300 transition-colors hover:text-white"

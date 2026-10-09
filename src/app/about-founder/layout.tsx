@@ -24,7 +24,7 @@ const personJsonLd = {
             { "@type": "Organization", name: "Sud0ops", url: "https://sud0ops.com" },
         ],
         address: { "@type": "PostalAddress", addressLocality: "Cape Town", addressCountry: "ZA" },
-        sameAs: ["https://www.linkedin.com/in/alex-jaybeukes"],
+        sameAs: ["https://www.linkedin.com/in/alex-jay-beukes"],
         knowsAbout: [
             "DevOps", "AWS", "CI/CD", "Infrastructure as Code", "Terraform", "AWS CDK",
             "Observability", "OpenTelemetry", "Site Reliability", "FinOps", "Cloud Security", "AI agent workflows",
