@@ -17,7 +17,7 @@ import {
     Activity,
     DollarSign,
     Terminal,
-    Server,
+    Bot,
     Zap,
     Briefcase,
     CheckCircle2,
@@ -71,7 +71,7 @@ const experience = [
         period: "Apr 2026 to Present",
         location: "Cape Town",
         blurb:
-            "Leading the design, stability, and continuous improvement of AWS infrastructure and platform reliability. Keeping systems scalable, secure, and cost-optimised while supporting evolving, data-driven business needs.",
+            "Accountable for cloud governance, platform reliability and delivery standards across the AWS estate. Built keyless CI/CD on OIDC and the shared infrastructure as code, and led production migrations with zero downtime.",
     },
     {
         company: "Sud0ops",
@@ -83,11 +83,11 @@ const experience = [
     },
     {
         company: "Skywalk Innovations",
-        role: "DevOps Engineer, EEIP Program DevOps Lead",
+        role: "DevOps Engineer & AWS EEIP Programme DevOps Lead",
         period: "Jun 2023 to Mar 2026",
         location: "Cape Town",
         blurb:
-            "Led CI/CD, infrastructure automation (IaC), and monitoring across environments. Blended DevOps, FinOps, platform engineering, and site reliability into a stable, efficient delivery pipeline. Cut infrastructure setup times by 50% with AWS CDK.",
+            "DevOps lead for the AWS Equity Equivalent Investment Programme. Introduced and standardised CI/CD across every client, cut environment setup time by about half with AWS CDK, and moved clients to proactive monitoring on OpenTelemetry.",
     },
     {
         company: "Skywalk Innovations",
@@ -105,16 +105,24 @@ const experience = [
         blurb:
             "Cloud fundamentals, Python, Linux, and debugging. The launchpad from behind the bar into a career in technology.",
     },
+    {
+        company: "Baghdad Café",
+        role: "Bartender",
+        period: "Dec 2020 to Jun 2023",
+        location: "Cape Town",
+        blurb:
+            "Paid for my move into technology with bar shifts, through AWS re/Start and my first year as an engineer.",
+    },
 ];
 
 const work = [
     {
         name: "HelperHub",
-        kind: "Consulting + Technical Lead",
+        kind: "Technical Lead / Fractional CTO",
         logo: "/helperhub-logo.png",
         logoClass: "h-10",
         blurb:
-            "Technical lead on the modernisation of a monolithic PHP platform to a modern web stack. Hardened production with observability, secrets, backups, and clean deployments, and drives the v2 architecture.",
+            "Technical lead for a live payroll and HR platform for South African employers. Set the migration strategy from a legacy PHP monolith to a modern platform, delivered a security uplift on the live system with zero downtime, and rebuilt the release process.",
         liveUrl: "https://helperhub.co.za",
         caseUrl: "", // TODO(Alex): optional deep-dive / case study link
     },
@@ -124,7 +132,7 @@ const work = [
         logo: "/bashies-logo.png",
         logoClass: "h-14",
         blurb:
-            "Built the online store on Shopify, paired with a fast, SEO-optimised React landing page to turn browsers into buyers.",
+            "Built the online store on Shopify, with a fast, SEO-optimised React landing page.",
         liveUrl: "https://bashies.co.za",
         caseUrl: "",
     },
@@ -140,24 +148,52 @@ const work = [
     },
     {
         name: "ProVision Alliance",
-        kind: "Consulting + Technical (NPO)",
+        kind: "Volunteer Technical Advisor (NPO)",
         logo: "", // no logo asset yet; renders a monogram tile
         blurb:
-            "Technical lead for a youth-focused NPO. Website, domain, and email architecture, automated deploys, and securing donated software and infrastructure so the organisation can focus on its mission.",
+            "Technical advisor to a youth-focused NPO. Delivered the website, domain, email and hosting, which removed a blocker to their funding applications, and onboarded them to nonprofit programmes, including Microsoft's.",
         liveUrl: "https://provisionalliance.org",
         caseUrl: "",
     },
 ];
 
 const skills = [
-    { label: "CI/CD & Release Engineering", icon: GitBranch },
-    { label: "Infrastructure as Code (AWS CDK)", icon: Boxes },
+    { label: "CI/CD & Containers (GitHub Actions, Docker)", icon: GitBranch },
+    { label: "Infrastructure as Code (Terraform, AWS CDK)", icon: Boxes },
     { label: "AWS Cloud Architecture", icon: Cloud },
-    { label: "Monitoring & Alerting", icon: Activity },
+    { label: "Observability (OpenTelemetry, Grafana)", icon: Activity },
+    { label: "Identity & Security (OIDC, IAM)", icon: ShieldCheck },
     { label: "FinOps & Cost Optimisation", icon: DollarSign },
-    { label: "Containerisation (Docker)", icon: Server },
     { label: "Scripting (Python, Bash)", icon: Terminal },
-    { label: "Site Reliability", icon: ShieldCheck },
+    { label: "AI & Agent Workflows (Claude Code)", icon: Bot },
+];
+
+const facts = [
+    { label: "Based in", value: "Cape Town, South Africa" },
+    { label: "Day job", value: "DevOps Engineer, Rhino Africa" },
+    { label: "Founder", value: "Sud0ops, since December 2025" },
+    { label: "Focus", value: "AWS platforms, CI/CD, reliability, security and cloud cost" },
+    { label: "Top credential", value: "AWS Certified Solutions Architect, Professional" },
+    { label: "Way in", value: "AWS re/Start, not a degree" },
+];
+
+const principles = [
+    {
+        title: "Improve it without taking it down",
+        body: "Most of what I build sits under systems that already carry customers. Migrations and cutovers happen in phases, with zero downtime, never as one big switch.",
+    },
+    {
+        title: "Root cause first",
+        body: "When something breaks, I find out why before I change anything. Then I prove the fix under load before it ships.",
+    },
+    {
+        title: "Standards that hold without me",
+        body: "I standardise how infrastructure is built and how code reaches production. Then I automate the checks, so the standard holds when I am not in the room.",
+    },
+    {
+        title: "Decisions people can make",
+        body: "I write up options, cost and risk in plain language, so a non-technical founder can make the call with confidence.",
+    },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -217,7 +253,7 @@ export default function AlexPage() {
                     >
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
                             <Zap className="h-4 w-4" />
-                            <span>DevOps Engineer &amp; Founder of Sud0ops</span>
+                            <span>DevOps &amp; Platform Engineer · Founder of Sud0ops</span>
                         </div>
 
                         <h1 className="font-heading text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
@@ -233,11 +269,12 @@ export default function AlexPage() {
                         </p>
 
                         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-                            I build systems that are reliable, scalable, and built to
-                            last. DevOps Engineer at Rhino Africa by day, and founder of
-                            Sud0ops, where I help growing teams, NPOs, and small
-                            businesses adopt the right technology and build it properly.
-                            I do not just advise, I get into the codebase and build.
+                            I am a DevOps and platform engineer in Cape Town, and the
+                            founder of Sud0ops. I look after cloud platforms that already
+                            carry real customers, and I improve them without taking them
+                            down. Through Sud0ops I help small businesses, growing teams
+                            and NPOs pick the right technology and build it properly. I do
+                            not just advise, I get into the codebase and build.
                         </p>
 
                         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -273,10 +310,38 @@ export default function AlexPage() {
             </section>
 
             {/* ------------------------------------------------------------- */}
-            {/* ABOUT                                                         */}
+            {/* AT A GLANCE                                                   */}
             {/* ------------------------------------------------------------- */}
-            <section className="relative px-6 lg:px-8">
+            <section id="at-a-glance" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-5xl">
+                    <dl className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {facts.map((fact) => (
+                            <div
+                                key={fact.label}
+                                className="glass rounded-xl border border-white/5 bg-brand-black-light p-5"
+                            >
+                                <dt className="font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
+                                    {fact.label}
+                                </dt>
+                                <dd className="mt-2 text-sm font-medium text-slate-200">
+                                    {fact.value}
+                                </dd>
+                            </div>
+                        ))}
+                    </dl>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
+            {/* STORY                                                         */}
+            {/* ------------------------------------------------------------- */}
+            <section id="story" className="relative px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl">
+                    <SectionHeading
+                        eyebrow="About"
+                        title="My Story"
+                        subtitle="How a bartender became a cloud engineer, and why that still shapes the work."
+                    />
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -288,12 +353,27 @@ export default function AlexPage() {
                             &quot;
                         </span>
                         <p className="text-lg leading-relaxed text-slate-300 sm:text-xl">
-                            I did not follow a traditional path into tech. I was working
-                            as a bartender while figuring things out, and that shaped my
-                            standards early: discipline, resilience, and staying sharp in
-                            fast-paced environments. Today I care about doing things
-                            properly, not just getting systems running, but making sure
-                            they are efficient, stable, and built to last.
+                            I did not follow a traditional path into tech. I came in
+                            through AWS re/Start, not a degree, and I paid for that change
+                            with bar shifts in Cape Town. For a year I held both jobs:
+                            engineering by day, behind the bar at night. That shaped my
+                            standards early: discipline, resilience, and staying sharp when
+                            things move fast.
+                        </p>
+                        <p className="mt-4 text-lg leading-relaxed text-slate-300 sm:text-xl">
+                            I started at Skywalk Innovations as an AWS cloud developer and
+                            grew into DevOps lead for the AWS Equity Equivalent Investment
+                            Programme, which helps South African businesses reach AWS
+                            Partner standing. I introduced CI/CD where there was none,
+                            standardised monitoring across every client, and took client
+                            solutions through AWS Well-Architected reviews.
+                        </p>
+                        <p className="mt-4 text-lg leading-relaxed text-slate-300 sm:text-xl">
+                            Today I am a DevOps engineer at Rhino Africa, responsible for
+                            cloud governance, platform reliability and delivery standards.
+                            Through Sud0ops I am technical lead and fractional CTO for
+                            HelperHub, a live payroll and HR platform, and I volunteer as
+                            technical advisor to ProVision Alliance, a youth-focused NPO.
                         </p>
                         <p className="mt-4 text-lg leading-relaxed text-slate-300 sm:text-xl">
                             <strong className="font-medium text-white">
@@ -309,6 +389,38 @@ export default function AlexPage() {
             </section>
 
             {/* ------------------------------------------------------------- */}
+            {/* HOW I WORK                                                    */}
+            {/* ------------------------------------------------------------- */}
+            <section id="how-i-work" className="relative px-6 lg:px-8">
+                <div className="mx-auto max-w-5xl">
+                    <SectionHeading
+                        eyebrow="Principles"
+                        title="How I Work"
+                        subtitle="The rules I hold myself to, on every platform I touch."
+                    />
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        {principles.map((item, index) => (
+                            <motion.div
+                                key={item.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.4, delay: index * 0.08 }}
+                                className="glass rounded-2xl border border-white/5 bg-brand-black-light p-6"
+                            >
+                                <h3 className="font-heading text-lg font-semibold text-white">
+                                    {item.title}
+                                </h3>
+                                <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                                    {item.body}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ------------------------------------------------------------- */}
             {/* CERTIFICATIONS                                                */}
             {/* ------------------------------------------------------------- */}
             <section id="certifications" className="relative px-6 lg:px-8">
@@ -316,7 +428,7 @@ export default function AlexPage() {
                     <SectionHeading
                         eyebrow="Verified Credentials"
                         title="Certifications"
-                        subtitle="AWS-heavy, with FinOps. Verification links are wired in per credential."
+                        subtitle="AWS-heavy, with FinOps."
                     />
 
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -377,8 +489,8 @@ export default function AlexPage() {
             <section id="experience" className="relative px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl">
                     <SectionHeading
-                        eyebrow="The Journey"
-                        title="Experience"
+                        eyebrow="Experience"
+                        title="The Path So Far"
                         subtitle="From behind the bar to leading cloud reliability."
                     />
 

@@ -1,0 +1,22 @@
+# Sud0ops
+
+> Sud0ops is a technology consultancy in Cape Town, South Africa, founded by Alex-Jay Beukes. It helps small businesses, growing teams and NPOs pick the right technology, set it up properly, learn to use it, and get support when things change. Sud0ops does not only advise: it builds the systems with the team.
+
+Sud0ops works from one idea: most businesses do not have a technology problem, they have an operations problem. The work covers workflow automation, tool integration, dashboards and reporting, process and efficiency reviews, and DevOps: CI/CD, infrastructure as code, monitoring, security and cloud cost (AWS first). Clients are in South Africa and the UK.
+
+Founder: Alex-Jay Beukes, DevOps and platform engineer. AWS Certified Solutions Architect (Professional), AWS Certified Developer (Associate), AWS Certified Cloud Practitioner, AWS re/Start graduate, and FinOps Certified Practitioner.
+
+Contact: alex@sud0ops.com
+
+## Pages
+
+- [Home](https://sud0ops.com/): what Sud0ops does and how it helps, in four steps: discover, build, adopt, support.
+- [About Alex-Jay Beukes](https://sud0ops.com/about-founder): the founder's story, how he works, current roles, client work, certifications and toolkit.
+- [Services](https://sud0ops.com/services): workflow automation, tool integration, internal assistants, dashboards, and process audits, plus the tools Sud0ops works with.
+- [Consulting](https://sud0ops.com/consulting): three ways to start: an investigative consultation, a fix for a known problem, or a review of your SaaS tools.
+- [Clients](https://sud0ops.com/clients): client work for HelperHub (operations, automation and platform modernisation), Bashies (Shopify store and SEO landing page) and Happy Events (custom social events platform).
+- [Contact](https://sud0ops.com/contact): enquiry form. Replies within 24 hours.
+
+## Optional
+
+- [Sitemap](https://sud0ops.com/sitemap.xml): every page on the site, including pages the home page does not link to.

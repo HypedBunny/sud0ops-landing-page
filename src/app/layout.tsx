@@ -22,8 +22,24 @@ const digitalClockFont = Share_Tech_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sud0ops.com"),
   title: "Sud0Ops | Take Control of Your Technology",
   description: "Sud0ops helps growing teams discover, build, adopt, and support the technology that fits them. We don't just advise, we build alongside you.",
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", siteName: "Sud0ops", url: "/" },
+};
+
+// Structured data so search engines and AI summaries can identify the business and its founder.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Sud0ops",
+  url: "https://sud0ops.com",
+  email: "alex@sud0ops.com",
+  description: "Technology consultancy that helps small businesses, growing teams and NPOs pick, build, adopt and support the technology that fits them.",
+  address: { "@type": "PostalAddress", addressLocality: "Cape Town", addressCountry: "ZA" },
+  areaServed: ["ZA", "GB"],
+  founder: { "@type": "Person", name: "Alex-Jay Beukes", url: "https://sud0ops.com/about-founder" },
 };
 
 import { Navbar } from "@/components/layout/Navbar";
@@ -42,6 +58,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${digitalClockFont.variable} font-sans antialiased selection:bg-brand-blue/30 selection:text-white`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Providers>
           <DottedSurface />
           <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
