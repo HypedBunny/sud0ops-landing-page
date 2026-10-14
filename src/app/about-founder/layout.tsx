@@ -71,7 +71,7 @@ const graphJsonLd = {
             name: FOUNDER_NAME,
             givenName: "Alex-Jay",
             familyName: "Beukes",
-            alternateName: ["Alex Beukes", "Alex Jay Beukes", "alex-jay beukes", "AJ Beukes"],
+            alternateName: ["Alex Beukes", "Alex Jay Beukes", "AJ Beukes"],
             description,
             url: FOUNDER_URL,
             mainEntityOfPage: FOUNDER_URL,
