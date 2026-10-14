@@ -118,11 +118,11 @@ const experience = [
 const work = [
     {
         name: "HelperHub",
-        kind: "Technical Lead / Fractional CTO",
+        kind: "Technical Consultant",
         logo: "/helperhub-logo.png",
         logoClass: "h-10",
         blurb:
-            "Technical lead for a live payroll and HR platform for South African employers. Set the migration strategy from a legacy PHP monolith to a modern platform, delivered a security uplift on the live system with zero downtime, and rebuilt the release process.",
+            "Technical consultant to a live payroll and HR platform for South African employers. Set the migration strategy from a legacy PHP monolith to a modern platform, delivered a security uplift on the live system with zero downtime, and rebuilt the release process.",
         liveUrl: "https://helperhub.co.za",
         caseUrl: "", // TODO(Alex): optional deep-dive / case study link
     },
@@ -378,9 +378,9 @@ export default function AlexPage() {
                         <p className="mt-4 text-lg leading-relaxed text-slate-300 sm:text-xl">
                             Today I am a DevOps engineer at Rhino Africa, responsible for
                             cloud governance, platform reliability and delivery standards.
-                            Through Sud0ops I am technical lead and fractional CTO for
-                            HelperHub, a live payroll and HR platform, and I volunteer as
-                            technical advisor to ProVision Alliance, a youth-focused NPO.
+                            Through Sud0ops I was technical consultant to HelperHub, a
+                            live payroll and HR platform, and I volunteer as technical
+                            advisor to ProVision Alliance, a youth-focused NPO.
                         </p>
                         <p className="mt-4 text-lg leading-relaxed text-slate-300 sm:text-xl">
                             <strong className="font-medium text-white">

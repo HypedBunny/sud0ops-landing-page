@@ -6,7 +6,7 @@ import Image from "next/image";
 const clients = [
     {
         name: "HelperHub",
-        description: "HelperHub Modernization",
+        description: "Technical Consultancy & Implementation",
         logo: "/helperhub-logo.png",
         url: "https://helperhub.co.za",
     },
@@ -18,7 +18,7 @@ const clients = [
         logoClass: "h-16",
     },
     {
-        name: "HappyEvents",
+        name: "Happy Shisha",
         description: "Digital Enablement & Social Platform",
         logo: "/happyevents-logo.png",
         url: "https://happyshisha.co.za",

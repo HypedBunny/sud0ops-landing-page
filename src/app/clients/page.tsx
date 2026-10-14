@@ -18,16 +18,16 @@ const clients = [
         logo: "/helperhub-logo.png",
         logoClass: "h-12",
         url: "https://helperhub.co.za",
-        tagline: "Operations, Automation & Platform Modernisation",
+        tagline: "Technical Consultancy & Implementation",
         description:
-            "We started by streamlining HelperHub's core operations: less manual work, automated workflows, and connected tools. Now we secure the live platform and lead its rebuild as a modern web and mobile app.",
+            "Technical consultancy and hands-on implementation for HelperHub, a live payroll and HR platform for South African employers. We streamlined its core operations with automated workflows and connected tools, secured the live platform with zero downtime, and set the strategy to move it off a legacy PHP monolith.",
         deliverables: [
-            "Workflow automation across core business processes",
-            "Tool integration and data synchronisation",
-            "Operational efficiency improvements",
-            "Platform modernisation and production hardening",
+            "Workflow automation and tool integration across core processes",
+            "Zero-downtime security uplift on the live platform",
+            "Migration strategy from a legacy PHP monolith",
+            "Rebuilt release process",
         ],
-        tags: ["Workflow Automation", "Tool Integration", "Operational Efficiency", "Platform Modernisation"],
+        tags: ["Technical Consultancy", "Implementation", "Workflow Automation", "Platform Modernisation"],
         icon: Cloud,
     },
     {
@@ -47,7 +47,7 @@ const clients = [
         icon: ShoppingCart,
     },
     {
-        name: "HappyEvents",
+        name: "Happy Shisha",
         logo: "/happyevents-logo.png",
         logoClass: "h-20",
         url: "https://happyshisha.co.za",
