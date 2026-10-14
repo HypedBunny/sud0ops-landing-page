@@ -1,23 +1,33 @@
 # Sud0ops
 
-> Sud0ops is a technology consultancy in Cape Town, South Africa, founded by Alex-Jay Beukes. It helps small businesses, growing teams and NPOs pick the right technology, set it up properly, learn to use it, and get support when things change. Sud0ops does not only advise: it builds the systems with the team.
+> Sud0ops is a technology and DevOps consultancy based in Cape Town, South Africa, working with small businesses, growing teams and non-profits in South Africa and the UK. It designs, builds and supports the systems a business runs on: automation, integrations, reporting and cloud infrastructure.
 
-Sud0ops works from one idea: most businesses do not have a technology problem, they have an operations problem. The work covers workflow automation, tool integration, dashboards and reporting, process and efficiency reviews, and DevOps: CI/CD, infrastructure as code, monitoring, security and cloud cost (AWS first). Clients are in South Africa and the UK.
+Most businesses do not have a technology problem; they have an operations problem. Sud0ops starts with how the work actually gets done, then implements and supports the tools that improve it, working alongside the client's team rather than handing over a report.
 
-Founder: Alex-Jay Beukes, DevOps and platform engineer in Cape Town, South Africa. AWS Certified Solutions Architect (Professional), AWS Certified Developer (Associate), AWS Certified Cloud Practitioner, AWS re/Start graduate, and FinOps Certified Practitioner.
+## Capabilities
 
-The canonical profile for Alex-Jay Beukes is https://sud0ops.com/about-founder. His other official profiles are LinkedIn (https://www.linkedin.com/in/alex-jay-beukes) and Credly, where his certifications can be verified (https://www.credly.com/users/alex-jay-beukes). The name is also written "Alex Beukes", "Alex Jay Beukes" and "AJ Beukes". Official headshot: https://sud0ops.com/alex.jpg
+- Workflow automation and tool integration
+- Dashboards, reporting and internal assistants
+- Process, efficiency and SaaS reviews
+- DevOps and platform engineering: CI/CD, infrastructure as code, monitoring and security
+- Cloud architecture and cost management, AWS first
+
+Engagements follow four stages: discover, build, adopt, support.
+
+## Leadership
+
+Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer. Profile: https://sud0ops.com/about-founder · LinkedIn: https://www.linkedin.com/in/alex-jay-beukes
 
 Contact: alex@sud0ops.com
 
 ## Pages
 
-- [Home](https://sud0ops.com/): what Sud0ops does and how it helps, in four steps: discover, build, adopt, support.
-- [About Alex-Jay Beukes](https://sud0ops.com/about-founder): the founder's story, how he works, current roles, client work, certifications and toolkit.
-- [Services](https://sud0ops.com/services): workflow automation, tool integration, internal assistants, dashboards, and process audits, plus the tools Sud0ops works with.
-- [Consulting](https://sud0ops.com/consulting): three ways to start: an investigative consultation, a fix for a known problem, or a review of your SaaS tools.
-- [Clients](https://sud0ops.com/clients): client work for HelperHub (operations, automation and platform modernisation), Bashies (Shopify store and SEO landing page) and Happy Events (custom social events platform).
-- [Contact](https://sud0ops.com/contact): enquiry form. Replies within 24 hours.
+- [Home](https://sud0ops.com/): overview of the practice and how engagements run.
+- [Services](https://sud0ops.com/services): service lines and the platforms Sud0ops works with.
+- [Consulting](https://sud0ops.com/consulting): three entry points: an investigative consultation, a fix for a known problem, or a SaaS review.
+- [Clients](https://sud0ops.com/clients): selected work for HelperHub (operations, automation and platform modernisation), Bashies (Shopify store and SEO) and Happy Events (custom events platform).
+- [About the founder](https://sud0ops.com/about-founder): background, approach and experience.
+- [Contact](https://sud0ops.com/contact): enquiry form.
 
 ## Optional
 
