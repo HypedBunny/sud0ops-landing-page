@@ -16,7 +16,7 @@ Engagements follow four stages: discover, build, adopt, support.
 
 ## Leadership
 
-Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer. Profile: https://sud0ops.com/about-founder · LinkedIn: https://www.linkedin.com/in/alex-jay-beukes
+Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer. Profile: https://sud0ops.com/about-founder · LinkedIn: https://www.linkedin.com/in/alex-jay-beukes · Credly: https://www.credly.com/users/alex-jay-beukes
 
 Contact: alex@sud0ops.com
 
