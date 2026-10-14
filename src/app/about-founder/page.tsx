@@ -487,6 +487,19 @@ export default function AlexPage() {
                             </motion.div>
                         ))}
                     </div>
+
+                    <div className="mt-8 text-center">
+                        <a
+                            href="https://www.credly.com/users/alex-jay-beukes"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-glow"
+                        >
+                            <ShieldCheck className="h-4 w-4" />
+                            Verify all badges on Credly
+                            <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                    </div>
                 </div>
             </section>
 

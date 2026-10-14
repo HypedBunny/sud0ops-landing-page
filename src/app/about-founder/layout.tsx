@@ -15,7 +15,7 @@ const description =
     "Alex-Jay Beukes is a DevOps and platform engineer in Cape Town and the founder of Sud0ops. AWS Solutions Architect Professional. He came into tech through AWS re/Start and now improves live cloud platforms without taking them down.";
 
 // The headshot doubles as the social preview, so shares and vision models see the same labelled photo.
-const photo = { url: FOUNDER_PHOTO_PATH, alt: FOUNDER_PHOTO_CAPTION };
+const photo = { url: FOUNDER_PHOTO_PATH, alt: FOUNDER_PHOTO_CAPTION, width: 800, height: 800 };
 
 export const metadata: Metadata = {
     title,
@@ -45,6 +45,8 @@ const photoJsonLd = {
     contentUrl: FOUNDER_PHOTO_URL,
     name: FOUNDER_NAME,
     caption: FOUNDER_PHOTO_CAPTION,
+    width: 800,
+    height: 800,
     representativeOfPage: true,
     creditText: FOUNDER_NAME,
     copyrightNotice: `© ${FOUNDER_NAME}`,
@@ -69,7 +71,7 @@ const graphJsonLd = {
             name: FOUNDER_NAME,
             givenName: "Alex-Jay",
             familyName: "Beukes",
-            alternateName: ["Alex Beukes", "Alex Jay Beukes"],
+            alternateName: ["Alex Beukes", "Alex Jay Beukes", "AJ Beukes"],
             description,
             url: FOUNDER_URL,
             mainEntityOfPage: FOUNDER_URL,
@@ -81,7 +83,10 @@ const graphJsonLd = {
                 { "@id": `${SITE_URL}/#organization` },
             ],
             address: { "@type": "PostalAddress", addressLocality: "Cape Town", addressCountry: "ZA" },
-            sameAs: ["https://www.linkedin.com/in/alex-jay-beukes"],
+            sameAs: [
+                "https://www.linkedin.com/in/alex-jay-beukes",
+                "https://www.credly.com/users/alex-jay-beukes",
+            ],
             knowsAbout: [
                 "DevOps", "AWS", "CI/CD", "Infrastructure as Code", "Terraform", "AWS CDK",
                 "Observability", "OpenTelemetry", "Site Reliability", "FinOps", "Cloud Security", "AI agent workflows",

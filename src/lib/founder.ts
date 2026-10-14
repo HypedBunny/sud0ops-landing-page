@@ -9,8 +9,9 @@ export const FOUNDER_URL = `${SITE_URL}/about-founder`;
 export const FOUNDER_ID = `${FOUNDER_URL}#person`;
 export const FOUNDER_NAME = "Alex-Jay Beukes";
 
-// Headshot: drop a square JPG at public/alex.jpg (at least 800x800) and it is
-// picked up on the next build by the page, JSON-LD, Open Graph and image sitemap.
+// Headshot: a square 800x800 JPG at public/alex.jpg. If you replace it, keep the
+// size (layout.tsx declares it). The page, JSON-LD, Open Graph and image sitemap
+// all pick it up on the next build.
 export const FOUNDER_PHOTO_PATH = "/alex.jpg";
 export const FOUNDER_PHOTO_URL = `${SITE_URL}${FOUNDER_PHOTO_PATH}`;
 export const FOUNDER_PHOTO_CAPTION =
