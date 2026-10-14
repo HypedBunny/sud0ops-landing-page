@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sud0ops-landing-page",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-12",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    // Must match "name" above.
+    { "binding": "WORKER_SELF_REFERENCE", "service": "sud0ops-landing-page" }
+  ],
+  "routes": [
+    { "pattern": "sud0ops.com", "custom_domain": true },
+    { "pattern": "www.sud0ops.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+  // SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS are Worker secrets (wrangler secret put).
+}
