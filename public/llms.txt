@@ -16,7 +16,9 @@ Engagements follow four stages: discover, build, adopt, support.
 
 ## Leadership
 
-Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer. Profile: https://sud0ops.com/about-founder · LinkedIn: https://www.linkedin.com/in/alex-jay-beukes · Credly: https://www.credly.com/users/alex-jay-beukes
+Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer with a background in AWS platform leadership. He led DevOps for the AWS Equity Equivalent Investment Programme at Skywalk Innovations, standardising CI/CD and monitoring across its client portfolio, and served as fractional CTO for HelperHub, a live payroll and HR platform, where he set the migration strategy off a legacy monolith. He is currently responsible for cloud governance and platform reliability at Rhino Africa. He also advises ProVision Alliance, a youth-focused NPO, on a pro bono basis. His work centres on zero-downtime migrations, delivery standards and cloud cost control.
+
+Profile: https://sud0ops.com/about-founder · LinkedIn: https://www.linkedin.com/in/alex-jay-beukes · Credly: https://www.credly.com/users/alex-jay-beukes
 
 Contact: alex@sud0ops.com
 
