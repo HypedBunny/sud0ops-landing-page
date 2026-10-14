@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
+import { FOUNDER_ID, FOUNDER_NAME, FOUNDER_PHOTO_URL, FOUNDER_URL, SITE_URL, hasFounderPhoto } from "@/lib/founder";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,13 +34,21 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
   name: "Sud0ops",
   url: "https://sud0ops.com",
   email: "alex@sud0ops.com",
   description: "Technology consultancy that helps small businesses, growing teams and NPOs pick, build, adopt and support the technology that fits them.",
   address: { "@type": "PostalAddress", addressLocality: "Cape Town", addressCountry: "ZA" },
   areaServed: ["ZA", "GB"],
-  founder: { "@type": "Person", name: "Alex-Jay Beukes", url: "https://sud0ops.com/about-founder" },
+  // Same @id as the Person on /about-founder, so both pages describe one entity.
+  founder: {
+    "@type": "Person",
+    "@id": FOUNDER_ID,
+    name: FOUNDER_NAME,
+    url: FOUNDER_URL,
+    ...(hasFounderPhoto && { image: FOUNDER_PHOTO_URL }),
+  },
 };
 
 import { Navbar } from "@/components/layout/Navbar";

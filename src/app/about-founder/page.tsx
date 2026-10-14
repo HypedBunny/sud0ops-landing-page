@@ -198,20 +198,23 @@ const principles = [
 
 /* -------------------------------------------------------------------------- */
 /*  HEADSHOT                                                                   */
-/*  Drop a photo at public/alex.jpg and it appears automatically.              */
+/*  Drop a photo at public/alex.jpg and it appears automatically, and the     */
+/*  next build adds it to the JSON-LD, Open Graph and image sitemap.          */
 /*  Until then a clean "AJ" monogram stands in.                               */
 /* -------------------------------------------------------------------------- */
 function Headshot() {
     const [ok, setOk] = useState(true);
     return (
-        <div className="relative">
+        <figure className="relative">
             <div className="absolute -inset-4 rounded-full bg-brand-blue/20 blur-2xl" />
             <div className="relative h-48 w-48 sm:h-56 sm:w-56 overflow-hidden rounded-full border border-brand-blue/30 bg-brand-black-light box-glow">
                 {ok ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                         src="/alex.jpg"
-                        alt="Alex-Jay Beukes"
+                        alt="Alex-Jay Beukes, DevOps and platform engineer and founder of Sud0ops"
+                        width={448}
+                        height={448}
                         className="h-full w-full object-cover"
                         onError={() => setOk(false)}
                     />
@@ -223,11 +226,15 @@ function Headshot() {
                     </div>
                 )}
             </div>
+            {/* Names the photo in the HTML next to it, so crawlers tie the face to the name. */}
+            <figcaption className="sr-only">
+                Alex-Jay Beukes, founder of Sud0ops, Cape Town
+            </figcaption>
             <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-brand-black/80 px-3 py-1 text-xs text-slate-300 backdrop-blur-md">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
                 Open to build
             </span>
-        </div>
+        </figure>
     );
 }
 

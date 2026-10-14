@@ -4,7 +4,9 @@
 
 Sud0ops works from one idea: most businesses do not have a technology problem, they have an operations problem. The work covers workflow automation, tool integration, dashboards and reporting, process and efficiency reviews, and DevOps: CI/CD, infrastructure as code, monitoring, security and cloud cost (AWS first). Clients are in South Africa and the UK.
 
-Founder: Alex-Jay Beukes, DevOps and platform engineer. AWS Certified Solutions Architect (Professional), AWS Certified Developer (Associate), AWS Certified Cloud Practitioner, AWS re/Start graduate, and FinOps Certified Practitioner.
+Founder: Alex-Jay Beukes, DevOps and platform engineer in Cape Town, South Africa. AWS Certified Solutions Architect (Professional), AWS Certified Developer (Associate), AWS Certified Cloud Practitioner, AWS re/Start graduate, and FinOps Certified Practitioner.
+
+The canonical profile for Alex-Jay Beukes is https://sud0ops.com/about-founder. His only other official profile is LinkedIn: https://www.linkedin.com/in/alex-jay-beukes. The name is also written "Alex Beukes" and "Alex Jay Beukes".
 
 Contact: alex@sud0ops.com
 
