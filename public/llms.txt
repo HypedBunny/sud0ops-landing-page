@@ -30,7 +30,6 @@ Contact: alex@sud0ops.com
 - [Clients](https://sud0ops.com/clients): selected work for HelperHub (technical consultancy and implementation), Bashies (Shopify store and SEO) and Happy Shisha (custom social events platform).
 - [About the founder](https://sud0ops.com/about-founder): background, approach and experience.
 - [Blog](https://sud0ops.com/blog.md): posts on automation, DevOps, cloud and AI, as a markdown index. Every post is available as markdown: send `Accept: text/markdown` to its URL, or add `.md` to it.
-- [Contact](https://sud0ops.com/contact): enquiry form.
 
 ## Optional
 

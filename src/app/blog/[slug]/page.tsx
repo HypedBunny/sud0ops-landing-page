@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                             toolbarStart={
                                 <Link
                                     href="/blog"
-                                    className="group inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-brand-accent"
+                                    className="group inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-brand-blue"
                                 >
                                     <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
                                     Back to blog
@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                                 {post.tags.length > 0 && (
                                     <div className="mb-5 flex flex-wrap gap-2">
                                         {post.tags.map((tag) => (
-                                            <span key={tag} className="rounded-md border border-brand-accent/20 bg-brand-accent/5 px-3 py-1 font-mono text-xs font-medium tracking-wide text-brand-accent">
+                                            <span key={tag} className="rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs font-medium tracking-wide text-brand-blue">
                                                 {tag}
                                             </span>
                                         ))}

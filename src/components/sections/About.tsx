@@ -18,11 +18,11 @@ export function About() {
                         What We Actually Do
                     </h2>
                     <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto panel p-8 sm:p-12 rounded-md relative">
-                        <span className="absolute -top-4 -left-4 text-brand-accent text-6xl opacity-20 font-serif">&quot;</span>
+                        <span className="absolute -top-4 -left-4 text-brand-blue text-6xl opacity-20 font-serif">&quot;</span>
                         Most businesses aren&apos;t slow because they lack people — they&apos;re slow because no one has ever automated the right things. Manual processes, disconnected tools, and work that should never touch a human inbox. We fix that. <br className="hidden sm:block" />
                         <br className="hidden sm:block" />
                         <strong className="text-white font-medium">We don&apos;t just advise — we find the waste and build the systems that eliminate it.</strong>
-                        <span className="absolute -bottom-10 -right-4 text-brand-accent text-6xl opacity-20 font-serif leading-none">&quot;</span>
+                        <span className="absolute -bottom-10 -right-4 text-brand-blue text-6xl opacity-20 font-serif leading-none">&quot;</span>
                     </p>
                 </motion.div>
             </div>

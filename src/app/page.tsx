@@ -17,7 +17,7 @@ export default function Home() {
 
                         <h1 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
                             You don’t have a technology problem.{" "}
-                            <span className="text-brand-accent">You have an operations problem.</span>
+                            <span className="text-brand-blue">You have an operations problem.</span>
                         </h1>
 
                         <p className="mt-7 max-w-xl text-xl font-medium leading-snug text-brand-paper sm:text-2xl">

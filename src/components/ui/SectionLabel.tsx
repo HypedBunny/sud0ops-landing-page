@@ -2,7 +2,7 @@
 export function SectionLabel({ index, children }: { index: string; children: React.ReactNode }) {
     return (
         <p className="mb-4 font-mono text-xs uppercase tracking-wider text-slate-500">
-            <span className="text-brand-accent">{index}</span> / {children}
+            <span className="text-brand-blue">{index}</span> / {children}
         </p>
     );
 }

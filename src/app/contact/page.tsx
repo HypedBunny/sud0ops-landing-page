@@ -56,13 +56,13 @@ export default function ContactPage() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="text-center mb-16"
                 >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                         <Mail className="h-4 w-4" />
                         <span>Get In Touch</span>
                     </div>
                     <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
                         Let&apos;s Start With a{" "}
-                        <span className="text-brand-accent">
+                        <span className="text-brand-blue">
                             Conversation
                         </span>
                     </h1>
@@ -85,8 +85,8 @@ export default function ContactPage() {
                                 transition={{ duration: 0.4 }}
                                 className="flex flex-col items-center text-center py-12 gap-4"
                             >
-                                <div className="h-16 w-16 rounded-full bg-brand-accent/10 ring-1 ring-brand-accent/30 flex items-center justify-center">
-                                    <CheckCircle className="h-8 w-8 text-brand-accent" />
+                                <div className="h-16 w-16 rounded-full bg-brand-blue/10 ring-1 ring-brand-blue/30 flex items-center justify-center">
+                                    <CheckCircle className="h-8 w-8 text-brand-blue" />
                                 </div>
                                 <h2 className="font-heading text-2xl font-bold text-white">Message Sent</h2>
                                 <p className="text-slate-400 max-w-sm">
@@ -94,7 +94,7 @@ export default function ContactPage() {
                                 </p>
                                 <button
                                     onClick={() => setStatus("idle")}
-                                    className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-brand-accent/10 px-6 text-sm font-medium text-brand-accent ring-1 ring-brand-accent/30 transition-all hover:bg-brand-accent/20 hover:ring-brand-accent/50 hover:text-brand-accent-hover lift-hover"
+                                    className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-brand-blue/10 px-6 text-sm font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 hover:text-brand-blue-hover lift-hover"
                                 >
                                     Send Another
                                 </button>
@@ -104,8 +104,8 @@ export default function ContactPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                            <User className="h-3.5 w-3.5 text-brand-accent" />
-                                            Name <span className="text-brand-accent">*</span>
+                                            <User className="h-3.5 w-3.5 text-brand-blue" />
+                                            Name <span className="text-brand-blue">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -113,13 +113,13 @@ export default function ContactPage() {
                                             value={form.name}
                                             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                                             placeholder="Alex Johnson"
-                                            className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-accent/50 focus:ring-1 focus:ring-brand-accent/30"
+                                            className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                         />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                            <Mail className="h-3.5 w-3.5 text-brand-accent" />
-                                            Email <span className="text-brand-accent">*</span>
+                                            <Mail className="h-3.5 w-3.5 text-brand-blue" />
+                                            Email <span className="text-brand-blue">*</span>
                                         </label>
                                         <input
                                             type="email"
@@ -127,14 +127,14 @@ export default function ContactPage() {
                                             value={form.email}
                                             onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                                             placeholder="alex@yourcompany.com"
-                                            className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-accent/50 focus:ring-1 focus:ring-brand-accent/30"
+                                            className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                        <Building2 className="h-3.5 w-3.5 text-brand-accent" />
+                                        <Building2 className="h-3.5 w-3.5 text-brand-blue" />
                                         Company <span className="text-slate-500 text-xs font-normal">(optional)</span>
                                     </label>
                                     <input
@@ -142,19 +142,19 @@ export default function ContactPage() {
                                         value={form.company}
                                         onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
                                         placeholder="Your Company Ltd."
-                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-accent/50 focus:ring-1 focus:ring-brand-accent/30"
+                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                        <Package className="h-3.5 w-3.5 text-brand-accent" />
+                                        <Package className="h-3.5 w-3.5 text-brand-blue" />
                                         Interested In <span className="text-slate-500 text-xs font-normal">(optional)</span>
                                     </label>
                                     <select
                                         value={form.packageInterest}
                                         onChange={e => setForm(f => ({ ...f, packageInterest: e.target.value }))}
-                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white outline-none transition-all focus:border-brand-accent/50 focus:ring-1 focus:ring-brand-accent/30 appearance-none"
+                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30 appearance-none"
                                     >
                                         <option value="" className="bg-brand-black-lighter">Select a package...</option>
                                         {packageOptions.map(pkg => (
@@ -165,8 +165,8 @@ export default function ContactPage() {
 
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                        <MessageSquare className="h-3.5 w-3.5 text-brand-accent" />
-                                        Message <span className="text-brand-accent">*</span>
+                                        <MessageSquare className="h-3.5 w-3.5 text-brand-blue" />
+                                        Message <span className="text-brand-blue">*</span>
                                     </label>
                                     <textarea
                                         required
@@ -174,7 +174,7 @@ export default function ContactPage() {
                                         value={form.message}
                                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                                         placeholder="What's broken? What's slowing you down?"
-                                        className="w-full resize-none rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-accent/50 focus:ring-1 focus:ring-brand-accent/30"
+                                        className="w-full resize-none rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
                                     />
                                 </div>
 
@@ -230,7 +230,7 @@ export default function ContactPage() {
                                 className="panel rounded-lg px-6 py-4 text-center"
                             >
                                 <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">{item.label}</p>
-                                <p className="text-sm font-medium text-brand-accent">{item.value}</p>
+                                <p className="text-sm font-medium text-brand-blue">{item.value}</p>
                             </div>
                         ))}
                     </motion.div>

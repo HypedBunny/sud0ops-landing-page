@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 // ">Sud0ops_": a terminal prompt, then the name typed one character at a time
-// (S-u-d-0-o-p-s), then a blinking cursor. The 0 is a seven-segment digit with the root slash.
+// (S-u-d-0-o-p-s), then a blinking cursor. Prompt and cursor are amber; the 0 is the original
+// blue seven-segment digit with the root slash.
 const TOTAL = 7;
 
 export function Logo() {
@@ -37,7 +38,7 @@ export function Logo() {
 function SegmentZero() {
     return (
         <span className="relative mx-[2px] inline-flex items-center">
-            <svg width="28" height="38" viewBox="0 0 28 38" fill="none" aria-hidden="true" className="text-brand-accent">
+            <svg width="28" height="38" viewBox="0 0 28 38" fill="none" aria-hidden="true" className="text-brand-blue">
                 {/* Container */}
                 <rect x="0.5" y="0.5" width="27" height="37" rx="3" className="fill-brand-black-light stroke-brand-line" strokeWidth="1" />
                 <g fill="currentColor">

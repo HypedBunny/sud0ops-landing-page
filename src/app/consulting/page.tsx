@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Search, Wrench, Cloud, CheckCircle, MessageSquare } from "lucide-react";
-import Link from "next/link";
 import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const consultingServices = [
@@ -70,13 +69,13 @@ export default function ConsultingPage() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="text-center mb-24"
                 >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                         <MessageSquare className="h-4 w-4" />
                         <span>Consulting</span>
                     </div>
                     <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
                         Start With a{" "}
-                        <span className="text-brand-accent">
+                        <span className="text-brand-blue">
                             Conversation
                         </span>
                     </h1>
@@ -96,7 +95,7 @@ export default function ConsultingPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="group relative rounded-md p-8 lg:p-10 panel overflow-hidden border border-white/5 hover:border-brand-accent/40 transition-all duration-300 bg-brand-black-light lift-hover"
+                                className="group relative rounded-md p-8 lg:p-10 panel overflow-hidden border border-white/5 hover:border-brand-blue/40 transition-all duration-300 bg-brand-black-light lift-hover"
                             >
                                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
@@ -104,15 +103,15 @@ export default function ConsultingPage() {
                                     {/* Left: info */}
                                     <div>
                                         <div className="flex items-start gap-4 mb-6">
-                                            <div className="flex-shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-accent/10 text-brand-accent ring-1 ring-brand-accent/20 group-hover:bg-brand-accent group-hover:text-brand-black group-hover:ring-brand-accent transition-colors duration-300">
+                                            <div className="flex-shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 group-hover:bg-brand-blue group-hover:text-brand-black group-hover:ring-brand-blue transition-colors duration-300">
                                                 <Icon className="h-6 w-6" />
                                             </div>
                                             <div>
                                                 <div className="flex items-center gap-3 flex-wrap mb-1">
-                                                    <h2 className="text-2xl font-heading font-bold text-white group-hover:text-brand-accent transition-colors">
+                                                    <h2 className="text-2xl font-heading font-bold text-white group-hover:text-brand-blue transition-colors">
                                                         {service.title}
                                                     </h2>
-                                                    <span className="inline-block rounded-sm border border-brand-accent/30 bg-brand-accent/5 px-2.5 py-0.5 font-mono text-xs font-medium text-brand-accent">
+                                                    <span className="inline-block rounded-sm border border-brand-blue/30 bg-brand-blue/5 px-2.5 py-0.5 font-mono text-xs font-medium text-brand-blue">
                                                         {service.badge}
                                                     </span>
                                                 </div>
@@ -123,7 +122,7 @@ export default function ConsultingPage() {
                                         <p className="text-slate-300 leading-relaxed mb-6">{service.description}</p>
 
                                         {service.note && (
-                                            <p className="text-xs text-slate-500 italic border-l-2 border-brand-accent/30 pl-3">
+                                            <p className="text-xs text-slate-500 italic border-l-2 border-brand-blue/30 pl-3">
                                                 {service.note}
                                             </p>
                                         )}
@@ -136,22 +135,22 @@ export default function ConsultingPage() {
                                             <ul className="space-y-3 mb-8">
                                                 {service.deliverables.map((d) => (
                                                     <li key={d} className="flex items-start gap-2.5">
-                                                        <CheckCircle className="h-4 w-4 text-brand-accent flex-shrink-0 mt-0.5" />
+                                                        <CheckCircle className="h-4 w-4 text-brand-blue flex-shrink-0 mt-0.5" />
                                                         <span className="text-sm text-slate-300">{d}</span>
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
 
-                                        <Link
-                                            href="/contact"
+                                        <a
+                                            href="mailto:alex@sud0ops.com"
                                             className="group/btn inline-flex h-11 items-center justify-center rounded-md bg-brand-accent px-6 font-medium text-brand-black text-sm transition-all hover:bg-brand-accent-hover lift-hover self-start"
                                         >
                                             <span className="flex items-center gap-2">
                                                 {service.cta}
                                                 <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                                             </span>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </motion.div>
@@ -174,15 +173,15 @@ export default function ConsultingPage() {
                     <p className="text-slate-400 max-w-xl mx-auto mb-8">
                         Just reach out and tell us what&apos;s going on. We&apos;ll point you to the right option, or we can talk it through together.
                     </p>
-                    <Link
-                        href="/contact"
-                        className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-accent/10 px-8 font-medium text-brand-accent ring-1 ring-brand-accent/30 transition-all hover:bg-brand-accent/20 hover:ring-brand-accent/50 hover:text-brand-accent-hover lift-hover"
+                    <a
+                        href="mailto:alex@sud0ops.com"
+                        className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue/10 px-8 font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 hover:text-brand-blue-hover lift-hover"
                     >
                         <span className="flex items-center gap-2">
                             Let&apos;s Talk
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </span>
-                    </Link>
+                    </a>
                 </motion.div>
 
             </div>

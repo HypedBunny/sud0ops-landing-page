@@ -49,7 +49,7 @@ export function Services() {
                             <article key={service.title} className="group flex flex-col bg-brand-black p-6 transition-colors duration-300 hover:bg-brand-black-light sm:p-8">
                                 <div className="mb-6 flex items-center justify-between">
                                     <div className="flex items-center gap-3">
-                                        <span className="flex h-10 w-10 items-center justify-center border border-brand-line text-brand-accent transition-colors group-hover:border-brand-accent">
+                                        <span className="flex h-10 w-10 items-center justify-center border border-brand-line text-brand-blue transition-colors group-hover:border-brand-blue">
                                             <Icon className="h-5 w-5" aria-hidden="true" />
                                         </span>
                                         <h3 className="font-heading text-xl font-semibold text-white">{service.title}</h3>
@@ -64,8 +64,8 @@ export function Services() {
                                         <dt className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-slate-500">Before</dt>
                                         <dd className="text-sm leading-relaxed text-slate-400">{service.before}</dd>
                                     </div>
-                                    <div className="border-l-2 border-brand-accent pl-4">
-                                        <dt className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-brand-accent">After</dt>
+                                    <div className="border-l-2 border-brand-blue pl-4">
+                                        <dt className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-brand-blue">After</dt>
                                         <dd className="text-sm leading-relaxed text-brand-paper">{service.after}</dd>
                                     </div>
                                 </dl>

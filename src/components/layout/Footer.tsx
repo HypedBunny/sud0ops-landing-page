@@ -29,8 +29,8 @@ export function Footer() {
                         <div>
                             <h3 className="font-mono text-xs uppercase tracking-wider text-slate-500">Contact</h3>
                             <ul className="mt-4 space-y-3 text-sm text-slate-300">
-                                <li><Link href="mailto:alex@sud0ops.com" className="hover:text-brand-accent transition-colors">alex@sud0ops.com</Link></li>
-                                <li><Link href="/blog" className="hover:text-brand-accent transition-colors">Blog</Link></li>
+                                <li><Link href="mailto:alex@sud0ops.com" className="hover:text-brand-blue transition-colors">alex@sud0ops.com</Link></li>
+                                <li><Link href="/blog" className="hover:text-brand-blue transition-colors">Blog</Link></li>
                             </ul>
                         </div>
                     </div>

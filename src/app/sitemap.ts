@@ -3,7 +3,7 @@ import { FOUNDER_PHOTO_URL, hasFounderPhoto } from "@/lib/founder";
 import { getPosts, postUrl } from "@/lib/blog";
 
 // Lists every live page, including the ones the home page does not link to.
-const pages = ["", "/about-founder", "/blog", "/services", "/consulting", "/clients", "/contact"];
+const pages = ["", "/about-founder", "/blog", "/services", "/consulting", "/clients"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
     return [

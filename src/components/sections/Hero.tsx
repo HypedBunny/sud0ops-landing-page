@@ -15,14 +15,14 @@ export function Hero() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="mx-auto max-w-3xl"
                 >
-                    <div className="mb-8 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
+                    <div className="mb-8 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                         <Zap className="h-4 w-4" />
                         <span>Business Automation &amp; Operational Efficiency</span>
                     </div>
 
                     <h1 className="font-heading text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6 leading-tight">
                         Your Business <br className="hidden sm:block" />
-                        <span className="text-brand-accent">Should Run Itself.</span>
+                        <span className="text-brand-blue">Should Run Itself.</span>
                     </h1>
 
                     <p className="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto mb-10">
@@ -30,13 +30,13 @@ export function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link
-                            href="/contact"
+                        <a
+                            href="mailto:alex@sud0ops.com"
                             className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover"
                         >
                             <span className="mr-2">Book a Free Discovery Call</span>
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                        </a>
 
                         <Link
                             href="#capabilities"

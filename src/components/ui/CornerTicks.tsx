@@ -1,6 +1,6 @@
 // L-shaped marks on a box's four corners, like the registration marks on a drawing.
 // The parent must be `relative`.
-export function CornerTicks({ className = "border-brand-accent" }: { className?: string }) {
+export function CornerTicks({ className = "border-brand-blue" }: { className?: string }) {
     const tick = `pointer-events-none absolute h-3 w-3 ${className}`;
     return (
         <>

@@ -221,7 +221,7 @@ function Headshot() {
                     />
                 ) : (
                     <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:16px_16px]">
-                        <span className="font-heading text-6xl font-bold text-brand-accent">
+                        <span className="font-heading text-6xl font-bold text-brand-blue">
                             AJ
                         </span>
                     </div>
@@ -256,20 +256,20 @@ export default function AlexPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                             <Zap className="h-4 w-4" />
                             <span>DevOps &amp; Platform Engineer · Founder of Sud0ops</span>
                         </div>
 
                         <h1 className="font-heading text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
                             Alex-Jay{" "}
-                            <span className="text-brand-accent">
+                            <span className="text-brand-blue">
                                 Beukes
                             </span>
                         </h1>
 
                         <p className="mt-4 flex items-center gap-2 font-mono text-sm text-slate-400">
-                            <MapPin className="h-4 w-4 text-brand-accent" />
+                            <MapPin className="h-4 w-4 text-brand-blue" />
                             Cape Town, South Africa
                         </p>
 
@@ -325,7 +325,7 @@ export default function AlexPage() {
                                 key={fact.label}
                                 className="panel rounded-md border border-white/5 bg-brand-black-light p-5"
                             >
-                                <dt className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent/70">
+                                <dt className="font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
                                     {fact.label}
                                 </dt>
                                 <dd className="mt-2 text-sm font-medium text-slate-200">
@@ -354,7 +354,7 @@ export default function AlexPage() {
                         transition={{ duration: 0.7 }}
                         className="panel relative rounded-md p-8 sm:p-12"
                     >
-                        <span className="absolute -top-4 -left-4 font-serif text-6xl text-brand-accent opacity-20">
+                        <span className="absolute -top-4 -left-4 font-serif text-6xl text-brand-blue opacity-20">
                             &quot;
                         </span>
                         <p className="text-lg leading-relaxed text-slate-300 sm:text-xl">
@@ -444,14 +444,14 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                                className="group panel flex flex-col justify-between rounded-md border border-white/5 bg-brand-black-light p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/50 lift-hover"
+                                className="group panel flex flex-col justify-between rounded-md border border-white/5 bg-brand-black-light p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/50 lift-hover"
                             >
                                 <div>
                                     <div className="mb-4 flex items-start justify-between gap-3">
-                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-accent/10 text-brand-accent ring-1 ring-brand-accent/20 transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-brand-black">
+                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
                                             <Award className="h-5 w-5" />
                                         </div>
-                                        <span className="rounded-sm border border-brand-accent/20 bg-brand-accent/5 px-3 py-1 font-mono text-xs text-brand-accent/80">
+                                        <span className="rounded-sm border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs text-brand-blue/80">
                                             {cert.level}
                                         </span>
                                     </div>
@@ -469,7 +469,7 @@ export default function AlexPage() {
                                             href={cert.verifyUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-accent transition-colors hover:text-brand-accent-hover"
+                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                                         >
                                             <ShieldCheck className="h-4 w-4" />
                                             Verify credential
@@ -491,7 +491,7 @@ export default function AlexPage() {
                             href="https://www.credly.com/users/alex-jay-beukes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-accent transition-colors hover:text-brand-accent-hover"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                         >
                             <ShieldCheck className="h-4 w-4" />
                             Verify all badges on Credly
@@ -522,7 +522,7 @@ export default function AlexPage() {
                                 transition={{ duration: 0.5, delay: index * 0.05 }}
                                 className="relative pb-12 last:pb-0"
                             >
-                                <span className="absolute -left-[42px] sm:-left-[50px] flex h-5 w-5 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-black">
+                                <span className="absolute -left-[42px] sm:-left-[50px] flex h-5 w-5 items-center justify-center rounded-full border border-brand-blue/40 bg-brand-black">
                                     <span className="h-2 w-2 rounded-full bg-brand-accent" />
                                 </span>
 
@@ -530,12 +530,12 @@ export default function AlexPage() {
                                     <h3 className="font-heading text-lg font-semibold text-white">
                                         {job.role}
                                     </h3>
-                                    <span className="font-mono text-xs text-brand-accent/70">
+                                    <span className="font-mono text-xs text-brand-blue/70">
                                         {job.period}
                                     </span>
                                 </div>
                                 <p className="mt-0.5 flex items-center gap-2 text-sm font-medium text-slate-400">
-                                    <Briefcase className="h-3.5 w-3.5 text-brand-accent/60" />
+                                    <Briefcase className="h-3.5 w-3.5 text-brand-blue/60" />
                                     {job.company}
                                     <span className="text-slate-600">·</span>
                                     <span className="text-slate-500">{job.location}</span>
@@ -568,7 +568,7 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                                className="group panel relative flex flex-col overflow-hidden rounded-md border border-white/5 bg-brand-black-light p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-accent/50 lift-hover"
+                                className="group panel relative flex flex-col overflow-hidden rounded-md border border-white/5 bg-brand-black-light p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/50 lift-hover"
                             >
                                 <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -583,18 +583,18 @@ export default function AlexPage() {
                                                 className={`${project.logoClass ?? "h-12"} w-auto object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100`}
                                             />
                                         ) : (
-                                            <span className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-accent/10 font-heading text-lg font-bold text-brand-accent ring-1 ring-brand-accent/20">
+                                            <span className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 font-heading text-lg font-bold text-brand-blue ring-1 ring-brand-blue/20">
                                                 PA
                                             </span>
                                         )}
                                     </div>
 
                                     <div className="mb-2 flex items-center gap-2">
-                                        <h3 className="font-heading text-xl font-semibold text-white transition-colors group-hover:text-brand-accent">
+                                        <h3 className="font-heading text-xl font-semibold text-white transition-colors group-hover:text-brand-blue">
                                             {project.name}
                                         </h3>
                                     </div>
-                                    <p className="mb-4 font-mono text-xs tracking-wide text-brand-accent/70">
+                                    <p className="mb-4 font-mono text-xs tracking-wide text-brand-blue/70">
                                         {project.kind}
                                     </p>
 
@@ -607,7 +607,7 @@ export default function AlexPage() {
                                             href={project.liveUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-accent transition-colors hover:text-brand-accent-hover"
+                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                                         >
                                             Visit site
                                             <ExternalLink className="h-3.5 w-3.5" />
@@ -656,9 +656,9 @@ export default function AlexPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-60px" }}
                                     transition={{ duration: 0.35, delay: index * 0.05 }}
-                                    className="panel flex items-center gap-3 rounded-md border border-white/5 bg-brand-black-light p-4 transition-colors hover:border-brand-accent/40"
+                                    className="panel flex items-center gap-3 rounded-md border border-white/5 bg-brand-black-light p-4 transition-colors hover:border-brand-blue/40"
                                 >
-                                    <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent">
+                                    <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue">
                                         <Icon className="h-4.5 w-4.5" />
                                     </span>
                                     <span className="text-sm font-medium text-slate-300">
@@ -681,10 +681,10 @@ export default function AlexPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="panel relative overflow-hidden rounded-md border border-brand-accent/20 p-10 text-center sm:p-14"
+                        className="panel relative overflow-hidden rounded-md border border-brand-blue/20 p-10 text-center sm:p-14"
                     >
 
-                        <CheckCircle2 className="mx-auto mb-5 h-10 w-10 text-brand-accent" />
+                        <CheckCircle2 className="mx-auto mb-5 h-10 w-10 text-brand-blue" />
                         <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
                             Let us build something that lasts.
                         </h2>
@@ -738,7 +738,7 @@ function SectionHeading({
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
         >
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent/70">
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
                 {eyebrow}
             </p>
             <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">

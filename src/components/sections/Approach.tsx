@@ -84,9 +84,9 @@ export function Approach() {
                                     className="relative flex flex-col items-center md:items-start text-center md:text-left z-10"
                                 >
                                     <div className="h-24 w-24 md:h-24 md:w-full flex md:block items-center justify-center mb-6 md:mb-0">
-                                        <div className="h-[88px] w-[88px] rounded-md bg-brand-black-light border border-white/10 flex items-center justify-center text-3xl font-heading font-bold text-slate-600 shadow-xl transition-colors duration-300 hover:border-brand-accent hover:text-brand-accent lift-hover relative group cursor-default">
+                                        <div className="h-[88px] w-[88px] rounded-md bg-brand-black-light border border-white/10 flex items-center justify-center text-3xl font-heading font-bold text-slate-600 shadow-xl transition-colors duration-300 hover:border-brand-blue hover:text-brand-blue lift-hover relative group cursor-default">
                                             {step.id}
-                                            <div className="absolute inset-0 bg-brand-accent/5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                            <div className="absolute inset-0 bg-brand-blue/5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                         </div>
                                     </div>
 
@@ -125,14 +125,14 @@ export function Approach() {
                                     transition={{ duration: 0.4, delay: i * 0.05 }}
                                     className="group relative cursor-help"
                                 >
-                                    <div className="h-16 w-16 rounded-md bg-brand-black-light border border-white/5 flex items-center justify-center text-slate-400 group-hover:text-brand-accent group-hover:border-brand-accent/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_4px_20px_rgba(56,189,248,0.15)]">
+                                    <div className="h-16 w-16 rounded-md bg-brand-black-light border border-white/5 flex items-center justify-center text-slate-400 group-hover:text-brand-blue group-hover:border-brand-blue/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_4px_20px_rgba(56,189,248,0.15)]">
                                         <Icon className="h-7 w-7" strokeWidth={1.5} />
                                     </div>
 
                                     {/* Tooltip */}
                                     <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -top-12 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-black font-medium text-xs py-1.5 px-3 rounded shadow-xl whitespace-nowrap z-20">
                                         {tech.name}
-                                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-brand-accent"></div>
+                                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-brand-blue"></div>
                                     </div>
                                 </motion.div>
                             );

@@ -59,7 +59,7 @@ export function PostView({ markdown, toolbarStart, children }: {
                     <button
                         type="button"
                         onClick={copy}
-                        className="inline-flex h-8 items-center gap-1.5 rounded-md bg-brand-accent/10 px-3 text-xs font-medium text-brand-accent ring-1 ring-brand-accent/30 transition-all hover:bg-brand-accent/20 hover:ring-brand-accent/50 cursor-pointer"
+                        className="inline-flex h-8 items-center gap-1.5 rounded-md bg-brand-blue/10 px-3 text-xs font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 cursor-pointer"
                     >
                         {copied ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : <Copy className="h-3.5 w-3.5" aria-hidden="true" />}
                         {copied ? "Copied" : "Copy MD"}

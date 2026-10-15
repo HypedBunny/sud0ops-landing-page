@@ -63,12 +63,12 @@ export function Capabilities() {
                     {capabilities.map((cap, i) => (
                         <li key={cap.title} className="relative flex flex-col bg-brand-black p-6 sm:p-8">
                             <div className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-wider">
-                                <span className={`h-2.5 w-2.5 ${i === 0 ? "bg-brand-accent" : "border border-brand-accent"}`} aria-hidden="true" />
-                                <span className="text-brand-accent">{String(i + 1).padStart(2, "0")}</span>
+                                <span className={`h-2.5 w-2.5 ${i === 0 ? "bg-brand-blue" : "border border-brand-blue"}`} aria-hidden="true" />
+                                <span className="text-brand-blue">{String(i + 1).padStart(2, "0")}</span>
                                 <span className="text-slate-500">{cap.stage}</span>
                             </div>
                             <h3 className="mb-2 font-heading text-lg font-semibold leading-snug text-white">{cap.title}</h3>
-                            <p className="mb-5 text-sm font-medium text-brand-accent">{cap.outcome}</p>
+                            <p className="mb-5 text-sm font-medium text-brand-blue">{cap.outcome}</p>
                             <ul className="space-y-2.5 border-t border-brand-line pt-5">
                                 {cap.items.map((item) => (
                                     <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-slate-400">

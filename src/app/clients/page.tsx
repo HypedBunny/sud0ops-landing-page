@@ -115,14 +115,14 @@ export default function ClientsPage() {
                         className="max-w-2xl w-full"
                     >
                         {/* Badge — matches services page pattern */}
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                             <CheckCircle className="h-4 w-4" aria-hidden="true" />
                             <span>Clients</span>
                         </div>
 
                         <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6 leading-tight">
                             Businesses We{" "}
-                            <span className="text-brand-accent">
+                            <span className="text-brand-blue">
                                 Work With
                             </span>
                         </h1>
@@ -139,7 +139,7 @@ export default function ClientsPage() {
                                 transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
                                 className="w-px h-8 rounded-full"
                                 style={{
-                                    background: "linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-accent) 70%, transparent), transparent)",
+                                    background: "linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-blue) 70%, transparent), transparent)",
                                 }}
                             />
                         </div>
@@ -161,7 +161,7 @@ export default function ClientsPage() {
                                 whileInView={revealAnimate}
                                 viewport={{ once: false, amount: 0.4 }}
                                 transition={revealTransition}
-                                className="panel rounded-md border border-white/5 hover:border-brand-accent/30 transition-colors duration-500 p-6 md:p-10 w-full max-w-2xl relative overflow-hidden group lift-hover"
+                                className="panel rounded-md border border-white/5 hover:border-brand-blue/30 transition-colors duration-500 p-6 md:p-10 w-full max-w-2xl relative overflow-hidden group lift-hover"
                             >
                                 {/* Subtle hover grid overlay — matches services page */}
                                 <div
@@ -182,7 +182,7 @@ export default function ClientsPage() {
                                                 {String(i + 1).padStart(2, "0")}
                                             </span>
                                             <div
-                                                className="p-2 rounded-lg bg-brand-accent/10 text-brand-accent ring-1 ring-brand-accent/20 group-hover:bg-brand-accent group-hover:text-brand-black transition-colors duration-300"
+                                                className="p-2 rounded-lg bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 group-hover:bg-brand-blue group-hover:text-brand-black transition-colors duration-300"
                                                 aria-hidden="true"
                                             >
                                                 <Icon className="h-5 w-5" />
@@ -192,7 +192,7 @@ export default function ClientsPage() {
                                             href={client.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-accent transition-colors duration-200 cursor-pointer"
+                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-blue transition-colors duration-200 cursor-pointer"
                                             aria-label={`Visit ${client.name} website (opens in new tab)`}
                                         >
                                             Visit site
@@ -212,10 +212,10 @@ export default function ClientsPage() {
                                     </div>
 
                                     {/* Name + tagline */}
-                                    <h2 className="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-accent transition-colors duration-300">
+                                    <h2 className="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-blue transition-colors duration-300">
                                         {client.name}
                                     </h2>
-                                    <p className="text-brand-accent text-sm font-medium mb-4">
+                                    <p className="text-brand-blue text-sm font-medium mb-4">
                                         {client.tagline}
                                     </p>
 
@@ -228,7 +228,7 @@ export default function ClientsPage() {
                                     <ul className="space-y-2 mb-5" aria-label="What we delivered">
                                         {client.deliverables.map((d) => (
                                             <li key={d} className="flex items-center gap-2.5">
-                                                <CheckCircle className="h-4 w-4 text-brand-accent flex-shrink-0" aria-hidden="true" />
+                                                <CheckCircle className="h-4 w-4 text-brand-blue flex-shrink-0" aria-hidden="true" />
                                                 <span className="text-sm text-slate-300">{d}</span>
                                             </li>
                                         ))}
@@ -239,7 +239,7 @@ export default function ClientsPage() {
                                         {client.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="inline-block rounded-md border border-brand-accent/20 bg-brand-accent/5 px-3 py-1 text-xs font-medium text-brand-accent font-mono tracking-wide"
+                                                className="inline-block rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 text-xs font-medium text-brand-blue font-mono tracking-wide"
                                             >
                                                 {tag}
                                             </span>
@@ -262,9 +262,9 @@ export default function ClientsPage() {
                         whileInView={revealAnimate}
                         viewport={{ once: false, amount: 0.4 }}
                         transition={revealTransition}
-                        className="panel rounded-md border border-white/5 hover:border-brand-accent/30 transition-colors duration-300 p-10 md:p-16 max-w-lg w-full"
+                        className="panel rounded-md border border-white/5 hover:border-brand-blue/30 transition-colors duration-300 p-10 md:p-16 max-w-lg w-full"
                     >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                             <ArrowRight className="h-4 w-4" aria-hidden="true" />
                             <span>Next Step</span>
                         </div>
@@ -277,15 +277,15 @@ export default function ClientsPage() {
                             what we would fix first.
                         </p>
 
-                        <Link
-                            href="/contact"
+                        <a
+                            href="mailto:alex@sud0ops.com"
                             className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover cursor-pointer"
                         >
                             <span className="flex items-center gap-2">
                                 Book a Free Discovery Call
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                             </span>
-                        </Link>
+                        </a>
                     </motion.div>
                 </section>
 
