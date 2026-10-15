@@ -48,7 +48,7 @@ export function PostView({ markdown, toolbarStart, children }: {
                                 className={cn(
                                     "rounded px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer",
                                     view === option
-                                        ? "bg-brand-blue text-brand-black"
+                                        ? "bg-brand-accent text-brand-black"
                                         : "text-slate-400 hover:text-white",
                                 )}
                             >
@@ -59,7 +59,7 @@ export function PostView({ markdown, toolbarStart, children }: {
                     <button
                         type="button"
                         onClick={copy}
-                        className="inline-flex h-8 items-center gap-1.5 rounded-md bg-brand-blue/10 px-3 text-xs font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 cursor-pointer"
+                        className="inline-flex h-8 items-center gap-1.5 rounded-md bg-brand-accent/10 px-3 text-xs font-medium text-brand-accent ring-1 ring-brand-accent/30 transition-all hover:bg-brand-accent/20 hover:ring-brand-accent/50 cursor-pointer"
                     >
                         {copied ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : <Copy className="h-3.5 w-3.5" aria-hidden="true" />}
                         {copied ? "Copied" : "Copy MD"}
@@ -72,7 +72,7 @@ export function PostView({ markdown, toolbarStart, children }: {
                 {/* The article stays in the DOM while hidden so the page reads the same to crawlers. */}
                 <div hidden={view !== "html"}>{children}</div>
                 {view === "md" && (
-                    <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-xl border border-white/10 bg-brand-black/80 p-5 font-mono text-[13px] leading-relaxed text-slate-300 sm:p-6">
+                    <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-md border border-white/10 bg-brand-black/80 p-5 font-mono text-[13px] leading-relaxed text-slate-300 sm:p-6">
                         {markdown}
                     </pre>
                 )}

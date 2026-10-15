@@ -86,13 +86,7 @@ export default function ClientsPage() {
     const revealAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 };
 
     return (
-        // Ambient glow layer — absolute so DottedSurface shows through
         <div className="relative">
-            <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                <div className="absolute right-1/4 top-0 h-[400px] w-[400px] rounded-full bg-brand-blue opacity-10 blur-[120px]" />
-                <div className="absolute left-1/3 bottom-1/4 h-[250px] w-[250px] rounded-full bg-brand-blue opacity-5 blur-[90px]" />
-            </div>
-
             {/*
               Scroll-snap container.
               - overflow-y-scroll + snap-y mandatory: each section snaps into place
@@ -121,14 +115,14 @@ export default function ClientsPage() {
                         className="max-w-2xl w-full"
                     >
                         {/* Badge — matches services page pattern */}
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
                             <CheckCircle className="h-4 w-4" aria-hidden="true" />
                             <span>Clients</span>
                         </div>
 
                         <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6 leading-tight">
                             Businesses We{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
+                            <span className="text-brand-accent">
                                 Work With
                             </span>
                         </h1>
@@ -145,7 +139,7 @@ export default function ClientsPage() {
                                 transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
                                 className="w-px h-8 rounded-full"
                                 style={{
-                                    background: "linear-gradient(to bottom, rgba(56,189,248,0.6), transparent)",
+                                    background: "linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-accent) 70%, transparent), transparent)",
                                 }}
                             />
                         </div>
@@ -167,14 +161,14 @@ export default function ClientsPage() {
                                 whileInView={revealAnimate}
                                 viewport={{ once: false, amount: 0.4 }}
                                 transition={revealTransition}
-                                className="glass rounded-2xl border border-white/5 hover:border-brand-blue/30 transition-colors duration-500 p-6 md:p-10 w-full max-w-2xl relative overflow-hidden group box-glow-hover"
+                                className="panel rounded-md border border-white/5 hover:border-brand-accent/30 transition-colors duration-500 p-6 md:p-10 w-full max-w-2xl relative overflow-hidden group lift-hover"
                             >
                                 {/* Subtle hover grid overlay — matches services page */}
                                 <div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                                     style={{
                                         background:
-                                            "linear-gradient(to right,#38bdf807 1px,transparent 1px),linear-gradient(to bottom,#38bdf807 1px,transparent 1px)",
+                                            "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)",
                                         backgroundSize: "16px 16px",
                                     }}
                                     aria-hidden="true"
@@ -188,7 +182,7 @@ export default function ClientsPage() {
                                                 {String(i + 1).padStart(2, "0")}
                                             </span>
                                             <div
-                                                className="p-2 rounded-lg bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 group-hover:bg-brand-blue group-hover:text-brand-black transition-colors duration-300"
+                                                className="p-2 rounded-lg bg-brand-accent/10 text-brand-accent ring-1 ring-brand-accent/20 group-hover:bg-brand-accent group-hover:text-brand-black transition-colors duration-300"
                                                 aria-hidden="true"
                                             >
                                                 <Icon className="h-5 w-5" />
@@ -198,7 +192,7 @@ export default function ClientsPage() {
                                             href={client.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-blue transition-colors duration-200 cursor-pointer"
+                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-accent transition-colors duration-200 cursor-pointer"
                                             aria-label={`Visit ${client.name} website (opens in new tab)`}
                                         >
                                             Visit site
@@ -207,7 +201,7 @@ export default function ClientsPage() {
                                     </div>
 
                                     {/* Logo */}
-                                    <div className="mb-5 opacity-70 group-hover:opacity-100 transition-all duration-500 group-hover:drop-shadow-[0_0_14px_rgba(56,189,248,0.4)]">
+                                    <div className="mb-5 opacity-70 group-hover:opacity-100 transition-all duration-500">
                                         <Image
                                             src={client.logo}
                                             alt={`${client.name} logo`}
@@ -218,10 +212,10 @@ export default function ClientsPage() {
                                     </div>
 
                                     {/* Name + tagline */}
-                                    <h2 className="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-blue transition-colors duration-300">
+                                    <h2 className="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-accent transition-colors duration-300">
                                         {client.name}
                                     </h2>
-                                    <p className="text-brand-blue text-sm font-medium mb-4">
+                                    <p className="text-brand-accent text-sm font-medium mb-4">
                                         {client.tagline}
                                     </p>
 
@@ -234,7 +228,7 @@ export default function ClientsPage() {
                                     <ul className="space-y-2 mb-5" aria-label="What we delivered">
                                         {client.deliverables.map((d) => (
                                             <li key={d} className="flex items-center gap-2.5">
-                                                <CheckCircle className="h-4 w-4 text-brand-blue flex-shrink-0" aria-hidden="true" />
+                                                <CheckCircle className="h-4 w-4 text-brand-accent flex-shrink-0" aria-hidden="true" />
                                                 <span className="text-sm text-slate-300">{d}</span>
                                             </li>
                                         ))}
@@ -245,7 +239,7 @@ export default function ClientsPage() {
                                         {client.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="inline-block rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 text-xs font-medium text-brand-blue font-mono tracking-wide"
+                                                className="inline-block rounded-md border border-brand-accent/20 bg-brand-accent/5 px-3 py-1 text-xs font-medium text-brand-accent font-mono tracking-wide"
                                             >
                                                 {tag}
                                             </span>
@@ -268,9 +262,9 @@ export default function ClientsPage() {
                         whileInView={revealAnimate}
                         viewport={{ once: false, amount: 0.4 }}
                         transition={revealTransition}
-                        className="glass rounded-2xl border border-white/5 hover:border-brand-blue/30 transition-colors duration-300 p-10 md:p-16 max-w-lg w-full"
+                        className="panel rounded-md border border-white/5 hover:border-brand-accent/30 transition-colors duration-300 p-10 md:p-16 max-w-lg w-full"
                     >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
                             <ArrowRight className="h-4 w-4" aria-hidden="true" />
                             <span>Next Step</span>
                         </div>
@@ -285,7 +279,7 @@ export default function ClientsPage() {
 
                         <Link
                             href="/contact"
-                            className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover cursor-pointer"
+                            className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover cursor-pointer"
                         >
                             <span className="flex items-center gap-2">
                                 Book a Free Discovery Call

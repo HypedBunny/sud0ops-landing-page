@@ -34,27 +34,23 @@ export default function BlogPage() {
     return (
         <div className="relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-            <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute right-1/4 top-0 h-[400px] w-[400px] rounded-full bg-brand-blue opacity-10 blur-[120px]" />
-                <div className="absolute left-1/3 bottom-1/4 h-[250px] w-[250px] rounded-full bg-brand-blue opacity-5 blur-[90px]" />
-            </div>
 
             <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
                 <div className="mx-auto mb-14 max-w-2xl text-center">
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-accent/40 bg-brand-accent/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-accent">
                         <FileText className="h-4 w-4" aria-hidden="true" />
                         <span>Blog</span>
                     </div>
                     <h1 className="mb-6 font-heading text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
                         Notes from the{" "}
-                        <span className="bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow bg-clip-text text-transparent">
+                        <span className="text-brand-accent">
                             Terminal
                         </span>
                     </h1>
                     <p className="text-lg leading-relaxed text-slate-400">{BLOG_DESCRIPTION}</p>
                     <p className="mt-4 font-mono text-xs text-slate-500">
                         AI agent? Every page here is also markdown:{" "}
-                        <a href="/blog.md" className="text-brand-blue hover:text-brand-blue-glow">/blog.md</a>
+                        <a href="/blog.md" className="text-brand-accent hover:text-brand-accent-hover">/blog.md</a>
                     </p>
                 </div>
 
@@ -67,13 +63,13 @@ export default function BlogPage() {
                                 <ViewTransition name={`post-${post.slug}`}>
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 p-6 transition-all duration-300 glass hover:-translate-y-1 hover:border-brand-blue/30 box-glow-hover sm:p-8"
+                                        className="group relative flex h-full flex-col overflow-hidden rounded-md border border-white/5 p-6 transition-all duration-300 panel hover:-translate-y-1 hover:border-brand-accent/30 lift-hover sm:p-8"
                                     >
                                         <div
                                             className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                                             style={{
                                                 background:
-                                                    "linear-gradient(to right,#38bdf807 1px,transparent 1px),linear-gradient(to bottom,#38bdf807 1px,transparent 1px)",
+                                                    "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)",
                                                 backgroundSize: "16px 16px",
                                             }}
                                             aria-hidden="true"
@@ -89,20 +85,20 @@ export default function BlogPage() {
                                                     {post.readingMinutes} min read
                                                 </span>
                                             </div>
-                                            <h2 className="mb-3 font-heading text-xl font-bold leading-snug text-white transition-colors duration-300 group-hover:text-brand-blue">
+                                            <h2 className="mb-3 font-heading text-xl font-bold leading-snug text-white transition-colors duration-300 group-hover:text-brand-accent">
                                                 {post.title}
                                             </h2>
                                             <p className="mb-6 flex-1 text-sm leading-relaxed text-slate-400">{post.description}</p>
                                             {post.tags.length > 0 && (
                                                 <div className="mb-6 flex flex-wrap gap-2">
                                                     {post.tags.map((tag) => (
-                                                        <span key={tag} className="rounded-md border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-0.5 font-mono text-xs font-medium tracking-wide text-brand-blue">
+                                                        <span key={tag} className="rounded-md border border-brand-accent/20 bg-brand-accent/5 px-2.5 py-0.5 font-mono text-xs font-medium tracking-wide text-brand-accent">
                                                             {tag}
                                                         </span>
                                                     ))}
                                                 </div>
                                             )}
-                                            <span className="inline-flex items-center gap-2 border-t border-white/5 pt-4 text-sm font-medium text-brand-blue">
+                                            <span className="inline-flex items-center gap-2 border-t border-white/5 pt-4 text-sm font-medium text-brand-accent">
                                                 Read post
                                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                                             </span>

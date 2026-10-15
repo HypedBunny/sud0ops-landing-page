@@ -49,7 +49,7 @@ export function Clients() {
                                 rel="noopener noreferrer"
                                 className="group relative flex flex-col items-center justify-center gap-3 cursor-pointer"
                             >
-                                <div className="opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.5)]">
+                                <div className="opacity-60 group-hover:opacity-100 transition-all duration-500">
                                     <Image
                                         src={client.logo}
                                         alt={client.name}

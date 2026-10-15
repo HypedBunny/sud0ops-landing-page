@@ -1,73 +1,84 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Services } from "@/components/sections/Services";
 import { Capabilities } from "@/components/sections/Capabilities";
+import { OpsTerminal } from "@/components/ui/OpsTerminal";
+import { CornerTicks } from "@/components/ui/CornerTicks";
 
 export default function Home() {
     return (
-        <div className="flex flex-col gap-16 pb-24">
+        <div className="flex flex-col">
             {/* Hero */}
-            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0 pointer-events-none">
-                    <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-brand-blue opacity-20 blur-[100px]" />
-                </div>
-
-                <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center pt-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="mx-auto max-w-3xl"
-                    >
-                        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
-                            <Zap className="h-4 w-4" />
-                            <span>Helping Teams Adopt, Build &amp; Grow with Technology</span>
-                        </div>
-
-                        <h1 className="font-heading text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6 leading-tight">
-                            Take Control of <br className="hidden sm:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow">
-                                Your Technology.
-                            </span>
-                        </h1>
-
-                        <p className="mt-6 text-lg leading-8 text-slate-400 max-w-2xl mx-auto mb-10">
-                            Most businesses don&apos;t have a technology problem, they have an operations problem. Sud0ops helps growing teams pick the right tools, set them up properly, learn to use them, and get support when things change. We don&apos;t just advise, we get into the work and build alongside you.
+            <section className="relative">
+                <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-8 lg:py-20">
+                    <div>
+                        <p className="mb-6 font-mono text-sm text-slate-500">
+                            <span className="text-brand-accent">$</span> sudo ops --diagnose
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <h1 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
+                            You don’t have a technology problem.{" "}
+                            <span className="text-brand-accent">You have an operations problem.</span>
+                        </h1>
+
+                        <p className="mt-7 max-w-xl text-xl font-medium leading-snug text-brand-paper sm:text-2xl">
+                            We don’t just advise; we build the pipelines alongside you.
+                        </p>
+                        <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-400 sm:text-lg">
+                            Sud0ops helps growing teams pick the right tools, set them up properly, learn to use them, and get support when things change.
+                        </p>
+
+                        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                             <a
                                 href="mailto:alex@sud0ops.com"
-                                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
+                                className="group inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-brand-accent px-7 font-semibold text-brand-black transition-colors hover:bg-brand-accent-hover"
                             >
-                                <span className="mr-2">Get in Touch</span>
-                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                Get in Touch
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                             </a>
-
                             <a
-                                href="#capabilities"
-                                className="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white glass"
+                                href="#services"
+                                className="inline-flex h-12 items-center justify-center rounded-sm border border-brand-line px-7 font-medium text-slate-200 transition-colors hover:border-slate-500 hover:bg-brand-black-light"
                             >
-                                See How We Help
+                                See what we fix
                             </a>
                         </div>
 
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 1 }}
-                            className="mt-8 text-sm text-slate-500"
-                        >
-                            Working with small businesses and NPOs in South Africa and the UK
-                        </motion.p>
-                    </motion.div>
-                </div>
+                        <p className="mt-8 font-mono text-xs uppercase tracking-wider text-slate-500">
+                            Small businesses, growing teams &amp; NPOs · South Africa &amp; UK
+                        </p>
+                    </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-black to-transparent z-10 pointer-events-none" />
+                    <OpsTerminal />
+                </div>
             </section>
 
+            <Services />
             <Capabilities />
+
+            {/* Closing CTA */}
+            <section className="border-t border-brand-line">
+                <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+                    <div className="relative flex flex-col items-start justify-between gap-8 border border-brand-line bg-brand-black-light p-8 sm:p-12 lg:flex-row lg:items-center">
+                        <CornerTicks />
+                        <div className="max-w-2xl">
+                            <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                                Tell us where your business loses time.
+                            </h2>
+                            <p className="mt-3 text-lg text-slate-400">We will tell you what we would fix first.</p>
+                        </div>
+                        <div className="flex flex-col items-start gap-3">
+                            <a
+                                href="mailto:alex@sud0ops.com"
+                                className="group inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-brand-accent px-7 font-semibold text-brand-black transition-colors hover:bg-brand-accent-hover"
+                            >
+                                Get in Touch
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                            </a>
+                            <span className="font-mono text-xs text-slate-500">alex@sud0ops.com</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

@@ -60,19 +60,16 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
     return (
         <div className="relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-            <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute right-1/4 top-0 h-[400px] w-[400px] rounded-full bg-brand-blue opacity-10 blur-[120px]" />
-            </div>
 
             <div className="relative z-10 mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
                 <ViewTransition name={`post-${post.slug}`}>
-                    <article className="glass overflow-hidden rounded-2xl border border-white/5">
+                    <article className="panel overflow-hidden rounded-md border border-white/5">
                         <PostView
                             markdown={postMarkdown(post)}
                             toolbarStart={
                                 <Link
                                     href="/blog"
-                                    className="group inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-brand-blue"
+                                    className="group inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-brand-accent"
                                 >
                                     <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
                                     Back to blog
@@ -83,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                                 {post.tags.length > 0 && (
                                     <div className="mb-5 flex flex-wrap gap-2">
                                         {post.tags.map((tag) => (
-                                            <span key={tag} className="rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs font-medium tracking-wide text-brand-blue">
+                                            <span key={tag} className="rounded-md border border-brand-accent/20 bg-brand-accent/5 px-3 py-1 font-mono text-xs font-medium tracking-wide text-brand-accent">
                                                 {tag}
                                             </span>
                                         ))}
