@@ -60,13 +60,10 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
     return (
         <div className="relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-            <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute right-1/4 top-0 h-[400px] w-[400px] rounded-full bg-brand-blue opacity-10 blur-[120px]" />
-            </div>
 
             <div className="relative z-10 mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
                 <ViewTransition name={`post-${post.slug}`}>
-                    <article className="glass overflow-hidden rounded-2xl border border-white/5">
+                    <article className="panel overflow-hidden rounded-md border border-white/5">
                         <PostView
                             markdown={postMarkdown(post)}
                             toolbarStart={

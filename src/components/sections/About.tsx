@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 export function About() {
     return (
         <section id="about" className="relative py-24 px-6 lg:px-8">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
             <div className="mx-auto max-w-4xl relative z-10">
                 <motion.div
@@ -18,7 +17,7 @@ export function About() {
                     <h2 className="text-3xl font-heading font-bold text-white mb-8 sm:text-4xl px-4">
                         What We Actually Do
                     </h2>
-                    <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto glass p-8 sm:p-12 rounded-2xl relative">
+                    <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto panel p-8 sm:p-12 rounded-md relative">
                         <span className="absolute -top-4 -left-4 text-brand-blue text-6xl opacity-20 font-serif">&quot;</span>
                         Most businesses aren&apos;t slow because they lack people — they&apos;re slow because no one has ever automated the right things. Manual processes, disconnected tools, and work that should never touch a human inbox. We fix that. <br className="hidden sm:block" />
                         <br className="hidden sm:block" />

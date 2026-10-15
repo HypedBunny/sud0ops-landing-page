@@ -48,7 +48,7 @@ export function TypewriterHeading({
         <h2 ref={ref} className={`${className} flex items-center justify-center`}>
             <span>{displayedText}</span>
             {isInView && (
-                <span className="text-brand-blue animate-[pulse_1s_ease-in-out_infinite] ml-1">_</span>
+                <span className="text-brand-accent animate-[pulse_1s_ease-in-out_infinite] ml-1">_</span>
             )}
             {/* Invisible full text to reserve layout height/width */}
             <span className="invisible h-0 w-0 absolute">{text}</span>

@@ -43,7 +43,6 @@ export function Approach() {
     return (
         <section id="approach" className="py-24 px-6 lg:px-8 relative overflow-hidden">
             {/* Decorative Blur */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none"></div>
 
             <div className="mx-auto max-w-7xl relative z-10">
 
@@ -66,7 +65,7 @@ export function Approach() {
                         {/* Animated Line connecting steps (hidden on mobile) */}
                         <div className="hidden md:block absolute top-[44px] left-0 w-full h-[2px] bg-white/5 z-0">
                             <motion.div
-                                className="absolute top-0 left-0 h-full bg-brand-blue shadow-[0_0_10px_rgba(56,189,248,0.8)]"
+                                className="absolute top-0 left-0 h-full bg-brand-accent"
                                 initial={{ width: "0%" }}
                                 whileInView={{ width: "100%" }}
                                 viewport={{ once: true, margin: "-100px" }}
@@ -85,9 +84,9 @@ export function Approach() {
                                     className="relative flex flex-col items-center md:items-start text-center md:text-left z-10"
                                 >
                                     <div className="h-24 w-24 md:h-24 md:w-full flex md:block items-center justify-center mb-6 md:mb-0">
-                                        <div className="h-[88px] w-[88px] rounded-2xl bg-brand-black-light border border-white/10 flex items-center justify-center text-3xl font-heading font-bold text-slate-600 shadow-xl transition-colors duration-300 hover:border-brand-blue hover:text-brand-blue box-glow-hover relative group cursor-default">
+                                        <div className="h-[88px] w-[88px] rounded-md bg-brand-black-light border border-white/10 flex items-center justify-center text-3xl font-heading font-bold text-slate-600 shadow-xl transition-colors duration-300 hover:border-brand-blue hover:text-brand-blue lift-hover relative group cursor-default">
                                             {step.id}
-                                            <div className="absolute inset-0 bg-brand-blue/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                            <div className="absolute inset-0 bg-brand-blue/5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                         </div>
                                     </div>
 
@@ -126,12 +125,12 @@ export function Approach() {
                                     transition={{ duration: 0.4, delay: i * 0.05 }}
                                     className="group relative cursor-help"
                                 >
-                                    <div className="h-16 w-16 rounded-xl bg-brand-black-light border border-white/5 flex items-center justify-center text-slate-400 group-hover:text-brand-blue group-hover:border-brand-blue/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_4px_20px_rgba(56,189,248,0.15)]">
+                                    <div className="h-16 w-16 rounded-md bg-brand-black-light border border-white/5 flex items-center justify-center text-slate-400 group-hover:text-brand-blue group-hover:border-brand-blue/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_4px_20px_rgba(56,189,248,0.15)]">
                                         <Icon className="h-7 w-7" strokeWidth={1.5} />
                                     </div>
 
                                     {/* Tooltip */}
-                                    <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -top-12 left-1/2 -translate-x-1/2 bg-brand-blue text-brand-black font-medium text-xs py-1.5 px-3 rounded shadow-xl whitespace-nowrap z-20">
+                                    <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -top-12 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-black font-medium text-xs py-1.5 px-3 rounded shadow-xl whitespace-nowrap z-20">
                                         {tech.name}
                                         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-brand-blue"></div>
                                     </div>

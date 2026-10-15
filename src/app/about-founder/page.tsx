@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CornerTicks } from "@/components/ui/CornerTicks";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -206,8 +207,8 @@ function Headshot() {
     const [ok, setOk] = useState(true);
     return (
         <figure className="relative">
-            <div className="absolute -inset-4 rounded-full bg-brand-blue/20 blur-2xl" />
-            <div className="relative h-48 w-48 sm:h-56 sm:w-56 overflow-hidden rounded-full border border-brand-blue/30 bg-brand-black-light box-glow">
+            <CornerTicks />
+            <div className="relative h-48 w-48 sm:h-56 sm:w-56 overflow-hidden border border-brand-line bg-brand-black-light">
                 {ok ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -219,8 +220,8 @@ function Headshot() {
                         onError={() => setOk(false)}
                     />
                 ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_right,#38bdf80a_1px,transparent_1px),linear-gradient(to_bottom,#38bdf80a_1px,transparent_1px)] bg-[size:16px_16px]">
-                        <span className="font-heading text-6xl font-bold text-brand-blue text-glow">
+                    <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:16px_16px]">
+                        <span className="font-heading text-6xl font-bold text-brand-blue">
                             AJ
                         </span>
                     </div>
@@ -230,8 +231,8 @@ function Headshot() {
             <figcaption className="sr-only">
                 Alex-Jay Beukes, founder of Sud0ops, Cape Town
             </figcaption>
-            <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-brand-black/80 px-3 py-1 text-xs text-slate-300 backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            <span className="absolute -bottom-3 left-3 flex items-center gap-1.5 border border-brand-line bg-brand-black px-2.5 py-1 font-mono text-xs text-slate-300">
+                <span className="h-1.5 w-1.5 bg-brand-mint animate-pulse" />
                 Open to build
             </span>
         </figure>
@@ -248,9 +249,6 @@ export default function AlexPage() {
             {/* HERO                                                          */}
             {/* ------------------------------------------------------------- */}
             <section className="relative flex items-center overflow-hidden pt-10">
-                <div className="absolute inset-0 z-0 pointer-events-none">
-                    <div className="absolute left-1/2 top-0 -z-10 h-[310px] w-[310px] -translate-x-1/2 rounded-full bg-brand-blue opacity-20 blur-[100px]" />
-                </div>
 
                 <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1fr_auto] lg:gap-16 lg:px-8">
                     <motion.div
@@ -258,14 +256,14 @@ export default function AlexPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-sm font-medium text-brand-blue">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
                             <Zap className="h-4 w-4" />
                             <span>DevOps &amp; Platform Engineer · Founder of Sud0ops</span>
                         </div>
 
                         <h1 className="font-heading text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
                             Alex-Jay{" "}
-                            <span className="bg-gradient-to-r from-white via-brand-blue to-brand-blue-glow bg-clip-text text-transparent">
+                            <span className="text-brand-blue">
                                 Beukes
                             </span>
                         </h1>
@@ -287,7 +285,7 @@ export default function AlexPage() {
                         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <a
                                 href="mailto:alex@sud0ops.com"
-                                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
+                                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover"
                             >
                                 <Mail className="mr-2 h-4 w-4" />
                                 <span className="mr-1">Get in Touch</span>
@@ -297,7 +295,7 @@ export default function AlexPage() {
                                 href="https://www.linkedin.com/in/alex-jay-beukes"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="glass inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
+                                className="panel inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-brand-black/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
                             >
                                 <Linkedin className="mr-2 h-4 w-4" />
                                 LinkedIn
@@ -325,7 +323,7 @@ export default function AlexPage() {
                         {facts.map((fact) => (
                             <div
                                 key={fact.label}
-                                className="glass rounded-xl border border-white/5 bg-brand-black-light p-5"
+                                className="panel rounded-md border border-white/5 bg-brand-black-light p-5"
                             >
                                 <dt className="font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
                                     {fact.label}
@@ -354,7 +352,7 @@ export default function AlexPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="glass relative rounded-2xl p-8 sm:p-12"
+                        className="panel relative rounded-md p-8 sm:p-12"
                     >
                         <span className="absolute -top-4 -left-4 font-serif text-6xl text-brand-blue opacity-20">
                             &quot;
@@ -413,7 +411,7 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                                className="glass rounded-2xl border border-white/5 bg-brand-black-light p-6"
+                                className="panel rounded-md border border-white/5 bg-brand-black-light p-6"
                             >
                                 <h3 className="font-heading text-lg font-semibold text-white">
                                     {item.title}
@@ -446,14 +444,14 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                                className="group glass flex flex-col justify-between rounded-2xl border border-white/5 bg-brand-black-light p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/50 box-glow-hover"
+                                className="group panel flex flex-col justify-between rounded-md border border-white/5 bg-brand-black-light p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/50 lift-hover"
                             >
                                 <div>
                                     <div className="mb-4 flex items-start justify-between gap-3">
-                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
+                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
                                             <Award className="h-5 w-5" />
                                         </div>
-                                        <span className="rounded-full border border-brand-blue/20 bg-brand-blue/10 px-3 py-1 font-mono text-xs text-brand-blue/80">
+                                        <span className="rounded-sm border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs text-brand-blue/80">
                                             {cert.level}
                                         </span>
                                     </div>
@@ -471,7 +469,7 @@ export default function AlexPage() {
                                             href={cert.verifyUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-glow"
+                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                                         >
                                             <ShieldCheck className="h-4 w-4" />
                                             Verify credential
@@ -493,7 +491,7 @@ export default function AlexPage() {
                             href="https://www.credly.com/users/alex-jay-beukes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-glow"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                         >
                             <ShieldCheck className="h-4 w-4" />
                             Verify all badges on Credly
@@ -525,7 +523,7 @@ export default function AlexPage() {
                                 className="relative pb-12 last:pb-0"
                             >
                                 <span className="absolute -left-[42px] sm:-left-[50px] flex h-5 w-5 items-center justify-center rounded-full border border-brand-blue/40 bg-brand-black">
-                                    <span className="h-2 w-2 rounded-full bg-brand-blue" />
+                                    <span className="h-2 w-2 rounded-full bg-brand-accent" />
                                 </span>
 
                                 <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
@@ -570,9 +568,9 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                                className="group glass relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-brand-black-light p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/50 box-glow-hover"
+                                className="group panel relative flex flex-col overflow-hidden rounded-md border border-white/5 bg-brand-black-light p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/50 lift-hover"
                             >
-                                <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#38bdf807_1px,transparent_1px),linear-gradient(to_bottom,#38bdf807_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                                <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                                 <div className="relative z-10 flex h-full flex-col">
                                     <div className="mb-5 flex h-16 items-center">
@@ -585,7 +583,7 @@ export default function AlexPage() {
                                                 className={`${project.logoClass ?? "h-12"} w-auto object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100`}
                                             />
                                         ) : (
-                                            <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 font-heading text-lg font-bold text-brand-blue ring-1 ring-brand-blue/20">
+                                            <span className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 font-heading text-lg font-bold text-brand-blue ring-1 ring-brand-blue/20">
                                                 PA
                                             </span>
                                         )}
@@ -609,7 +607,7 @@ export default function AlexPage() {
                                             href={project.liveUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-glow"
+                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                                         >
                                             Visit site
                                             <ExternalLink className="h-3.5 w-3.5" />
@@ -658,7 +656,7 @@ export default function AlexPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-60px" }}
                                     transition={{ duration: 0.35, delay: index * 0.05 }}
-                                    className="glass flex items-center gap-3 rounded-xl border border-white/5 bg-brand-black-light p-4 transition-colors hover:border-brand-blue/40"
+                                    className="panel flex items-center gap-3 rounded-md border border-white/5 bg-brand-black-light p-4 transition-colors hover:border-brand-blue/40"
                                 >
                                     <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-blue/10 text-brand-blue">
                                         <Icon className="h-4.5 w-4.5" />
@@ -683,9 +681,8 @@ export default function AlexPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="glass relative overflow-hidden rounded-2xl border border-brand-blue/20 p-10 text-center sm:p-14"
+                        className="panel relative overflow-hidden rounded-md border border-brand-blue/20 p-10 text-center sm:p-14"
                     >
-                        <div className="absolute left-1/2 top-0 -z-10 h-[200px] w-[300px] -translate-x-1/2 rounded-full bg-brand-blue opacity-10 blur-[80px]" />
 
                         <CheckCircle2 className="mx-auto mb-5 h-10 w-10 text-brand-blue" />
                         <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
@@ -699,7 +696,7 @@ export default function AlexPage() {
                         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <a
                                 href="mailto:alex@sud0ops.com"
-                                className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-blue px-8 font-medium text-brand-black transition-all hover:bg-brand-blue-glow box-glow-hover"
+                                className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover"
                             >
                                 <Mail className="mr-2 h-4 w-4" />
                                 alex@sud0ops.com
@@ -708,7 +705,7 @@ export default function AlexPage() {
                                 href="https://www.linkedin.com/in/alex-jay-beukes"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="glass inline-flex h-12 items-center justify-center rounded-md border border-slate-700 px-8 font-medium text-slate-300 transition-colors hover:text-white"
+                                className="panel inline-flex h-12 items-center justify-center rounded-md border border-slate-700 px-8 font-medium text-slate-300 transition-colors hover:text-white"
                             >
                                 <Linkedin className="mr-2 h-4 w-4" />
                                 Connect on LinkedIn

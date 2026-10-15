@@ -5,6 +5,8 @@ export const metadata: Metadata = {
     description:
         "Tell Sud0ops what is broken or slowing your business down. We reply within 24 hours.",
     alternates: { canonical: "/contact" },
+    // The form stays live but unlinked: enquiries go to alex@sud0ops.com. Keep it out of search results too.
+    robots: { index: false, follow: false },
 };
 
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -48,7 +48,7 @@ export function PostView({ markdown, toolbarStart, children }: {
                                 className={cn(
                                     "rounded px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer",
                                     view === option
-                                        ? "bg-brand-blue text-brand-black"
+                                        ? "bg-brand-accent text-brand-black"
                                         : "text-slate-400 hover:text-white",
                                 )}
                             >
@@ -72,7 +72,7 @@ export function PostView({ markdown, toolbarStart, children }: {
                 {/* The article stays in the DOM while hidden so the page reads the same to crawlers. */}
                 <div hidden={view !== "html"}>{children}</div>
                 {view === "md" && (
-                    <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-xl border border-white/10 bg-brand-black/80 p-5 font-mono text-[13px] leading-relaxed text-slate-300 sm:p-6">
+                    <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-md border border-white/10 bg-brand-black/80 p-5 font-mono text-[13px] leading-relaxed text-slate-300 sm:p-6">
                         {markdown}
                     </pre>
                 )}

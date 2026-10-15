@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, Share_Tech_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { FOUNDER_ID, FOUNDER_NAME, FOUNDER_PHOTO_URL, FOUNDER_URL, SITE_URL, hasFounderPhoto } from "@/lib/founder";
 
@@ -9,14 +9,15 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Headings and the wordmark.
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
 
-const digitalClockFont = Share_Tech_Mono({
-  weight: "400",
+// Terminal accents: tags, labels and code. Kept readable for non-technical visitors.
+const monoFont = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
@@ -54,7 +55,7 @@ const organizationJsonLd = {
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Providers } from "@/components/providers";
-import { DottedSurface } from "@/components/ui/dotted-surface";
+import { MobileCta } from "@/components/layout/MobileCta";
 import Script from "next/script";
 
 export default function RootLayout({
@@ -65,22 +66,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${digitalClockFont.variable} font-sans antialiased selection:bg-brand-blue/30 selection:text-white`}
+        className={`${inter.variable} ${jakarta.variable} ${monoFont.variable} font-sans antialiased selection:bg-brand-accent selection:text-brand-black`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <Providers>
-          <DottedSurface />
           <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
-            {/* Full-page grid background */}
-            <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
+            {/* Blueprint rails: two vertical guides on the content column's edges. */}
+            <div className="blueprint-rails" aria-hidden="true" />
             <Navbar />
-            <main className="flex-1 w-full pt-20">
+            <main className="relative flex-1 w-full pt-20">
               {children}
             </main>
             <Footer />
+            <MobileCta />
           </div>
         </Providers>
         <Script
