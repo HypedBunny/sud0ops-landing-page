@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# blog posts bundled by scripts/generate-blog.mjs
+/src/content/blog/posts.generated.ts
+
 # cloudflare
 .open-next
 .wrangler
