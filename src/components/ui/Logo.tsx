@@ -2,43 +2,52 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useReducedMotion } from "framer-motion";
 
-// ">Sud0ops_": a terminal prompt, then the name typed one character at a time
-// (S-u-d-0-o-p-s), then a blinking cursor. Prompt and cursor are amber; the 0 is the original
-// blue seven-segment digit with the root slash.
+// ">Sud0ops_" set in the terminal font. On load the bare prompt ">_" blinks for 4 seconds, then the
+// name types out one character at a time (S-u-d-0-o-p-s) with the cursor following.
+// Prompt and cursor are amber; the 0 is the original blue seven-segment digit with the root slash.
+// With reduced motion the full logo shows straight away.
+const PROMPT_HOLD_MS = 4000;
+const TYPE_MS = 120;
 const TOTAL = 7;
 
 export function Logo() {
+    const reduceMotion = useReducedMotion();
     const [typed, setTyped] = useState(0);
+    const shown = reduceMotion ? TOTAL : typed;
 
     useEffect(() => {
-        if (typed < TOTAL) {
-            const timeout = setTimeout(() => setTyped((n) => n + 1), 120);
-            return () => clearTimeout(timeout);
-        }
-    }, [typed]);
+        if (reduceMotion || typed >= TOTAL) return;
+        const timeout = setTimeout(() => setTyped((n) => n + 1), typed === 0 ? PROMPT_HOLD_MS : TYPE_MS);
+        return () => clearTimeout(timeout);
+    }, [typed, reduceMotion]);
 
     return (
-        <Link href="/" aria-label="Sud0ops home" className="group flex items-center font-heading text-2xl font-bold tracking-tight">
-            <span aria-hidden="true" className="mr-1.5 font-mono text-xl font-medium text-brand-accent">&gt;</span>
+        <Link
+            href="/"
+            aria-label="Sud0ops home"
+            className="group flex items-center font-mono text-[22px] font-extrabold leading-none tracking-tighter"
+        >
+            <span aria-hidden="true" className="text-brand-accent">&gt;</span>
             <span aria-hidden="true" className="flex items-center">
-                {typed > 0 && <span>{"Sud".slice(0, typed)}</span>}
-                {typed >= 4 && <SegmentZero />}
-                {typed > 4 && (
-                    <span className="font-medium text-slate-300 transition-colors duration-300 group-hover:text-white">
-                        {"ops".slice(0, typed - 4)}
+                {shown > 0 && <span className="text-brand-paper">{"Sud".slice(0, shown)}</span>}
+                {shown >= 4 && <SegmentZero />}
+                {shown > 4 && (
+                    <span className="font-semibold text-slate-300 transition-colors duration-300 group-hover:text-white">
+                        {"ops".slice(0, shown - 4)}
                     </span>
                 )}
             </span>
-            <span aria-hidden="true" className="text-brand-accent animate-[pulse_1s_ease-in-out_infinite]">_</span>
+            <span aria-hidden="true" className="cursor-blink text-brand-accent">_</span>
         </Link>
     );
 }
 
 function SegmentZero() {
     return (
-        <span className="relative mx-[2px] inline-flex items-center">
-            <svg width="28" height="38" viewBox="0 0 28 38" fill="none" aria-hidden="true" className="text-brand-blue">
+        <span className="mx-[2px] inline-flex items-center">
+            <svg width="21" height="28" viewBox="0 0 28 38" fill="none" aria-hidden="true" className="text-brand-blue">
                 {/* Container */}
                 <rect x="0.5" y="0.5" width="27" height="37" rx="3" className="fill-brand-black-light stroke-brand-line" strokeWidth="1" />
                 <g fill="currentColor">
