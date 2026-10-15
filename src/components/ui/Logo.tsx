@@ -4,10 +4,10 @@ import { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 
 // ">Sud0ops_" typed in the terminal font (JetBrains Mono, as in the home page terminal). On load the
-// bare prompt ">_" blinks for 3 seconds, then the name types out one character at a time
+// bare prompt ">_" blinks for 2 seconds, then the name types out one character at a time
 // (S-u-d-0-o-p-s) with the cursor following. Prompt and cursor are amber; the 0 is the original blue.
 // With reduced motion the full logo shows straight away.
-const PROMPT_HOLD_MS = 3000;
+const PROMPT_HOLD_MS = 2000;
 const TYPE_MS = 120;
 const TOTAL = 7;
 
