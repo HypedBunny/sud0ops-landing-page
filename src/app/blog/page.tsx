@@ -4,12 +4,12 @@ import { ViewTransition } from "react";
 import { ArrowRight, Calendar, Clock, FileText } from "lucide-react";
 import { BLOG_DESCRIPTION, BLOG_TITLE, BLOG_URL, formatDate, getPosts, postUrl } from "@/lib/blog";
 import { SITE_URL } from "@/lib/founder";
+import { pageMetadata } from "@/lib/seo";
 
+const base = pageMetadata({ path: "/blog", title: "Blog | Sud0ops", socialTitle: BLOG_TITLE, description: BLOG_DESCRIPTION });
 export const metadata: Metadata = {
-    title: "Blog | Sud0ops",
-    description: BLOG_DESCRIPTION,
-    alternates: { canonical: "/blog", types: { "text/markdown": "/blog.md" } },
-    openGraph: { type: "website", url: "/blog", title: BLOG_TITLE, description: BLOG_DESCRIPTION },
+    ...base,
+    alternates: { ...base.alternates, types: { "text/markdown": "/blog.md" } },
 };
 
 export default function BlogPage() {
@@ -48,14 +48,14 @@ export default function BlogPage() {
                         </span>
                     </h1>
                     <p className="text-lg leading-relaxed text-slate-400">{BLOG_DESCRIPTION}</p>
-                    <p className="mt-4 font-mono text-xs text-slate-500">
+                    <p className="mt-4 font-mono text-xs text-slate-400">
                         AI agent? Every page here is also markdown:{" "}
-                        <a href="/blog.md" className="text-brand-blue hover:text-brand-blue-hover">/blog.md</a>
+                        <a href="/blog.md" className="text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:text-brand-blue-hover hover:decoration-current">/blog.md</a>
                     </p>
                 </div>
 
                 {posts.length === 0 ? (
-                    <p className="text-center text-slate-500">No posts yet.</p>
+                    <p className="text-center text-slate-400">No posts yet.</p>
                 ) : (
                     <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {posts.map((post) => (
@@ -75,7 +75,7 @@ export default function BlogPage() {
                                             aria-hidden="true"
                                         />
                                         <div className="relative flex flex-1 flex-col">
-                                            <div className="mb-4 flex items-center gap-4 text-xs text-slate-500">
+                                            <div className="mb-4 flex items-center gap-4 text-xs text-slate-400">
                                                 <span className="inline-flex items-center gap-1.5">
                                                     <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
                                                     <time dateTime={post.date}>{formatDate(post.date)}</time>

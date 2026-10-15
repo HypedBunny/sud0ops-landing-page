@@ -6,6 +6,7 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { PostView } from "@/components/blog/PostView";
 import { BLOG_TITLE, BLOG_URL, formatDate, getPost, getPosts, postMarkdown, postUrl, renderPostHtml } from "@/lib/blog";
 import { SITE_URL } from "@/lib/founder";
+import { pageMetadata } from "@/lib/seo";
 
 // No dynamicParams = false: on Workers the prerender cache can miss, and Next would then 404
 // a real post. Posts are bundled into the code, so rendering on demand is cheap; unknown slugs hit notFound().
@@ -17,22 +18,18 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
     const post = getPost((await params).slug);
     if (!post) return {};
     const path = `/blog/${post.slug}`;
-    return {
+    const base = pageMetadata({
+        path,
         title: `${post.title} | Sud0ops Blog`,
+        socialTitle: post.title,
         description: post.description,
+        article: { publishedTime: post.date, authors: [post.author], tags: post.tags },
+    });
+    return {
+        ...base,
         authors: [{ name: post.author }],
         keywords: post.tags,
-        alternates: { canonical: path, types: { "text/markdown": `${path}.md` } },
-        openGraph: {
-            type: "article",
-            url: path,
-            title: post.title,
-            description: post.description,
-            publishedTime: post.date,
-            authors: [post.author],
-            tags: post.tags,
-        },
-        twitter: { card: "summary", title: post.title, description: post.description },
+        alternates: { ...base.alternates, types: { "text/markdown": `${path}.md` } },
     };
 }
 
@@ -90,7 +87,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                                     {post.title}
                                 </h1>
                                 <p className="mb-6 text-lg leading-relaxed text-slate-400">{post.description}</p>
-                                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500">
+                                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-400">
                                     <span>{post.author}</span>
                                     <span className="inline-flex items-center gap-1.5">
                                         <Calendar className="h-4 w-4" aria-hidden="true" />

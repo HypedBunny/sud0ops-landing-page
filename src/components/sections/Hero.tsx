@@ -50,7 +50,7 @@ export function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 1 }}
-                        className="mt-8 text-sm text-slate-500"
+                        className="mt-8 text-sm text-slate-400"
                     >
                         Trusted by businesses across South Africa and the UK
                     </motion.p>

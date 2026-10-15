@@ -7,20 +7,20 @@ const clients = [
     {
         name: "HelperHub",
         description: "Technical Consultancy & Implementation",
-        logo: "/helperhub-logo.png",
+        logo: "/helperhub-logo.webp",
         url: "https://helperhub.co.za",
     },
     {
         name: "Bashies",
         description: "Shopify Store & SEO-Optimised React Landing Page",
-        logo: "/bashies-logo.png",
+        logo: "/bashies-logo.webp",
         url: "https://bashies.co.za",
         logoClass: "h-16",
     },
     {
         name: "Happy Shisha",
         description: "Digital Enablement & Social Platform",
-        logo: "/happyevents-logo.png",
+        logo: "/happyevents-logo.webp",
         url: "https://happyshisha.co.za",
         logoClass: "h-20",
     },
@@ -36,7 +36,7 @@ export function Clients() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <p className="text-center text-sm font-semibold uppercase tracking-wider text-slate-500 mb-12">
+                    <p className="text-center text-sm font-semibold uppercase tracking-wider text-slate-400 mb-12">
                         Trusted by Growing Businesses
                     </p>
 

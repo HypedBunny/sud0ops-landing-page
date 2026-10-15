@@ -54,14 +54,14 @@ export function Services() {
                                         </span>
                                         <h3 className="font-heading text-xl font-semibold text-white">{service.title}</h3>
                                     </div>
-                                    <span className="font-mono text-xs text-slate-600" aria-hidden="true">
+                                    <span className="font-mono text-xs text-slate-400" aria-hidden="true">
                                         {String(i + 1).padStart(2, "0")}
                                     </span>
                                 </div>
 
                                 <dl className="grid flex-1 gap-4">
                                     <div>
-                                        <dt className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-slate-500">Before</dt>
+                                        <dt className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-slate-400">Before</dt>
                                         <dd className="text-sm leading-relaxed text-slate-400">{service.before}</dd>
                                     </div>
                                     <div className="border-l-2 border-brand-blue pl-4">

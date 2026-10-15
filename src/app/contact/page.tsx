@@ -51,7 +51,7 @@ export default function ContactPage() {
             <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="text-center mb-16"
@@ -73,14 +73,14 @@ export default function ContactPage() {
 
                 <div className="mx-auto max-w-3xl">
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
                         className="panel rounded-md p-8 lg:p-10"
                     >
                         {status === "success" ? (
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
+                                initial={false}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.4 }}
                                 className="flex flex-col items-center text-center py-12 gap-4"
@@ -135,7 +135,7 @@ export default function ContactPage() {
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
                                         <Building2 className="h-3.5 w-3.5 text-brand-blue" />
-                                        Company <span className="text-slate-500 text-xs font-normal">(optional)</span>
+                                        Company <span className="text-slate-400 text-xs font-normal">(optional)</span>
                                     </label>
                                     <input
                                         type="text"
@@ -149,7 +149,7 @@ export default function ContactPage() {
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
                                         <Package className="h-3.5 w-3.5 text-brand-blue" />
-                                        Interested In <span className="text-slate-500 text-xs font-normal">(optional)</span>
+                                        Interested In <span className="text-slate-400 text-xs font-normal">(optional)</span>
                                     </label>
                                     <select
                                         value={form.packageInterest}
@@ -206,7 +206,7 @@ export default function ContactPage() {
                                     )}
                                 </button>
 
-                                <p className="text-center text-xs text-slate-500">
+                                <p className="text-center text-xs text-slate-400">
                                     We&apos;ll reply to your email within 24 hours.
                                 </p>
                             </form>
@@ -215,7 +215,7 @@ export default function ContactPage() {
 
                     {/* Info cards */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4"
@@ -229,7 +229,7 @@ export default function ContactPage() {
                                 key={item.label}
                                 className="panel rounded-lg px-6 py-4 text-center"
                             >
-                                <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">{item.label}</p>
+                                <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">{item.label}</p>
                                 <p className="text-sm font-medium text-brand-blue">{item.value}</p>
                             </div>
                         ))}

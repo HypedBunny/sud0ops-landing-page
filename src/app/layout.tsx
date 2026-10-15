@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { pageMetadata } from "@/lib/seo";
 import { FOUNDER_ID, FOUNDER_NAME, FOUNDER_PHOTO_URL, FOUNDER_URL, SITE_URL, hasFounderPhoto } from "@/lib/founder";
 
 const inter = Inter({
@@ -25,10 +26,17 @@ const monoFont = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sud0ops.com"),
-  title: "Sud0Ops | Take Control of Your Technology",
-  description: "Sud0ops helps growing teams discover, build, adopt, and support the technology that fits them. We don't just advise, we build alongside you.",
-  alternates: { canonical: "/" },
-  openGraph: { type: "website", siteName: "Sud0ops", url: "/" },
+  ...pageMetadata({
+    path: "/",
+    title: "Sud0ops | Take Control of Your Technology",
+    description: "Sud0ops helps growing teams discover, build, adopt, and support the technology that fits them. We don't just advise, we build alongside you.",
+  }),
+};
+
+// Browser chrome and the phone status bar match the dark slate page.
+export const viewport: Viewport = {
+  themeColor: "#0F172A",
+  colorScheme: "dark",
 };
 
 // Structured data so search engines and AI summaries can identify the business and its founder.
@@ -54,7 +62,6 @@ const organizationJsonLd = {
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Providers } from "@/components/providers";
 import { MobileCta } from "@/components/layout/MobileCta";
 import Script from "next/script";
 
@@ -64,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="dark scroll-smooth">
       <body
         className={`${inter.variable} ${jakarta.variable} ${monoFont.variable} font-sans antialiased selection:bg-brand-accent selection:text-brand-black`}
       >
@@ -72,18 +79,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <Providers>
-          <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
-            {/* Blueprint rails: two vertical guides on the content column's edges. */}
-            <div className="blueprint-rails" aria-hidden="true" />
-            <Navbar />
-            <main className="relative flex-1 w-full pt-20">
-              {children}
-            </main>
-            <Footer />
-            <MobileCta />
-          </div>
-        </Providers>
+        <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
+          {/* Blueprint rails: two vertical guides on the content column's edges. */}
+          <div className="blueprint-rails" aria-hidden="true" />
+          <Navbar />
+          <main className="relative flex-1 w-full pt-20">
+            {children}
+          </main>
+          <Footer />
+          <MobileCta />
+        </div>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-YFDD5L827E"

@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { useReducedMotion } from "framer-motion";
 
 // ">Sud0ops_" set in the terminal font. On load the bare prompt ">_" blinks for 4 seconds, then the
 // name types out one character at a time (S-u-d-0-o-p-s) with the cursor following.
@@ -12,8 +11,16 @@ const PROMPT_HOLD_MS = 4000;
 const TYPE_MS = 120;
 const TOTAL = 7;
 
+// Reads prefers-reduced-motion without pulling an animation library into every page.
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+function subscribeReducedMotion(onChange: () => void) {
+    const query = window.matchMedia(REDUCED_MOTION);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+}
+
 export function Logo() {
-    const reduceMotion = useReducedMotion();
+    const reduceMotion = useSyncExternalStore(subscribeReducedMotion, () => window.matchMedia(REDUCED_MOTION).matches, () => false);
     const [typed, setTyped] = useState(0);
     const shown = reduceMotion ? TOTAL : typed;
 

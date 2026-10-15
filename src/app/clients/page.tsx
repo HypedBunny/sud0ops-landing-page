@@ -15,7 +15,7 @@ import {
 const clients = [
     {
         name: "HelperHub",
-        logo: "/helperhub-logo.png",
+        logo: "/helperhub-logo.webp",
         logoClass: "h-12",
         url: "https://helperhub.co.za",
         tagline: "Technical Consultancy & Implementation",
@@ -32,7 +32,7 @@ const clients = [
     },
     {
         name: "Bashies",
-        logo: "/bashies-logo.png",
+        logo: "/bashies-logo.webp",
         logoClass: "h-16",
         url: "https://bashies.co.za",
         tagline: "Digital Presence & E-commerce Enablement",
@@ -48,7 +48,7 @@ const clients = [
     },
     {
         name: "Happy Shisha",
-        logo: "/happyevents-logo.png",
+        logo: "/happyevents-logo.webp",
         logoClass: "h-20",
         url: "https://happyshisha.co.za",
         tagline: "Digital Enablement & Business Automation",
@@ -79,7 +79,6 @@ export default function ClientsPage() {
         ? { duration: 0.2 }
         : { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.05 };
 
-    const fadeUpInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 };
     const fadeUpAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
 
     const revealInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 50, scale: 0.97 };
@@ -109,7 +108,7 @@ export default function ClientsPage() {
                     style={{ height: SNAP_HEIGHT, scrollSnapAlign: "start" }}
                 >
                     <motion.div
-                        initial={fadeUpInitial}
+                        initial={false}
                         animate={fadeUpAnimate}
                         transition={fadeUpTransition}
                         className="max-w-2xl w-full"
@@ -132,7 +131,7 @@ export default function ClientsPage() {
                         </p>
 
                         {/* Scroll hint — uses inline style for gradient to avoid missing Tailwind class */}
-                        <div className="flex flex-col items-center gap-2 text-sm text-slate-500" aria-hidden="true">
+                        <div className="flex flex-col items-center gap-2 text-sm text-slate-400" aria-hidden="true">
                             <span>Scroll to explore</span>
                             <motion.div
                                 animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
@@ -178,7 +177,7 @@ export default function ClientsPage() {
                                     {/* Top row: index + icon + external link */}
                                     <div className="flex items-center justify-between mb-6">
                                         <div className="flex items-center gap-3">
-                                            <span className="text-xs font-mono text-slate-600 select-none" aria-hidden="true">
+                                            <span className="text-xs font-mono text-slate-400 select-none" aria-hidden="true">
                                                 {String(i + 1).padStart(2, "0")}
                                             </span>
                                             <div
@@ -192,7 +191,7 @@ export default function ClientsPage() {
                                             href={client.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-blue transition-colors duration-200 cursor-pointer"
+                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-brand-blue transition-colors duration-200 cursor-pointer"
                                             aria-label={`Visit ${client.name} website (opens in new tab)`}
                                         >
                                             Visit site

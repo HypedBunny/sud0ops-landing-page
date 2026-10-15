@@ -84,7 +84,7 @@ export function Approach() {
                                     className="relative flex flex-col items-center md:items-start text-center md:text-left z-10"
                                 >
                                     <div className="h-24 w-24 md:h-24 md:w-full flex md:block items-center justify-center mb-6 md:mb-0">
-                                        <div className="h-[88px] w-[88px] rounded-md bg-brand-black-light border border-white/10 flex items-center justify-center text-3xl font-heading font-bold text-slate-600 shadow-xl transition-colors duration-300 hover:border-brand-blue hover:text-brand-blue lift-hover relative group cursor-default">
+                                        <div className="h-[88px] w-[88px] rounded-md bg-brand-black-light border border-white/10 flex items-center justify-center text-3xl font-heading font-bold text-slate-400 shadow-xl transition-colors duration-300 hover:border-brand-blue hover:text-brand-blue lift-hover relative group cursor-default">
                                             {step.id}
                                             <div className="absolute inset-0 bg-brand-blue/5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                         </div>
@@ -108,7 +108,7 @@ export function Approach() {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <p className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+                        <p className="text-sm font-semibold uppercase tracking-wider text-slate-400">
                             Tools We Work With
                         </p>
                     </motion.div>

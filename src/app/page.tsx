@@ -11,7 +11,7 @@ export default function Home() {
             <section className="relative">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-8 lg:py-20">
                     <div>
-                        <p className="mb-6 font-mono text-sm text-slate-500">
+                        <p className="mb-6 font-mono text-sm text-slate-400">
                             <span className="text-brand-accent">$</span> sudo ops --diagnose
                         </p>
 
@@ -43,7 +43,7 @@ export default function Home() {
                             </a>
                         </div>
 
-                        <p className="mt-8 font-mono text-xs uppercase tracking-wider text-slate-500">
+                        <p className="mt-8 font-mono text-xs uppercase tracking-wider text-slate-400">
                             Small businesses, growing teams &amp; NPOs · South Africa &amp; UK
                         </p>
                     </div>
@@ -74,7 +74,7 @@ export default function Home() {
                                 Get in Touch
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                             </a>
-                            <span className="font-mono text-xs text-slate-500">alex@sud0ops.com</span>
+                            <span className="font-mono text-xs text-slate-400">alex@sud0ops.com</span>
                         </div>
                     </div>
                 </div>
