@@ -53,6 +53,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Terminal cursor: a hard on/off blink, not a fade. */
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink {
+    animation: none;
+  }
+}
+
 /* Two vertical guides on the edges of the 80rem content column, like a drawing's margin lines. */
 .blueprint-rails {
   position: fixed;
