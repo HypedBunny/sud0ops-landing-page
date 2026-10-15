@@ -120,7 +120,7 @@ const work = [
     {
         name: "HelperHub",
         kind: "Technical Consultant",
-        logo: "/helperhub-logo.png",
+        logo: "/helperhub-logo.webp",
         logoClass: "h-10",
         blurb:
             "Technical consultant to a live payroll and HR platform for South African employers. Set the migration strategy from a legacy PHP monolith to a modern platform, delivered a security uplift on the live system with zero downtime, and rebuilt the release process.",
@@ -130,7 +130,7 @@ const work = [
     {
         name: "Bashies",
         kind: "Technical Build",
-        logo: "/bashies-logo.png",
+        logo: "/bashies-logo.webp",
         logoClass: "h-14",
         blurb:
             "Built the online store on Shopify, with a fast, SEO-optimised React landing page.",
@@ -140,7 +140,7 @@ const work = [
     {
         name: "Happy Shisha",
         kind: "Digital Enablement",
-        logo: "/happyevents-logo.png",
+        logo: "/happyevents-logo.webp",
         logoClass: "h-16",
         blurb:
             "Digital enablement and a social platform for a growing hospitality brand, bringing its sub-brands and services online.",
@@ -212,7 +212,10 @@ function Headshot() {
                 {ok ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                        src="/alex.jpg"
+                        src="/alex-448.webp"
+                        srcSet="/alex-224.webp 224w, /alex-448.webp 448w"
+                        sizes="(min-width: 640px) 224px, 192px"
+                        fetchPriority="high"
                         alt="Alex-Jay Beukes, DevOps and platform engineer and founder of Sud0ops"
                         width={448}
                         height={448}
@@ -252,7 +255,7 @@ export default function AlexPage() {
 
                 <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1fr_auto] lg:gap-16 lg:px-8">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
@@ -304,7 +307,7 @@ export default function AlexPage() {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={false}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
                         className="mx-auto lg:mx-0"
@@ -325,7 +328,7 @@ export default function AlexPage() {
                                 key={fact.label}
                                 className="panel rounded-md border border-white/5 bg-brand-black-light p-5"
                             >
-                                <dt className="font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
+                                <dt className="font-mono text-xs uppercase tracking-[0.2em] text-brand-blue">
                                     {fact.label}
                                 </dt>
                                 <dd className="mt-2 text-sm font-medium text-slate-200">
@@ -451,14 +454,14 @@ export default function AlexPage() {
                                         <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
                                             <Award className="h-5 w-5" />
                                         </div>
-                                        <span className="rounded-sm border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs text-brand-blue/80">
+                                        <span className="rounded-sm border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs text-brand-blue">
                                             {cert.level}
                                         </span>
                                     </div>
                                     <h3 className="font-heading text-lg font-semibold leading-snug text-white">
                                         {cert.name}
                                     </h3>
-                                    <p className="mt-1 text-sm text-slate-500">
+                                    <p className="mt-1 text-sm text-slate-400">
                                         {cert.issuer}
                                     </p>
                                 </div>
@@ -476,7 +479,7 @@ export default function AlexPage() {
                                             <ExternalLink className="h-3.5 w-3.5" />
                                         </a>
                                     ) : (
-                                        <span className="inline-flex items-center gap-1.5 text-xs text-slate-600">
+                                        <span className="inline-flex items-center gap-1.5 text-xs text-slate-400">
                                             <ShieldCheck className="h-3.5 w-3.5" />
                                             Verification link pending
                                         </span>
@@ -530,15 +533,15 @@ export default function AlexPage() {
                                     <h3 className="font-heading text-lg font-semibold text-white">
                                         {job.role}
                                     </h3>
-                                    <span className="font-mono text-xs text-brand-blue/70">
+                                    <span className="font-mono text-xs text-brand-blue">
                                         {job.period}
                                     </span>
                                 </div>
                                 <p className="mt-0.5 flex items-center gap-2 text-sm font-medium text-slate-400">
-                                    <Briefcase className="h-3.5 w-3.5 text-brand-blue/60" />
+                                    <Briefcase className="h-3.5 w-3.5 text-brand-blue" />
                                     {job.company}
-                                    <span className="text-slate-600">·</span>
-                                    <span className="text-slate-500">{job.location}</span>
+                                    <span className="text-slate-400">·</span>
+                                    <span className="text-slate-400">{job.location}</span>
                                 </p>
                                 <p className="mt-3 text-sm leading-relaxed text-slate-400">
                                     {job.blurb}
@@ -594,7 +597,7 @@ export default function AlexPage() {
                                             {project.name}
                                         </h3>
                                     </div>
-                                    <p className="mb-4 font-mono text-xs tracking-wide text-brand-blue/70">
+                                    <p className="mb-4 font-mono text-xs tracking-wide text-brand-blue">
                                         {project.kind}
                                     </p>
 
@@ -623,7 +626,7 @@ export default function AlexPage() {
                                                 <ArrowRight className="h-3.5 w-3.5" />
                                             </a>
                                         ) : (
-                                            <span className="text-xs text-slate-600">
+                                            <span className="text-xs text-slate-400">
                                                 Case study coming soon
                                             </span>
                                         )}
@@ -738,7 +741,7 @@ function SectionHeading({
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
         >
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-blue/70">
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-blue">
                 {eyebrow}
             </p>
             <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">

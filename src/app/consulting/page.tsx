@@ -64,7 +64,7 @@ export default function ConsultingPage() {
 
                 {/* ── Hero ── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="text-center mb-24"
@@ -115,14 +115,14 @@ export default function ConsultingPage() {
                                                         {service.badge}
                                                     </span>
                                                 </div>
-                                                <p className="text-sm text-slate-500 italic">{service.subtitle}</p>
+                                                <p className="text-sm text-slate-400 italic">{service.subtitle}</p>
                                             </div>
                                         </div>
 
                                         <p className="text-slate-300 leading-relaxed mb-6">{service.description}</p>
 
                                         {service.note && (
-                                            <p className="text-xs text-slate-500 italic border-l-2 border-brand-blue/30 pl-3">
+                                            <p className="text-xs text-slate-400 italic border-l-2 border-brand-blue/30 pl-3">
                                                 {service.note}
                                             </p>
                                         )}

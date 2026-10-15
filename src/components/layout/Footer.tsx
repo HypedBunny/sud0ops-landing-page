@@ -18,7 +18,7 @@ export function Footer() {
 
                     <div className="flex gap-16">
                         <div>
-                            <h3 className="font-mono text-xs uppercase tracking-wider text-slate-500">Services</h3>
+                            <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400">Services</h3>
                             <ul className="mt-4 space-y-3 text-sm text-slate-300">
                                 <li>Workflow Automation</li>
                                 <li>Tool Integration</li>
@@ -27,7 +27,7 @@ export function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <h3 className="font-mono text-xs uppercase tracking-wider text-slate-500">Contact</h3>
+                            <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400">Contact</h3>
                             <ul className="mt-4 space-y-3 text-sm text-slate-300">
                                 <li><Link href="mailto:alex@sud0ops.com" className="hover:text-brand-blue transition-colors">alex@sud0ops.com</Link></li>
                                 <li><Link href="/blog" className="hover:text-brand-blue transition-colors">Blog</Link></li>
@@ -36,7 +36,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t border-brand-line flex flex-col md:flex-row items-start md:items-center justify-between gap-3 font-mono text-xs text-slate-500">
+                <div className="mt-16 pt-8 border-t border-brand-line flex flex-col md:flex-row items-start md:items-center justify-between gap-3 font-mono text-xs text-slate-400">
                     <p>© {currentYear} Sud0ops. All rights reserved.</p>
                     <p>Cape Town, South Africa · Working with teams in SA and the UK</p>
                 </div>

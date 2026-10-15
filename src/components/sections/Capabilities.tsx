@@ -65,14 +65,14 @@ export function Capabilities() {
                             <div className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-wider">
                                 <span className={`h-2.5 w-2.5 ${i === 0 ? "bg-brand-blue" : "border border-brand-blue"}`} aria-hidden="true" />
                                 <span className="text-brand-blue">{String(i + 1).padStart(2, "0")}</span>
-                                <span className="text-slate-500">{cap.stage}</span>
+                                <span className="text-slate-400">{cap.stage}</span>
                             </div>
                             <h3 className="mb-2 font-heading text-lg font-semibold leading-snug text-white">{cap.title}</h3>
                             <p className="mb-5 text-sm font-medium text-brand-blue">{cap.outcome}</p>
                             <ul className="space-y-2.5 border-t border-brand-line pt-5">
                                 {cap.items.map((item) => (
                                     <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-slate-400">
-                                        <span className="font-mono text-slate-600" aria-hidden="true">+</span>
+                                        <span className="font-mono text-slate-400" aria-hidden="true">+</span>
                                         <span>{item}</span>
                                     </li>
                                 ))}

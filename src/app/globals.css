@@ -68,6 +68,22 @@ body {
   }
 }
 
+/* Terminal output printing line by line (OpsTerminal). */
+.print-line {
+  animation: print-line 0.25s ease-out both;
+}
+@keyframes print-line {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .print-line {
+    animation: none;
+  }
+}
+
 /* Two vertical guides on the edges of the 80rem content column, like a drawing's margin lines. */
 .blueprint-rails {
   position: fixed;

@@ -1,2 +1,13 @@
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
+
+# Images and icons in public/ keep their names between deploys, so cache for a week, not forever.
+/*.webp
+  Cache-Control: public,max-age=604800,stale-while-revalidate=86400
+/*.png
+  Cache-Control: public,max-age=604800,stale-while-revalidate=86400
+/*.jpg
+  Cache-Control: public,max-age=604800,stale-while-revalidate=86400
+
+/*
+  X-Content-Type-Options: nosniff
