@@ -1,0 +1,16 @@
+/* Sud0ops brand colours. Amber is for action, blue for identity and information. */
+:root {
+  --sud0ops-slate: #0F172A;          /* dark slate: page background */
+  --sud0ops-panel: #142036;          /* containers */
+  --sud0ops-raised: #1E293B;         /* raised surfaces, hover */
+  --sud0ops-line: #273449;           /* structural lines */
+  --sud0ops-off-white: #F8FAFC;      /* text, "Sud" */
+  --sud0ops-muted: #CBD5E1;          /* secondary text, "ops" */
+  --sud0ops-amber: #FFB800;          /* terminal amber: buttons, prompt, cursor */
+  --sud0ops-amber-hover: #FFC933;
+  --sud0ops-amber-on-light: #D97706; /* prompt and cursor on white */
+  --sud0ops-blue: #38BDF8;           /* original Sud0ops blue: the 0, highlights, links */
+  --sud0ops-blue-hover: #00BFFF;
+  --sud0ops-blue-on-light: #0284C7;  /* the 0 on white */
+  --sud0ops-mint: #10B981;           /* terminal success states */
+}

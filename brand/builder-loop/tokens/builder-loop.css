@@ -1,0 +1,14 @@
+/* Sud0ops Builder Loop - existing brand tokens retained */
+:root {
+  --so-slate:#0F172A; --so-panel:#142036; --so-raised:#1E293B;
+  --so-line:#273449; --so-offwhite:#F8FAFC; --so-muted:#CBD5E1;
+  --so-amber:#FFB800; --so-amber-on-light:#D97706;
+  --so-blue:#38BDF8; --so-blue-on-light:#0284C7;
+  --so-mint:#10B981;
+}
+/* Static SVGs are the canonical visual assets: do not redraw with plain text zeroes. */
+.so-logo { display:block; max-width:100%; height:auto; }
+.so-logo--header { width:clamp(136px, 22vw, 260px); }
+@keyframes so-cursor-blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+.so-cursor { animation:so-cursor-blink 1s steps(1,end) infinite; }
+@media (prefers-reduced-motion:reduce) { .so-cursor { animation:none; } }

@@ -46,6 +46,8 @@ const organizationJsonLd = {
   "@id": `${SITE_URL}/#organization`,
   name: "Sud0ops",
   url: "https://sud0ops.com",
+  // The Builder Loop app icon, so search engines can show the brand mark.
+  logo: `${SITE_URL}/icon-512.png`,
   email: "alex@sud0ops.com",
   description: "Technology consultancy that helps small businesses, growing teams and NPOs pick, build, adopt and support the technology that fits them.",
   address: { "@type": "PostalAddress", addressLocality: "Cape Town", addressCountry: "ZA" },
