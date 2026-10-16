@@ -9,8 +9,9 @@ interface ClientConfirmationParams {
 const MONO = "'JetBrains Mono',Consolas,Menlo,'Courier New',monospace";
 const HEAD = "'Plus Jakarta Sans','Helvetica Neue',Helvetica,Arial,sans-serif";
 
-// >Sud0ops_ as live text in the terminal font, so it shows even when images are blocked.
-const WORDMARK = `<span style="font-family:${MONO};font-size:24px;font-weight:800;letter-spacing:-1px;line-height:1;white-space:nowrap;"><span style="color:#FFB800;">&gt;</span><span style="color:#F8FAFC;">Sud</span><span style="color:#38BDF8;">0</span><span style="color:#CBD5E1;font-weight:600;">ops</span><span style="color:#FFB800;">_</span></span>`;
+// The official Builder Loop wordmark, hosted on the site so it loads for every recipient.
+// The alt text keeps the name readable when images are blocked.
+const WORDMARK = `<a href="https://sud0ops.com" style="text-decoration:none;"><img src="https://sud0ops.com/brand/sud0ops-email-logo.png" width="188" height="40" alt="Sud0ops" style="display:inline-block;border:0;width:188px;height:40px;font-family:${MONO};font-size:22px;font-weight:700;color:#F8FAFC;" /></a>`;
 
 const step = (n: number, text: string, last = false) => `
                 <tr>

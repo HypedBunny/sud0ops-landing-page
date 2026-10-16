@@ -1,0 +1,54 @@
+{
+  "slate": {
+    "hex": "#0F172A",
+    "use": "Page background"
+  },
+  "panel": {
+    "hex": "#142036",
+    "use": "Containers"
+  },
+  "raised": {
+    "hex": "#1E293B",
+    "use": "Raised surfaces, hover"
+  },
+  "line": {
+    "hex": "#273449",
+    "use": "Structural lines"
+  },
+  "offWhite": {
+    "hex": "#F8FAFC",
+    "use": "Text, \"Sud\""
+  },
+  "muted": {
+    "hex": "#CBD5E1",
+    "use": "Secondary text, \"ops\""
+  },
+  "amber": {
+    "hex": "#FFB800",
+    "use": "Action: buttons, prompt, cursor"
+  },
+  "amberHover": {
+    "hex": "#FFC933",
+    "use": "Amber hover"
+  },
+  "amberOnLight": {
+    "hex": "#D97706",
+    "use": "Prompt and cursor on white"
+  },
+  "blue": {
+    "hex": "#38BDF8",
+    "use": "Identity: the 0, highlights, links"
+  },
+  "blueHover": {
+    "hex": "#00BFFF",
+    "use": "Blue hover"
+  },
+  "blueOnLight": {
+    "hex": "#0284C7",
+    "use": "The 0 on white"
+  },
+  "mint": {
+    "hex": "#10B981",
+    "use": "Terminal success states"
+  }
+}
