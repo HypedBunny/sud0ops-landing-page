@@ -1,0 +1,18 @@
+{
+  "first_final_pixels_identical": true,
+  "export_source": "Chromium screenshots of the same SVG renderer as the live demo",
+  "static_master": "Copied unchanged from previous approved logo pack",
+  "mp4_dimensions": [
+    720,
+    720
+  ],
+  "mp4_fps": 30,
+  "mp4_duration_seconds": 6.4,
+  "gif_dimensions": [
+    540,
+    540
+  ],
+  "gif_playback": "one-shot; no repeat extension",
+  "frame_count_source": 192,
+  "visual_approval": "pending"
+}

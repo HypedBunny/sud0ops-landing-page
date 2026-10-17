@@ -1,0 +1,151 @@
+{
+  "version": "3.0-motion-review",
+  "visual_approval": "pending",
+  "files": [
+    {
+      "path": "OPEN-MOTION.html",
+      "bytes": 61840,
+      "sha256": "6c23e905352b7fde0083bb1d98229e1c6280bf83da43e135bd86aabd9ad187e5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5121,
+      "sha256": "bdfd331bd213258da6fc5dca03398bfab45aac9011bdffa1d34b9d316d51355e"
+    },
+    {
+      "path": "RELEASE-NOTES.md",
+      "bytes": 997,
+      "sha256": "0b8c170e2f23b0a386327871097161ac1803962ecb200515a8d16dfe91e91bf7"
+    },
+    {
+      "path": "exports/builder-loop-spiral-v3.gif",
+      "bytes": 4299355,
+      "sha256": "336c8bedd49915381746880ede4e005f6e168447295d812490e4204ee827c6b3"
+    },
+    {
+      "path": "exports/builder-loop-spiral-v3.mp4",
+      "bytes": 667125,
+      "sha256": "dff1c3d45f4a633b434d4410d433ea075a2ea9dd4706b63504b30bd25036f782"
+    },
+    {
+      "path": "exports/builder-loop-spiral-v3.webp",
+      "bytes": 1227634,
+      "sha256": "2940cacde645e0ff256160d0b4d456ac09559addf2c2775610f3cf8ecd45a774"
+    },
+    {
+      "path": "exports/infinity-loading-v3.gif",
+      "bytes": 663214,
+      "sha256": "208ee50a3cb25ea985ebae3e0a8749b2326989daa811c3f1f46136bbe1f80e55"
+    },
+    {
+      "path": "guides/AGENT-HANDOVER.md",
+      "bytes": 6157,
+      "sha256": "55764b3a5a03c4bb4ea16ca1ffd0a949359df116eaddf36102caf621bad0ab75"
+    },
+    {
+      "path": "guides/MOTION-SPEC-v3.md",
+      "bytes": 2965,
+      "sha256": "342ad8a4528b20d8fc4eca0b4dbc8c5e3ddbde31fbaab62509c178ec69365076"
+    },
+    {
+      "path": "qa/browser-desktop.png",
+      "bytes": 178918,
+      "sha256": "21e1cd4822101f11c56bbd03503b1f95ee5937d2ea8e46781fa5926a2619042f"
+    },
+    {
+      "path": "qa/browser-mobile-infinity.png",
+      "bytes": 72850,
+      "sha256": "06e23acfa7f8ae201b3854738ad7a080827ab96126894e0f834ffcab5e3197d6"
+    },
+    {
+      "path": "qa/browser-mobile-reduced-motion.png",
+      "bytes": 73611,
+      "sha256": "7961c1d0aef64cf1394c65fd84768b07d80b66a94f071c29050d04de1e1bbb15"
+    },
+    {
+      "path": "qa/browser-report.json",
+      "bytes": 1197,
+      "sha256": "7c4871d2dd901ece13e601f36d1a3b71b9e87f703b015010d3c5cb8714509564"
+    },
+    {
+      "path": "qa/check-browser.py",
+      "bytes": 4685,
+      "sha256": "451d680e6ebc9c03ab11e6f27f3170101bc885dad4b0e8f48aef5f673c04827b"
+    },
+    {
+      "path": "qa/check-geometry.mjs",
+      "bytes": 2156,
+      "sha256": "733e26c76c39f97bed1ad77a63ffe5c1fd78123f75ad6e35527603362fb1138d"
+    },
+    {
+      "path": "qa/export-report.json",
+      "bytes": 447,
+      "sha256": "fca657bcd946cf3c6faf7dd1c198f863036eeccd5cb2d6aa49451d20009d7003"
+    },
+    {
+      "path": "qa/geometry-report.json",
+      "bytes": 533,
+      "sha256": "3ca845668c64800776fba98045c201faf3eece242b33c407bd0f25907fb35582"
+    },
+    {
+      "path": "reference/approved-storyboard-v3.png",
+      "bytes": 1884790,
+      "sha256": "9a771648b1a86c66ae2c0f677bc5165d7ebc2bb09169232c9daebb87edb1a680"
+    },
+    {
+      "path": "reference/approved-zero-detail.png",
+      "bytes": 306250,
+      "sha256": "735ce787e01006bec20f209a014d49033d9a31327e12baf366abc9ef46e5060d"
+    },
+    {
+      "path": "reference/final-frame.png",
+      "bytes": 11477,
+      "sha256": "cd2d1261fa93b3148a64307bf529a1316b91e4678381745a4c590dd7046578bb"
+    },
+    {
+      "path": "reference/first-frame.png",
+      "bytes": 11477,
+      "sha256": "cd2d1261fa93b3148a64307bf529a1316b91e4678381745a4c590dd7046578bb"
+    },
+    {
+      "path": "reference/rendered-sequence.png",
+      "bytes": 210353,
+      "sha256": "f1401f071d584a8682b241514b7d276869ae51e0ecce76996ad31dbf11fc4d28"
+    },
+    {
+      "path": "reference/unchanged-static-master.svg",
+      "bytes": 1108,
+      "sha256": "072baa21af80e75eb18303c38196af058b3c4cec1fbdb3d6b744c07439a181b7"
+    },
+    {
+      "path": "scripts/build-demo.py",
+      "bytes": 8015,
+      "sha256": "8f8b45d9d36850c1e76b1b25944fe4d19a3f3a5d6041c24239030fbccc9e047a"
+    },
+    {
+      "path": "scripts/export.py",
+      "bytes": 3412,
+      "sha256": "e6251de2bad76340de71c16446b8624ce7cc9a484673f752e43c6e4e9921de66"
+    },
+    {
+      "path": "src/approved-geometry.mjs",
+      "bytes": 9540,
+      "sha256": "a08f43763cbd308b5e9044be326b6d0dbefbce776d812ae1f2f9069ec7f59d80"
+    },
+    {
+      "path": "src/loader.mjs",
+      "bytes": 3899,
+      "sha256": "d3ea826b7976509f409473278b0e8805597c0f6b440b83fe708342a69e3cd211"
+    },
+    {
+      "path": "src/motion.mjs",
+      "bytes": 10572,
+      "sha256": "8531257d922c132ae0b4d6321c7e0a80726c62ca957e8b18b6d7bc2931038589"
+    },
+    {
+      "path": "src/rig.mjs",
+      "bytes": 30590,
+      "sha256": "e82e6442ee9da26b6549c6f54473933d392d7ddfa982fe43c426d11e49b70b25"
+    }
+  ]
+}

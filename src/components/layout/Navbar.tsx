@@ -14,7 +14,7 @@ export function Navbar() {
         <header className="fixed top-0 left-0 right-0 z-50 border-b border-brand-line bg-brand-black">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20 gap-4">
-                    <Logo />
+                    <Logo motion />
                     <div className="flex items-center gap-4 sm:gap-8">
                         <nav className="flex items-center gap-5 sm:gap-8 text-sm font-medium text-slate-300">
                             {navLinks.map((link) => (

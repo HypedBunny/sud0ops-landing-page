@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "environment": "Installed Chromium, headless Linux",
+  "checks": [
+    {
+      "name": "standalone script execution",
+      "pass": true,
+      "test_method": "HTML injected via set_content; file URL navigation restricted in test environment"
+    },
+    {
+      "name": "loading complete / repeated complete",
+      "pass": true,
+      "callback_count": 1
+    },
+    {
+      "name": "idempotent destroy / DOM cleanup",
+      "pass": true
+    },
+    {
+      "name": "reduced motion: static while loading; callback after complete",
+      "pass": true
+    },
+    {
+      "name": "multiple instances: unique SVG resource IDs",
+      "pass": true
+    },
+    {
+      "name": "390px mobile layout; reduced-motion demo",
+      "pass": true
+    }
+  ],
+  "page_errors": [],
+  "desktop_svg_generation_and_DOM_update_sample": {
+    "mean_ms": 23.51333333333023,
+    "max_ms": 35.59999999997672
+  },
+  "limits": [
+    "No Safari or Firefox execution available in this check.",
+    "No user-site integration or framework build performed.",
+    "Visual approval remains a separate user decision.",
+    "Frame timings exclude completed paint and do not establish mobile performance."
+  ]
+}

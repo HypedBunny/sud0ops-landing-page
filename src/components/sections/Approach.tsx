@@ -5,7 +5,6 @@ import {
     Search,
     Target,
     Cpu,
-    TrendingUp,
     Workflow,
     Link2,
     Bot,

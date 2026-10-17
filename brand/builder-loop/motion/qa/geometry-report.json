@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "checks": {
+    "fixed_dot_and_finite_unclipped_geometry_frames": 1556,
+    "exit_frames": 915,
+    "exit_origins": 15,
+    "start_end_paths": "identical to unchanged master",
+    "loop_period_seconds": 1.44,
+    "loop_geometry": "exactly periodic",
+    "completion": "no position jump at start; exact master at end",
+    "blur": "moving pieces only; absent in locked states",
+    "centre_halo": "none"
+  },
+  "visual_approval": "Animation still needs user review; numerical checks are not visual approval."
+}

@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     ".open-next/**",
     ".wrangler/**",
     "graphify-out/**",
+    // Vendored brand packs (kept byte-for-byte as delivered).
+    "brand/**",
   ]),
 ]);
 

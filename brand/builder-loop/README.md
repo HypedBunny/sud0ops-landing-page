@@ -4,6 +4,8 @@
 > (from `email/`), and the header logo drawn from `masters/builder-loop-wordmark-master.svg`
 > (`src/components/ui/logo-glyphs.ts`). `email/sud0ops-email-signature.html` is the full signature
 > with name, contact details, sud0ops.com and LinkedIn; it replaces the pack's logo-only snippet.
+> `motion/` is the Builder Loop v3 motion pack; the header's 0 plays `public/brand/sud0ops-logo-motion.webp`,
+> rendered from it by `scripts/render-logo-motion.mjs` (see `motion/README.md`).
 
 # Sud0ops Builder Loop — implementation asset pack
 
