@@ -1,9 +1,11 @@
 > **Stored in the repo as the source of the header logo's motion.** The site does not run these modules
 > in the browser: the official renderer costs about 34 ms of script per frame, too much for a header that
 > loops forever. Instead `scripts/render-logo-motion.mjs` renders the one-shot with `src/motion.mjs`
-> (adapter settings: no background, trails on, full quality) to
-> `public/brand/sud0ops-logo-motion.webp`: a 2-second still zero, then the 30 fps motion, looping.
-> The header plays it behind the letters; reduced-motion visitors and the footer get the static zero.
+> (adapter settings: no background, trails on, full quality) into a sprite,
+> `public/brand/sud0ops-logo-motion.webp`, and measures how far the pieces reach on every frame. The
+> header plays it on a loop (a 2-second still zero, then the motion) while ">Sud" and "ops_" slide
+> outwards just far enough to keep clear of the pieces. Reduced-motion visitors and the footer get the
+> static zero.
 
 # Sud0ops Builder Loop - spiral motion v3
 
