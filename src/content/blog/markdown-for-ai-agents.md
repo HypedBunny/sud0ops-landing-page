@@ -147,7 +147,7 @@ return new Response(markdown, {
 });
 ```
 
-**Discovery is built in.** Each post's `<head>` includes `<link rel="alternate" type="text/markdown">`, the site's `llms.txt` points at the markdown blog index, and robots.txt names the main AI crawlers and lets them read everything except the contact API.
+**Discovery is built in.** Each post's `<head>` includes `<link rel="alternate" type="text/markdown">`, the site's `llms.txt` points at the markdown blog index, and robots.txt names the main AI crawlers, lets them read everything except the contact API, and declares `Content-Signal: search=yes, ai-input=yes, ai-train=yes`.
 
 **People get it too.** At the top of every post there is an HTML / MD toggle. Flip it to see the raw markdown, then copy it in one click to paste into your own assistant.
 
