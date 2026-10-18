@@ -1,4 +1,5 @@
-# Search and AI crawlers may read every page. Only the contact API is closed.
+# Search engines, AI search and answer bots, and AI fetchers acting for a person may read every page
+# except the contact API. AI training crawlers may not crawl at all.
 #
 # Content signals (Cloudflare's Content Signals Policy) say how the content may be used:
 #   search   - building a search index and showing results
@@ -11,18 +12,25 @@ Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /api/
 
+# AI training crawlers. Google-Extended and Applebot-Extended are opt-out tokens, not separate
+# crawlers: blocking them keeps pages out of Gemini and Apple model training without affecting
+# Google Search or Siri and Spotlight. Google-Extended also covers grounding answers in Gemini apps.
 User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Disallow: /
+
+# AI search and answer crawlers, and fetchers that read a page because a person asked.
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
-User-agent: ClaudeBot
 User-agent: Claude-SearchBot
 User-agent: Claude-User
 User-agent: PerplexityBot
 User-agent: Perplexity-User
-User-agent: Google-Extended
-User-agent: Applebot-Extended
-User-agent: CCBot
-User-agent: meta-externalagent
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /api/
