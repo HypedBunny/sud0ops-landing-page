@@ -447,43 +447,45 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                                className="group panel flex flex-col justify-between rounded-md border border-white/5 bg-brand-black-light p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/50 lift-hover"
+                                className="group h-full"
                             >
-                                <div>
-                                    <div className="mb-4 flex items-start justify-between gap-3">
-                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
-                                            <Award className="h-5 w-5" />
+                                <div className="lift-card panel flex h-full flex-col justify-between rounded-md border border-white/5 bg-brand-black-light p-6 group-hover:-translate-y-1 group-hover:border-brand-blue/50">
+                                    <div>
+                                        <div className="mb-4 flex items-start justify-between gap-3">
+                                            <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-brand-black">
+                                                <Award className="h-5 w-5" />
+                                            </div>
+                                            <span className="rounded-sm border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs text-brand-blue">
+                                                {cert.level}
+                                            </span>
                                         </div>
-                                        <span className="rounded-sm border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 font-mono text-xs text-brand-blue">
-                                            {cert.level}
-                                        </span>
+                                        <h3 className="font-heading text-lg font-semibold leading-snug text-white">
+                                            {cert.name}
+                                        </h3>
+                                        <p className="mt-1 text-sm text-slate-400">
+                                            {cert.issuer}
+                                        </p>
                                     </div>
-                                    <h3 className="font-heading text-lg font-semibold leading-snug text-white">
-                                        {cert.name}
-                                    </h3>
-                                    <p className="mt-1 text-sm text-slate-400">
-                                        {cert.issuer}
-                                    </p>
-                                </div>
 
-                                <div className="mt-5">
-                                    {cert.verifyUrl ? (
-                                        <a
-                                            href={cert.verifyUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
-                                        >
-                                            <ShieldCheck className="h-4 w-4" />
-                                            Verify credential
-                                            <ExternalLink className="h-3.5 w-3.5" />
-                                        </a>
-                                    ) : (
-                                        <span className="inline-flex items-center gap-1.5 text-xs text-slate-400">
-                                            <ShieldCheck className="h-3.5 w-3.5" />
-                                            Verification link pending
-                                        </span>
-                                    )}
+                                    <div className="mt-5">
+                                        {cert.verifyUrl ? (
+                                            <a
+                                                href={cert.verifyUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
+                                            >
+                                                <ShieldCheck className="h-4 w-4" />
+                                                Verify credential
+                                                <ExternalLink className="h-3.5 w-3.5" />
+                                            </a>
+                                        ) : (
+                                            <span className="inline-flex items-center gap-1.5 text-xs text-slate-400">
+                                                <ShieldCheck className="h-3.5 w-3.5" />
+                                                Verification link pending
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -571,65 +573,67 @@ export default function AlexPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                                className="group panel relative flex flex-col overflow-hidden rounded-md border border-white/5 bg-brand-black-light p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/50 lift-hover"
+                                className="group h-full"
                             >
-                                <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                                <div className="lift-card panel relative flex h-full flex-col overflow-hidden rounded-md border border-white/5 bg-brand-black-light p-8 group-hover:-translate-y-2 group-hover:border-brand-blue/50">
+                                    <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                                <div className="relative z-10 flex h-full flex-col">
-                                    <div className="mb-5 flex h-16 items-center">
-                                        {project.logo ? (
-                                            <Image
-                                                src={project.logo}
-                                                alt={project.name}
-                                                width={160}
-                                                height={64}
-                                                className={`${project.logoClass ?? "h-12"} w-auto object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100`}
-                                            />
-                                        ) : (
-                                            <span className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 font-heading text-lg font-bold text-brand-blue ring-1 ring-brand-blue/20">
-                                                PA
-                                            </span>
-                                        )}
-                                    </div>
+                                    <div className="relative z-10 flex h-full flex-col">
+                                        <div className="mb-5 flex h-16 items-center">
+                                            {project.logo ? (
+                                                <Image
+                                                    src={project.logo}
+                                                    alt={project.name}
+                                                    width={160}
+                                                    height={64}
+                                                    className={`${project.logoClass ?? "h-12"} w-auto object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100`}
+                                                />
+                                            ) : (
+                                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 font-heading text-lg font-bold text-brand-blue ring-1 ring-brand-blue/20">
+                                                    PA
+                                                </span>
+                                            )}
+                                        </div>
 
-                                    <div className="mb-2 flex items-center gap-2">
-                                        <h3 className="font-heading text-xl font-semibold text-white transition-colors group-hover:text-brand-blue">
-                                            {project.name}
-                                        </h3>
-                                    </div>
-                                    <p className="mb-4 font-mono text-xs tracking-wide text-brand-blue">
-                                        {project.kind}
-                                    </p>
+                                        <div className="mb-2 flex items-center gap-2">
+                                            <h3 className="font-heading text-xl font-semibold text-white transition-colors group-hover:text-brand-blue">
+                                                {project.name}
+                                            </h3>
+                                        </div>
+                                        <p className="mb-4 font-mono text-xs tracking-wide text-brand-blue">
+                                            {project.kind}
+                                        </p>
 
-                                    <p className="flex-1 text-sm leading-relaxed text-slate-400">
-                                        {project.blurb}
-                                    </p>
+                                        <p className="flex-1 text-sm leading-relaxed text-slate-400">
+                                            {project.blurb}
+                                        </p>
 
-                                    <div className="mt-6 flex items-center gap-5 border-t border-white/5 pt-5">
-                                        <a
-                                            href={project.liveUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
-                                        >
-                                            Visit site
-                                            <ExternalLink className="h-3.5 w-3.5" />
-                                        </a>
-                                        {project.caseUrl ? (
+                                        <div className="mt-6 flex items-center gap-5 border-t border-white/5 pt-5">
                                             <a
-                                                href={project.caseUrl}
+                                                href={project.liveUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white"
+                                                className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue transition-colors hover:text-brand-blue-hover"
                                             >
-                                                Read the work
-                                                <ArrowRight className="h-3.5 w-3.5" />
+                                                Visit site
+                                                <ExternalLink className="h-3.5 w-3.5" />
                                             </a>
-                                        ) : (
-                                            <span className="text-xs text-slate-400">
-                                                Case study coming soon
-                                            </span>
-                                        )}
+                                            {project.caseUrl ? (
+                                                <a
+                                                    href={project.caseUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white"
+                                                >
+                                                    Read the work
+                                                    <ArrowRight className="h-3.5 w-3.5" />
+                                                </a>
+                                            ) : (
+                                                <span className="text-xs text-slate-400">
+                                                    Case study coming soon
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

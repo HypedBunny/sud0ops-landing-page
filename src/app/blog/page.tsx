@@ -59,11 +59,11 @@ export default function BlogPage() {
                 ) : (
                     <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {posts.map((post) => (
-                            <li key={post.slug}>
+                            <li key={post.slug} className="group">
                                 <ViewTransition name={`post-${post.slug}`}>
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="group relative flex h-full flex-col overflow-hidden rounded-md border border-white/5 p-6 transition-all duration-300 panel hover:-translate-y-1 hover:border-brand-blue/30 lift-hover sm:p-8"
+                                        className="lift-card relative flex h-full flex-col overflow-hidden rounded-md border border-white/5 p-6 panel group-hover:-translate-y-1 group-hover:border-brand-blue/30 sm:p-8"
                                     >
                                         <div
                                             className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"

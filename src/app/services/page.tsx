@@ -165,17 +165,19 @@ export default function ServicesPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.5, delay: index * 0.08 }}
-                                    className="group relative rounded-md p-8 transition-all duration-300 hover:-translate-y-2 panel overflow-hidden border border-white/5 hover:border-brand-blue/50 lift-hover bg-brand-black-light"
+                                    className="group h-full"
                                 >
-                                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
-                                    <div className="relative z-10">
-                                        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 group-hover:bg-brand-blue group-hover:text-brand-black group-hover:ring-brand-blue transition-colors duration-300">
-                                            <Icon className="h-6 w-6" />
+                                    <div className="lift-card relative h-full rounded-md p-8 panel overflow-hidden border border-white/5 group-hover:-translate-y-2 group-hover:border-brand-blue/50 bg-brand-black-light">
+                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                                        <div className="relative z-10">
+                                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 group-hover:bg-brand-blue group-hover:text-brand-black group-hover:ring-brand-blue transition-colors duration-300">
+                                                <Icon className="h-6 w-6" />
+                                            </div>
+                                            <h3 className="text-xl font-heading font-semibold text-white mb-2 group-hover:text-brand-blue transition-colors">
+                                                {svc.title}
+                                            </h3>
+                                            <p className="text-sm text-slate-400 leading-relaxed">{svc.description}</p>
                                         </div>
-                                        <h3 className="text-xl font-heading font-semibold text-white mb-2 group-hover:text-brand-blue transition-colors">
-                                            {svc.title}
-                                        </h3>
-                                        <p className="text-sm text-slate-400 leading-relaxed">{svc.description}</p>
                                     </div>
                                 </motion.div>
                             );

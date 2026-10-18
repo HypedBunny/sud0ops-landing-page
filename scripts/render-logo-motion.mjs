@@ -101,8 +101,15 @@ function ease(required) {
     const total = kernel.reduce((a, b) => a + b, 0);
     return envelope.map((_, i) => Math.ceil(kernel.reduce((sum, w, j) => sum + w * at(envelope, i - LEAD + j), 0) / total));
 }
-const left = ease(need("left"));
-const right = ease(need("right"));
+// The letters finish closing in during the still zero, so start the loop on the first tick where both
+// sides are home: playback then begins from rest instead of jumping to a half-open spread.
+const leftEased = ease(need("left"));
+const rightEased = ease(need("right"));
+const start = leftEased.findIndex((x, tick) => x === 0 && rightEased[tick] === 0);
+const fromStart = (values) => [...values.slice(start), ...values.slice(0, start)];
+const cells = fromStart(Array.from({ length: ticks }, (_, tick) => cellAt(tick)));
+const left = fromStart(leftEased);
+const right = fromStart(rightEased);
 
 const rows = Math.ceil(frames.length / COLUMNS);
 const sheet = await sharp({ create: { width: width * COLUMNS, height: height * rows, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
@@ -121,10 +128,9 @@ export const MOTION_SPRITE = { src: "/brand/sud0ops-logo-motion.webp", width: ${
 // Area each cell covers, in icon units.
 export const MOTION_BOX = ${JSON.stringify(MOTION_BOX)};
 export const MOTION_TICK_MS = 1000 / ${FPS};
-// One loop, per tick: ${REST_TICKS} ticks of the still zero, then cells 1 to ${frames.length - 1}.
-export const MOTION_REST_TICKS = ${REST_TICKS};
-export const MOTION_CELLS = ${frames.length};
-// How far (font units) the letters left and right of the 0 move outwards on each tick.
+// One loop, per tick: the sprite cell to show (${REST_TICKS} ticks of the still zero per loop), and how far
+// (font units) the letters left and right of the 0 move outwards. The loop starts with both sides home.
+export const MOTION_FRAMES = ${JSON.stringify(cells)};
 export const MOTION_LEFT = ${JSON.stringify(left)};
 export const MOTION_RIGHT = ${JSON.stringify(right)};
 `,

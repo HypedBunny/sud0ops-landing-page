@@ -34,9 +34,20 @@
   }
   /* Hover lift: a hard offset shadow instead of a glow. */
   .lift-hover {
-    transition-property: transform, box-shadow, border-color, background-color, color;
+    transition-property: transform, translate, box-shadow, border-color, background-color, color;
   }
   .lift-hover:hover {
+    box-shadow: 4px 4px 0 0 var(--color-brand-blue);
+  }
+  /* Card lift: the card rises (group-hover:-translate-y-*) with the same shadow while its wrapper,
+     the .group, is hovered. The wrapper never moves, so hovering near the card's edge is steady.
+     Lifting on the card's own :hover flickers there: the card moves out from under the cursor,
+     drops back, and lifts again. */
+  .lift-card {
+    transition-property: translate, box-shadow, border-color;
+    transition-duration: 300ms;
+  }
+  .group:hover .lift-card {
     box-shadow: 4px 4px 0 0 var(--color-brand-blue);
   }
 }
@@ -226,6 +237,16 @@ body {
 .blog-prose th {
   color: #fff;
   background: rgba(255, 255, 255, 0.03);
+}
+/* Narrow screens: tighter tables so three columns stay readable. */
+@media (max-width: 40rem) {
+  .blog-prose table {
+    font-size: 0.85em;
+  }
+  .blog-prose th,
+  .blog-prose td {
+    padding: 0.45em 0.5em;
+  }
 }
 
 /* Blog cards morph into their post page (<ViewTransition> in src/app/blog). */

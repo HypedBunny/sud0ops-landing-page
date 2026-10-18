@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CURSOR, CURSOR_X, OPS, PROMPT, SUD, VIEW_BOX, ZERO, ZERO_DOT, ZERO_PATHS, ZERO_TRANSFORM } from "@/components/ui/logo-glyphs";
-import { MOTION_BOX, MOTION_CELLS, MOTION_LEFT, MOTION_REST_TICKS, MOTION_RIGHT, MOTION_SPRITE, MOTION_TICK_MS } from "@/components/ui/logo-motion.generated";
+import { MOTION_BOX, MOTION_FRAMES, MOTION_LEFT, MOTION_RIGHT, MOTION_SPRITE, MOTION_TICK_MS } from "@/components/ui/logo-motion.generated";
 
 // The official >Sud0ops_ wordmark (Builder Loop identity), drawn from the outlined master vectors.
 // On load the bare prompt ">_" blinks for 2 seconds, then the name types out one glyph at a time
@@ -29,15 +29,14 @@ const MOTION_PLACEMENT = {
     width: share((MOTION_BOX[2] * ZERO.sx) / VIEW_W),
     height: share((MOTION_BOX[3] * ZERO.sy) / VIEW_H),
 };
-const TICKS = MOTION_LEFT.length;
+const TICKS = MOTION_FRAMES.length;
 const LOOP = { duration: TICKS * MOTION_TICK_MS, iterations: Infinity };
 const cell = (n: number) =>
     `translate(${(-(n % MOTION_SPRITE.columns) * 100) / MOTION_SPRITE.columns}%, ${(-Math.floor(n / MOTION_SPRITE.columns) * 100) / MOTION_SPRITE.rows}%)`;
-// Cell 0 (the still zero) for the rest ticks, then one cell per tick, each held until the next.
+// Each tick's cell is held until the next change.
 const SPRITE_KEYFRAMES: Keyframe[] = [
-    { offset: 0, transform: cell(0), easing: "step-end" },
-    ...Array.from({ length: MOTION_CELLS - 1 }, (_, i) => ({ offset: (MOTION_REST_TICKS + i) / TICKS, transform: cell(i + 1), easing: "step-end" })),
-    { offset: 1, transform: cell(MOTION_CELLS - 1) },
+    ...MOTION_FRAMES.flatMap((n, i) => (i > 0 && n === MOTION_FRAMES[i - 1] ? [] : [{ offset: i / TICKS, transform: cell(n), easing: "step-end" }])),
+    { offset: 1, transform: cell(MOTION_FRAMES[TICKS - 1]) },
 ];
 const slide = (offsets: number[], direction: number): Keyframe[] => [
     ...offsets.map((x, i) => ({ offset: i / TICKS, transform: `translateX(${direction * x}px)` })),
