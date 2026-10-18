@@ -115,8 +115,23 @@ function attr(value: string) {
     return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 }
 
+// A "## Sources" section renders as a collapsed <details>, closed by default, so references don't crowd
+// the end of the post. It runs to the next "## " heading or the end. The markdown version keeps it as a list.
+const SOURCES = /^## Sources[ \t]*$/m;
+
 export function renderPostHtml(post: Post) {
-    return marked.parse(post.body, { async: false });
+    const render = (markdown: string) => marked.parse(markdown, { async: false });
+    const start = post.body.search(SOURCES);
+    if (start < 0) return render(post.body);
+    const rest = post.body.slice(start).replace(SOURCES, "");
+    const next = rest.search(/^## /m);
+    const sources = next < 0 ? rest : rest.slice(0, next);
+    const count = sources.match(/^\s*[-*] /gm)?.length ?? 0;
+    return (
+        render(post.body.slice(0, start)) +
+        `<details class="blog-sources"><summary>Sources${count ? ` <span>(${count})</span>` : ""}</summary>${render(sources)}</details>` +
+        (next < 0 ? "" : render(rest.slice(next)))
+    );
 }
 
 // What agents get from Accept: text/markdown or a .md URL, and what the MD toggle shows.
