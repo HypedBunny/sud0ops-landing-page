@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef, useSyncExternalStore } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CURSOR, CURSOR_X, OPS, PROMPT, SUD, VIEW_BOX, ZERO, ZERO_DOT, ZERO_PATHS, ZERO_TRANSFORM } from "@/components/ui/logo-glyphs";
 import { MOTION_BOX, MOTION_FRAMES, MOTION_LEFT, MOTION_RIGHT, MOTION_SPRITE, MOTION_TICK_MS } from "@/components/ui/logo-motion.generated";
+import { useReducedMotion } from "@/lib/motion";
 
 // The official >Sud0ops_ wordmark (Builder Loop identity), drawn from the outlined master vectors.
 // On load the bare prompt ">_" blinks for 2 seconds, then the name types out one glyph at a time
 // (S-u-d-0-o-p-s) with the cursor moving along. Prompt and cursor are amber; the 0 is the blue
-// segmented Builder Loop mark. With reduced motion the full logo shows straight away.
+// segmented Builder Loop mark with its amber centre dot. With reduced motion the full logo shows straight away.
 const PROMPT_HOLD_MS = 2000;
 const TYPE_MS = 120;
 const TOTAL = 7;
@@ -45,18 +46,10 @@ const slide = (offsets: number[], direction: number): Keyframe[] => [
 const LEFT_KEYFRAMES = slide(MOTION_LEFT, -1);
 const RIGHT_KEYFRAMES = slide(MOTION_RIGHT, 1);
 
-// Reads prefers-reduced-motion without pulling an animation library into every page.
-const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
-function subscribeReducedMotion(onChange: () => void) {
-    const query = window.matchMedia(REDUCED_MOTION);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-}
-
 const glyph = (x: number) => `translate(${x} 0) scale(1 -1)`;
 
 export function Logo({ motion = false }: { motion?: boolean }) {
-    const reduceMotion = useSyncExternalStore(subscribeReducedMotion, () => window.matchMedia(REDUCED_MOTION).matches, () => false);
+    const reduceMotion = useReducedMotion();
     const [typed, setTyped] = useState(0);
     const [spriteLoaded, setSpriteLoaded] = useState(false);
     const spriteRef = useRef<HTMLImageElement>(null);
@@ -113,7 +106,7 @@ export function Logo({ motion = false }: { motion?: boolean }) {
                     {vectorZero && (
                         <g transform={ZERO_TRANSFORM} className="fill-brand-blue">
                             {ZERO_PATHS.map((d) => <path key={d} d={d} />)}
-                            <circle cx={ZERO_DOT.cx} cy={ZERO_DOT.cy} r={ZERO_DOT.r} />
+                            <circle className="fill-brand-accent" cx={ZERO_DOT.cx} cy={ZERO_DOT.cy} r={ZERO_DOT.r} />
                         </g>
                     )}
                     <g ref={rightRef}>

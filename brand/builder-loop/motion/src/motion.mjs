@@ -6,7 +6,7 @@
 import {RIG} from './rig.mjs';
 import {MASTER_PATHS,CENTER} from './approved-geometry.mjs';
 export {MASTER_PATHS,CENTER};
-export const BLUE='#38BDF8', NAVY='#0F172A';
+export const BLUE='#38BDF8', NAVY='#0F172A', AMBER='#FFB800';
 export const BOX=[-301,-207,1300,1300];
 export const TIMES=Object.freeze({hold:.28,detach:.50,spiral:.98,flow:1.52,exit:4.40,return:4.80,lock:5.56,end:6.40});
 export const DURATION=TIMES.end, PERIOD=1.44, EXIT_DURATION=1.16;
@@ -183,7 +183,7 @@ export function renderFrame(f,{background=true,trails=true,quality='full',histor
   tail=`<g data-trails="true" fill="${BLUE}" filter="url(#${prefix}-blur)">${ghosts.join('')}</g>`;
  }
  const main=f.pieces.map((p,i)=>`<g><path data-piece="${i}" d="${p.d}" fill="${BLUE}"/>${p.start&&f.q?`<path d="${p.d}" fill="url(#${prefix}-shade-${i})"/>`:''}${p.line&&f.q>.08?`<path d="${openPath(p.line)}" fill="none" stroke="#F8FAFC" stroke-width="1.8" stroke-opacity="${alpha(.12*f.q)}"/>`:''}</g>`).join('');
- return `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="${BOX.join(' ')}" role="img" aria-label="Sud0ops Builder Loop loading animation"><title>Sud0ops Builder Loop - spiral motion v3</title>${background?`<rect x="${BOX[0]}" y="${BOX[1]}" width="${BOX[2]}" height="${BOX[3]}" fill="${NAVY}"/>`:''}<defs>${filters}${grads}</defs>${tail}<g data-material="true">${main}</g><circle data-center="true" cx="${CENTER.x}" cy="${CENTER.y}" r="${CENTER.r}" fill="${BLUE}"/></svg>`;
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="${BOX.join(' ')}" role="img" aria-label="Sud0ops Builder Loop loading animation"><title>Sud0ops Builder Loop - spiral motion v3</title>${background?`<rect x="${BOX[0]}" y="${BOX[1]}" width="${BOX[2]}" height="${BOX[3]}" fill="${NAVY}"/>`:''}<defs>${filters}${grads}</defs>${tail}<g data-material="true">${main}</g><circle data-center="true" cx="${CENTER.x}" cy="${CENTER.y}" r="${CENTER.r}" fill="${AMBER}"/></svg>`;
 }
 export function svgAt(time,options={}){
  const f=sample(time,options);

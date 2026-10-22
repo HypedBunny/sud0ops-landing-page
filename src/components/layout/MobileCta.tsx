@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
 
-// Phones only: the navbar has no room for the CTA, so it sticks to the bottom of the screen.
-// It slides in after the first scroll so it does not double up with the hero's own button.
+// Phones only: once the header's "say hello" has scrolled away, a bar sticks to the bottom of the
+// screen. It slides in after the first scroll so it does not double up with the header button.
 export function MobileCta() {
     const [visible, setVisible] = useState(false);
 
@@ -23,10 +22,10 @@ export function MobileCta() {
             <a
                 href="mailto:alex@sud0ops.com"
                 tabIndex={visible ? 0 : -1}
-                className="flex h-11 w-full items-center justify-center gap-2 rounded-sm bg-brand-accent text-sm font-semibold text-brand-black transition-colors hover:bg-brand-accent-hover"
+                className="flex min-h-12 w-full items-center justify-between rounded-full bg-brand-accent py-1.5 pr-1.5 pl-6 font-semibold text-brand-black"
             >
-                Get in Touch
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Say hello: alex@sud0ops.com
+                <span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-full bg-brand-black font-mono text-brand-accent">→</span>
             </a>
         </div>
     );

@@ -1,44 +1,44 @@
-import { Logo } from "@/components/ui/Logo";
 import Link from "next/link";
+import { Wordmark } from "@/components/ui/Wordmark";
+
+const links = [
+    { href: "/#loop", label: "method" },
+    { href: "/#rules", label: "rules" },
+    { href: "/blog", label: "writing" },
+    { href: "/about-founder", label: "about" },
+    { href: "https://www.linkedin.com/in/alex-jay-beukes", label: "linkedin" },
+    { href: "mailto:alex@sud0ops.com", label: "email" },
+];
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         // Extra bottom padding on phones clears the sticky CTA bar (MobileCta).
-        <footer className="relative border-t border-brand-line bg-brand-black-light pt-12 pb-28 sm:pb-12 lg:pt-16">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row items-start justify-between gap-10">
-                    <div className="max-w-xs cursor-default">
-                        <Logo />
-                        <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                            We help growing teams discover, build, adopt, and support the technology that fits them. We don&apos;t just advise, we build alongside you.
-                        </p>
+        <footer className="bg-brand-black">
+            <div className="mx-auto flex max-w-7xl flex-col gap-12 px-4 pt-16 pb-28 sm:px-6 sm:pb-8">
+                <div className="flex flex-wrap items-end justify-between gap-10">
+                    <div className="flex max-w-2xl flex-[1_1_26rem] flex-col gap-3.5">
+                        <Link href="/" aria-label="Sud0ops home" className="block">
+                            <Wordmark className="block h-auto w-full" />
+                        </Link>
+                        <p className="font-mono text-xs text-slate-400">Cape Town · South Africa &amp; United Kingdom</p>
                     </div>
-
-                    <div className="flex gap-16">
-                        <div>
-                            <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400">Services</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-slate-300">
-                                <li>Workflow Automation</li>
-                                <li>Tool Integration</li>
-                                <li>AI Assistants</li>
-                                <li>Operational Dashboards</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400">Contact</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-slate-300">
-                                <li><Link href="mailto:alex@sud0ops.com" className="hover:text-brand-blue transition-colors">alex@sud0ops.com</Link></li>
-                                <li><Link href="/blog" className="hover:text-brand-blue transition-colors">Blog</Link></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <ul className="grid grid-cols-3 gap-x-10 gap-y-3 font-mono text-[13px]">
+                        {links.map((link) => (
+                            <li key={link.href}>
+                                <Link href={link.href} className="text-slate-300 transition-colors hover:text-brand-accent">
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-
-                <div className="mt-16 pt-8 border-t border-brand-line flex flex-col md:flex-row items-start md:items-center justify-between gap-3 font-mono text-xs text-slate-400">
-                    <p>© {currentYear} Sud0ops. All rights reserved.</p>
-                    <p>Cape Town, South Africa · Working with teams in SA and the UK</p>
+                <div className="flex flex-wrap justify-between gap-3 border-t border-slate-800 pt-6 font-mono text-[11px] text-slate-400">
+                    <p>© {currentYear} Sud0ops</p>
+                    <p>
+                        <span className="text-brand-accent">$</span> exit 0
+                    </p>
                 </div>
             </div>
         </footer>

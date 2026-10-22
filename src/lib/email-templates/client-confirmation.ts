@@ -109,7 +109,7 @@ export function clientConfirmationHtml({ name, packageInterest }: ClientConfirma
             <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:100%;">
                 <tr>
                     <td style="padding-bottom:16px;">
-                        <p style="font-size:13px;color:#94A3B8;margin:0;line-height:1.6;">We don&rsquo;t just advise; we build the pipelines alongside you.</p>
+                        <p style="font-size:13px;color:#94A3B8;margin:0;line-height:1.6;">Discover &rarr; build &rarr; adopt &rarr; support.</p>
                     </td>
                 </tr>
                 <tr>
@@ -173,7 +173,7 @@ export function clientConfirmationText({ name, packageInterest }: ClientConfirma
         "",
         "---",
         ">Sud0ops_",
-        "We don't just advise; we build the pipelines alongside you.",
+        "Discover, build, adopt, support.",
         "https://sud0ops.com",
     ].filter(Boolean).join("\n");
 }

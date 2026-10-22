@@ -1,23 +1,25 @@
 # Sud0ops / Builder Loop identity specification
 
-**Approved identity:** the precise four-piece *blue segmented zero* with one blue centre dot in the user-selected reference. The icon itself contains **NO amber greater-than arrow**.
+**Approved identity (v1.1, Oct 2026):** the precise four-piece *blue segmented zero* with one **amber** centre dot. The icon itself contains **NO amber greater-than arrow**.
+
+> **v1.1 change:** the centre dot is amber everywhere: `#FFB800` on dark, `#D97706` on light. The four pieces stay blue. Mono versions remain one colour.
 
 ## Identity grammar
 
-1. **Icon only** = the segmented blue `0` plus its blue central dot; five blue vector elements, no other artwork.
+1. **Icon only** = the segmented blue `0` plus its amber central dot; four blue pieces and one amber dot, no other artwork.
 2. **Wordmark** = amber `>` + off-white `Sud` + modular blue `0` + muted `ops` + amber `_`, using the original brand's outlined glyphs.
 3. **No combined amber-chevron/blue-zero symbol.** Earlier visual concepts showing a yellow arrow entering a blue zero are explicitly rejected.
 4. Reference grid, blueprints and construction circles are supporting presentation graphics only; never part of the final standalone logo.
 
 ## Design system
 
-The palette in `tokens/colors.json` is taken from the prior brand pack. On dark use `#38BDF8` for the zero and `#FFB800` for prompt/cursor. On light use `#0284C7` for the zero and `#D97706` for prompt/cursor. Off-white `#F8FAFC` and muted `#CBD5E1` are used on dark; slate `#0F172A` and muted slate `#475569` on light. Do not add gradients, bloom, drop shadows or neon effects to the approved assets.
+The palette in `tokens/colors.json` is taken from the prior brand pack. On dark use `#38BDF8` for the zero pieces and `#FFB800` for the centre dot, prompt and cursor. On light use `#0284C7` for the zero pieces and `#D97706` for the centre dot, prompt and cursor. Off-white `#F8FAFC` and muted `#CBD5E1` are used on dark; slate `#0F172A` and muted slate `#475569` on light. Do not add gradients, bloom, drop shadows or neon effects to the approved assets.
 
 Fonts used on the website: **JetBrains Mono** for terminal/labels, **Plus Jakarta Sans** for headings, and **Inter** for UI/body. Existing wordmark letters in SVG are already converted to outlines, so no installed font is required for the logo. Font files are not included in the pack.
 
 ## Shape and spacing
 
-- Four structural pieces: top-left, top-right, bottom-left, bottom-right, plus the circular blue centre dot.
+- Four structural pieces: top-left, top-right, bottom-left, bottom-right, plus the circular amber centre dot.
 - Master icon vector path is reconstructed from the provided zoom crop of the approved concept. It is an engineering-ready **faithful redraw, not a mathematically exact original designer source**.
 - Preserve aspect ratio; never stretch the modular zero.
 - Keep at least **one centre-dot diameter** of external clear space around the glyph whenever practical.

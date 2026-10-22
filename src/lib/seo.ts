@@ -5,7 +5,7 @@ export const SOCIAL_IMAGE = {
     url: "/og-image.png",
     width: 1200,
     height: 630,
-    alt: "Sud0ops: You don't have a technology problem. You have an operations problem.",
+    alt: "Sud0ops: It’s an operations problem. Discover, build, adopt, support.",
 };
 
 // Title, description, canonical URL and the matching Open Graph and Twitter tags for one page.

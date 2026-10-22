@@ -21,6 +21,9 @@
   --color-brand-blue: #38BDF8;          /* original Sud0ops blue */
   --color-brand-blue-hover: #00BFFF;
   --color-brand-mint: #10B981;          /* terminal success */
+  /* The same two accents on light sections, where amber and sky blue are too pale to read. */
+  --color-brand-accent-ink: #D97706;
+  --color-brand-blue-ink: #0284C7;
 
   --color-background: var(--color-brand-black);
   --color-foreground: var(--color-brand-paper);
@@ -59,7 +62,7 @@
 body {
   background-color: var(--color-brand-black);
   color: var(--color-foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,33 +82,91 @@ body {
   }
 }
 
-/* Terminal output printing line by line (OpsTerminal). */
-.print-line {
-  animation: print-line 0.25s ease-out both;
+/* Amber highlight block behind a key word in a heading, tilted slightly like a marker stroke. */
+.mark-amber {
+  display: inline-block;
+  background: var(--color-brand-accent);
+  color: var(--color-brand-black);
+  padding: 0 0.18em 0.06em;
+  transform: rotate(-1.5deg);
 }
-@keyframes print-line {
-  from {
-    opacity: 0;
-    transform: translateX(-6px);
-  }
+
+/* Tilted ticker band under the home hero. Two copies of the words scroll by half their width. */
+.ticker {
+  animation: ticker 30s linear infinite;
 }
-@media (prefers-reduced-motion: reduce) {
-  .print-line {
-    animation: none;
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
   }
 }
 
-/* Two vertical guides on the edges of the 80rem content column, like a drawing's margin lines. */
-.blueprint-rails {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  margin: 0 auto;
-  max-width: 80rem;
-  border-left: 1px solid var(--color-brand-line);
-  border-right: 1px solid var(--color-brand-line);
-  opacity: 0.6;
+/* Scroll-pinned sections on the home page: a tall wrapper with a sticky inner panel, so scrolling
+   through the wrapper drives the panel's animation. Unpinned on small or short screens and for
+   reduced motion, where the panel scrolls normally and reacts as it passes through the viewport. */
+.pin-wrap-leaks {
+  height: 2200px;
+}
+.pin-wrap-method {
+  height: 2400px;
+}
+.pin-panel {
+  position: sticky;
+  top: 0;
+}
+@media (max-width: 900px), (max-height: 700px), (prefers-reduced-motion: reduce) {
+  .pin-wrap-leaks,
+  .pin-wrap-method {
+    height: auto;
+  }
+  .pin-panel {
+    position: relative;
+  }
+}
+
+/* Pieces of the 0 that fly apart and click back together (home page, "what we fix"). */
+.zero-piece {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), fill 0.4s;
+}
+
+/* Hard-shadow hover: the card lifts up and left onto a solid navy shadow and turns amber. */
+.hover-amber {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.hover-amber:hover,
+.hover-amber:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--color-brand-black) !important;
+  background-color: var(--color-brand-accent) !important;
+  color: var(--color-brand-black) !important;
+  border-color: var(--color-brand-black) !important;
+}
+.hover-amber:hover *,
+.hover-amber:focus-visible * {
+  color: var(--color-brand-black) !important;
+  border-color: color-mix(in oklab, var(--color-brand-black) 30%, transparent) !important;
+}
+/* A chip inside the card flips to navy on amber so it still stands out. */
+.hover-amber:hover .hover-amber-invert,
+.hover-amber:focus-visible .hover-amber-invert {
+  background-color: var(--color-brand-black);
+  color: var(--color-brand-accent) !important;
+  border-color: var(--color-brand-black) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    animation: none;
+  }
+  .zero-piece {
+    transition: none;
+  }
+  .hover-amber:hover,
+  .hover-amber:focus-visible {
+    transform: none;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -122,51 +183,63 @@ body {
   background: var(--color-brand-blue);
 }
 
-/* Blog post body, rendered from markdown (src/lib/blog.ts). */
+/* Blog post body, rendered from markdown (src/lib/blog.ts). It sits on the light section, set in a serif. */
 .blog-prose {
-  color: #CBD5E1; /* off-white, dimmed for long reading */
-  font-size: 1.0625rem;
-  line-height: 1.8;
+  font-family: var(--font-serif), Georgia, serif;
+  color: #1E293B; /* slate-800 */
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+@media (min-width: 40rem) {
+  .blog-prose {
+    font-size: 1.25rem;
+  }
 }
 .blog-prose > * + * {
-  margin-top: 1.25em;
+  margin-top: 1.1em;
+}
+.blog-prose > p:first-child {
+  font-size: 1.1em;
+  color: var(--color-brand-black);
 }
 .blog-prose h2,
 .blog-prose h3,
 .blog-prose h4 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
+  font-family: var(--font-jakarta), sans-serif;
+  color: var(--color-brand-black);
+  line-height: 1.15;
+  scroll-margin-top: 2rem;
 }
 .blog-prose h2 {
-  font-size: 1.6rem;
+  font-weight: 800;
+  font-size: 1.5em;
+  letter-spacing: -0.03em;
   margin-top: 2.2em;
-  padding-top: 1.2em;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .blog-prose h3 {
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.15em;
+  letter-spacing: -0.02em;
   margin-top: 1.8em;
 }
 .blog-prose h4 {
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 1em;
   margin-top: 1.6em;
 }
 .blog-prose a {
-  color: var(--color-brand-blue);
+  color: var(--color-brand-blue-ink);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--color-brand-blue) 40%, transparent);
+  text-decoration-color: color-mix(in oklab, var(--color-brand-blue-ink) 40%, transparent);
   text-underline-offset: 3px;
   transition: color 0.2s, text-decoration-color 0.2s;
 }
 .blog-prose a:hover {
-  color: var(--color-brand-blue-hover);
+  color: #0369A1; /* sky-700 */
   text-decoration-color: currentColor;
 }
 .blog-prose strong {
-  color: #fff;
+  color: var(--color-brand-black);
   font-weight: 600;
 }
 .blog-prose ul,
@@ -183,122 +256,126 @@ body {
   margin-top: 0.5em;
 }
 .blog-prose li::marker {
-  color: var(--color-brand-blue);
+  color: var(--color-brand-accent-ink);
 }
 .blog-prose blockquote {
-  border-left: 2px solid var(--color-brand-blue);
-  padding-left: 1.2em;
-  color: #94a3b8; /* slate-400 */
-  font-style: italic;
+  border-left: 4px solid var(--color-brand-accent);
+  padding: 0.2em 0 0.2em 1.2em;
+  font-family: var(--font-jakarta), sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--color-brand-black);
 }
 .blog-prose code {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.85em;
-  color: var(--color-brand-blue);
-  background: color-mix(in oklab, var(--color-brand-blue) 8%, transparent);
-  border: 1px solid color-mix(in oklab, var(--color-brand-blue) 18%, transparent);
+  font-size: 0.8em;
+  background: #E2E8F0; /* slate-200 */
   border-radius: 0.3rem;
-  padding: 0.1em 0.35em;
+  padding: 0.12em 0.4em;
 }
 .blog-prose pre {
   overflow-x: auto;
   background: var(--color-brand-black);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.75rem;
-  padding: 1.1em 1.25em;
-  line-height: 1.6;
+  color: #CBD5E1; /* slate-300 */
+  border-radius: 0.875rem;
+  padding: 1.2em 1.3em;
+  line-height: 1.7;
 }
 .blog-prose pre code {
-  color: #e2e8f0; /* slate-200 */
   background: none;
-  border: 0;
   padding: 0;
-  font-size: 0.85em;
+  font-size: 0.75em;
 }
 .blog-prose hr {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: #CBD5E1;
   margin: 2.5em 0;
 }
 .blog-prose img {
-  border-radius: 0.75rem;
+  border-radius: 0.875rem;
   max-width: 100%;
 }
+/* Tables get a solid navy frame and header, like the cards on the rest of the site. */
 .blog-prose table {
+  display: block;
+  overflow-x: auto;
   width: 100%;
-  border-collapse: collapse;
-  font-size: 0.925em;
+  border: 2px solid var(--color-brand-black);
+  border-radius: 0.875rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.75em;
+  line-height: 1.5;
 }
 .blog-prose th,
 .blog-prose td {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.5em 0.75em;
+  padding: 0.75em 1em;
   text-align: left;
+  vertical-align: top;
 }
 .blog-prose th {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-brand-black);
+  color: var(--color-brand-paper);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 500;
+}
+.blog-prose td {
+  border-top: 1px solid #E2E8F0;
+  color: #334155; /* slate-700 */
+}
+.blog-prose td:first-child {
+  font-weight: 600;
+  color: var(--color-brand-black);
 }
 /* Sources: a collapsed panel at the end of a post (renderPostHtml in src/lib/blog.ts). */
 .blog-prose .blog-sources {
   margin-top: 2.5em;
-  border: 1px solid var(--color-brand-line);
-  border-radius: 0.375rem;
-  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid var(--color-brand-black);
+  border-radius: 0.875rem;
+  background: #fff;
 }
 .blog-prose .blog-sources summary {
   display: flex;
   align-items: center;
-  gap: 0.6em;
-  padding: 0.85em 1.1em;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 0.75em 1.25em;
   cursor: pointer;
   list-style: none;
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #fff;
+  font-size: 0.65em;
+  color: var(--color-brand-black);
 }
 .blog-prose .blog-sources summary::-webkit-details-marker {
   display: none;
 }
-.blog-prose .blog-sources summary::before {
-  content: "";
-  width: 0.45em;
-  height: 0.45em;
-  border-right: 2px solid var(--color-brand-blue);
-  border-bottom: 2px solid var(--color-brand-blue);
-  transform: rotate(-45deg);
+.blog-prose .blog-sources summary::after {
+  content: "›";
+  font-size: 1.4em;
   transition: transform 0.2s;
 }
-.blog-prose .blog-sources[open] summary::before {
-  transform: rotate(45deg);
+.blog-prose .blog-sources[open] summary::after {
+  transform: rotate(90deg);
 }
 .blog-prose .blog-sources summary span {
-  color: var(--color-slate-400);
-}
-.blog-prose .blog-sources summary:hover {
-  color: var(--color-brand-blue);
+  margin-right: auto;
+  padding-left: 0.5em;
+  color: #475569; /* slate-600 */
 }
 .blog-prose .blog-sources summary:focus-visible {
-  outline: 2px solid var(--color-brand-blue);
+  outline: 2px solid var(--color-brand-black);
   outline-offset: 2px;
-  border-radius: 0.375rem;
 }
 .blog-prose .blog-sources > :not(summary) {
   margin: 0;
-  padding: 0 1.1em 1em 2.5em;
-  font-size: 0.925em;
-}
-
-/* Narrow screens: tighter tables so three columns stay readable. */
-@media (max-width: 40rem) {
-  .blog-prose table {
-    font-size: 0.85em;
-  }
-  .blog-prose th,
-  .blog-prose td {
-    padding: 0.45em 0.5em;
-  }
+  padding: 0 1.25em 1em 2.5em;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.7em;
+  line-height: 1.7;
+  color: #334155;
 }
 
 /* Blog cards morph into their post page (<ViewTransition> in src/app/blog). */
