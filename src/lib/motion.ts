@@ -1,18 +1,33 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
 // Shared by the scroll-driven sections and the animated logo. Client components only.
 
 const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 
-function subscribeReducedMotion(onChange: () => void) {
-    const query = window.matchMedia(REDUCED_MOTION);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
+// When the pinned sections (.pin-wrap around a sticky .pin-panel) give up pinning and lay out as plain
+// sections: short screens, where a pinned panel would cut its content off (landscape phones, and small
+// phones where the hero copy leaves no room for the 0), and reduced motion. globals.css uses the same
+// queries; keep them in step.
+export const STILL_PIN = "(max-height: 559px), (max-width: 899px) and (max-height: 599px), (prefers-reduced-motion: reduce)";
+// The sideways field log needs a wide, tall screen.
+export const STILL_LOG = "(max-width: 899px), (max-height: 719px), (prefers-reduced-motion: reduce)";
+
+// Whether a media query matches, kept live. The server (and a crawler) gets the moving version's markup.
+export function useMedia(query: string) {
+    return useSyncExternalStore(
+        (onChange) => {
+            const list = window.matchMedia(query);
+            list.addEventListener("change", onChange);
+            return () => list.removeEventListener("change", onChange);
+        },
+        () => window.matchMedia(query).matches,
+        () => false,
+    );
 }
 
 // Reads prefers-reduced-motion without pulling an animation library into every page.
 export function useReducedMotion() {
-    return useSyncExternalStore(subscribeReducedMotion, () => window.matchMedia(REDUCED_MOTION).matches, () => false);
+    return useMedia(REDUCED_MOTION);
 }
 
 // Calls onFrame at most once per animation frame while the page scrolls or resizes, and once on mount.
@@ -40,36 +55,24 @@ export function useScrollFrame(onFrame: () => void) {
     }, []);
 }
 
-const clamp = (x: number) => Math.max(0, Math.min(1, x));
+export const clamp = (x: number) => Math.max(0, Math.min(1, x));
+// Where p sits between a and b, as 0..1.
+export const seg = (p: number, a: number, b: number) => clamp((p - a) / (b - a));
+export const easeInOut = (x: number) => {
+    const t = clamp(x);
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+};
+export const easeOut = (x: number) => 1 - Math.pow(1 - clamp(x), 3);
 
-// How far an element has passed a line `at` of the way down the viewport: 0 when its top reaches
-// the line, 1 when its bottom does.
-export function viewProgress(element: HTMLElement, at = 0.65) {
-    const rect = element.getBoundingClientRect();
-    return clamp((window.innerHeight * at - rect.top) / rect.height);
-}
-
-// Progress through a pinned section (.pin-wrap-* around a sticky .pin-panel): 0 when the panel
-// pins, 1 when it lets go. When the section is unpinned (small screens, reduced motion) there is no
-// pinned stretch, so it falls back to the section's progress through the viewport.
+// Progress through a pinned section: 0 when the panel pins, 1 when it lets go. When the section is
+// laid out still there is no pinned stretch, so it falls back to its progress up the viewport.
 export function pinProgress(wrap: HTMLElement, panel: HTMLElement) {
     const rect = wrap.getBoundingClientRect();
     const range = rect.height - panel.offsetHeight;
-    return range > 50 ? clamp(-rect.top / range) : viewProgress(wrap, 0.6);
+    return range > 10 ? clamp(-rect.top / range) : clamp((window.innerHeight * 0.6 - rect.top) / Math.max(1, rect.height));
 }
 
-// A vertical timeline that fills as it scrolls up the viewport: `line` (a full-height element with
-// origin-top and scale-y-0) grows with the scroll, and `lit` counts the entries it has reached.
-// `lead` lights each entry a little before the line gets there.
-export function useTimeline(count: number, lead: number) {
-    const list = useRef<HTMLDivElement>(null);
-    const line = useRef<HTMLSpanElement>(null);
-    const [lit, setLit] = useState(0);
-    useScrollFrame(() => {
-        if (!list.current) return;
-        const progress = viewProgress(list.current);
-        if (line.current) line.current.style.scale = `1 ${progress.toFixed(4)}`;
-        setLit(Math.min(count, Math.floor(progress * count + lead)));
-    });
-    return { list, line, lit };
+// Moves and turns one piece of a 0 drawn in icon units (its centre dot sits at 349, 443).
+export function placePiece(piece: SVGElement | null, x: number, y: number, turn = 0) {
+    piece?.setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${turn.toFixed(2)} 349 443)`);
 }

@@ -24,11 +24,11 @@ Contact: alex@sud0ops.com
 
 ## Pages
 
-- [Home](https://sud0ops.com/): overview of the practice and how engagements run.
+- [Home](https://sud0ops.com/): the four problems Sud0ops fixes (workflow automation, tool integration, AI assistants, operational dashboards), the discover, build, adopt, support loop, house rules and recent work.
 - [Services](https://sud0ops.com/services): service lines and the platforms Sud0ops works with.
 - [Consulting](https://sud0ops.com/consulting): three entry points: an investigative consultation, a fix for a known problem, or a SaaS review.
 - [Clients](https://sud0ops.com/clients): selected work for HelperHub (technical consultancy and implementation), Bashies (Shopify store and SEO) and Happy Shisha (custom social events platform).
-- [About the founder](https://sud0ops.com/about-founder): background, approach and experience.
+- [About the founder](https://sud0ops.com/about-founder): Alex-Jay's story, career, selected work, certifications and toolkit.
 - [Blog](https://sud0ops.com/blog.md): posts on automation, DevOps, cloud and AI, as a markdown index. Every post is available as markdown: send `Accept: text/markdown` to its URL, or add `.md` to it.
 
 ## Optional

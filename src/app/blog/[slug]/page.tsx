@@ -67,8 +67,8 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                 markdown={postMarkdown(post)}
                 header={
                     <>
-                        <Link href="/blog" className="self-start font-mono text-[13px] text-slate-400 transition-colors hover:text-brand-accent">
-                            ← ~/writing
+                        <Link href="/blog" className="self-start text-sm font-medium text-slate-400 transition-colors hover:text-brand-accent">
+                            ← Back to the blog
                         </Link>
                         {post.tags.length > 0 && (
                             <ul className="flex flex-wrap gap-2 font-mono text-[11px] text-slate-300">
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                 contents={
                     headings.length > 1 && (
                         <nav aria-label="Contents" className="flex flex-col gap-3 font-mono text-xs leading-normal">
-                            <p className="text-slate-400">contents</p>
+                            <p className="text-slate-600">contents</p>
                             {headings.map((heading, i) => (
                                 <a key={heading.id} href={`#${heading.id}`} className="text-slate-600 transition-colors hover:text-brand-black">
                                     {String(i + 1).padStart(2, "0")} {heading.text}
