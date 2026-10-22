@@ -89,8 +89,8 @@ export function HeroLoop() {
     const active = reduceMotion ? null : current;
 
     return (
-        <div className="relative w-full max-w-[580px] justify-self-center">
-            <svg viewBox="-120 20 900 860" role="img" aria-label="The Sud0ops loop: discover, build, adopt and support, around your business" className="block aspect-[900/860] h-auto w-full">
+        <div className="relative w-full max-w-[600px] justify-self-center">
+            <svg viewBox="-120 20 900 860" role="img" aria-label="The Sud0ops loop: discover, build, adopt and support, around your business" className="block aspect-[900/860] h-auto w-full sm:w-[78%]">
                 <path ref={trackRef} d={TRACK} fill="none" className="stroke-slate-700" strokeWidth={3} strokeDasharray="2 12" strokeLinecap="round" />
                 <g className="fill-brand-blue">
                     {ZERO_PATHS.map((d) => <path key={d} d={d} />)}
@@ -119,8 +119,9 @@ export function HeroLoop() {
             </svg>
 
             {/* The same four stages as a pipeline readout. The SVG's label already names them for screen readers.
-                On phones it sits under the loop instead of over its corner. */}
-            <div aria-hidden="true" className="mt-4 w-[calc(100%-8px)] overflow-hidden sm:absolute sm:bottom-[2%] sm:left-0 sm:mt-0 sm:w-[min(280px,72%)] rounded-xl border border-slate-700 bg-brand-black-light font-mono text-xs shadow-[8px_8px_0_var(--color-brand-accent)]">
+                It sits to the right of the 0, overlapping it a little, clear of all four stops and their labels.
+                On phones it goes under the loop. */}
+            <div aria-hidden="true" className="mt-4 w-[calc(100%-8px)] overflow-hidden sm:absolute sm:top-1/2 sm:right-2 sm:mt-0 sm:w-[min(250px,44%)] sm:-translate-y-1/2 rounded-xl border border-slate-700 bg-brand-black-light font-mono text-xs shadow-[8px_8px_0_var(--color-brand-accent)]">
                 <div className="flex items-center gap-1.5 border-b border-brand-line px-3.5 py-2.5 text-slate-400">
                     <span className="h-2 w-2 rounded-full bg-brand-accent" />
                     <span className="h-2 w-2 rounded-full bg-slate-600" />

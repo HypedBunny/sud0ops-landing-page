@@ -1,17 +1,19 @@
-> **Stored in the repo as the source of the header logo's motion.** The site does not run these modules
-> in the browser: the official renderer costs about 34 ms of script per frame, too much for a header that
-> loops forever. Instead `scripts/render-logo-motion.mjs` renders the one-shot with `src/motion.mjs`
-> (adapter settings: no background, trails on, full quality) into a sprite,
-> `public/brand/sud0ops-logo-motion.webp`, and measures how far the pieces reach on every frame. The
-> header plays it on a loop (a 2-second still zero, then the motion) while ">Sud" and "ops_" slide
-> outwards just far enough to keep clear of the pieces. Reduced-motion visitors and the footer get the
-> static zero.
+> **The official Sud0ops loader (v3.1, brand v1.1: amber centre dot).** Use the exports below, or
+> `src/loader.mjs` with `mode:'loading'`, wherever Sud0ops needs a loading state.
+>
+> **On sud0ops.com it does not loop.** The logo stays still; clicking the 0 in the header or footer
+> wordmark plays the motion once, as an easter egg. The site does not run these modules in the browser
+> (the official renderer costs about 34 ms of script per frame). Instead `scripts/render-logo-motion.mjs`
+> renders the one-shot with `src/motion.mjs` (adapter settings: no background, trails on, full quality)
+> into a sprite, `public/brand/sud0ops-logo-motion.webp`, and measures how far the pieces reach on every
+> frame, so ">Sud" and "ops_" slide outwards just far enough to keep clear of the pieces. Reduced-motion
+> visitors never see it.
 
 # Sud0ops Builder Loop - spiral motion v3
 
-**Motion review build, based on the approved v3 storyboard.**
+**Official loader, based on the approved v3 storyboard.**
 
-This is a replacement for the earlier motion proof, NOT a replacement for the static brand identity. The original four-piece blue zero and centre dot are unchanged. The previous amber-arrow concept does not belong to this icon.
+This is a replacement for the earlier motion proof, NOT a replacement for the static brand identity. The original four-piece blue zero and its centre dot keep their shapes; since brand v1.1 the dot is amber (`#FFB800`). The previous amber-arrow concept does not belong to this icon.
 
 ## Start here
 

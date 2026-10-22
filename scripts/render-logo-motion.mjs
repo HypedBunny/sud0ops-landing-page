@@ -1,5 +1,6 @@
-// Renders the Builder Loop v3 motion (brand/builder-loop/motion) for the header logo's 0, and works out
-// how far the letters either side of the 0 must move so the moving pieces never overlap them.
+// Renders the Builder Loop v3 motion (brand/builder-loop/motion) for the logo's 0, which plays it once when
+// clicked, and works out how far the letters either side of the 0 must move so the moving pieces never
+// overlap them.
 //
 // Frames come from the pack's own renderer with the adapter's settings (no background, trails on, full
 // quality), drawn by Chromium, so they match the approved motion; only the framing is cropped to where

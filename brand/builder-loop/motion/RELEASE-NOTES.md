@@ -1,3 +1,7 @@
+# v3.1 - official loader, amber centre dot
+
+Approved as the official Sud0ops loader. The centre circle is amber (`#FFB800`), matching brand v1.1; the four pieces and their trails stay blue. `OPEN-MOTION.html` was rebuilt from `src/` with `scripts/build-demo.py`, and the MP4, GIF and WebP exports were re-rendered with the settings of `scripts/export.py` (frames captured with Node Playwright, encoded with Pillow and ffmpeg). The QA screenshots in `qa/` are from v3 and still show the blue dot.
+
 # v3 - spiral motion review build
 
 Replaces the earlier animation proof, but does not change the static branding.
