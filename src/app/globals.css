@@ -109,7 +109,8 @@ body {
    screen-high .pin-panel, so scrolling through the wrapper drives the panel. Short screens (landscape
    phones) and reduced motion lay them out as plain sections: STILL_PIN in src/lib/motion.ts, keep the
    two in step. .pin-sr is screen-reader-only while pinned (the panel shows one step at a time and is
-   aria-hidden) and becomes the visible content when still. */
+   aria-hidden) and becomes the visible content when still. The panels use the dynamic viewport height,
+   so they still fill a phone's screen once its browser bar slides away (100vh where dvh is missing). */
 .pin-wrap {
   position: relative;
 }
@@ -125,7 +126,8 @@ body {
 .pin-panel {
   position: sticky;
   top: 0;
-  height: 100svh;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 .pin-sr {
@@ -321,7 +323,8 @@ body {
 .log-panel {
   position: sticky;
   top: 0;
-  height: 100svh;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ZERO_DOT, ZERO_PATHS } from "@/components/ui/logo-glyphs";
 import { STILL_PIN, easeInOut, easeOut, pinProgress, placePiece, seg, useMedia, useScrollFrame } from "@/lib/motion";
 
@@ -17,6 +17,7 @@ const OPEN = [[-130, -110, -8], [130, -110, 8], [-130, 110, 8], [130, 110, -8]];
 const FLY = [[-900, -700], [900, -700], [-900, 700], [900, 700]];
 // Which stage card each piece brings in: the pieces arrive clockwise.
 const ARRIVAL = [0, 1, 3, 2];
+const AMBER = "#FFB800";
 
 // "Enter the loop": the hero pins for a few screens of scrolling. The copy slides away, the 0 opens and
 // the view zooms through its centre into an amber screen ("You're inside the loop"), where the four
@@ -39,9 +40,23 @@ export function Film() {
     const quads = useRef<(HTMLDivElement | null)[]>([]);
     const layout = useRef({ cx: 0, cy: 0, width: 0, height: 0, mobile: false });
     const wasStill = useRef(false);
+    const browserBar = useRef<string | null>(null);
+
+    // While the amber screen fills the view, the browser bar (theme-color, on phones) and the wrapper
+    // behind the panel turn amber too, so no dark strip shows above or below it as that bar slides.
+    function tint(on: boolean) {
+        const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+        if (on === (browserBar.current !== null) || !meta) return;
+        if (on) browserBar.current = meta.content;
+        meta.content = on ? AMBER : (browserBar.current ?? meta.content);
+        if (!on) browserBar.current = null;
+        wrap.current?.style.setProperty("background-color", on ? AMBER : "");
+    }
+    useEffect(() => () => tint(false), []);
 
     // Everything the frames below write, cleared when the layout goes still.
     function reset() {
+        tint(false);
         for (const el of [zoom.current, copy.current, cue.current, amber.current, inside.current, you.current, ...quads.current]) el?.removeAttribute("style");
         for (const piece of [...openPieces.current, ...flyPieces.current]) {
             piece?.removeAttribute("transform");
@@ -108,6 +123,7 @@ export function Film() {
             amber.current.style.opacity = fill.toFixed(3);
             amber.current.style.visibility = fill > 0 ? "visible" : "hidden";
         }
+        tint(fill === 1 && wrap.current.getBoundingClientRect().bottom > 0);
         const shown = seg(p, 0.48, 0.53), gone = seg(p, 0.58, 0.62);
         if (inside.current) {
             inside.current.style.opacity = (shown * (1 - gone)).toFixed(3);
