@@ -6,12 +6,17 @@
 > with name, contact details, sud0ops.com and LinkedIn; it replaces the pack's logo-only snippet.
 > `motion/` is the Builder Loop v3 motion pack; the header's 0 plays `public/brand/sud0ops-logo-motion.webp`,
 > rendered from it by `scripts/render-logo-motion.mjs` (see `motion/README.md`).
+>
+> **v1.1 (Oct 2026):** the centre dot of the 0 is amber everywhere: `#FFB800` on dark, `#D97706` on light.
+> The four pieces stay blue and the mono versions stay one colour. Every file here, the site's icons, OG
+> image, email logo and the header motion sprite were replaced from the v1.1 pack. The exported clips in
+> `motion/exports/` were not re-rendered and still show the blue dot.
 
 # Sud0ops Builder Loop — implementation asset pack
 
-**Version:** 1.0 • **Selected concept:** Builder Loop • **Brand:** Sud0ops
+**Version:** 1.1 • **Selected concept:** Builder Loop • **Brand:** Sud0ops
 
-This is the pack for the *original* chosen concept, whose symbol is a **segmented blue zero with a central blue dot**. It is deliberately **not** the combined yellow-arrow/blue-zero artwork from the rejected concept pack.
+This is the pack for the *original* chosen concept, whose symbol is a **segmented blue zero with a central amber dot** (blue in v1.0). It is deliberately **not** the combined yellow-arrow/blue-zero artwork from the rejected concept pack.
 
 ## Quick start
 

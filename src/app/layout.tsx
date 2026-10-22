@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { pageMetadata } from "@/lib/seo";
 import { FOUNDER_ID, FOUNDER_NAME, FOUNDER_PHOTO_URL, FOUNDER_URL, SITE_URL, hasFounderPhoto } from "@/lib/founder";
@@ -24,12 +24,20 @@ const monoFont = JetBrains_Mono({
   display: "swap",
 });
 
+// Long-form reading: blog post bodies.
+const serifFont = Source_Serif_4({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://sud0ops.com"),
   ...pageMetadata({
     path: "/",
     title: "Sud0ops | Take Control of Your Technology",
-    description: "Sud0ops helps growing teams discover, build, adopt, and support the technology that fits them. We don't just advise, we build alongside you.",
+    description: "Sud0ops helps small businesses, growing teams and NPOs pick, build, adopt and support the technology that fits them, and does the build work alongside your team.",
   }),
 };
 
@@ -75,17 +83,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${inter.variable} ${jakarta.variable} ${monoFont.variable} font-sans antialiased selection:bg-brand-accent selection:text-brand-black`}
+        className={`${inter.variable} ${jakarta.variable} ${monoFont.variable} ${serifFont.variable} font-sans antialiased selection:bg-brand-accent selection:text-brand-black`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden text-slate-50">
-          {/* Blueprint rails: two vertical guides on the content column's edges. */}
-          <div className="blueprint-rails" aria-hidden="true" />
+        {/* overflow-x-clip, not hidden: hidden would make this the scroll container and break the sticky panels. */}
+        <div className="relative min-h-screen flex flex-col w-full overflow-x-clip text-slate-50">
           <Navbar />
-          <main className="relative flex-1 w-full pt-20">
+          <main className="relative flex-1 w-full">
             {children}
           </main>
           <Footer />

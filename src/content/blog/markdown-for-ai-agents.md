@@ -2,7 +2,7 @@
 title: How to make your website speak to AI agents
 description: AI assistants, answer engines and coding agents now read the web for people. Here is how to give them clean markdown through content negotiation, .md URLs and llms.txt, and how to set the rules for the new wave of crawlers.
 date: 2026-10-18
-author: Sud0ops
+author: Alex-Jay Beukes
 tags: [AI Agents, Markdown, SEO, Next.js]
 ---
 

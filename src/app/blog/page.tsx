@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ViewTransition } from "react";
-import { ArrowRight, Calendar, Clock, FileText } from "lucide-react";
 import { BLOG_DESCRIPTION, BLOG_TITLE, BLOG_URL, formatDate, getPosts, postUrl } from "@/lib/blog";
 import { SITE_URL } from "@/lib/founder";
 import { pageMetadata } from "@/lib/seo";
@@ -32,84 +31,98 @@ export default function BlogPage() {
     };
 
     return (
-        <div className="relative">
+        <div className="flex flex-col">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-                <div className="mx-auto mb-14 max-w-2xl text-center">
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
-                        <FileText className="h-4 w-4" aria-hidden="true" />
-                        <span>Blog</span>
+            <section>
+                <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(480px,100%),1fr))] items-end gap-12 px-4 pt-[72px] pb-[88px] sm:px-6">
+                    <div className="flex flex-col gap-6">
+                        <p className="font-mono text-xs text-slate-400">~/writing</p>
+                        <h1 className="font-heading text-[clamp(52px,7vw,108px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
+                            Notes from
+                            <br />
+                            the <span className="mark-amber">loop.</span>
+                        </h1>
+                        <p className="max-w-lg text-lg leading-relaxed text-slate-300">
+                            Automation, DevOps, cloud and AI, written up for the teams that run on them. Every post is also served as plain markdown, so an AI agent can read it without the page around it.
+                        </p>
                     </div>
-                    <h1 className="mb-6 font-heading text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
-                        Notes from the{" "}
-                        <span className="text-brand-blue">
-                            Terminal
-                        </span>
-                    </h1>
-                    <p className="text-lg leading-relaxed text-slate-400">{BLOG_DESCRIPTION}</p>
-                    <p className="mt-4 font-mono text-xs text-slate-400">
-                        AI agent? Every page here is also markdown:{" "}
-                        <a href="/blog.md" className="text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:text-brand-blue-hover hover:decoration-current">/blog.md</a>
-                    </p>
-                </div>
 
-                {posts.length === 0 ? (
-                    <p className="text-center text-slate-400">No posts yet.</p>
-                ) : (
-                    <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {posts.map((post) => (
-                            <li key={post.slug} className="group">
-                                <ViewTransition name={`post-${post.slug}`}>
+                    {/* What an agent gets from the markdown index, with the real links. */}
+                    <div className="overflow-hidden rounded-[14px] border border-slate-700 bg-brand-black-light font-mono text-[13px] shadow-[8px_8px_0_var(--color-brand-blue)]">
+                        <div className="flex items-center gap-1.5 border-b border-brand-line px-3.5 py-2.5 text-xs text-slate-400">
+                            <span className="h-2 w-2 rounded-full bg-brand-accent" />
+                            <span className="h-2 w-2 rounded-full bg-slate-600" />
+                            <span className="h-2 w-2 rounded-full bg-slate-600" />
+                            <span className="ml-2">for agents</span>
+                        </div>
+                        <div className="flex flex-col gap-2.5 p-4.5 leading-normal text-slate-300 [overflow-wrap:anywhere]">
+                            <p>
+                                <span className="text-brand-accent">$</span> curl sud0ops.com/blog.md
+                            </p>
+                            <p className="text-slate-400"># {BLOG_TITLE}</p>
+                            {posts.slice(0, 3).map((post) => (
+                                <p key={post.slug} className="text-slate-400">
+                                    - [{post.title}](…/{post.slug}.md) ({post.date})
+                                </p>
+                            ))}
+                            <p className="flex flex-wrap gap-x-4.5 gap-y-2 pt-1.5">
+                                <a href="/blog.md" className="text-brand-blue hover:text-brand-blue-hover">/blog.md</a>
+                                <a href="/llms.txt" className="text-brand-blue hover:text-brand-blue-hover">/llms.txt</a>
+                                <span className="text-slate-500">Accept: text/markdown ✓</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="bg-brand-paper text-brand-black">
+                <div className="mx-auto flex max-w-7xl flex-col gap-7 px-4 pt-[72px] pb-24 sm:px-6">
+                    <div className="flex flex-wrap justify-between gap-3 font-mono text-xs text-slate-600">
+                        <span>ls -lt ~/writing</span>
+                        <span>{posts.length === 1 ? "1 post" : `${posts.length} posts`}</span>
+                    </div>
+
+                    {posts.length === 0 ? (
+                        <p className="text-slate-600">No posts yet.</p>
+                    ) : (
+                        <ul className="flex flex-col gap-7">
+                            {posts.map((post, i) => (
+                                // The card lifts while its wrapper (the .group) is hovered. The wrapper never moves,
+                                // so hovering near the card's edge is steady (lifting on the card's own :hover flickers).
+                                <li key={post.slug} className="group">
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="lift-card relative flex h-full flex-col overflow-hidden rounded-md border border-white/5 p-6 panel group-hover:-translate-y-1 group-hover:border-brand-blue/30 sm:p-8"
+                                        className="grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-x-12 gap-y-7 rounded-[20px] border-2 border-brand-black bg-white p-6 shadow-[8px_8px_0_var(--color-brand-black)] transition-[translate,box-shadow] duration-200 group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] group-hover:shadow-[12px_12px_0_var(--color-brand-black)] sm:p-9"
                                     >
-                                        <div
-                                            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                                            style={{
-                                                background:
-                                                    "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)",
-                                                backgroundSize: "16px 16px",
-                                            }}
-                                            aria-hidden="true"
-                                        />
-                                        <div className="relative flex flex-1 flex-col">
-                                            <div className="mb-4 flex items-center gap-4 text-xs text-slate-400">
-                                                <span className="inline-flex items-center gap-1.5">
-                                                    <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
-                                                    <time dateTime={post.date}>{formatDate(post.date)}</time>
-                                                </span>
-                                                <span className="inline-flex items-center gap-1.5">
-                                                    <Clock className="h-3.5 w-3.5" aria-hidden="true" />
-                                                    {post.readingMinutes} min read
-                                                </span>
+                                        <div className="flex flex-col gap-4.5">
+                                            <div className="flex flex-wrap gap-2 font-mono text-[11px]">
+                                                {i === 0 && <span className="rounded-full bg-brand-black px-2.5 py-1 text-brand-accent">latest</span>}
+                                                {post.tags.map((tag) => (
+                                                    <span key={tag} className="rounded-full border border-brand-black px-2.5 py-[3px]">{tag}</span>
+                                                ))}
                                             </div>
-                                            <h2 className="mb-3 font-heading text-xl font-bold leading-snug text-white transition-colors duration-300 group-hover:text-brand-blue">
-                                                {post.title}
-                                            </h2>
-                                            <p className="mb-6 flex-1 text-sm leading-relaxed text-slate-400">{post.description}</p>
-                                            {post.tags.length > 0 && (
-                                                <div className="mb-6 flex flex-wrap gap-2">
-                                                    {post.tags.map((tag) => (
-                                                        <span key={tag} className="rounded-md border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-0.5 font-mono text-xs font-medium tracking-wide text-brand-blue">
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            )}
-                                            <span className="inline-flex items-center gap-2 border-t border-white/5 pt-4 text-sm font-medium text-brand-blue">
-                                                Read post
-                                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                                            <ViewTransition name={`post-${post.slug}`}>
+                                                <h2 className="font-heading text-[clamp(32px,3.6vw,52px)] leading-[1.02] font-extrabold tracking-[-0.04em]">{post.title}</h2>
+                                            </ViewTransition>
+                                            <p className="font-mono text-xs text-slate-600">
+                                                <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingMinutes} min read · also as{" "}
+                                                <span className="text-brand-blue-ink">.md</span>
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-col justify-between gap-6">
+                                            <p className="text-[17px] leading-relaxed text-slate-700">{post.description}</p>
+                                            <span className="inline-flex items-center gap-2.5 self-start rounded-full border-2 border-brand-black px-4.5 py-2.5 font-mono text-[13px] font-bold transition-colors duration-200 group-hover:bg-brand-accent">
+                                                read the post →
                                             </span>
                                         </div>
                                     </Link>
-                                </ViewTransition>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+            </section>
         </div>
     );
 }

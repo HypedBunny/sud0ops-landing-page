@@ -64,7 +64,7 @@ const clients = [
     },
 ];
 
-// Height of the snap container — accounts for fixed navbar (5rem = 80px)
+// Height of the snap container: the viewport minus the header (about 5rem)
 // Uses dvh (dynamic viewport height) so mobile browser chrome is handled correctly
 const SNAP_HEIGHT = "calc(100dvh - 5rem)";
 
@@ -89,8 +89,7 @@ export default function ClientsPage() {
             {/*
               Scroll-snap container.
               - overflow-y-scroll + snap-y mandatory: each section snaps into place
-              - Height exactly fills the viewport below the fixed navbar
-              - layout.tsx wraps this in <main pt-20>, so no extra top margin needed
+              - Height fills the viewport below the header
             */}
             <div
                 className="relative z-10 overflow-y-scroll"

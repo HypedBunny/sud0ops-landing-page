@@ -1,4 +1,4 @@
-import { Marked } from "marked";
+import { Marked, type Tokens } from "marked";
 import { SITE_URL } from "@/lib/founder";
 import { sources } from "@/content/blog/posts.generated";
 
@@ -93,11 +93,19 @@ export function formatDate(date: string) {
     });
 }
 
+// Anchor id for a heading: "Why HTML is the wrong format" becomes "why-html-is-the-wrong-format".
+function headingId(text: string) {
+    return text.toLowerCase().replace(/[`*_]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 // Posts are written by us, so their HTML is trusted and rendered as-is.
-// External links open in a new tab.
+// External links open in a new tab, and headings get ids so the contents list can link to them.
 const marked = new Marked({
     gfm: true,
     renderer: {
+        heading({ tokens, depth, text }) {
+            return `<h${depth} id="${headingId(text)}">${this.parser.parseInline(tokens)}</h${depth}>\n`;
+        },
         link({ href, title, tokens }) {
             const text = this.parser.parseInline(tokens);
             const external = /^https?:\/\//.test(href) && !href.startsWith(SITE_URL);
@@ -132,6 +140,14 @@ export function renderPostHtml(post: Post) {
         `<details class="blog-sources"><summary>Sources${count ? ` <span>(${count})</span>` : ""}</summary>${render(sources)}</details>` +
         (next < 0 ? "" : render(rest.slice(next)))
     );
+}
+
+// The post's sections (its ## headings, minus Sources) for the contents list.
+export function postHeadings(post: Post) {
+    return marked
+        .lexer(post.body)
+        .filter((token): token is Tokens.Heading => token.type === "heading" && token.depth === 2 && token.text !== "Sources")
+        .map((token) => ({ id: headingId(token.text), text: token.text.replace(/[`*_]/g, "") }));
 }
 
 // What agents get from Accept: text/markdown or a .md URL, and what the MD toggle shows.
