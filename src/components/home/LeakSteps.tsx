@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ZERO_DOT, ZERO_PATHS } from "@/components/ui/logo-glyphs";
-import { STILL_PIN, easeInOut, pinProgress, placePiece, seg, useMedia, useScrollFrame } from "@/lib/motion";
+import { STILL_PIN, pinProgress, useMedia, useScrollFrame } from "@/lib/motion";
 
 // The four core services, each framed as the problem a team has today and what changes after.
 const leaks = [
@@ -27,26 +27,23 @@ const leaks = [
         after: "One live view of your KPIs, pipeline and operations, ready whenever you need it.",
     },
 ];
-// Where each piece of the broken 0 sits (icon units and degrees), in ZERO_PATHS order.
-const BROKEN = [[-46, -40, -9], [46, -34, 8], [-42, 40, 7], [48, 38, -10]];
+// ZERO_PATHS runs top-left, top-right, bottom-left, bottom-right; the fixes fill them clockwise.
+const CLOCKWISE = [0, 1, 3, 2];
 
-// "The leaks": the section pins and shows one leak per screen of scrolling. Each starts as a broken 0
-// with the problem, then the 0 clicks together and the fix appears. The full list is always in the
-// page (screen-reader-only while pinned, the visible layout when still); the moving panel is aria-hidden.
+// "The leaks": the section pins and shows one leak per screen of scrolling, the problem first, then the
+// fix. Beside it a grey 0 is built up as you go: each fix fills the next piece blue, and the last one
+// brings in the amber dot. The full list is always in the page (screen-reader-only while pinned, the
+// visible layout when still); the moving panel is aria-hidden.
 export function LeakSteps() {
     const still = useMedia(STILL_PIN);
     const wrap = useRef<HTMLElement>(null);
     const panel = useRef<HTMLDivElement>(null);
-    const pieces = useRef<(SVGPathElement | null)[]>([]);
     const [view, setView] = useState({ step: 0, after: false });
 
     useScrollFrame(() => {
         if (still || !wrap.current || !panel.current) return;
         const progress = Math.min(pinProgress(wrap.current, panel.current) * 4, 3.999);
-        const step = Math.floor(progress), local = progress - step;
-        const apart = 1 - easeInOut(seg(local, 0.12, 0.55));
-        pieces.current.forEach((piece, i) => placePiece(piece, BROKEN[i][0] * apart, BROKEN[i][1] * apart, BROKEN[i][2] * apart));
-        const after = local > 0.56;
+        const step = Math.floor(progress), after = progress - step > 0.5;
         if (step !== view.step || after !== view.after) setView({ step, after });
     });
 
@@ -78,10 +75,10 @@ export function LeakSteps() {
                 <div aria-hidden="true" className="pin-motion mx-auto grid h-full max-w-7xl content-center gap-6 px-4 pb-[88px] sm:px-6 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] min-[900px]:items-center min-[900px]:gap-12 min-[900px]:pb-0">
                     <div className="flex h-[18svh] justify-center min-[900px]:h-[58svh]">
                         <svg viewBox="49 63 600 760" className="h-full w-auto overflow-visible">
-                            {ZERO_PATHS.map((d, i) => (
-                                <path key={d} ref={(el) => { pieces.current[i] = el; }} d={d} className={`transition-[fill] duration-300 ${view.after ? "fill-brand-blue-ink" : "fill-slate-400"}`} />
+                            {ZERO_PATHS.map((d, p) => (
+                                <path key={d} d={d} className={`transition-[fill] duration-500 ${fixed(CLOCKWISE.indexOf(p)) ? "fill-brand-blue-ink" : "fill-slate-400"}`} />
                             ))}
-                            <circle cx={ZERO_DOT.cx} cy={ZERO_DOT.cy} r={ZERO_DOT.r} className={`transition-[fill] duration-300 ${view.after ? "fill-brand-accent-ink" : "fill-slate-300"}`} />
+                            <circle cx={ZERO_DOT.cx} cy={ZERO_DOT.cy} r={ZERO_DOT.r} className={`transition-[fill] duration-500 ${fixed(leaks.length - 1) ? "fill-brand-accent-ink" : "fill-slate-300"}`} />
                         </svg>
                     </div>
                     <div className="flex flex-col gap-5 min-[900px]:gap-[26px]">
