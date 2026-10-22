@@ -50,7 +50,7 @@ export function Navbar() {
     return (
         <header className="relative z-50 border-b border-slate-800 bg-brand-black">
             <nav aria-label="Main" className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-6">
-                <Logo motion />
+                <Logo typeOn />
                 <div className="order-last w-full font-mono text-[13px] sm:order-none sm:w-auto">
                     {home && <NavLinks links={sectionLinks} current={pathname} className="hidden gap-7 lg:flex" />}
                     <NavLinks links={pageLinks} current={pathname} className={`flex gap-6 sm:gap-7 ${home ? "lg:hidden" : ""}`} />

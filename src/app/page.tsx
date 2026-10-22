@@ -63,9 +63,10 @@ export default function Home() {
 
     return (
         <div className="flex flex-col">
-            {/* Hero */}
-            <section>
-                <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(540px,100%),1fr))] items-center gap-12 px-4 pt-14 pb-[88px] sm:px-6">
+            {/* Hero. It fills the first screen under the 77px header (plus a few px), so the tilted
+                ticker below starts out of view. */}
+            <section className="flex min-h-[calc(100svh-72px)] items-center">
+                <div className="mx-auto grid w-full max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(540px,100%),1fr))] items-center gap-12 px-4 pt-14 pb-[88px] sm:px-6">
                     <div className="flex flex-col gap-7">
                         <p className="flex items-center gap-2 self-start bg-brand-accent px-3 py-1.5 font-mono text-[13px] font-bold text-brand-black">
                             $ sudo ops --diagnose
@@ -109,7 +110,8 @@ export default function Home() {
             </section>
 
             {/* Tilted ticker */}
-            <div aria-label={`Zero ${zeroes.join(", zero ")}`} role="img" className="bg-brand-paper pt-4 pb-10">
+            {/* pt-10 keeps the band's raised right end (the -2deg tilt lifts it about 26px) below the hero. */}
+            <div aria-label={`Zero ${zeroes.join(", zero ")}`} role="img" className="bg-brand-paper pt-10 pb-10">
                 <div className="-mx-10 -rotate-2 overflow-hidden border-y-[3px] border-brand-accent bg-brand-black py-5">
                     <div aria-hidden="true" className="ticker flex w-max font-heading text-[clamp(26px,2.6vw,38px)] font-extrabold tracking-[-0.02em] whitespace-nowrap">
                         {[...zeroes, ...zeroes].map((word, i) => (

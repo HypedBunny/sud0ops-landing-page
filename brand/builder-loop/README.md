@@ -4,13 +4,14 @@
 > (from `email/`), and the header logo drawn from `masters/builder-loop-wordmark-master.svg`
 > (`src/components/ui/logo-glyphs.ts`). `email/sud0ops-email-signature.html` is the full signature
 > with name, contact details, sud0ops.com and LinkedIn; it replaces the pack's logo-only snippet.
-> `motion/` is the Builder Loop v3 motion pack; the header's 0 plays `public/brand/sud0ops-logo-motion.webp`,
+> `motion/` is the Builder Loop motion and the official Sud0ops loader. On the site the logo stays still;
+> clicking the 0 in the header or footer wordmark plays `public/brand/sud0ops-logo-motion.webp` once,
 > rendered from it by `scripts/render-logo-motion.mjs` (see `motion/README.md`).
 >
 > **v1.1 (Oct 2026):** the centre dot of the 0 is amber everywhere: `#FFB800` on dark, `#D97706` on light.
 > The four pieces stay blue and the mono versions stay one colour. Every file here, the site's icons, OG
-> image, email logo and the header motion sprite were replaced from the v1.1 pack. The exported clips in
-> `motion/exports/` were not re-rendered and still show the blue dot.
+> image, email logo and the header motion sprite were replaced from the v1.1 pack, and the loader exports
+> in `motion/exports/` were re-rendered with the amber dot.
 
 # Sud0ops Builder Loop — implementation asset pack
 
