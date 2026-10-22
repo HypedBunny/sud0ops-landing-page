@@ -69,7 +69,7 @@ export function PostView({ markdown, header, byline, contents, footer, children 
                                         aria-pressed={view === option}
                                         className={`min-h-9 cursor-pointer rounded-full px-4 transition-colors ${view === option ? "bg-brand-accent text-brand-black" : "text-slate-300 hover:text-brand-paper"}`}
                                     >
-                                        {option === "md" ? ".md" : option}
+                                        {option === "md" ? "Markdown" : "Article"}
                                     </button>
                                 ))}
                             </div>
@@ -78,7 +78,7 @@ export function PostView({ markdown, header, byline, contents, footer, children 
                                 onClick={copy}
                                 className="min-h-11 cursor-pointer rounded-full border border-slate-600 px-4 text-slate-300 transition-colors hover:border-brand-paper hover:text-brand-paper"
                             >
-                                {copied ? "✓ copied" : "copy as markdown"}
+                                {copied ? "✓ Copied" : "Copy as markdown"}
                             </button>
                             <span className="sr-only" aria-live="polite">{copied ? "Markdown copied to clipboard" : ""}</span>
                         </div>
@@ -87,9 +87,10 @@ export function PostView({ markdown, header, byline, contents, footer, children 
             </section>
 
             <section ref={bodyRef} className="bg-brand-paper text-brand-black">
-                <div className="mx-auto flex max-w-7xl items-start gap-12 px-4 pt-16 pb-[88px] sm:px-6">
-                    {contents && <aside className="sticky top-7 hidden max-w-[260px] flex-[1_1_200px] lg:block">{contents}</aside>}
-                    <article className="max-w-[720px] min-w-0 flex-[999_1_560px]">
+                <div className="mx-auto flex max-w-7xl flex-col items-start gap-10 px-4 pt-12 pb-[88px] sm:px-6 min-[900px]:flex-row min-[900px]:gap-12 min-[900px]:pt-16">
+                    {/* Contents: above the article on narrow screens, a sticky column beside it on wide ones. */}
+                    {contents && <aside className="w-full min-[900px]:sticky min-[900px]:top-7 min-[900px]:w-auto min-[900px]:max-w-[260px] min-[900px]:flex-[1_1_200px]">{contents}</aside>}
+                    <article className="w-full max-w-[720px] min-w-0 min-[900px]:flex-[999_1_560px]">
                         {/* The article stays in the DOM while hidden so the page reads the same to crawlers. */}
                         <div hidden={view !== "page"}>{children}</div>
                         {view === "md" && (

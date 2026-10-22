@@ -1,4 +1,4 @@
-import { CareerLog, type CareerEntry } from "@/components/about/CareerLog";
+import { CareerSteps, type CareerEntry } from "@/components/about/CareerSteps";
 
 /* -------------------------------------------------------------------------- */
 /*  CONTENT                                                                    */
@@ -9,17 +9,24 @@ const CREDLY_URL = "https://www.credly.com/users/alex-jay-beukes";
 const LINKEDIN_URL = "https://www.linkedin.com/in/alex-jay-beukes";
 
 const facts = [
-    { key: "based_in", value: "Cape Town, South Africa" },
-    { key: "day_job", value: "DevOps Engineer, Rhino Africa" },
-    { key: "founder", value: "Sud0ops, since Dec 2025" },
-    { key: "focus", value: "AWS platforms, CI/CD, reliability, security, cloud cost" },
-    { key: "top_cert", value: "AWS Solutions Architect, Professional", highlight: true },
-    { key: "way_in", value: "AWS re/Start, not a degree" },
+    { key: "Based in", value: "Cape Town, South Africa" },
+    { key: "Day job", value: "DevOps Engineer, Rhino Africa" },
+    { key: "Founder", value: "Sud0ops, since Dec 2025" },
+    { key: "Focus", value: "AWS platforms, CI/CD, reliability, security, cloud cost" },
+    { key: "Top credential", value: "AWS Solutions Architect, Professional", highlight: true },
+    { key: "Way in", value: "AWS re/Start, not a degree" },
 ];
 
-// Oldest first, like `git log --reverse`.
+const story = [
+    "I did not follow a traditional path into tech. I came in through AWS re/Start, not a degree, and paid for that change with bar shifts in Cape Town. For a year I held both jobs: engineering by day, behind the bar at night. That year taught me discipline, and how to stay sharp when things move fast.",
+    "I started at Skywalk Innovations as an AWS cloud developer and grew into DevOps lead for the AWS Equity Equivalent Investment Programme, which helps South African businesses reach AWS Partner standing. I introduced CI/CD where there was none, standardised monitoring across every client, and took client solutions through AWS Well-Architected reviews.",
+    "Today I am a DevOps engineer at Rhino Africa, responsible for cloud governance, platform reliability and delivery standards. Through Sud0ops I was technical consultant to HelperHub, a live payroll and HR platform, and I volunteer as technical advisor to ProVision Alliance, a youth-focused NPO.",
+];
+
+// Oldest first. `year` is the big number shown while the step is on screen.
 const career: CareerEntry[] = [
     {
+        year: "2020",
         period: "Dec 2020 – Jun 2023",
         place: "Cape Town",
         role: "Bartender",
@@ -27,6 +34,7 @@ const career: CareerEntry[] = [
         blurb: "Paid for my move into technology with bar shifts, through AWS re/Start and my first year as an engineer.",
     },
     {
+        year: "2022",
         period: "2022",
         place: "Cape Town",
         role: "Graduate",
@@ -34,6 +42,7 @@ const career: CareerEntry[] = [
         blurb: "Cloud fundamentals, Python, Linux and debugging. My way into tech.",
     },
     {
+        year: "2022",
         period: "Jun 2022 – Jun 2023",
         place: "South Africa",
         role: "AWS Cloud Developer",
@@ -41,6 +50,7 @@ const career: CareerEntry[] = [
         blurb: "Built and deployed cloud applications on AWS: serverless with Lambda, content delivery with CloudFront, data on RDS and DynamoDB, compute on EC2, and CI/CD with AWS developer tools.",
     },
     {
+        year: "2023",
         period: "Jun 2023 – Mar 2026",
         place: "Cape Town",
         role: "DevOps Engineer & AWS EEIP DevOps Lead",
@@ -48,6 +58,7 @@ const career: CareerEntry[] = [
         blurb: "DevOps lead for the AWS Equity Equivalent Investment Programme. Introduced and standardised CI/CD across every client, cut environment setup time by about half with AWS CDK, and moved clients to proactive monitoring on OpenTelemetry.",
     },
     {
+        year: "2025",
         period: "Dec 2025 – now",
         place: "Cape Town",
         role: "Founder",
@@ -55,6 +66,7 @@ const career: CareerEntry[] = [
         blurb: "Helping SMEs, NPOs and small businesses pick and build technology that fits their needs and their skills. I get into the codebase and build with the team.",
     },
     {
+        year: "2026",
         period: "Apr 2026 – now",
         place: "Cape Town",
         role: "DevOps Engineer",
@@ -120,15 +132,12 @@ export default function AlexPage() {
             <section>
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(520px,100%),1fr))] items-center gap-14 px-4 pt-[72px] pb-24 sm:px-6">
                     <div className="flex flex-col gap-6.5">
-                        <p className="flex items-center gap-2 self-start bg-brand-accent px-3 py-1.5 font-mono text-[13px] font-bold text-brand-black">
-                            $ whoami
-                            <span aria-hidden="true" className="cursor-blink inline-block h-[15px] w-2 bg-brand-black" />
-                        </p>
+                        <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">Meet Alex-Jay</p>
                         <h1 className="font-heading text-[clamp(42px,5.2vw,76px)] leading-none font-extrabold tracking-[-0.045em]">
                             From behind the bar to leading <span className="mark-amber my-1.5">cloud reliability.</span>
                         </h1>
                         <p className="max-w-xl text-lg leading-relaxed text-slate-300">
-                            I’m Alex-Jay Beukes, a DevOps and platform engineer in Cape Town and the founder of Sud0ops. I look after cloud platforms that already carry real customers, and I improve them without taking them down. I came into tech through AWS re/Start rather than a degree, and paid for the switch with bar shifts.
+                            I’m Alex-Jay Beukes, a DevOps and platform engineer in Cape Town and the founder of Sud0ops. I look after cloud platforms that already carry real customers, and I improve them without taking them down. Through Sud0ops I help small businesses, growing teams and NPOs pick the right technology and build it properly, working in the codebase with their team.
                         </p>
                         <div className="flex flex-wrap gap-3">
                             <a
@@ -165,17 +174,12 @@ export default function AlexPage() {
                             {/* Names the photo in the HTML next to it, so crawlers tie the face to the name. */}
                             <figcaption className="sr-only">Alex-Jay Beukes, founder of Sud0ops, Cape Town</figcaption>
                         </figure>
-                        <div className="w-[88%] overflow-hidden rounded-[14px] border border-slate-700 bg-brand-black-light font-mono text-xs">
-                            <div className="flex items-center gap-1.5 border-b border-brand-line px-3.5 py-2.5 text-slate-400">
-                                <span className="h-2 w-2 rounded-full bg-brand-accent" />
-                                <span className="h-2 w-2 rounded-full bg-slate-600" />
-                                <span className="h-2 w-2 rounded-full bg-slate-600" />
-                                <span className="ml-2">whoami --long</span>
-                            </div>
-                            <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 p-3.5 leading-snug">
+                        <div className="w-full overflow-hidden rounded-2xl border border-slate-700 bg-brand-black-light text-sm min-[480px]:w-[88%]">
+                            <p className="border-b border-brand-line px-4 py-3 font-semibold text-brand-paper">At a glance</p>
+                            <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 p-4 leading-snug">
                                 {facts.map((fact) => (
                                     <div key={fact.key} className="contents">
-                                        <dt className="text-slate-500">{fact.key}</dt>
+                                        <dt className="text-slate-400">{fact.key}</dt>
                                         <dd className={fact.highlight ? "text-brand-accent" : "text-brand-paper"}>{fact.value}</dd>
                                     </div>
                                 ))}
@@ -185,31 +189,38 @@ export default function AlexPage() {
                 </div>
             </section>
 
-            {/* Career */}
-            <section className="bg-brand-paper text-brand-black">
-                <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(360px,100%),1fr))] items-start gap-12 px-4 py-[88px] sm:px-6">
-                    <div className="flex flex-col gap-4.5 md:sticky md:top-6">
-                        <p className="font-mono text-xs text-slate-600">01 / commit history</p>
-                        <h2 className="font-heading text-[clamp(38px,4.4vw,60px)] leading-none font-extrabold tracking-[-0.04em]">
-                            The path
-                            <br />
-                            so far.
+            {/* Story */}
+            <section id="story" className="border-t border-slate-800">
+                <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(440px,100%),1fr))] items-start gap-14 px-4 py-24 sm:px-6 min-[900px]:py-[104px]">
+                    <div className="flex flex-col gap-4.5 min-[900px]:sticky min-[900px]:top-8">
+                        <p className="font-mono text-xs text-slate-400">01 / my story</p>
+                        <h2 className="font-heading text-[clamp(40px,4.6vw,68px)] leading-[0.95] font-extrabold tracking-[-0.05em]">
+                            How a bartender became a <span className="text-brand-blue">cloud engineer.</span>
                         </h2>
-                        <p className="max-w-sm text-[17px] leading-relaxed text-slate-600">Six roles, oldest first.</p>
-                        <p className="font-mono text-[13px] text-slate-600">
-                            <span className="text-brand-accent-ink">$</span> git log --reverse --oneline
-                        </p>
+                        <p className="max-w-[420px] text-[17px] leading-relaxed text-slate-400">And why that still shapes the work.</p>
                     </div>
-                    <CareerLog entries={career} />
+                    <div className="flex flex-col gap-[22px] text-lg leading-[1.75] text-slate-300">
+                        {story.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
+                        <blockquote className="mt-4 mr-2.5 rounded-[20px] bg-brand-accent px-6 py-7 text-brand-black shadow-[10px_10px_0_var(--color-brand-blue)] sm:px-8">
+                            <p className="font-heading text-[clamp(26px,2.8vw,38px)] leading-[1.1] font-extrabold tracking-[-0.035em]">
+                                Most businesses do not have an infrastructure problem. They have an operations problem.
+                            </p>
+                            <p className="mt-3.5 text-base leading-relaxed">
+                                Fragile deployments, manual processes and systems held together by workarounds. That is what I fix, sized to what each team needs and can run.
+                            </p>
+                        </blockquote>
+                    </div>
                 </div>
             </section>
+
+            <CareerSteps entries={career} />
 
             {/* Work */}
             <section>
                 <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-[88px] sm:px-6">
                     <div className="flex flex-wrap items-end justify-between gap-6">
                         <div className="flex flex-col gap-4.5">
-                            <p className="font-mono text-xs text-slate-400">02 / selected work</p>
+                            <p className="font-mono text-xs text-slate-400">03 / selected work</p>
                             <h2 className="font-heading text-[clamp(38px,4.4vw,60px)] leading-none font-extrabold tracking-[-0.04em]">
                                 Outside
                                 <br />
@@ -245,7 +256,7 @@ export default function AlexPage() {
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-wrap items-end justify-between gap-6">
                             <div className="flex flex-col gap-4.5">
-                                <p className="font-mono text-xs text-slate-600">03 / credentials</p>
+                                <p className="font-mono text-xs text-slate-600">04 / credentials</p>
                                 <h2 className="font-heading text-[clamp(38px,4.4vw,60px)] leading-none font-extrabold tracking-[-0.04em]">Certifications.</h2>
                             </div>
                             <a
@@ -284,9 +295,7 @@ export default function AlexPage() {
                         </ul>
                     </div>
                     <div className="flex flex-col gap-5">
-                        <p className="font-mono text-[13px] text-slate-600">
-                            <span className="text-brand-accent-ink">$</span> ls ~/stack
-                        </p>
+                        <h3 className="font-heading text-[22px] font-extrabold tracking-[-0.02em]">Toolkit</h3>
                         <ul className="flex flex-wrap gap-2.5 font-mono text-[13px]">
                             {stack.map((item, i) => (
                                 <li key={item} className={`hover-amber rounded-full border-2 border-brand-black px-4 py-2 ${i === stack.length - 1 ? "bg-brand-accent" : ""}`}>

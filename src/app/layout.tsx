@@ -72,7 +72,7 @@ const organizationJsonLd = {
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { MobileCta } from "@/components/layout/MobileCta";
+import { Dock } from "@/components/layout/Dock";
 import Script from "next/script";
 
 export default function RootLayout({
@@ -96,7 +96,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <MobileCta />
+          <Dock />
         </div>
         <Script
           strategy="afterInteractive"

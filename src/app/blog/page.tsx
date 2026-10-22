@@ -37,41 +37,27 @@ export default function BlogPage() {
             <section>
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(480px,100%),1fr))] items-end gap-12 px-4 pt-[72px] pb-[88px] sm:px-6">
                     <div className="flex flex-col gap-6">
-                        <p className="font-mono text-xs text-slate-400">~/writing</p>
+                        <p className="font-mono text-xs text-slate-400">Blog</p>
                         <h1 className="font-heading text-[clamp(52px,7vw,108px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
                             Notes from
                             <br />
                             the <span className="mark-amber">loop.</span>
                         </h1>
                         <p className="max-w-lg text-lg leading-relaxed text-slate-300">
-                            Automation, DevOps, cloud and AI, written up for the teams that run on them. Every post is also served as plain markdown, so an AI agent can read it without the page around it.
+                            Automation, DevOps, cloud and AI, written up for the teams that run on them.
                         </p>
                     </div>
 
-                    {/* What an agent gets from the markdown index, with the real links. */}
-                    <div className="overflow-hidden rounded-[14px] border border-slate-700 bg-brand-black-light font-mono text-[13px] shadow-[8px_8px_0_var(--color-brand-blue)]">
-                        <div className="flex items-center gap-1.5 border-b border-brand-line px-3.5 py-2.5 text-xs text-slate-400">
-                            <span className="h-2 w-2 rounded-full bg-brand-accent" />
-                            <span className="h-2 w-2 rounded-full bg-slate-600" />
-                            <span className="h-2 w-2 rounded-full bg-slate-600" />
-                            <span className="ml-2">for agents</span>
-                        </div>
-                        <div className="flex flex-col gap-2.5 p-4.5 leading-normal text-slate-300 [overflow-wrap:anywhere]">
-                            <p>
-                                <span className="text-brand-accent">$</span> curl sud0ops.com/blog.md
-                            </p>
-                            <p className="text-slate-400"># {BLOG_TITLE}</p>
-                            {posts.slice(0, 3).map((post) => (
-                                <p key={post.slug} className="text-slate-400">
-                                    - [{post.title}](…/{post.slug}.md) ({post.date})
-                                </p>
-                            ))}
-                            <p className="flex flex-wrap gap-x-4.5 gap-y-2 pt-1.5">
-                                <a href="/blog.md" className="text-brand-blue hover:text-brand-blue-hover">/blog.md</a>
-                                <a href="/llms.txt" className="text-brand-blue hover:text-brand-blue-hover">/llms.txt</a>
-                                <span className="text-slate-500">Accept: text/markdown ✓</span>
-                            </p>
-                        </div>
+                    {/* Points people and AI tools at the markdown versions (/blog.md and each post's .md twin). */}
+                    <div className="mr-2 flex flex-col gap-3 rounded-2xl border border-slate-700 bg-brand-black-light p-6 shadow-[8px_8px_0_var(--color-brand-blue)]">
+                        <p className="text-[17px] font-bold text-brand-paper">Readable by people and AI tools</p>
+                        <p className="text-[15px] leading-relaxed text-slate-300">
+                            Every post is also published as plain markdown, so assistants like ChatGPT and Claude can read it cleanly.
+                        </p>
+                        <p className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+                            <a href="/blog.md" className="text-brand-blue hover:text-brand-blue-hover">All posts as markdown</a>
+                            <a href="/llms.txt" className="text-brand-blue hover:text-brand-blue-hover">llms.txt</a>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -79,7 +65,7 @@ export default function BlogPage() {
             <section className="bg-brand-paper text-brand-black">
                 <div className="mx-auto flex max-w-7xl flex-col gap-7 px-4 pt-[72px] pb-24 sm:px-6">
                     <div className="flex flex-wrap justify-between gap-3 font-mono text-xs text-slate-600">
-                        <span>ls -lt ~/writing</span>
+                        <span>Latest posts</span>
                         <span>{posts.length === 1 ? "1 post" : `${posts.length} posts`}</span>
                     </div>
 
@@ -106,8 +92,7 @@ export default function BlogPage() {
                                                 <h2 className="font-heading text-[clamp(32px,3.6vw,52px)] leading-[1.02] font-extrabold tracking-[-0.04em]">{post.title}</h2>
                                             </ViewTransition>
                                             <p className="font-mono text-xs text-slate-600">
-                                                <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingMinutes} min read · also as{" "}
-                                                <span className="text-brand-blue-ink">.md</span>
+                                                <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingMinutes} min read · also available as markdown
                                             </p>
                                         </div>
                                         <div className="flex flex-col justify-between gap-6">
@@ -121,6 +106,7 @@ export default function BlogPage() {
                             ))}
                         </ul>
                     )}
+                    <p className="mt-2 text-[15px] text-slate-600">More posts on the way.</p>
                 </div>
             </section>
         </div>
