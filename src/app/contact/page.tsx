@@ -1,25 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowRight, CheckCircle, AlertCircle, Mail, User, Building2, MessageSquare, Package } from "lucide-react";
 
 const packageOptions = [
-    "Workflow Automation",
-    "Tool Integration",
-    "AI Assistant / Internal Tool",
-    "Dashboard & Reporting",
-    "Process Audit & Efficiency Review",
-    "Investigative Consultation",
-    "Issue Investigation & Resolution",
-    "Cloud Tool Consulting",
-    "Not sure, just want to talk",
+    "Workflow automation",
+    "Tool integration",
+    "AI assistant or internal tool",
+    "Dashboards and reporting",
+    "Process audit and efficiency review",
+    "Investigative consultation",
+    "Issue investigation and resolution",
+    "Cloud tool consulting",
+    "Not sure yet, just want to talk",
 ];
 
+const facts = [
+    { key: "Reply", value: "within 24 hours" },
+    { key: "Based in", value: "Cape Town, South Africa" },
+    { key: "Who I help", value: "small businesses, growing teams and NPOs" },
+];
+
+const empty = { name: "", email: "", company: "", packageInterest: "", message: "" };
+type Field = keyof typeof empty;
+
+const input =
+    "w-full rounded-xl border-2 border-brand-black bg-white px-4 py-3 text-[15px] text-brand-black placeholder:text-slate-500 outline-none transition-shadow focus-visible:shadow-[4px_4px_0_var(--color-brand-blue-ink)]";
+const label = "flex items-baseline gap-2 font-mono text-xs font-bold";
+const optional = <span className="font-normal text-slate-600">optional</span>;
+
+// The enquiry form. It stays live but unlinked (and out of search, see layout.tsx): enquiries mostly
+// arrive by email. It posts to /api/contact, which emails alex@sud0ops.com and sends a confirmation.
 export default function ContactPage() {
-    const [form, setForm] = useState({ name: "", email: "", company: "", packageInterest: "", message: "" });
+    const [form, setForm] = useState(empty);
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMsg, setErrorMsg] = useState("");
+
+    const bind = (field: Field) => ({
+        id: `contact-${field}`,
+        name: field,
+        value: form[field],
+        onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => setForm((f) => ({ ...f, [field]: e.target.value })),
+    });
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -39,7 +60,7 @@ export default function ContactPage() {
             }
 
             setStatus("success");
-            setForm({ name: "", email: "", company: "", packageInterest: "", message: "" });
+            setForm(empty);
         } catch (err) {
             setStatus("error");
             setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
@@ -47,195 +68,102 @@ export default function ContactPage() {
     }
 
     return (
-        <main className="relative min-h-screen flex flex-col overflow-hidden pt-20">
-            <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
-                {/* Header */}
-                <motion.div
-                    initial={false}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="text-center mb-16"
-                >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
-                        <Mail className="h-4 w-4" />
-                        <span>Get In Touch</span>
-                    </div>
-                    <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
-                        Let&apos;s Start With a{" "}
-                        <span className="text-brand-blue">
-                            Conversation
-                        </span>
+        <section>
+            <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(440px,100%),1fr))] items-start gap-14 px-4 pt-[72px] pb-24 sm:px-6">
+                <div className="flex flex-col gap-6.5 min-[900px]:sticky min-[900px]:top-8">
+                    <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">Say hello</p>
+                    <h1 className="font-heading text-[clamp(44px,5.6vw,84px)] leading-[0.95] font-extrabold tracking-[-0.05em]">
+                        Tell me what’s <span className="mark-amber my-1.5">slowing you down.</span>
                     </h1>
-                    <p className="mt-4 text-lg leading-8 text-slate-400 max-w-2xl mx-auto">
-                        Tell us what&apos;s slowing you down. We&apos;ll get back within 24 hours with a clear idea of how we can help.
+                    <p className="max-w-lg text-lg leading-relaxed text-slate-300">
+                        A few lines about what is broken, or what eats your team’s time, is enough. I reply within 24 hours with what I would fix first.
                     </p>
-                </motion.div>
+                    <div className="w-full max-w-md overflow-hidden rounded-2xl border border-slate-700 bg-brand-black-light text-sm">
+                        <p className="border-b border-brand-line px-4 py-3 font-semibold text-brand-paper">At a glance</p>
+                        <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 p-4 leading-snug">
+                            {facts.map((fact) => (
+                                <div key={fact.key} className="contents">
+                                    <dt className="text-slate-400">{fact.key}</dt>
+                                    <dd className="text-brand-paper">{fact.value}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
+                    <p className="text-[15px] text-slate-400">
+                        Prefer email?{" "}
+                        <a href="mailto:alex@sud0ops.com" className="font-mono text-brand-blue transition-colors hover:text-brand-blue-hover">alex@sud0ops.com</a>
+                    </p>
+                </div>
 
-                <div className="mx-auto max-w-3xl">
-                    <motion.div
-                        initial={false}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-                        className="panel rounded-md p-8 lg:p-10"
-                    >
+                <div className="mr-2.5 rounded-[20px] border-2 border-brand-paper bg-brand-paper p-6 text-brand-black shadow-[10px_10px_0_var(--color-brand-accent)] sm:p-8">
+                    <div aria-live="polite">
                         {status === "success" ? (
-                            <motion.div
-                                initial={false}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.4 }}
-                                className="flex flex-col items-center text-center py-12 gap-4"
-                            >
-                                <div className="h-16 w-16 rounded-full bg-brand-blue/10 ring-1 ring-brand-blue/30 flex items-center justify-center">
-                                    <CheckCircle className="h-8 w-8 text-brand-blue" />
-                                </div>
-                                <h2 className="font-heading text-2xl font-bold text-white">Message Sent</h2>
-                                <p className="text-slate-400 max-w-sm">
-                                    Thanks for reaching out. We&apos;ll be in touch within 24 hours.
-                                </p>
+                            <div className="flex flex-col items-start gap-4 py-8">
+                                <p className="font-mono text-xs font-bold text-brand-blue-text">sent ✓</p>
+                                <h2 className="font-heading text-[clamp(32px,3.4vw,44px)] leading-none font-extrabold tracking-[-0.04em]">Message sent.</h2>
+                                <p className="max-w-sm text-[17px] leading-relaxed text-slate-700">Thanks for getting in touch. I’ll reply to your email within 24 hours.</p>
                                 <button
+                                    type="button"
                                     onClick={() => setStatus("idle")}
-                                    className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-brand-blue/10 px-6 text-sm font-medium text-brand-blue ring-1 ring-brand-blue/30 transition-all hover:bg-brand-blue/20 hover:ring-brand-blue/50 hover:text-brand-blue-hover lift-hover"
+                                    className="mt-2 inline-flex min-h-12 cursor-pointer items-center rounded-full border-2 border-brand-black px-5 font-mono text-[13px] font-bold transition-transform hover:-translate-y-0.5"
                                 >
-                                    Send Another
+                                    send another
                                 </button>
-                            </motion.div>
+                            </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                            <User className="h-3.5 w-3.5 text-brand-blue" />
-                                            Name <span className="text-brand-blue">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            required
-                                            value={form.name}
-                                            onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                                            placeholder="Alex Johnson"
-                                            className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
-                                        />
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                                <h2 className="font-mono text-xs text-slate-600">new enquiry</h2>
+                                <div className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-5">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="contact-name" className={label}>Name <span aria-hidden="true" className="text-brand-accent-text">*</span></label>
+                                        <input type="text" required autoComplete="name" placeholder="Your name" className={input} {...bind("name")} />
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                            <Mail className="h-3.5 w-3.5 text-brand-blue" />
-                                            Email <span className="text-brand-blue">*</span>
-                                        </label>
-                                        <input
-                                            type="email"
-                                            required
-                                            value={form.email}
-                                            onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                                            placeholder="alex@yourcompany.com"
-                                            className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
-                                        />
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="contact-email" className={label}>Email <span aria-hidden="true" className="text-brand-accent-text">*</span></label>
+                                        <input type="email" required autoComplete="email" placeholder="you@company.com" className={input} {...bind("email")} />
                                     </div>
                                 </div>
-
-                                <div className="space-y-2">
-                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                        <Building2 className="h-3.5 w-3.5 text-brand-blue" />
-                                        Company <span className="text-slate-400 text-xs font-normal">(optional)</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        value={form.company}
-                                        onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
-                                        placeholder="Your Company Ltd."
-                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
-                                    />
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="contact-company" className={label}>Company {optional}</label>
+                                    <input type="text" autoComplete="organization" placeholder="Company or organisation" className={input} {...bind("company")} />
                                 </div>
-
-                                <div className="space-y-2">
-                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                        <Package className="h-3.5 w-3.5 text-brand-blue" />
-                                        Interested In <span className="text-slate-400 text-xs font-normal">(optional)</span>
-                                    </label>
-                                    <select
-                                        value={form.packageInterest}
-                                        onChange={e => setForm(f => ({ ...f, packageInterest: e.target.value }))}
-                                        className="w-full rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30 appearance-none"
-                                    >
-                                        <option value="" className="bg-brand-black-lighter">Select a package...</option>
-                                        {packageOptions.map(pkg => (
-                                            <option key={pkg} value={pkg} className="bg-brand-black-lighter">{pkg}</option>
-                                        ))}
-                                    </select>
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="contact-packageInterest" className={label}>What do you need help with? {optional}</label>
+                                    <div className="relative">
+                                        <select className={`${input} cursor-pointer appearance-none pr-10`} {...bind("packageInterest")}>
+                                            <option value="">Choose one</option>
+                                            {packageOptions.map((option) => <option key={option} value={option}>{option}</option>)}
+                                        </select>
+                                        <span aria-hidden="true" className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 font-mono text-sm">▾</span>
+                                    </div>
                                 </div>
-
-                                <div className="space-y-2">
-                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                                        <MessageSquare className="h-3.5 w-3.5 text-brand-blue" />
-                                        Message <span className="text-brand-blue">*</span>
-                                    </label>
-                                    <textarea
-                                        required
-                                        rows={6}
-                                        value={form.message}
-                                        onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                                        placeholder="What's broken? What's slowing you down?"
-                                        className="w-full resize-none rounded-md border border-white/10 bg-brand-black-lighter/60 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/30"
-                                    />
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="contact-message" className={label}>Message <span aria-hidden="true" className="text-brand-accent-text">*</span></label>
+                                    <textarea required rows={6} placeholder="What’s broken? What’s slowing you down?" className={`${input} resize-y`} {...bind("message")} />
                                 </div>
 
                                 {status === "error" && (
-                                    <div className="flex items-center gap-2 rounded-md border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-                                        <AlertCircle className="h-4 w-4 shrink-0" />
-                                        {errorMsg}
-                                    </div>
+                                    <p role="alert" className="rounded-xl border-2 border-red-700 bg-red-50 px-4 py-3 text-[15px] text-red-800">
+                                        {errorMsg} You can also email alex@sud0ops.com.
+                                    </p>
                                 )}
 
                                 <button
                                     type="submit"
                                     disabled={status === "loading"}
-                                    className="group relative w-full inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover disabled:opacity-60 disabled:cursor-not-allowed"
+                                    className="inline-flex min-h-14 cursor-pointer items-center justify-between gap-3.5 rounded-full bg-brand-black py-2 pr-2 pl-6 font-bold text-brand-paper transition-transform hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
                                 >
-                                    {status === "loading" ? (
-                                        <span className="flex items-center gap-2">
-                                            <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-                                            </svg>
-                                            Sending...
-                                        </span>
-                                    ) : (
-                                        <span className="flex items-center gap-2">
-                                            Send Enquiry
-                                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                        </span>
-                                    )}
+                                    {status === "loading" ? "Sending…" : "Send enquiry"}
+                                    <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-full bg-brand-accent font-mono text-brand-black">→</span>
                                 </button>
-
-                                <p className="text-center text-xs text-slate-400">
-                                    We&apos;ll reply to your email within 24 hours.
+                                <p className="font-mono text-xs text-slate-600">
+                                    <span aria-hidden="true" className="text-brand-accent-text">*</span> required · I reply within 24 hours.
                                 </p>
                             </form>
                         )}
-                    </motion.div>
-
-                    {/* Info cards */}
-                    <motion.div
-                        initial={false}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4"
-                    >
-                        {[
-                            { label: "Response Time", value: "< 24 hours" },
-                            { label: "Based In", value: "South Africa" },
-                            { label: "Who We Help", value: "SMEs & NPOs" },
-                        ].map(item => (
-                            <div
-                                key={item.label}
-                                className="panel rounded-lg px-6 py-4 text-center"
-                            >
-                                <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">{item.label}</p>
-                                <p className="text-sm font-medium text-brand-blue">{item.value}</p>
-                            </div>
-                        ))}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
-        </main>
+        </section>
     );
 }

@@ -1,293 +1,185 @@
-"use client";
-
-import { motion, useReducedMotion, type Transition } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import {
-    ArrowUpRight,
-    ArrowRight,
-    Cloud,
-    ShoppingCart,
-    Calendar,
-    CheckCircle,
-} from "lucide-react";
 
+/* -------------------------------------------------------------------------- */
+/*  CONTENT                                                                    */
+/*  Edit this array to update the page. No layout changes needed.              */
+/* -------------------------------------------------------------------------- */
+
+// The logos are drawn for dark backgrounds, so each case is a dark card.
 const clients = [
     {
+        id: "helperhub",
         name: "HelperHub",
-        logo: "/helperhub-logo.webp",
-        logoClass: "h-12",
+        kind: "technical consultancy & implementation",
         url: "https://helperhub.co.za",
-        tagline: "Technical Consultancy & Implementation",
+        logo: { src: "/helperhub-logo.webp", width: 389, height: 85, className: "h-9 sm:h-11" },
+        summary: "payroll & HR platform",
         description:
-            "Technical consultancy and hands-on implementation for HelperHub, a live payroll and HR platform for South African employers. We streamlined its core operations with automated workflows and connected tools, secured the live platform with zero downtime, and set the strategy to move it off a legacy PHP monolith.",
-        deliverables: [
+            "A live payroll and HR platform for South African employers. I streamlined its core operations with automated workflows and connected tools, secured the live platform without taking it down, and set the plan to move it off a legacy PHP monolith.",
+        delivered: [
             "Workflow automation and tool integration across core processes",
-            "Zero-downtime security uplift on the live platform",
-            "Migration strategy from a legacy PHP monolith",
-            "Rebuilt release process",
+            "Security uplift on the live platform, with zero downtime",
+            "Migration strategy away from a legacy PHP monolith",
+            "A rebuilt release process",
         ],
-        tags: ["Technical Consultancy", "Implementation", "Workflow Automation", "Platform Modernisation"],
-        icon: Cloud,
+        tags: ["Technical consultancy", "Implementation", "Workflow automation", "Platform modernisation"],
     },
     {
+        id: "bashies",
         name: "Bashies",
-        logo: "/bashies-logo.webp",
-        logoClass: "h-16",
+        kind: "digital presence & e-commerce",
         url: "https://bashies.co.za",
-        tagline: "Digital Presence & E-commerce Enablement",
-        description:
-            "Built the Bashies online store on Shopify, with a custom React landing page made to rank well in search.",
-        deliverables: [
-            "Shopify store setup & customisation",
-            "SEO-optimised React landing page",
-            "Automated order and fulfilment workflow",
-        ],
+        logo: { src: "/bashies-logo.webp", width: 160, height: 160, className: "h-16 sm:h-20" },
+        summary: "Shopify store",
+        description: "I built the Bashies online store on Shopify, with a custom React landing page made to rank well in search.",
+        delivered: ["Shopify store set up and customised", "SEO-optimised React landing page", "Automated order and fulfilment workflow"],
         tags: ["Shopify", "React", "SEO", "Automation"],
-        icon: ShoppingCart,
     },
     {
+        id: "happy-shisha",
         name: "Happy Shisha",
-        logo: "/happyevents-logo.webp",
-        logoClass: "h-20",
+        kind: "digital enablement & automation",
         url: "https://happyshisha.co.za",
-        tagline: "Digital Enablement & Business Automation",
+        logo: { src: "/happyevents-logo.webp", width: 160, height: 160, className: "h-24 sm:h-28" },
+        summary: "social events platform",
         description:
-            "Built a custom social events platform that handles bookings, user engagement, and live updates, so the team does much less of it by hand.",
-        deliverables: [
-            "Custom social events platform",
-            "Automated booking & notification workflows",
-            "Real-time operational visibility",
-        ],
-        tags: ["Business Automation", "Real-time", "Custom Platform"],
-        icon: Calendar,
+            "A custom social events platform that handles bookings, user engagement and live updates, so the team does much less of it by hand.",
+        delivered: ["Custom social events platform", "Automated booking and notification workflows", "Real-time view of operations"],
+        tags: ["Business automation", "Real-time", "Custom platform"],
     },
 ];
 
-// Height of the snap container: the viewport minus the header (about 5rem)
-// Uses dvh (dynamic viewport height) so mobile browser chrome is handled correctly
-const SNAP_HEIGHT = "calc(100dvh - 5rem)";
-
+/* -------------------------------------------------------------------------- */
+/*  PAGE                                                                       */
+/* -------------------------------------------------------------------------- */
 export default function ClientsPage() {
-    const shouldReduceMotion = useReducedMotion();
-
-    const fadeUpTransition: Transition = shouldReduceMotion
-        ? { duration: 0.2 }
-        : { duration: 0.7, ease: "easeOut" as const };
-
-    const revealTransition: Transition = shouldReduceMotion
-        ? { duration: 0.2 }
-        : { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.05 };
-
-    const fadeUpAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
-
-    const revealInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 50, scale: 0.97 };
-    const revealAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 };
-
     return (
-        <div className="relative">
-            {/*
-              Scroll-snap container.
-              - overflow-y-scroll + snap-y mandatory: each section snaps into place
-              - Height fills the viewport below the header
-            */}
-            <div
-                className="relative z-10 overflow-y-scroll"
-                style={{
-                    height: SNAP_HEIGHT,
-                    scrollSnapType: "y mandatory",
-                    scrollBehavior: "smooth",
-                }}
-                aria-label="Client portfolio, scroll to navigate"
-            >
-
-                {/* ── HERO SCREEN ─────────────────────────────────── */}
-                <section
-                    className="flex flex-col items-center justify-center text-center px-6"
-                    style={{ height: SNAP_HEIGHT, scrollSnapAlign: "start" }}
-                >
-                    <motion.div
-                        initial={false}
-                        animate={fadeUpAnimate}
-                        transition={fadeUpTransition}
-                        className="max-w-2xl w-full"
-                    >
-                        {/* Badge — matches services page pattern */}
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
-                            <CheckCircle className="h-4 w-4" aria-hidden="true" />
-                            <span>Clients</span>
-                        </div>
-
-                        <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6 leading-tight">
-                            Businesses We{" "}
-                            <span className="text-brand-blue">
-                                Work With
-                            </span>
+        <div className="flex flex-col">
+            {/* Hero */}
+            <section>
+                <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(480px,100%),1fr))] items-end gap-12 px-4 pt-[72px] pb-[88px] sm:px-6">
+                    <div className="flex flex-col gap-6">
+                        <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">Clients</p>
+                        <h1 className="font-heading text-[clamp(48px,6.4vw,100px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
+                            Businesses{" "}
+                            <br />
+                            I’ve <span className="mark-amber">built for.</span>
                         </h1>
+                        <p className="max-w-lg text-lg leading-relaxed text-slate-300">What I built for each one, and why.</p>
+                    </div>
 
-                        <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-xl mx-auto">
-                            What we built for each one, and why.
-                        </p>
+                    <nav aria-label="Clients on this page" className="mr-2 overflow-hidden rounded-2xl border border-slate-700 bg-brand-black-light shadow-[8px_8px_0_var(--color-brand-blue)]">
+                        <p className="border-b border-brand-line px-5 py-3.5 font-semibold text-brand-paper">{clients.length} clients</p>
+                        <ol className="flex flex-col">
+                            {clients.map((client, i) => (
+                                <li key={client.id} className="border-b border-brand-line last:border-b-0">
+                                    <a
+                                        href={`#${client.id}`}
+                                        className="flex min-h-12 items-baseline gap-4 px-5 py-3 transition-colors hover:bg-brand-black-lighter focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-accent"
+                                    >
+                                        <span className="font-mono text-xs text-brand-accent">0{i + 1}</span>
+                                        <span className="flex flex-1 flex-col gap-0.5 min-[480px]:flex-row min-[480px]:items-baseline min-[480px]:justify-between min-[480px]:gap-4">
+                                            <span className="font-heading text-lg font-bold text-brand-paper">{client.name}</span>
+                                            <span className="font-mono text-xs text-slate-400">{client.summary}</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ol>
+                    </nav>
+                </div>
+            </section>
 
-                        {/* Scroll hint — uses inline style for gradient to avoid missing Tailwind class */}
-                        <div className="flex flex-col items-center gap-2 text-sm text-slate-400" aria-hidden="true">
-                            <span>Scroll to explore</span>
-                            <motion.div
-                                animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
-                                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
-                                className="w-px h-8 rounded-full"
-                                style={{
-                                    background: "linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-blue) 70%, transparent), transparent)",
-                                }}
-                            />
-                        </div>
-                    </motion.div>
-                </section>
-
-                {/* ── CLIENT SCREENS ──────────────────────────────── */}
-                {clients.map((client, i) => {
-                    const Icon = client.icon;
-                    return (
-                        <section
-                            key={client.name}
-                            className="flex items-center justify-center px-6 py-6"
-                            style={{ minHeight: SNAP_HEIGHT, scrollSnapAlign: "start" }}
-                            aria-label={`Client: ${client.name}`}
-                        >
-                            <motion.div
-                                initial={revealInitial}
-                                whileInView={revealAnimate}
-                                viewport={{ once: false, amount: 0.4 }}
-                                transition={revealTransition}
-                                className="panel rounded-md border border-white/5 hover:border-brand-blue/30 transition-colors duration-500 p-6 md:p-10 w-full max-w-2xl relative overflow-hidden group lift-hover"
+            {/* Cases */}
+            <section className="bg-brand-paper text-brand-black">
+                <div className="mx-auto flex max-w-7xl flex-col gap-7 px-4 pt-[72px] pb-24 sm:px-6">
+                    <div className="flex flex-wrap justify-between gap-3 font-mono text-xs text-slate-600">
+                        <span>Client work</span>
+                        <span>{clients.length} clients</span>
+                    </div>
+                    <ol className="flex flex-col gap-9">
+                        {clients.map((client, i) => (
+                            <li
+                                key={client.id}
+                                id={client.id}
+                                className={`grid scroll-mt-6 grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-x-12 gap-y-8 rounded-[20px] border-2 border-brand-black bg-brand-black p-6 text-brand-paper sm:p-9 ${i % 2 ? "shadow-[8px_8px_0_var(--color-brand-blue)]" : "shadow-[8px_8px_0_var(--color-brand-accent)]"}`}
                             >
-                                {/* Subtle hover grid overlay — matches services page */}
-                                <div
-                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                    style={{
-                                        background:
-                                            "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)",
-                                        backgroundSize: "16px 16px",
-                                    }}
-                                    aria-hidden="true"
-                                />
-
-                                <div className="relative z-10">
-                                    {/* Top row: index + icon + external link */}
-                                    <div className="flex items-center justify-between mb-6">
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-xs font-mono text-slate-400 select-none" aria-hidden="true">
-                                                {String(i + 1).padStart(2, "0")}
-                                            </span>
-                                            <div
-                                                className="p-2 rounded-lg bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/20 group-hover:bg-brand-blue group-hover:text-brand-black transition-colors duration-300"
-                                                aria-hidden="true"
-                                            >
-                                                <Icon className="h-5 w-5" />
-                                            </div>
-                                        </div>
-                                        <Link
-                                            href={client.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-brand-blue transition-colors duration-200 cursor-pointer"
-                                            aria-label={`Visit ${client.name} website (opens in new tab)`}
-                                        >
-                                            Visit site
-                                            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                                        </Link>
+                                <div className="flex flex-col gap-5">
+                                    <div className="flex justify-between gap-4 font-mono text-xs text-slate-400">
+                                        <span className="flex-none whitespace-nowrap">
+                                            0{i + 1} / 0{clients.length}
+                                        </span>
+                                        <span className="text-right text-brand-blue">{client.kind}</span>
                                     </div>
-
-                                    {/* Logo */}
-                                    <div className="mb-5 opacity-70 group-hover:opacity-100 transition-all duration-500">
-                                        <Image
-                                            src={client.logo}
-                                            alt={`${client.name} logo`}
-                                            width={180}
-                                            height={70}
-                                            className={`${client.logoClass} w-auto object-contain`}
-                                        />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={client.logo.src}
+                                        alt={`${client.name} logo`}
+                                        width={client.logo.width}
+                                        height={client.logo.height}
+                                        loading={i === 0 ? "eager" : "lazy"}
+                                        className={`${client.logo.className} w-auto self-start object-contain`}
+                                    />
+                                    <h2 className="font-heading text-[clamp(34px,3.8vw,52px)] leading-[1.02] font-extrabold tracking-[-0.04em]">{client.name}</h2>
+                                    <p className="text-[17px] leading-relaxed text-slate-300">{client.description}</p>
+                                    <a
+                                        href={client.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-auto inline-flex min-h-11 items-center gap-2.5 self-start rounded-full border-2 border-slate-600 px-4.5 font-mono text-[13px] font-bold text-brand-paper transition hover:-translate-y-0.5 hover:border-brand-accent hover:text-brand-accent"
+                                    >
+                                        {client.url.replace("https://", "")} <span aria-hidden="true">↗</span>
+                                        <span className="sr-only">(opens in a new tab)</span>
+                                    </a>
+                                </div>
+                                <div className="flex flex-col gap-6 border-t border-brand-line pt-7 min-[900px]:border-t-0 min-[900px]:border-l min-[900px]:pt-0 min-[900px]:pl-12">
+                                    <div className="flex flex-col gap-3.5">
+                                        <h3 className="font-mono text-xs text-brand-accent">what I delivered</h3>
+                                        <ul className="flex flex-col gap-3 text-base leading-snug text-brand-paper">
+                                            {client.delivered.map((item) => (
+                                                <li key={item} className="grid grid-cols-[18px_minmax(0,1fr)] gap-2">
+                                                    <span aria-hidden="true" className="font-mono text-brand-accent">›</span>
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
-
-                                    {/* Name + tagline */}
-                                    <h2 className="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-blue transition-colors duration-300">
-                                        {client.name}
-                                    </h2>
-                                    <p className="text-brand-blue text-sm font-medium mb-4">
-                                        {client.tagline}
-                                    </p>
-
-                                    {/* Description */}
-                                    <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                                        {client.description}
-                                    </p>
-
-                                    {/* Deliverables */}
-                                    <ul className="space-y-2 mb-5" aria-label="What we delivered">
-                                        {client.deliverables.map((d) => (
-                                            <li key={d} className="flex items-center gap-2.5">
-                                                <CheckCircle className="h-4 w-4 text-brand-blue flex-shrink-0" aria-hidden="true" />
-                                                <span className="text-sm text-slate-300">{d}</span>
-                                            </li>
+                                    <ul aria-label="Areas" className="mt-auto flex flex-wrap gap-2 font-mono text-[11px] text-slate-300">
+                                        {client.tags.map((tag) => (
+                                            <li key={tag} className="rounded-full border border-slate-600 px-2.5 py-[3px]">{tag}</li>
                                         ))}
                                     </ul>
-
-                                    {/* Tags — matches services page mono tag style */}
-                                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
-                                        {client.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="inline-block rounded-md border border-brand-blue/20 bg-brand-blue/5 px-3 py-1 text-xs font-medium text-brand-blue font-mono tracking-wide"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
                                 </div>
-                            </motion.div>
-                        </section>
-                    );
-                })}
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+            </section>
 
-                {/* ── CTA SCREEN ──────────────────────────────────── */}
-                <section
-                    className="flex flex-col items-center justify-center text-center px-6"
-                    style={{ height: SNAP_HEIGHT, scrollSnapAlign: "start" }}
-                    aria-label="Contact call to action"
-                >
-                    <motion.div
-                        initial={revealInitial}
-                        whileInView={revealAnimate}
-                        viewport={{ once: false, amount: 0.4 }}
-                        transition={revealTransition}
-                        className="panel rounded-md border border-white/5 hover:border-brand-blue/30 transition-colors duration-300 p-10 md:p-16 max-w-lg w-full"
-                    >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-blue/40 bg-brand-blue/5 px-3 py-1 font-mono text-xs uppercase tracking-wider text-brand-blue">
-                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                            <span>Next Step</span>
-                        </div>
-
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
-                            Have a problem like these?
-                        </h2>
-                        <p className="text-slate-400 mb-8 leading-relaxed">
-                            Tell us where your business loses time, and we will tell you
-                            what we would fix first.
-                        </p>
-
+            {/* Say hello */}
+            <section className="bg-brand-paper px-4 pb-[72px]">
+                <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-8 rounded-[28px] bg-brand-accent px-6 py-16 text-brand-black sm:px-10">
+                    <div className="flex max-w-2xl flex-col gap-3.5">
+                        <h2 className="font-heading text-[clamp(36px,4.2vw,60px)] leading-none font-extrabold tracking-[-0.045em]">Have a problem like these?</h2>
+                        <p className="text-lg leading-normal">Tell me where your business loses time and I’ll tell you what I would fix first.</p>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
                         <a
                             href="mailto:alex@sud0ops.com"
-                            className="group inline-flex h-12 items-center justify-center rounded-md bg-brand-accent px-8 font-medium text-brand-black transition-all hover:bg-brand-accent-hover lift-hover cursor-pointer"
+                            className="inline-flex min-h-14 items-center gap-3.5 rounded-full bg-brand-black py-2 pr-2 pl-6 font-bold text-brand-paper transition-transform hover:-translate-y-0.5"
                         >
-                            <span className="flex items-center gap-2">
-                                Book a Free Discovery Call
-                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                            </span>
+                            alex@sud0ops.com
+                            <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-full bg-brand-accent font-mono text-brand-black">→</span>
                         </a>
-                    </motion.div>
-                </section>
-
-            </div>
+                        <Link
+                            href="/about-founder"
+                            className="inline-flex min-h-14 items-center rounded-full border-2 border-brand-black px-6 font-mono text-sm font-bold transition-transform hover:-translate-y-0.5"
+                        >
+                            meet Alex-Jay →
+                        </Link>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
