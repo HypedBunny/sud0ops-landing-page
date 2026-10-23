@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { STILL_LOG, pinProgress, useMedia, useScrollFrame } from "@/lib/motion";
 
-export type LogEntry = { tag: string; title: string; body: string; foot: string; href?: string };
+export type LogEntry = { tag: string; title: string; body: string; foot: React.ReactNode; href?: string };
 export type LatestPost = { href: string; date: string; title: string; summary: string };
 
 const card = "relative flex min-h-[340px] w-[min(520px,80vw)] flex-none flex-col gap-4 rounded-[20px] p-8 log-card";

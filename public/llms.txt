@@ -16,7 +16,7 @@ Engagements follow four stages: discover, build, adopt, support.
 
 ## Leadership
 
-Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer with a background in AWS platform leadership. He led DevOps for the AWS Equity Equivalent Investment Programme at Skywalk Innovations, standardising CI/CD and monitoring across its client portfolio, and served as technical consultant to HelperHub, a live payroll and HR platform, where he set the migration strategy off a legacy monolith. He is currently responsible for cloud governance and platform reliability at Rhino Africa. He also advises ProVision Alliance, a youth-focused NPO, on a pro bono basis. His work centres on zero-downtime migrations, delivery standards and cloud cost control.
+Sud0ops was founded by Alex-Jay Beukes, a DevOps and platform engineer with a background in AWS platform leadership. He led DevOps for the AWS Equity Equivalent Investment Programme at Skywalk Innovations, standardising CI/CD and monitoring across its client portfolio, and served as technical consultant to helperhub, a live payroll and HR platform, where he set the migration strategy off a legacy monolith. He is currently responsible for cloud governance and platform reliability at Rhino Africa. He also advises ProVision Alliance, a youth-focused NPO, on a pro bono basis. His work centres on zero-downtime migrations, delivery standards and cloud cost control.
 
 Profile: https://sud0ops.com/about-founder · LinkedIn: https://www.linkedin.com/in/alex-jay-beukes · Credly: https://www.credly.com/users/alex-jay-beukes
 
@@ -27,7 +27,7 @@ Contact: alex@sud0ops.com
 - [Home](https://sud0ops.com/): the four problems Sud0ops fixes (workflow automation, tool integration, AI assistants, operational dashboards), the discover, build, adopt, support loop, house rules and recent work.
 - [Services](https://sud0ops.com/services): service lines and the platforms Sud0ops works with.
 - [Consulting](https://sud0ops.com/consulting): three entry points: an investigative consultation, a fix for a known problem, or a SaaS review.
-- [Clients](https://sud0ops.com/clients): selected work for HelperHub (technical consultancy and implementation), Bashies (Shopify store and SEO) and Happy Shisha (custom social events platform).
+- [Clients](https://sud0ops.com/clients): selected work for helperhub (technical consultancy and implementation), Bashies (Shopify store and SEO), Happy Shisha (custom social events platform) and ProVision Alliance (pro bono technical advice for a youth NPO).
 - [About the founder](https://sud0ops.com/about-founder): Alex-Jay's story, career, selected work, certifications and toolkit.
 - [Blog](https://sud0ops.com/blog.md): posts on automation, DevOps, cloud and AI, as a markdown index. Every post is available as markdown: send `Accept: text/markdown` to its URL, or add `.md` to it.
 

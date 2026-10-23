@@ -1,4 +1,5 @@
 import { CareerSteps, type CareerEntry } from "@/components/about/CareerSteps";
+import { HelperHub } from "@/components/ui/HelperHub";
 
 /* -------------------------------------------------------------------------- */
 /*  CONTENT                                                                    */
@@ -20,7 +21,9 @@ const facts = [
 const story = [
     "I did not follow a traditional path into tech. I came in through AWS re/Start, not a degree, and paid for that change with bar shifts in Cape Town. For a year I held both jobs: engineering by day, behind the bar at night. That year taught me discipline, and how to stay sharp when things move fast.",
     "I started at Skywalk Innovations as an AWS cloud developer and grew into DevOps lead for the AWS Equity Equivalent Investment Programme, which helps South African businesses reach AWS Partner standing. I introduced CI/CD where there was none, standardised monitoring across every client, and took client solutions through AWS Well-Architected reviews.",
-    "Today I am a DevOps engineer at Rhino Africa, responsible for cloud governance, platform reliability and delivery standards. Through Sud0ops I was technical consultant to HelperHub, a live payroll and HR platform, and I volunteer as technical advisor to ProVision Alliance, a youth-focused NPO.",
+    <>
+        Today I am a DevOps engineer at Rhino Africa, responsible for cloud governance, platform reliability and delivery standards. Through Sud0ops I was technical consultant to <HelperHub />, a live payroll and HR platform, and I volunteer as technical advisor to ProVision Alliance, a youth-focused NPO.
+    </>,
 ];
 
 // Oldest first. `year` is the big number shown while the step is on screen.
@@ -75,9 +78,11 @@ const career: CareerEntry[] = [
     },
 ];
 
-const work = [
+// `name` is the plain-text name (the key); `display`, when set, is how the name is shown.
+const work: { name: string; display?: React.ReactNode; kind: string; url: string; blurb: string }[] = [
     {
-        name: "HelperHub",
+        name: "helperhub",
+        display: <HelperHub />,
         kind: "technical consultant",
         url: "https://helperhub.co.za",
         blurb: "Technical consultant to a live payroll and HR platform for South African employers. Set the migration strategy from a legacy PHP monolith to a modern platform, delivered a security uplift on the live system with zero downtime, and rebuilt the release process.",
@@ -200,7 +205,7 @@ export default function AlexPage() {
                         <p className="max-w-[420px] text-[17px] leading-relaxed text-slate-400">And why that still shapes the work.</p>
                     </div>
                     <div className="flex flex-col gap-[22px] text-lg leading-[1.75] text-slate-300">
-                        {story.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
+                        {story.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
                         <blockquote className="mt-4 mr-2.5 rounded-[20px] bg-brand-accent px-6 py-7 text-brand-black shadow-[10px_10px_0_var(--color-brand-blue)] sm:px-8">
                             <p className="font-heading text-[clamp(26px,2.8vw,38px)] leading-[1.1] font-extrabold tracking-[-0.035em]">
                                 Most businesses do not have an infrastructure problem. They have an operations problem.
@@ -242,7 +247,7 @@ export default function AlexPage() {
                                     <span className="text-brand-blue">{project.kind}</span>
                                     <span>{project.url.replace("https://", "")} ↗</span>
                                 </div>
-                                <h3 className="font-heading text-[28px] font-extrabold tracking-[-0.02em]">{project.name}</h3>
+                                <h3 className="font-heading text-[28px] font-extrabold tracking-[-0.02em]">{project.display ?? project.name}</h3>
                                 <p className="text-[15px] leading-relaxed text-slate-300">{project.blurb}</p>
                             </a>
                         ))}

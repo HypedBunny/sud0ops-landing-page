@@ -1,15 +1,31 @@
 import Link from "next/link";
+import { HelperHub } from "@/components/ui/HelperHub";
 
 /* -------------------------------------------------------------------------- */
 /*  CONTENT                                                                    */
 /*  Edit this array to update the page. No layout changes needed.              */
 /* -------------------------------------------------------------------------- */
 
-// The logos are drawn for dark backgrounds, so each case is a dark card.
-const clients = [
+// The logos are drawn for dark backgrounds, so each case is a dark card. `name` is the plain-text name
+// (alt text); `display`, when set, is how the name is shown.
+type Client = {
+    id: string;
+    name: string;
+    display?: React.ReactNode;
+    kind: string;
+    url: string;
+    logo?: { src: string; width: number; height: number; className: string };
+    summary: string;
+    description: string;
+    delivered: string[];
+    tags: string[];
+};
+
+const clients: Client[] = [
     {
         id: "helperhub",
-        name: "HelperHub",
+        name: "helperhub",
+        display: <HelperHub />,
         kind: "technical consultancy & implementation",
         url: "https://helperhub.co.za",
         logo: { src: "/helperhub-logo.webp", width: 389, height: 85, className: "h-9 sm:h-11" },
@@ -47,6 +63,17 @@ const clients = [
         delivered: ["Custom social events platform", "Automated booking and notification workflows", "Real-time view of operations"],
         tags: ["Business automation", "Real-time", "Custom platform"],
     },
+    {
+        id: "provision-alliance",
+        name: "ProVision Alliance",
+        kind: "volunteer technical advisor · NPO",
+        url: "https://provisionalliance.org",
+        summary: "youth NPO",
+        description:
+            "A youth-focused NPO, where I volunteer as technical advisor. I set up their website, domain, email and hosting, which removed a blocker to their funding applications, and onboarded them to nonprofit programmes, including Microsoft’s.",
+        delivered: ["Website, domain, email and hosting", "Cleared a blocker to their funding applications", "Onboarding to nonprofit programmes, including Microsoft’s"],
+        tags: ["Pro bono", "NPO", "Web & email", "Nonprofit programmes"],
+    },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -79,7 +106,7 @@ export default function ClientsPage() {
                                     >
                                         <span className="font-mono text-xs text-brand-accent">0{i + 1}</span>
                                         <span className="flex flex-1 flex-col gap-0.5 min-[480px]:flex-row min-[480px]:items-baseline min-[480px]:justify-between min-[480px]:gap-4">
-                                            <span className="font-heading text-lg font-bold text-brand-paper">{client.name}</span>
+                                            <span className="font-heading text-lg font-bold text-brand-paper">{client.display ?? client.name}</span>
                                             <span className="font-mono text-xs text-slate-400">{client.summary}</span>
                                         </span>
                                     </a>
@@ -111,16 +138,18 @@ export default function ClientsPage() {
                                         </span>
                                         <span className="text-right text-brand-blue">{client.kind}</span>
                                     </div>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={client.logo.src}
-                                        alt={`${client.name} logo`}
-                                        width={client.logo.width}
-                                        height={client.logo.height}
-                                        loading={i === 0 ? "eager" : "lazy"}
-                                        className={`${client.logo.className} w-auto self-start object-contain`}
-                                    />
-                                    <h2 className="font-heading text-[clamp(34px,3.8vw,52px)] leading-[1.02] font-extrabold tracking-[-0.04em]">{client.name}</h2>
+                                    {client.logo && (
+                                        // eslint-disable-next-line @next/next/no-img-element
+                                        <img
+                                            src={client.logo.src}
+                                            alt={`${client.name} logo`}
+                                            width={client.logo.width}
+                                            height={client.logo.height}
+                                            loading={i === 0 ? "eager" : "lazy"}
+                                            className={`${client.logo.className} w-auto self-start object-contain`}
+                                        />
+                                    )}
+                                    <h2 className="font-heading text-[clamp(34px,3.8vw,52px)] leading-[1.02] font-extrabold tracking-[-0.04em]">{client.display ?? client.name}</h2>
                                     <p className="text-[17px] leading-relaxed text-slate-300">{client.description}</p>
                                     <a
                                         href={client.url}
