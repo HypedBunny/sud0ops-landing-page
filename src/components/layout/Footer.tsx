@@ -16,9 +16,7 @@ export function Footer() {
 
     return (
         <footer className="bg-brand-black">
-            <LiveStats />
-            {/* Extra bottom padding on phones keeps the dock clear of the last line. */}
-            <div className="mx-auto flex max-w-7xl flex-col gap-12 px-4 pt-16 pb-24 sm:px-6 sm:pb-8">
+            <div className="mx-auto flex max-w-7xl flex-col gap-12 px-4 pt-16 pb-8 sm:px-6">
                 <div className="flex flex-wrap items-end justify-between gap-10">
                     <div className="flex max-w-2xl flex-[1_1_26rem] flex-col gap-3.5">
                         <Logo className="block" markClassName="h-auto w-full" />
@@ -39,6 +37,7 @@ export function Footer() {
                     <p>Made in Cape Town</p>
                 </div>
             </div>
+            <LiveStats />
         </footer>
     );
 }

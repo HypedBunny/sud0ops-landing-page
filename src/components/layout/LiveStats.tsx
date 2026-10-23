@@ -21,19 +21,21 @@ function clock(timeZone?: string) {
     }
 }
 
-// A strip above the footer that reports this page's own numbers, read in the browser from the
+// A bar under the footer that reports this page's own numbers, read in the browser from the
 // Performance API: nothing is sent anywhere. It updates once a second by writing text into the
 // spans directly, so the page does not re-render. Time on page and scroll depth restart on each page.
+// On phones the label stays put and the numbers scroll past in one line, like a news ticker (a second,
+// aria-hidden copy makes the loop seamless); wider screens show them as a plain row. See .stats-* in
+// globals.css. The dock sits at the bar's right end, so the row keeps clear of it.
 export function LiveStats() {
     const pathname = usePathname();
-    const spans = useRef<Partial<Record<Key, HTMLSpanElement | null>>>({});
+    const spans = useRef<Partial<Record<Key, (HTMLSpanElement | null)[]>>>({});
 
     useEffect(() => {
         const start = Date.now();
         let deepest = 0;
         const set = (key: Key, value: string) => {
-            const span = spans.current[key];
-            if (span && span.textContent !== value) span.textContent = value;
+            for (const span of spans.current[key] ?? []) if (span && span.textContent !== value) span.textContent = value;
         };
         const tick = () => {
             const navigation = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
@@ -57,22 +59,34 @@ export function LiveStats() {
         return () => clearInterval(timer);
     }, [pathname]);
 
-    const value = (key: Key, className = "text-brand-paper") => (
-        <span ref={(el) => { spans.current[key] = el; }} className={className}>—</span>
+    const value = (key: Key, copy: number, className = "text-brand-paper") => (
+        <span ref={(el) => { (spans.current[key] ??= [])[copy] = el; }} className={className}>—</span>
+    );
+    const items = (copy: number) => (
+        <>
+            {STATS.map(([key, label]) => (
+                <li key={key} className="whitespace-nowrap">
+                    {label} {value(key, copy)}
+                </li>
+            ))}
+            <li className="whitespace-nowrap">
+                Your time {value("you", copy)} · Cape Town {value("capeTown", copy, "text-brand-accent")}
+            </li>
+        </>
     );
 
     return (
-        <aside aria-label="Live stats for this page" className="border-b border-slate-800 bg-[#0B1220]">
-            <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2.5 px-4 py-4 text-xs text-slate-400 sm:px-6">
-                <span className="text-brand-mint">● Live stats for this page</span>
-                {STATS.map(([key, label]) => (
-                    <span key={key}>
-                        {label} {value(key)}
-                    </span>
-                ))}
-                <span>
-                    Your time {value("you")} · Cape Town {value("capeTown", "text-brand-accent")}
+        <aside aria-label="Live stats for this page" className="border-t border-slate-800 bg-[#0B1220]">
+            <div className="mx-auto flex min-h-[92px] max-w-7xl items-center gap-3 pr-[84px] pl-4 text-xs text-slate-400 sm:pl-6 min-[900px]:gap-6">
+                <span className="flex-none text-brand-mint">
+                    ● Live stats<span className="hidden min-[900px]:inline"> for this page</span>
                 </span>
+                <div className="stats-window min-w-0 flex-1 overflow-hidden">
+                    <div className="stats-track">
+                        <ul className="stats-list flex gap-x-6 gap-y-2.5 pr-6">{items(0)}</ul>
+                        <ul aria-hidden="true" className="stats-list stats-copy flex gap-x-6 pr-6">{items(1)}</ul>
+                    </div>
+                </div>
             </div>
         </aside>
     );

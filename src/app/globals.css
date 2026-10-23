@@ -420,6 +420,36 @@ body {
   right: max(16px, env(safe-area-inset-right));
   bottom: max(16px, env(safe-area-inset-bottom));
 }
+
+/* Live stats under the footer (src/components/layout/LiveStats.tsx). On phones the numbers run as a
+   one-line ticker: two copies of the list, moved by half the track, fading in and out at the edges.
+   Wider screens and reduced motion get a plain wrapping row. */
+.stats-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 32s linear infinite;
+}
+.stats-window {
+  mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 20px), transparent);
+}
+.stats-window:hover .stats-track {
+  animation-play-state: paused;
+}
+@media (min-width: 900px), (prefers-reduced-motion: reduce) {
+  .stats-window {
+    mask-image: none;
+  }
+  .stats-track {
+    width: auto;
+    animation: none;
+  }
+  .stats-list {
+    flex-wrap: wrap;
+  }
+  .stats-copy {
+    display: none;
+  }
+}
 .dock-piece {
   transform-box: fill-box;
   transform-origin: center;
