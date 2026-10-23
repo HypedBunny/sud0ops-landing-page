@@ -105,6 +105,41 @@ body {
   }
 }
 
+/* The scroll cue (src/components/ui/ScrollCue.tsx). It sits level with the dock's centre on phones,
+   slides in once you have had a moment with the first screen (hidden, and so not tappable, until then),
+   and its amber dot slides down the rail. */
+.scroll-cue {
+  bottom: 24px;
+  animation: scroll-cue-in 0.5s ease-out 1.4s both;
+}
+@keyframes scroll-cue-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+  }
+}
+.scroll-cue-dot {
+  animation: scroll-cue-dot 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cue-dot {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
 /* Scroll-pinned sections (home film and leaks, about career): a tall .pin-wrap around a sticky,
    screen-high .pin-panel, so scrolling through the wrapper drives the panel. Short screens (landscape
    phones) and reduced motion lay them out as plain sections: STILL_PIN in src/lib/motion.ts, keep the
@@ -202,14 +237,6 @@ body {
   transform: translate(-50%, -50%);
   opacity: 0;
 }
-.nudge {
-  animation: nudge 1.6s ease-in-out infinite;
-}
-@keyframes nudge {
-  50% {
-    transform: translateY(4px);
-  }
-}
 @media (max-width: 899px) {
   .film-copy {
     top: 56px;
@@ -258,7 +285,6 @@ body {
   }
   .pin-motion,
   .film-stage,
-  .film-cue,
   .film-you {
     display: none !important;
   }
@@ -406,7 +432,8 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .ticker,
-  .nudge {
+  .scroll-cue,
+  .scroll-cue-dot {
     animation: none;
   }
   .hover-amber:hover,
@@ -419,6 +446,36 @@ body {
 .dock {
   right: max(16px, env(safe-area-inset-right));
   bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Live stats under the footer (src/components/layout/LiveStats.tsx). On phones the numbers run as a
+   one-line ticker: two copies of the list, moved by half the track, fading in and out at the edges.
+   Wider screens and reduced motion get a plain wrapping row. */
+.stats-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 32s linear infinite;
+}
+.stats-window {
+  mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 20px), transparent);
+}
+.stats-window:hover .stats-track {
+  animation-play-state: paused;
+}
+@media (min-width: 900px), (prefers-reduced-motion: reduce) {
+  .stats-window {
+    mask-image: none;
+  }
+  .stats-track {
+    width: auto;
+    animation: none;
+  }
+  .stats-list {
+    flex-wrap: wrap;
+  }
+  .stats-copy {
+    display: none;
+  }
 }
 .dock-piece {
   transform-box: fill-box;

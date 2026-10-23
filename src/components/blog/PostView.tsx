@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 import { useScrollFrame } from "@/lib/motion";
 
 type View = "page" | "md";
@@ -50,6 +51,7 @@ export function PostView({ markdown, header, byline, contents, footer, children 
 
     return (
         <div>
+            <ScrollCue label="scroll" more=" to read" />
             <div aria-hidden="true" className="sticky top-0 z-10 h-1 bg-slate-800">
                 <div ref={barRef} className="h-full origin-left scale-x-0 bg-brand-accent" />
             </div>
