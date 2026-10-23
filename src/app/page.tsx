@@ -4,6 +4,7 @@ import { Film } from "@/components/home/Film";
 import { HelloZero } from "@/components/home/HelloZero";
 import { LeakSteps } from "@/components/home/LeakSteps";
 import { RulesList, type Rule } from "@/components/home/RulesList";
+import { HelperHub } from "@/components/ui/HelperHub";
 import { ZeroMark } from "@/components/ui/ZeroMark";
 import { formatDate, getPosts } from "@/lib/blog";
 
@@ -40,7 +41,7 @@ const work: LogEntry[] = [
         tag: "consulting · discover + build",
         title: "Live payroll & HR platform",
         body: "Set the migration strategy away from a legacy PHP monolith, delivered a security uplift on the live system with zero downtime, and rebuilt the release process.",
-        foot: "HelperHub ↗",
+        foot: <><HelperHub /> ↗</>,
         href: "https://helperhub.co.za",
     },
     {

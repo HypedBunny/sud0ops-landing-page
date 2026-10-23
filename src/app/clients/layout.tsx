@@ -6,7 +6,7 @@ export const metadata: Metadata = {
         path: "/clients",
         title: "Clients | Sud0ops",
         description:
-            "Sud0ops client work: technical consultancy and implementation for HelperHub, a Shopify store for Bashies, and a social events platform for Happy Shisha.",
+            "Sud0ops client work: technical consultancy and implementation for helperhub, a Shopify store for Bashies, a social events platform for Happy Shisha, and pro bono technical advice for ProVision Alliance.",
     }),
 };
 
