@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 import { ZERO_DOT, ZERO_PATHS } from "@/components/ui/logo-glyphs";
 import { STILL_PIN, easeInOut, easeOut, pinProgress, placePiece, seg, useMedia, useScrollFrame } from "@/lib/motion";
 
@@ -30,7 +31,6 @@ export function Film() {
     const zoom = useRef<HTMLDivElement>(null);
     const big = useRef<SVGSVGElement>(null);
     const copy = useRef<HTMLDivElement>(null);
-    const cue = useRef<HTMLParagraphElement>(null);
     const amber = useRef<HTMLDivElement>(null);
     const inside = useRef<HTMLHeadingElement>(null);
     const you = useRef<HTMLParagraphElement>(null);
@@ -57,7 +57,7 @@ export function Film() {
     // Everything the frames below write, cleared when the layout goes still.
     function reset() {
         tint(false);
-        for (const el of [zoom.current, copy.current, cue.current, amber.current, inside.current, you.current, ...quads.current]) el?.removeAttribute("style");
+        for (const el of [zoom.current, copy.current, amber.current, inside.current, you.current, ...quads.current]) el?.removeAttribute("style");
         for (const piece of [...openPieces.current, ...flyPieces.current]) {
             piece?.removeAttribute("transform");
             piece?.removeAttribute("fill-opacity");
@@ -67,18 +67,27 @@ export function Film() {
     }
 
     // Sizes the hero 0 into the space the copy leaves: to its right on wide screens, below it on narrow
-    // ones (never under the copy or the scroll cue), and centres the zoom on the 0's centre. Reads layout
-    // boxes (offset*), which ignore the copy's slide, and writes only when something changed.
+    // ones, and centres the zoom on the 0's centre. On narrow screens it stays clear of the copy and of the
+    // scroll cue at the foot of the screen, allowing for the header that sits above the panel at the top of
+    // the page; when that leaves too little room, the 0 waits just below the fold and rises into view as
+    // the film starts. Reads layout boxes (offset*), which ignore the copy's slide, and writes only when
+    // something changed.
     function place() {
         const box = panel.current, svg = big.current, text = copy.current;
         if (!box || !svg || !text) return;
         const width = box.clientWidth, height = box.clientHeight, mobile = width < 900;
         let zeroHeight: number, cx: number, cy: number;
         if (mobile) {
-            const top = text.offsetTop + text.offsetHeight + 24, bottom = height - 64;
-            zeroHeight = Math.max(72, Math.min(height * 0.34, bottom - top));
+            const above = wrap.current ? wrap.current.getBoundingClientRect().top + window.scrollY : 0;
+            const top = text.offsetTop + text.offsetHeight + 24, bottom = height - above - 80;
+            if (bottom - top >= 96) {
+                zeroHeight = Math.min(height * 0.34, bottom - top);
+                cy = top + zeroHeight / 2;
+            } else {
+                zeroHeight = height * 0.3;
+                cy = height - above + 24 + zeroHeight / 2;
+            }
             cx = width / 2;
-            cy = top + zeroHeight / 2;
         } else {
             const right = text.offsetLeft + text.offsetWidth, room = width - right - 32;
             zeroHeight = Math.min(height * 0.84, (room * 760) / 600);
@@ -110,7 +119,6 @@ export function Film() {
             copy.current.style.opacity = (1 - away).toFixed(3);
             copy.current.style.transform = `translate(${(-80 * away).toFixed(1)}px, ${mobile ? "0" : "-50%"})`;
         }
-        if (cue.current) cue.current.style.opacity = (1 - seg(p, 0, 0.04)).toFixed(3);
 
         const open = easeInOut(seg(p, 0.05, 0.26));
         openPieces.current.forEach((piece, i) => placePiece(piece, OPEN[i][0] * open, OPEN[i][1] * open, OPEN[i][2] * open));
@@ -146,6 +154,7 @@ export function Film() {
 
     return (
         <section id="film" ref={wrap} aria-label="Enter the loop" className="pin-wrap pin-wrap-film scroll-mt-0 bg-brand-black">
+            <ScrollCue label="scroll" more=" to enter the loop" />
             <div ref={panel} className="pin-panel bg-brand-black">
                 <div ref={zoom} aria-hidden="true" className="film-stage absolute inset-0 will-change-transform">
                     <svg ref={big} viewBox="49 63 600 760" className="absolute overflow-visible">
@@ -171,9 +180,6 @@ export function Film() {
                     </p>
                 </div>
 
-                <p ref={cue} aria-hidden="true" className="film-cue absolute bottom-[26px] left-1/2 flex -translate-x-1/2 items-center gap-2.5 font-mono text-xs whitespace-nowrap text-slate-400">
-                    scroll to enter the loop <span className="nudge inline-block">↓</span>
-                </p>
 
                 <div ref={amber} className="film-amber bg-brand-accent text-brand-black">
                     <svg viewBox="49 63 600 760" aria-hidden="true" className="film-zero overflow-visible">

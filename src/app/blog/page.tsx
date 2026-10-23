@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ViewTransition } from "react";
+import { ScrollCue } from "@/components/ui/ScrollCue";
 import { BLOG_DESCRIPTION, BLOG_TITLE, BLOG_URL, formatDate, getPosts, postUrl } from "@/lib/blog";
 import { SITE_URL } from "@/lib/founder";
 import { pageMetadata } from "@/lib/seo";
@@ -33,6 +34,7 @@ export default function BlogPage() {
     return (
         <div className="flex flex-col">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <ScrollCue label="scroll" more=" for posts" />
 
             <section>
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(480px,100%),1fr))] items-end gap-12 px-4 pt-[72px] pb-[88px] sm:px-6">
