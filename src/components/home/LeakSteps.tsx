@@ -42,15 +42,16 @@ function wedge(from: number, sweep: number) {
 }
 
 // "The leaks": the section pins and shows one leak per screen of scrolling, the problem first, then the
-// fix. Beside it a grey 0 is built up like a loader: as you scroll, each leak's piece fills blue in a
-// clockwise sweep (on the last leak the amber dot follows), and the fix shows once it is full. The full
-// list is always in the page (screen-reader-only while pinned, the visible layout when still); the
-// moving panel is aria-hidden.
+// fix. Beside it a grey 0 is built up like a loader: as you scroll, each leak's piece fills amber in a
+// clockwise sweep and turns blue once full, when the fix shows; on the last leak the amber dot follows.
+// The full list is always in the page (screen-reader-only while pinned, the visible layout when still);
+// the moving panel is aria-hidden.
 export function LeakSteps() {
     const still = useMedia(STILL_PIN);
     const wrap = useRef<HTMLElement>(null);
     const panel = useRef<HTMLDivElement>(null);
     const sweeps = useRef<(SVGPathElement | null)[]>([]);
+    const fills = useRef<(SVGPathElement | null)[]>([]);
     const dotSweep = useRef<SVGPathElement>(null);
     const bars = useRef<(HTMLSpanElement | null)[]>([]);
     const readout = useRef<HTMLSpanElement>(null);
@@ -66,7 +67,9 @@ export function LeakSteps() {
         const piece = last ? seg(local, 0.04, 0.34) : load;
         CLOCKWISE.forEach((p, k) => {
             const [from, to] = SPAN[p];
-            sweeps.current[p]?.setAttribute("d", wedge(from, (to - from) * (k < step ? 1 : k === step ? piece : 0)));
+            const amount = k < step ? 1 : k === step ? piece : 0;
+            sweeps.current[p]?.setAttribute("d", wedge(from, (to - from) * amount));
+            fills.current[p]?.style.setProperty("fill", amount === 1 ? "var(--color-brand-blue-ink)" : "");
             const bar = bars.current[k];
             if (bar) bar.style.scale = `${k < step ? 1 : k === step ? load : 0} 1`;
         });
@@ -116,8 +119,10 @@ export function LeakSteps() {
                             <g className="fill-slate-400">
                                 {ZERO_PATHS.map((d) => <path key={d} d={d} />)}
                             </g>
-                            <g className="fill-brand-blue-ink">
-                                {ZERO_PATHS.map((d, p) => <path key={d} d={d} clipPath={`url(#leak-fill-${p})`} />)}
+                            <g className="fill-brand-accent-ink">
+                                {ZERO_PATHS.map((d, p) => (
+                                    <path key={d} ref={(el) => { fills.current[p] = el; }} d={d} clipPath={`url(#leak-fill-${p})`} className="transition-[fill] duration-300" />
+                                ))}
                             </g>
                             <circle cx={ZERO_DOT.cx} cy={ZERO_DOT.cy} r={ZERO_DOT.r} className="fill-slate-300" />
                             <circle cx={ZERO_DOT.cx} cy={ZERO_DOT.cy} r={ZERO_DOT.r} clipPath="url(#leak-fill-dot)" className="fill-brand-accent-ink" />
