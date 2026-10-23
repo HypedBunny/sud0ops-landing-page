@@ -6,7 +6,7 @@ import { HelperHub } from "@/components/ui/HelperHub";
 /*  Edit this array to update the page. No layout changes needed.              */
 /* -------------------------------------------------------------------------- */
 
-// The logos are drawn for dark backgrounds, so each case is a dark card. `name` is the plain-text name
+// The logos are drawn for dark backgrounds (ProVision's is its own yellow tile), so each case is a dark card. `name` is the plain-text name
 // (alt text); `display`, when set, is how the name is shown.
 type Client = {
     id: string;
@@ -68,6 +68,7 @@ const clients: Client[] = [
         name: "ProVision Alliance",
         kind: "volunteer technical advisor · NPO",
         url: "https://provisionalliance.org",
+        logo: { src: "/provision-alliance-logo.webp", width: 240, height: 240, className: "h-20 rounded-xl sm:h-24" },
         summary: "youth NPO",
         description:
             "A youth-focused NPO, where I volunteer as technical advisor. I set up their website, domain, email and hosting, which removed a blocker to their funding applications, and onboarded them to nonprofit programmes, including Microsoft’s.",
