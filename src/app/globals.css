@@ -106,16 +106,22 @@ body {
 }
 
 /* The scroll cue (src/components/ui/ScrollCue.tsx). It sits level with the dock's centre on phones,
-   slides in once you have had a moment with the first screen (hidden, and so not tappable, until then),
-   and its amber dot slides down the rail. */
+   waits a few seconds so only people who have not started scrolling see it (hidden, and so not
+   tappable, until then), slides in, and its amber dot slides down the rail. With reduced motion it
+   still waits, then simply appears. */
 .scroll-cue {
   bottom: 24px;
-  animation: scroll-cue-in 0.5s ease-out 1.4s both;
+  animation: scroll-cue-in 0.5s ease-out 3s both;
 }
 @keyframes scroll-cue-in {
   from {
     opacity: 0;
     transform: translateY(10px);
+    visibility: hidden;
+  }
+}
+@keyframes scroll-cue-wait {
+  from {
     visibility: hidden;
   }
 }
@@ -432,9 +438,11 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .ticker,
-  .scroll-cue,
   .scroll-cue-dot {
     animation: none;
+  }
+  .scroll-cue {
+    animation: scroll-cue-wait 0s 3s both;
   }
   .hover-amber:hover,
   .hover-amber:focus-visible {
@@ -450,6 +458,7 @@ body {
 
 /* Live stats under the footer (src/components/layout/LiveStats.tsx). On phones the numbers run as a
    one-line ticker: two copies of the list, moved by half the track, fading in and out at the edges.
+   It pauses under a mouse only: on touch screens a tap leaves :hover stuck and would freeze it.
    Wider screens and reduced motion get a plain wrapping row. */
 .stats-track {
   display: flex;
@@ -457,10 +466,12 @@ body {
   animation: ticker 32s linear infinite;
 }
 .stats-window {
-  mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 20px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 24px), transparent);
 }
-.stats-window:hover .stats-track {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .stats-window:hover .stats-track {
+    animation-play-state: paused;
+  }
 }
 @media (min-width: 900px), (prefers-reduced-motion: reduce) {
   .stats-window {
