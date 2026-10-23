@@ -59,8 +59,9 @@ export function LiveStats() {
         return () => clearInterval(timer);
     }, [pathname]);
 
+    // Tabular figures keep each number's width steady as it ticks, so the moving row doesn't twitch.
     const value = (key: Key, copy: number, className = "text-brand-paper") => (
-        <span ref={(el) => { (spans.current[key] ??= [])[copy] = el; }} className={className}>—</span>
+        <span ref={(el) => { (spans.current[key] ??= [])[copy] = el; }} className={`tabular-nums ${className}`}>—</span>
     );
     const items = (copy: number) => (
         <>
@@ -78,7 +79,7 @@ export function LiveStats() {
     return (
         <aside aria-label="Live stats for this page" className="border-t border-slate-800 bg-[#0B1220]">
             <div className="mx-auto flex min-h-[92px] max-w-7xl items-center gap-3 pr-[84px] pl-4 text-xs text-slate-400 sm:pl-6 min-[900px]:gap-6">
-                <span className="flex-none text-brand-mint">
+                <span className="flex-none border-r border-slate-700 pr-3 text-brand-mint min-[900px]:pr-6">
                     ● Live stats<span className="hidden min-[900px]:inline"> for this page</span>
                 </span>
                 <div className="stats-window min-w-0 flex-1 overflow-hidden">
