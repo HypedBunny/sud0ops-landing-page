@@ -40,7 +40,7 @@ export default function BlogPage() {
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(480px,100%),1fr))] items-end gap-12 px-4 pt-[72px] pb-[88px] sm:px-6">
                     <div className="flex flex-col gap-6">
                         <p className="font-mono text-xs text-slate-400">Blog</p>
-                        <h1 className="font-heading text-[clamp(52px,7vw,108px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
+                        <h1 className="font-heading text-page-title font-extrabold">
                             Notes from
                             <br />
                             the <span className="mark-amber">loop.</span>
@@ -51,7 +51,7 @@ export default function BlogPage() {
                     </div>
 
                     {/* Points people and AI tools at the markdown versions (/blog.md and each post's .md twin). */}
-                    <div className="mr-2 flex flex-col gap-3 rounded-2xl border border-slate-700 bg-brand-black-light p-6 shadow-[8px_8px_0_var(--color-brand-blue)]">
+                    <div className="mr-2 flex flex-col gap-3 rounded-card border border-slate-700 bg-brand-black-light p-6 shadow-hard-md shadow-slate-600">
                         <p className="text-[17px] font-bold text-brand-paper">Readable by people and AI tools</p>
                         <p className="text-[15px] leading-relaxed text-slate-300">
                             Every post is also published as plain markdown, so assistants like ChatGPT and Claude can read it cleanly.
@@ -81,7 +81,7 @@ export default function BlogPage() {
                                 <li key={post.slug} className="group">
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-x-12 gap-y-7 rounded-[20px] border-2 border-brand-black bg-white p-6 shadow-[8px_8px_0_var(--color-brand-black)] transition-[translate,box-shadow] duration-200 group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] group-hover:shadow-[12px_12px_0_var(--color-brand-black)] sm:p-9"
+                                        className="grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-x-12 gap-y-7 rounded-card border-2 border-brand-black bg-white p-6 shadow-hard-md transition-[translate,box-shadow] duration-200 group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] group-hover:shadow-hard-lg sm:p-9"
                                     >
                                         <div className="flex flex-col gap-4.5">
                                             <div className="flex flex-wrap gap-2 font-mono text-[11px]">
@@ -99,8 +99,8 @@ export default function BlogPage() {
                                         </div>
                                         <div className="flex flex-col justify-between gap-6">
                                             <p className="text-[17px] leading-relaxed text-slate-700">{post.description}</p>
-                                            <span className="inline-flex items-center gap-2.5 self-start rounded-full border-2 border-brand-black px-4.5 py-2.5 font-mono text-[13px] font-bold transition-colors duration-200 group-hover:bg-brand-accent">
-                                                read the post →
+                                            <span className="inline-flex items-center gap-2.5 self-start rounded-full border-2 border-brand-black px-4.5 py-2.5 text-sm font-bold transition-colors duration-200 group-hover:bg-brand-accent">
+                                                Read the post →
                                             </span>
                                         </div>
                                     </Link>

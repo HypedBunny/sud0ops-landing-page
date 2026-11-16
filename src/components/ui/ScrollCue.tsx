@@ -26,7 +26,7 @@ export function ScrollCue({ label, more }: { label: string; more?: string }) {
             onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: reduceMotion ? "auto" : "smooth" })}
             className={`scroll-cue fixed left-1/2 z-40 -translate-x-1/2 cursor-pointer ${shown ? "" : "pointer-events-none"}`}
         >
-            <span className={`flex min-h-11 items-center gap-3 rounded-full border border-slate-700 bg-brand-black/90 pr-4.5 pl-4 font-mono text-xs whitespace-nowrap text-slate-300 shadow-[3px_3px_0_var(--color-brand-accent)] backdrop-blur-sm transition-opacity duration-300 ${shown ? "opacity-100" : "opacity-0"}`}>
+            <span className={`flex min-h-11 items-center gap-3 rounded-full border border-slate-700 bg-brand-black/90 pr-4.5 pl-4 font-mono text-xs whitespace-nowrap text-slate-300 backdrop-blur-sm transition-opacity duration-300 ${shown ? "opacity-100" : "opacity-0"}`}>
                 <span className="relative h-5 w-2 flex-none">
                     <span className="absolute inset-y-0 left-[3px] w-0.5 rounded-full bg-slate-600" />
                     <span className="scroll-cue-dot absolute top-0 left-0 h-2 w-2 rounded-full bg-brand-accent" />

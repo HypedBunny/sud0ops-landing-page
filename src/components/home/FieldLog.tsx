@@ -7,7 +7,7 @@ import { STILL_LOG, pinProgress, useMedia, useScrollFrame } from "@/lib/motion";
 export type LogEntry = { tag: string; title: string; body: string; foot: React.ReactNode; href?: string };
 export type LatestPost = { href: string; date: string; title: string; summary: string };
 
-const card = "relative flex min-h-[340px] w-[min(520px,80vw)] flex-none flex-col gap-4 rounded-[20px] p-8 log-card";
+const card = "relative flex min-h-[340px] w-[min(520px,80vw)] flex-none flex-col gap-4 rounded-card p-8 log-card";
 
 // "Where the method gets tested": on wide, tall screens the section pins and the cards slide sideways
 // as you scroll down, with an amber line filling above them. Elsewhere (STILL_LOG) the cards stack.
@@ -63,7 +63,7 @@ export function FieldLog({ entries, latest }: { entries: LogEntry[]; latest?: La
                             );
                             const look = `${card} border-2 border-brand-black bg-white text-brand-black`;
                             return entry.href ? (
-                                <a key={entry.title} href={entry.href} target="_blank" rel="noopener noreferrer" className={`${look} transition-[translate,box-shadow] duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[8px_8px_0_var(--color-brand-black)]`}>
+                                <a key={entry.title} href={entry.href} target="_blank" rel="noopener noreferrer" className={`${look} transition-[translate,box-shadow] duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-hard-md`}>
                                     {body}
                                 </a>
                             ) : (
@@ -71,7 +71,7 @@ export function FieldLog({ entries, latest }: { entries: LogEntry[]; latest?: La
                             );
                         })}
                         {latest && (
-                            <Link href={latest.href} className={`${card} bg-brand-black text-brand-paper transition-[translate,box-shadow] duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[8px_8px_0_var(--color-brand-accent)]`}>
+                            <Link href={latest.href} className={`${card} bg-brand-black text-brand-paper transition-[translate,box-shadow] duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-hard-md hover:shadow-slate-400`}>
                                 <span aria-hidden="true" className="log-dot absolute -top-[49px] left-[30px] h-4 w-4 rounded-full border-[3px] border-brand-paper bg-brand-accent" />
                                 <span className="font-mono text-xs text-brand-accent">latest writing · {latest.date}</span>
                                 <h3 className="font-heading text-[34px] leading-[1.05] font-extrabold tracking-[-0.03em]">{latest.title}</h3>

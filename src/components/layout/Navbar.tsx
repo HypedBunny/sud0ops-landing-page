@@ -55,10 +55,9 @@ export function Navbar() {
                 </div>
                 <a
                     href={home ? "#hello" : "mailto:alex@sud0ops.com"}
-                    className="inline-flex min-h-11 shrink-0 items-center gap-3 rounded-full bg-brand-paper py-1.5 pr-1.5 pl-4 font-mono text-[13px] font-bold text-brand-black transition-transform hover:-translate-y-0.5"
+                    className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-slate-600 px-5 text-sm font-bold text-brand-paper transition hover:-translate-y-0.5 hover:border-brand-paper"
                 >
                     Say hello
-                    <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-full bg-brand-accent">→</span>
                 </a>
             </nav>
         </header>

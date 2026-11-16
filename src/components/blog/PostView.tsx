@@ -96,7 +96,7 @@ export function PostView({ markdown, header, byline, contents, footer, children 
                         {/* The article stays in the DOM while hidden so the page reads the same to crawlers. */}
                         <div hidden={view !== "page"}>{children}</div>
                         {view === "md" && (
-                            <pre className="overflow-x-auto rounded-2xl bg-brand-black p-6 font-mono text-[13px] leading-relaxed whitespace-pre-wrap text-slate-300 [overflow-wrap:anywhere] sm:p-7 sm:text-sm">
+                            <pre className="overflow-x-auto rounded-card bg-brand-black p-6 font-mono text-[13px] leading-relaxed whitespace-pre-wrap text-slate-300 [overflow-wrap:anywhere] sm:p-7 sm:text-sm">
                                 {markdown}
                             </pre>
                         )}

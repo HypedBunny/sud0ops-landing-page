@@ -137,8 +137,8 @@ export default function AlexPage() {
             <section>
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(520px,100%),1fr))] items-center gap-14 px-4 pt-[72px] pb-24 sm:px-6">
                     <div className="flex flex-col gap-6.5">
-                        <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">Meet Alex-Jay</p>
-                        <h1 className="font-heading text-[clamp(42px,5.2vw,76px)] leading-none font-extrabold tracking-[-0.045em]">
+                        <p className="font-mono text-xs text-slate-400">Meet Alex-Jay</p>
+                        <h1 className="font-heading text-page-title font-extrabold">
                             From behind the bar to leading <span className="mark-amber my-1.5">cloud reliability.</span>
                         </h1>
                         <p className="max-w-xl text-lg leading-relaxed text-slate-300">
@@ -156,7 +156,7 @@ export default function AlexPage() {
                             </a>
                             <a
                                 href="mailto:alex@sud0ops.com"
-                                className="inline-flex min-h-14 items-center gap-2.5 rounded-full border border-slate-600 px-6 font-mono text-sm text-slate-300 transition hover:-translate-y-0.5 hover:border-brand-paper hover:text-brand-paper"
+                                className="inline-flex min-h-14 items-center gap-2.5 rounded-full border border-slate-600 px-6 font-bold text-brand-paper transition hover:-translate-y-0.5 hover:border-brand-paper"
                             >
                                 <span aria-hidden="true" className="text-brand-blue">@</span>alex@sud0ops.com
                             </a>
@@ -164,7 +164,7 @@ export default function AlexPage() {
                     </div>
 
                     <div className="flex w-full max-w-[500px] flex-col gap-7 justify-self-center">
-                        <figure className="relative aspect-square w-[62%] self-end overflow-hidden rounded-[20px] border-2 border-brand-paper shadow-[10px_10px_0_var(--color-brand-accent)]">
+                        <figure className="relative aspect-square w-[62%] self-end overflow-hidden rounded-card border-2 border-brand-paper shadow-hard-lg shadow-slate-600">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src="/alex-448.webp"
@@ -179,7 +179,7 @@ export default function AlexPage() {
                             {/* Names the photo in the HTML next to it, so crawlers tie the face to the name. */}
                             <figcaption className="sr-only">Alex-Jay Beukes, founder of Sud0ops, Cape Town</figcaption>
                         </figure>
-                        <div className="w-full overflow-hidden rounded-2xl border border-slate-700 bg-brand-black-light text-sm min-[480px]:w-[88%]">
+                        <div className="w-full overflow-hidden rounded-card border border-slate-700 bg-brand-black-light text-sm min-[480px]:w-[88%]">
                             <p className="border-b border-brand-line px-4 py-3 font-semibold text-brand-paper">At a glance</p>
                             <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 p-4 leading-snug">
                                 {facts.map((fact) => (
@@ -206,7 +206,7 @@ export default function AlexPage() {
                     </div>
                     <div className="flex flex-col gap-[22px] text-lg leading-[1.75] text-slate-300">
                         {story.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
-                        <blockquote className="mt-4 mr-2.5 rounded-[20px] bg-brand-accent px-6 py-7 text-brand-black shadow-[10px_10px_0_var(--color-brand-blue)] sm:px-8">
+                        <blockquote className="mt-4 mr-2.5 rounded-card bg-brand-accent px-6 py-7 text-brand-black shadow-hard-md shadow-slate-600 sm:px-8">
                             <p className="font-heading text-[clamp(26px,2.8vw,38px)] leading-[1.1] font-extrabold tracking-[-0.035em]">
                                 Most businesses do not have an infrastructure problem. They have an operations problem.
                             </p>
@@ -241,7 +241,7 @@ export default function AlexPage() {
                                 href={project.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex flex-col gap-3.5 rounded-2xl border border-brand-line bg-brand-black-light p-7 text-brand-paper transition hover:-translate-y-[3px] hover:border-brand-accent"
+                                className="flex flex-col gap-3.5 rounded-card border border-brand-line bg-brand-black-light p-7 text-brand-paper transition hover:-translate-y-[3px] hover:border-brand-accent"
                             >
                                 <div className="flex justify-between gap-4 font-mono text-xs text-slate-400">
                                     <span className="text-brand-blue">{project.kind}</span>
@@ -268,9 +268,9 @@ export default function AlexPage() {
                                 href={CREDLY_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex min-h-12 items-center gap-2.5 rounded-full border-2 border-brand-black px-5 font-mono text-[13px] font-bold transition-transform hover:-translate-y-0.5"
+                                className="inline-flex min-h-12 items-center gap-2.5 rounded-full border-2 border-brand-black px-5 text-sm font-bold transition-transform hover:-translate-y-0.5"
                             >
-                                all badges on Credly <span aria-hidden="true">↗</span>
+                                All badges on Credly <span aria-hidden="true">↗</span>
                             </a>
                         </div>
                         <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-3.5">
@@ -282,9 +282,9 @@ export default function AlexPage() {
                                             href={CREDLY_URL}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`hover-amber flex w-full flex-col gap-2.5 rounded-2xl border-2 border-brand-black p-5.5 ${featured ? "bg-brand-black text-brand-paper shadow-[6px_6px_0_var(--color-brand-accent)]" : "bg-white text-brand-black"}`}
+                                            className={`hover-amber flex w-full flex-col gap-2.5 rounded-card border-2 border-brand-black p-5.5 ${featured ? "bg-brand-black text-brand-paper shadow-hard-md shadow-slate-400" : "bg-white text-brand-black"}`}
                                         >
-                                            <span className={`hover-amber-invert self-start rounded-md px-2 py-0.5 font-mono text-[11px] font-bold ${featured ? "bg-brand-accent text-brand-black" : "border border-brand-black"}`}>
+                                            <span className={`hover-amber-invert self-start rounded-full px-2.5 py-0.5 font-mono text-[11px] font-bold ${featured ? "bg-brand-accent text-brand-black" : "border border-brand-black"}`}>
                                                 {cert.level}
                                             </span>
                                             <p className="font-heading text-[19px] leading-tight font-extrabold">{cert.name}</p>
@@ -314,7 +314,7 @@ export default function AlexPage() {
 
             {/* Say hello */}
             <section className="bg-brand-paper px-4 pb-[72px]">
-                <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-8 rounded-[28px] bg-brand-accent px-6 py-16 text-brand-black sm:px-10">
+                <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-8 rounded-card bg-brand-accent px-6 py-16 text-brand-black sm:px-10">
                     <div className="flex max-w-2xl flex-col gap-3.5">
                         <h2 className="font-heading text-[clamp(36px,4.2vw,60px)] leading-none font-extrabold tracking-[-0.045em]">Let’s talk shop.</h2>
                         <p className="text-lg leading-normal">
@@ -333,9 +333,9 @@ export default function AlexPage() {
                             href={LINKEDIN_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex min-h-14 items-center rounded-full border-2 border-brand-black px-6 font-mono text-sm font-bold transition-transform hover:-translate-y-0.5"
+                            className="inline-flex min-h-14 items-center rounded-full border-2 border-brand-black px-6 font-bold transition-transform hover:-translate-y-0.5"
                         >
-                            linkedin ↗
+                            LinkedIn ↗
                         </a>
                     </div>
                 </div>
