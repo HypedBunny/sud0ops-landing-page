@@ -68,7 +68,7 @@ const clients: Client[] = [
         name: "ProVision Alliance",
         kind: "volunteer technical advisor · NPO",
         url: "https://provisionalliance.org",
-        logo: { src: "/provision-alliance-logo.webp", width: 240, height: 240, className: "h-20 rounded-xl sm:h-24" },
+        logo: { src: "/provision-alliance-logo.webp", width: 240, height: 240, className: "h-20 rounded-input sm:h-24" },
         summary: "youth NPO",
         description:
             "A youth-focused NPO, where I volunteer as technical advisor. I set up their website, domain, email and hosting, which removed a blocker to their funding applications, and onboarded them to nonprofit programmes, including Microsoft’s.",
@@ -87,8 +87,8 @@ export default function ClientsPage() {
             <section>
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(480px,100%),1fr))] items-end gap-12 px-4 pt-[72px] pb-[88px] sm:px-6">
                     <div className="flex flex-col gap-6">
-                        <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">Clients</p>
-                        <h1 className="font-heading text-[clamp(48px,6.4vw,100px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
+                        <p className="font-mono text-xs text-slate-400">Clients</p>
+                        <h1 className="font-heading text-page-title font-extrabold">
                             Businesses{" "}
                             <br />
                             I’ve <span className="mark-amber">built for.</span>
@@ -96,7 +96,7 @@ export default function ClientsPage() {
                         <p className="max-w-lg text-lg leading-relaxed text-slate-300">What I built for each one, and why.</p>
                     </div>
 
-                    <nav aria-label="Clients on this page" className="mr-2 overflow-hidden rounded-2xl border border-slate-700 bg-brand-black-light shadow-[8px_8px_0_var(--color-brand-blue)]">
+                    <nav aria-label="Clients on this page" className="mr-2 overflow-hidden rounded-card border border-slate-700 bg-brand-black-light shadow-hard-md shadow-slate-600">
                         <p className="border-b border-brand-line px-5 py-3.5 font-semibold text-brand-paper">{clients.length} clients</p>
                         <ol className="flex flex-col">
                             {clients.map((client, i) => (
@@ -130,7 +130,7 @@ export default function ClientsPage() {
                             <li
                                 key={client.id}
                                 id={client.id}
-                                className={`grid scroll-mt-6 grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-x-12 gap-y-8 rounded-[20px] border-2 border-brand-black bg-brand-black p-6 text-brand-paper sm:p-9 ${i % 2 ? "shadow-[8px_8px_0_var(--color-brand-blue)]" : "shadow-[8px_8px_0_var(--color-brand-accent)]"}`}
+                                className="grid scroll-mt-6 grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-x-12 gap-y-8 rounded-card border-2 border-brand-black bg-brand-black p-6 text-brand-paper shadow-hard-md shadow-slate-400 sm:p-9"
                             >
                                 <div className="flex flex-col gap-5">
                                     <div className="flex justify-between gap-4 font-mono text-xs text-slate-400">
@@ -156,7 +156,7 @@ export default function ClientsPage() {
                                         href={client.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="mt-auto inline-flex min-h-11 items-center gap-2.5 self-start rounded-full border-2 border-slate-600 px-4.5 font-mono text-[13px] font-bold text-brand-paper transition hover:-translate-y-0.5 hover:border-brand-accent hover:text-brand-accent"
+                                        className="mt-auto inline-flex min-h-11 items-center gap-2.5 self-start rounded-full border-2 border-slate-600 px-4.5 text-sm font-bold text-brand-paper transition hover:-translate-y-0.5 hover:border-brand-paper"
                                     >
                                         {client.url.replace("https://", "")} <span aria-hidden="true">↗</span>
                                         <span className="sr-only">(opens in a new tab)</span>
@@ -188,7 +188,7 @@ export default function ClientsPage() {
 
             {/* Say hello */}
             <section className="bg-brand-paper px-4 pb-[72px]">
-                <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-8 rounded-[28px] bg-brand-accent px-6 py-16 text-brand-black sm:px-10">
+                <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-8 rounded-card bg-brand-accent px-6 py-16 text-brand-black sm:px-10">
                     <div className="flex max-w-2xl flex-col gap-3.5">
                         <h2 className="font-heading text-[clamp(36px,4.2vw,60px)] leading-none font-extrabold tracking-[-0.045em]">Have a problem like these?</h2>
                         <p className="text-lg leading-normal">Tell me where your business loses time and I’ll tell you what I would fix first.</p>
@@ -203,9 +203,9 @@ export default function ClientsPage() {
                         </a>
                         <Link
                             href="/about-founder"
-                            className="inline-flex min-h-14 items-center rounded-full border-2 border-brand-black px-6 font-mono text-sm font-bold transition-transform hover:-translate-y-0.5"
+                            className="inline-flex min-h-14 items-center rounded-full border-2 border-brand-black px-6 font-bold transition-transform hover:-translate-y-0.5"
                         >
-                            meet Alex-Jay →
+                            Meet Alex-Jay →
                         </Link>
                     </div>
                 </div>

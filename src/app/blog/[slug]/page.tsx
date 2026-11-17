@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                             </ul>
                         )}
                         <ViewTransition name={`post-${post.slug}`}>
-                            <h1 className="max-w-5xl font-heading text-[clamp(40px,5.4vw,80px)] leading-[0.98] font-extrabold tracking-[-0.045em] text-brand-paper">
+                            <h1 className="max-w-5xl font-heading text-page-title font-extrabold text-brand-paper">
                                 {post.title}
                             </h1>
                         </ViewTransition>
@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                     )
                 }
                 footer={
-                    <div className="mt-12 flex flex-wrap items-center justify-between gap-4.5 rounded-[18px] bg-brand-black p-6 text-brand-paper">
+                    <div className="mt-12 flex flex-wrap items-center justify-between gap-4.5 rounded-card bg-brand-black p-6 text-brand-paper">
                         <div className="flex items-center gap-3.5">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src="/alex-224.webp" alt="Alex-Jay Beukes" width={52} height={52} loading="lazy" className="h-[52px] w-[52px] rounded-full border-2 border-brand-accent object-cover" />

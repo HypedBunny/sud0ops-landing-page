@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { HelperHub } from "@/components/ui/HelperHub";
 import { ScrollCue } from "@/components/ui/ScrollCue";
 import { ZERO_DOT, ZERO_PATHS } from "@/components/ui/logo-glyphs";
 import { STILL_PIN, easeInOut, easeOut, pinProgress, placePiece, seg, useMedia, useScrollFrame } from "@/lib/motion";
@@ -118,6 +119,8 @@ export function Film() {
         if (copy.current) {
             copy.current.style.opacity = (1 - away).toFixed(3);
             copy.current.style.transform = `translate(${(-80 * away).toFixed(1)}px, ${mobile ? "0" : "-50%"})`;
+            // Once it has gone, its buttons must not take clicks or focus.
+            copy.current.style.visibility = away === 1 ? "hidden" : "visible";
         }
 
         const open = easeInOut(seg(p, 0.05, 0.26));
@@ -164,20 +167,45 @@ export function Film() {
                 </div>
 
                 <div ref={copy} className="film-copy flex flex-col gap-4 min-[900px]:gap-[22px]">
-                    <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">
-                        Alex-Jay Beukes · DevOps &amp; platform engineer, Cape Town
-                    </p>
+                    <p className="hidden font-mono text-xs text-slate-400 min-[900px]:block">Alex-Jay Beukes · DevOps &amp; platform engineer, Cape Town</p>
                     <h1 className="flex flex-col gap-3 font-heading">
                         <span className="text-[clamp(20px,2.2vw,32px)] font-bold tracking-[-0.03em] text-slate-400">
                             It’s rarely a <span className="line-through decoration-brand-accent decoration-4">technology</span> problem.
                         </span>
-                        <span className="pb-[0.1em] text-[clamp(40px,11vw,64px)] leading-[0.92] font-extrabold tracking-[-0.055em] text-brand-paper min-[900px]:text-[clamp(52px,7.4vw,124px)]">
+                        <span className="pb-[0.1em] text-[clamp(40px,11vw,64px)] leading-[0.92] font-extrabold tracking-[-0.055em] text-brand-paper min-[900px]:text-display">
                             It’s an <span className="mark-amber my-[0.06em]">operations</span> problem.
                         </span>
                     </h1>
                     <p className="max-w-[560px] text-[15px] leading-relaxed text-slate-300 min-[900px]:text-lg">
                         I look after cloud platforms that already carry real customers, and I improve them without taking them down. Through Sud0ops I work with small businesses, growing teams and NPOs, and I do the build work myself, alongside your team.
                     </p>
+                    <div className="flex flex-wrap gap-3">
+                        <a
+                            href="#hello"
+                            className="inline-flex min-h-14 items-center gap-3.5 rounded-full bg-brand-accent py-2 pr-2 pl-6 font-bold text-brand-black transition-transform hover:-translate-y-0.5"
+                        >
+                            Tell me what’s slowing you down
+                            <span aria-hidden="true" className="grid h-10 w-10 flex-none place-items-center rounded-full bg-brand-black font-mono text-brand-accent">→</span>
+                        </a>
+                        <a
+                            href="#log"
+                            className="hidden min-h-14 items-center rounded-full border border-slate-600 px-6 font-bold text-brand-paper transition hover:-translate-y-0.5 hover:border-brand-paper min-[900px]:inline-flex"
+                        >
+                            See the work
+                        </a>
+                    </div>
+                    <dl className="film-proof flex max-w-[440px] flex-wrap gap-x-8 gap-y-2.5 border-t border-brand-line pt-4 text-sm">
+                        <div className="flex flex-col gap-1">
+                            <dt className="font-mono text-[11px] text-slate-400">certified</dt>
+                            <dd className="font-semibold text-slate-300">AWS Solutions Architect, Professional</dd>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <dt className="font-mono text-[11px] text-slate-400">built for</dt>
+                            <dd className="font-semibold text-slate-300">
+                                <HelperHub /> · Bashies · Happy Shisha · ProVision Alliance
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
 
 

@@ -76,7 +76,7 @@ export function Dock() {
                     <nav
                         id="dock-menu"
                         aria-label="Site"
-                        className="dock-menu flex w-[min(300px,calc(100vw-32px))] flex-col gap-0.5 rounded-[18px] border border-slate-700 bg-brand-black p-2 shadow-[8px_8px_0_var(--color-brand-accent)]"
+                        className="dock-menu flex w-[min(300px,calc(100vw-32px))] flex-col gap-0.5 rounded-card border border-slate-700 bg-brand-black p-2 shadow-hard-md shadow-slate-600"
                     >
                         <span className="px-2.5 pt-1 pb-2 text-[11px] text-slate-500">Go to</span>
                         {items.map((item, i) => {
@@ -87,7 +87,7 @@ export function Dock() {
                                     href={item.href}
                                     onClick={() => setOpen(false)}
                                     aria-current={active ? "page" : undefined}
-                                    className={`flex min-h-[52px] items-center gap-3.5 rounded-xl px-2.5 py-1.5 transition-colors hover:bg-brand-black-light focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-accent ${active ? "text-brand-accent" : "text-brand-paper"}`}
+                                    className={`flex min-h-[52px] items-center gap-3.5 rounded-input px-2.5 py-1.5 transition-colors hover:bg-brand-black-light focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-accent ${active ? "text-brand-accent" : "text-brand-paper"}`}
                                 >
                                     <svg viewBox="74 81 549 717" aria-hidden="true" className="h-auto w-4 flex-none">
                                         {ZERO_PATHS.map((d, p) => <path key={d} d={d} className={p === CLOCKWISE[i] ? "fill-brand-accent" : "fill-slate-700"} />)}

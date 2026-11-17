@@ -122,7 +122,7 @@ export default function Home() {
                             width={448}
                             height={448}
                             loading="lazy"
-                            className="block h-full w-full rounded-3xl border-2 border-brand-paper object-cover shadow-[14px_14px_0_var(--color-brand-accent)]"
+                            className="block h-full w-full rounded-card border-2 border-brand-paper object-cover shadow-hard-lg shadow-slate-600"
                         />
                         <figcaption className="absolute bottom-7 -left-2.5 rounded-full bg-brand-paper px-3.5 py-2 text-sm font-bold text-brand-black">From the bar to the cloud</figcaption>
                     </figure>

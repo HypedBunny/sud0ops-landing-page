@@ -24,7 +24,7 @@ const empty = { name: "", email: "", company: "", packageInterest: "", message: 
 type Field = keyof typeof empty;
 
 const input =
-    "w-full rounded-xl border-2 border-brand-black bg-white px-4 py-3 text-[15px] text-brand-black placeholder:text-slate-500 outline-none transition-shadow focus-visible:shadow-[4px_4px_0_var(--color-brand-blue-ink)]";
+    "w-full rounded-input border-2 border-brand-black bg-white px-4 py-3 text-[15px] text-brand-black placeholder:text-slate-500 outline-none transition-shadow focus-visible:shadow-hard-sm focus-visible:shadow-brand-blue-ink";
 const label = "flex items-baseline gap-2 font-mono text-xs font-bold";
 const optional = <span className="font-normal text-slate-600">optional</span>;
 
@@ -71,14 +71,14 @@ export default function ContactPage() {
         <section>
             <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(min(440px,100%),1fr))] items-start gap-14 px-4 pt-[72px] pb-24 sm:px-6">
                 <div className="flex flex-col gap-6.5 min-[900px]:sticky min-[900px]:top-8">
-                    <p className="self-start rounded-full bg-brand-accent px-3.5 py-1.5 text-sm font-semibold text-brand-black">Say hello</p>
-                    <h1 className="font-heading text-[clamp(44px,5.6vw,84px)] leading-[0.95] font-extrabold tracking-[-0.05em]">
+                    <p className="font-mono text-xs text-slate-400">Say hello</p>
+                    <h1 className="font-heading text-page-title font-extrabold">
                         Tell me what’s <span className="mark-amber my-1.5">slowing you down.</span>
                     </h1>
                     <p className="max-w-lg text-lg leading-relaxed text-slate-300">
                         A few lines about what is broken, or what eats your team’s time, is enough. I reply within 24 hours with what I would fix first.
                     </p>
-                    <div className="w-full max-w-md overflow-hidden rounded-2xl border border-slate-700 bg-brand-black-light text-sm">
+                    <div className="w-full max-w-md overflow-hidden rounded-card border border-slate-700 bg-brand-black-light text-sm">
                         <p className="border-b border-brand-line px-4 py-3 font-semibold text-brand-paper">At a glance</p>
                         <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 p-4 leading-snug">
                             {facts.map((fact) => (
@@ -95,7 +95,7 @@ export default function ContactPage() {
                     </p>
                 </div>
 
-                <div className="mr-2.5 rounded-[20px] border-2 border-brand-paper bg-brand-paper p-6 text-brand-black shadow-[10px_10px_0_var(--color-brand-accent)] sm:p-8">
+                <div className="mr-2.5 rounded-card border-2 border-brand-paper bg-brand-paper p-6 text-brand-black shadow-hard-lg shadow-slate-600 sm:p-8">
                     <div aria-live="polite">
                         {status === "success" ? (
                             <div className="flex flex-col items-start gap-4 py-8">
@@ -105,9 +105,9 @@ export default function ContactPage() {
                                 <button
                                     type="button"
                                     onClick={() => setStatus("idle")}
-                                    className="mt-2 inline-flex min-h-12 cursor-pointer items-center rounded-full border-2 border-brand-black px-5 font-mono text-[13px] font-bold transition-transform hover:-translate-y-0.5"
+                                    className="mt-2 inline-flex min-h-12 cursor-pointer items-center rounded-full border-2 border-brand-black px-5 text-sm font-bold transition-transform hover:-translate-y-0.5"
                                 >
-                                    send another
+                                    Send another
                                 </button>
                             </div>
                         ) : (
@@ -143,7 +143,7 @@ export default function ContactPage() {
                                 </div>
 
                                 {status === "error" && (
-                                    <p role="alert" className="rounded-xl border-2 border-red-700 bg-red-50 px-4 py-3 text-[15px] text-red-800">
+                                    <p role="alert" className="rounded-input border-2 border-red-700 bg-red-50 px-4 py-3 text-[15px] text-red-800">
                                         {errorMsg} You can also email alex@sud0ops.com.
                                     </p>
                                 )}
