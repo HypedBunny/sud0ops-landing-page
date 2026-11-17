@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { HelperHub } from "@/components/ui/HelperHub";
 import { ScrollCue } from "@/components/ui/ScrollCue";
 import { ZERO_DOT, ZERO_PATHS } from "@/components/ui/logo-glyphs";
 import { STILL_PIN, easeInOut, easeOut, pinProgress, placePiece, seg, useMedia, useScrollFrame } from "@/lib/motion";
@@ -198,12 +197,6 @@ export function Film() {
                         <div className="flex flex-col gap-1">
                             <dt className="font-mono text-[11px] text-slate-400">certified</dt>
                             <dd className="font-semibold text-slate-300">AWS Solutions Architect, Professional</dd>
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <dt className="font-mono text-[11px] text-slate-400">built for</dt>
-                            <dd className="font-semibold text-slate-300">
-                                <HelperHub /> · Bashies · Happy Shisha · ProVision Alliance
-                            </dd>
                         </div>
                     </dl>
                 </div>
